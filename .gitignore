@@ -32,3 +32,5 @@ Thumbs.db
 # ログ・DB
 *.log
 *.sqlite3
+
+frontend/.env.local
