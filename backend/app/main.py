@@ -3,10 +3,12 @@
 まずは起動確認できる最小構成。
 Claude Code にここから api/ のルーターを足していってもらう。
 """
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import projects
+from app.core.db import init_db
 
 app = FastAPI(
     title="paper-repro-mvp",
@@ -23,6 +25,11 @@ app.add_middleware(
 )
 
 app.include_router(projects.router, prefix="/api/v1")
+
+
+@app.on_event("startup")
+def on_startup() -> None:
+    init_db()
 
 
 @app.get("/health")
