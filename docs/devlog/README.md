@@ -1,0 +1,23 @@
+# 開発ログ (devlog)
+
+paper-repro-mvp の日次開発ログを一元管理する場所。
+`paper-repro-devlog` スキルで「今日の分を資産化して」と生成したファイルをここに置く。
+NotebookLM のソースとしても利用する。
+
+## 一覧
+
+| ファイル | 日付 | 内容 |
+|---|---|---|
+| devlog-2026-07-13.md | 2026-07-13 | 再現実装スキル作成、skill_refy運用、StructEval Phase 0〜3 |
+| devlog-2026-07-15.md | 2026-07-15 | skill-safe-update追記、StructEval-Tの高校生向け説明 |
+| devlog-2026-07-16.md | 2026-07-16 | 要件定義・MVP設計、VS Code雛形、Windows手順書 |
+| devlog-2026-07-17.md | 2026-07-17 | GitHub初回push、Gitの更新、CLAUDE.mdへのi18n方針追記 |
+| devlog-2026-07-17-env-setup.md | 2026-07-17 | 環境構築編（拡張機能〜フロント起動、画面キャプチャ20枚） |
+| devlog-2026-07-27.md | 2026-07-27 | フェーズ0-1 PostgreSQL化、MITライセンス、ロードマップ |
+
+## 運用
+
+1. 「今日の分を資産化して」で devlog を生成する
+2. このフォルダ（docs/devlog/）に置く
+3. `git add docs/devlog/ && git commit -m "docs: add devlog YYYY-MM-DD" && git push`
+4. NotebookLM の「ソースを追加」からアップロードする
