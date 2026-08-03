@@ -147,6 +147,26 @@ paper-repro-mvp/
 `docs/mvp-design.md` の第6章「実装の着手順」と [`docs/roadmap.md`](docs/roadmap.md) に従い、
 **縦切り**で進める。まず1論文が最後まで通る細い線を作り、そこに機能を足す。
 
+---
+
+## 🔗 関連プロジェクト
+
+このプロジェクトは、**Claude Certified Architect – Foundations（CCAR-F）で学んだ設計の型を、
+実際のアプリ開発に適用する実践**という位置づけを持つ。
+
+| リポジトリ | 役割 | このプロジェクトとの関係 |
+|---|---|---|
+| [ccar-f-study-skills](https://github.com/ChestnutForest/ccar-f-study-skills) | **学ぶ** — CCAR-F 試験対策の Custom Claude Skills 集 | そこで学んだ型を、本プロジェクトで実際に適用している |
+| **paper-repro-mvp**（本リポジトリ） | **実践する** — 学んだ型を適用したアプリ開発 | 適用方針は [`docs/arch-guide/`](docs/arch-guide/)、適用度は `ccaf-coverage-*.md` に記録 |
+
+### 適用の記録
+
+「どのノウハウを、開発のどの工程で、どこまで使ったか」を計測して残している。
+
+- 設計指針: [`docs/arch-guide/README.md`](docs/arch-guide/README.md)
+- CCAF 5ドメインとの対応表: [`docs/arch-guide/ccaf-patterns.md`](docs/arch-guide/ccaf-patterns.md)
+- 適用率インジケーター: [`docs/arch-guide/`](docs/arch-guide/) の `ccaf-coverage-YYYY-MM-DD.md`
+
 ## ライセンス
 
 このプロジェクトは MIT ライセンスで公開している。詳細は [`LICENSE`](LICENSE) を参照。
