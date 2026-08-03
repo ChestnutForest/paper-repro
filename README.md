@@ -5,8 +5,24 @@
 
 - 要件: [`docs/requirements.md`](docs/requirements.md)
 - 設計: [`docs/mvp-design.md`](docs/mvp-design.md)
+- **技術スタック**: [`docs/tech-stack.md`](docs/tech-stack.md)
 - ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)
 - Claude Code 向け指示: [`CLAUDE.md`](CLAUDE.md)
+
+---
+
+## 🧱 技術スタック（概要）
+
+| 層 | 技術 | ポート |
+|---|---|---|
+| フロントエンド | **Next.js 14 + React 18 + TypeScript 5** | 3000 |
+| バックエンド | **FastAPI + uvicorn（Python 3.13）** | 8000 |
+| データ層 | **PostgreSQL 16 / Redis 7**（Docker上） | 5432 / 6379 |
+
+**重い処理は Python、画面は TypeScript** という分業。
+評価・スコア照合の Python 資産を流用するため、バックエンドを Python に寄せている。
+
+各技術の詳細と選定理由 👉 **[`docs/tech-stack.md`](docs/tech-stack.md)**
 
 ---
 
@@ -113,6 +129,7 @@ paper-repro-mvp/
 │   ├── start-dev.ps1         ← 開発環境の起動（Windows）
 │   └── start-dev.sh          ← 開発環境の起動（Mac / Linux）
 ├── docs/
+│   ├── tech-stack.md         ← 技術スタック解説
 │   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
 │   ├── daily-routine.md      ← 日々のルーチンワーク
 │   ├── requirements.md       ← 要件定義
