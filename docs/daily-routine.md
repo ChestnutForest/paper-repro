@@ -15,22 +15,26 @@ docs/devlog/ の最新ファイルを開き、「未解決の疑問と翌日の�
 
 前回の自分が残した「次にやること」がここに書いてある。ここから再開する。
 
-### 1-2. 環境を起動する
+### 1-2. 環境を起動する（ワンコマンド）
+
+Docker Desktop 本体を起動しておいてから、プロジェクトのルートで実行する。
+
+**Windows**
 
 ```powershell
-cd C:\Users\kazuy\projects\paper-repro-mvp
-docker compose up -d
+.\scripts\start-dev.ps1
 ```
 
-別ターミナルでバックエンド：
+**Mac / Linux**
 
-```powershell
-cd backend
-.venv\Scripts\Activate.ps1
-uvicorn app.main:app --reload
+```bash
+./scripts/start-dev.sh
 ```
 
-さらに別ターミナルでフロントエンド：
+PostgreSQL 起動 → バックエンド起動 → Swagger UI が自動で開く。
+**実行後に確認する事項のチェックリスト**は [`dev-startup.md`](dev-startup.md) を参照。
+
+画面（フロントエンド）も使うなら、**別のターミナル**で：
 
 ```powershell
 cd frontend
@@ -45,8 +49,8 @@ npm run dev
 
 ## 2. 開発中（都度）
 
-- 設計で迷ったら → `docs/arch-guide/README.md`（CCAF設計指針）
-- Claude Code への頼み方 → `docs/arch-guide/claude-code-playbook.md`（依頼テンプレA〜E）
+- 設計で迷ったら → [`arch-guide/README.md`](arch-guide/README.md)（CCAF設計指針）
+- Claude Code への頼み方 → [`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md)（依頼テンプレA〜E）
 - 大きな変更は「まず計画を出させてから実装」
 
 ---
@@ -92,7 +96,15 @@ git push
 ### 3-4. NotebookLM に入れる（毎日）
 
 生成した devlog を NotebookLM の「ソースを追加」からアップロードする。
-深掘りやスライド化のプロンプトは `docs/notebooklm-prompts.md` を使う。
+深掘りやスライド化のプロンプトは [`notebooklm-prompts.md`](notebooklm-prompts.md) を使う。
+
+### 3-5. 環境を止める（任意）
+
+バックエンドは起動中のターミナルで `Ctrl + C`。DB も止めるなら：
+
+```powershell
+docker compose down
+```
 
 ---
 
@@ -107,7 +119,7 @@ git push
 **理由**：適用率は機能が実装されて初めて動く。毎日測っても同じ数値が並ぶだけで、
 指標としての意味が薄れる。
 
-**手順**：`docs/arch-guide/coverage-remeasure-howto.md` に従う（要点は下記）。
+**手順**：[`arch-guide/coverage-remeasure-howto.md`](arch-guide/coverage-remeasure-howto.md) に従う（要点は下記）。
 
 1. 前回ファイル（`docs/arch-guide/` の最新 `ccaf-coverage-*.md`）を Claude に添付する
 2. 「CCAF適用率を出して」と言う
@@ -130,7 +142,7 @@ git push
 **毎日**
 
 - [ ] 前回の devlog の「翌日の計画」を読んだ
-- [ ] Docker / backend / frontend を起動した
+- [ ] `start-dev` スクリプトで環境を起動し、Swagger UI を確認した
 - [ ] 今日の範囲を1つに絞った
 - [ ] テストが緑になった
 - [ ] `git status` で `.env` が出ないことを確認してコミット＆プッシュした

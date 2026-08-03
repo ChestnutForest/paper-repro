@@ -10,6 +10,28 @@
 
 ---
 
+## ⚡ 開発環境の起動（ワンコマンド）
+
+毎回コマンドを打ち分けずに、スクリプト1本で
+**PostgreSQL 起動 → バックエンド起動 → Swagger UI を開く**まで実行できる。
+
+**Windows**
+
+```powershell
+.\scripts\start-dev.ps1
+```
+
+**Mac / Linux**
+
+```bash
+./scripts/start-dev.sh
+```
+
+使い方・**実行後に確認する事項のチェックリスト**・つまずいたときの対処は
+👉 **[`docs/dev-startup.md`](docs/dev-startup.md)**
+
+---
+
 ## 🔁 日々のルーチンワーク（まずここを見る）
 
 開発を始める前・終えるときは、**[`docs/daily-routine.md`](docs/daily-routine.md) を開いてなぞる。**
@@ -17,7 +39,7 @@
 **毎日やること**
 
 1. 前回の [`docs/devlog/`](docs/devlog/) 最新ファイルで「翌日の計画」を確認
-2. 環境を起動（Docker → backend → frontend）
+2. **環境を起動**（上のワンコマンド → [`docs/dev-startup.md`](docs/dev-startup.md)）
 3. 開発（設計で迷ったら [`docs/arch-guide/`](docs/arch-guide/)）
 4. テストを回す → `git status` で `.env` が出ないことを確認 → コミット＆プッシュ
 5. **「今日の分を資産化して」** で devlog を作り、コミット＆NotebookLMへ
@@ -40,28 +62,29 @@
 - **Docker Desktop**（PostgreSQL / Redis をコンテナで動かす）
 - **Anthropic の有料プラン**（Claude Code 用。Pro/Max/Team/Enterprise のいずれか。APIキーでも可）
 
-## クイックスタート
+## 初回セットアップ
+
+2回目以降は上の「ワンコマンド起動」だけでよい。初回は次を実行する。
 
 ```bash
 # 1. リポジトリのルートで、環境変数ファイルを用意
 cp .env.example .env
 #   → .env を開いて ANTHROPIC_API_KEY などを設定
 
-# 2. DB と Redis を起動（Docker）
-docker compose up -d
-
-# 3. バックエンド
+# 2. バックエンドの仮想環境と依存関係
 cd backend
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-uvicorn app.main:app --reload    # http://localhost:8000/docs で API 確認
 
-# 4. フロントエンド（別ターミナル）
-cd frontend
+# 3. フロントエンドの依存関係
+cd ../frontend
+cp .env.local.example .env.local
 npm install
-npm run dev                      # http://localhost:3000
 ```
+
+以降は `scripts/start-dev.ps1`（または `.sh`）でバックエンドまで起動し、
+画面も見るなら別ターミナルで `cd frontend && npm run dev`（http://localhost:3000）。
 
 ## VS Code + Claude Code での開発の始め方
 
@@ -86,7 +109,11 @@ paper-repro-mvp/
 ├── .env.example          ← 環境変数のテンプレート（.env にコピーして使う）
 ├── docker-compose.yml    ← PostgreSQL + Redis
 ├── .vscode/              ← VS Code 推奨設定・拡張機能
+├── scripts/
+│   ├── start-dev.ps1         ← 開発環境の起動（Windows）
+│   └── start-dev.sh          ← 開発環境の起動（Mac / Linux）
 ├── docs/
+│   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
 │   ├── daily-routine.md      ← 日々のルーチンワーク
 │   ├── requirements.md       ← 要件定義
 │   ├── mvp-design.md         ← MVP設計
