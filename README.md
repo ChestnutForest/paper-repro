@@ -3,10 +3,12 @@
 英語のAI論文（arXiv）を読み解いて再現実装まで支援するツールの MVP。
 対象は「タイプB（学習なし・公式実装あり）」の論文に限定。
 
+- **ドキュメント索引**: [`docs/README.md`](docs/README.md)
 - 要件: [`docs/requirements.md`](docs/requirements.md)
 - 設計: [`docs/mvp-design.md`](docs/mvp-design.md)
-- **技術スタック**: [`docs/tech-stack.md`](docs/tech-stack.md)
+- 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
 - ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)
+- プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
 - Claude Code 向け指示: [`CLAUDE.md`](CLAUDE.md)
 
 ---
@@ -64,6 +66,7 @@
 
 - CCAF適用率の再計測 → [`docs/arch-guide/coverage-remeasure-howto.md`](docs/arch-guide/coverage-remeasure-howto.md)
 - [`docs/roadmap.md`](docs/roadmap.md) の進捗更新
+- [`docs/history/project-history.md`](docs/history/project-history.md) に経緯を追記
 
 > 適用率の再計測は毎日ではない。数値は機能が実装されて初めて動くため、
 > フェーズ完了などのトリガー時に測る。
@@ -129,15 +132,19 @@ paper-repro-mvp/
 │   ├── start-dev.ps1         ← 開発環境の起動（Windows）
 │   └── start-dev.sh          ← 開発環境の起動（Mac / Linux）
 ├── docs/
-│   ├── tech-stack.md         ← 技術スタック解説
-│   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
+│   ├── README.md             ← ドキュメント索引
 │   ├── daily-routine.md      ← 日々のルーチンワーク
+│   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
 │   ├── requirements.md       ← 要件定義
 │   ├── mvp-design.md         ← MVP設計
+│   ├── tech-stack.md         ← 技術スタック解説
 │   ├── roadmap.md            ← 開発ロードマップ
 │   ├── notebooklm-prompts.md ← NotebookLM 活用プロンプト集
+│   ├── getting-started-vscode-windows.md
+│   ├── getting-started-vscode.md
+│   ├── arch-guide/           ← CCAF由来の設計指針と適用率レポート
 │   ├── devlog/               ← 日次開発ログ
-│   └── arch-guide/           ← CCAF由来の設計指針と適用率レポート
+│   └── history/              ← プロジェクト経緯
 ├── backend/              ← FastAPI + Celery
 └── frontend/             ← Next.js
 ```
