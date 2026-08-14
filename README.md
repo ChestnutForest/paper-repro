@@ -10,7 +10,21 @@
 - 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
 - ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)
 - プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
-- Claude Code 向け指示: [`CLAUDE.md`](CLAUDE.md)
+- Claude Code / Codex 共通指示: [`AGENTS.md`](AGENTS.md)
+- Claude Code 用エントリーポイント: [`CLAUDE.md`](CLAUDE.md)
+
+## Claude Code と Codex の併用
+
+プロジェクト共通の指示は `AGENTS.md` を正本とする。Codex は `AGENTS.md` を直接読み、
+Claude Code は自動読込される `CLAUDE.md` から `AGENTS.md` を全文参照する。
+共通方針を2ファイルへ重複させないため、どちらのツールに戻っても同じ基準で開発を再開できる。
+
+会話履歴そのものは両ツール間で共有されない。切り替える前に変更を保存し、テスト結果、判断理由、
+未解決事項、次の一手を Git と [`docs/devlog/`](docs/devlog/) に残す。切り替え後は
+`git status`、最新コミット、`AGENTS.md`、最新devlogを確認してから作業する。
+
+Codexの `AGENTS.md` 読み込み仕様は
+[OpenAI公式ドキュメント](https://developers.openai.com/codex/guides/agents-md)を参照。
 
 ---
 
@@ -59,7 +73,7 @@
 
 1. 前回の [`docs/devlog/`](docs/devlog/) 最新ファイルで「翌日の計画」を確認
 2. **環境を起動**（上のワンコマンド → [`docs/dev-startup.md`](docs/dev-startup.md)）
-3. 開発（設計で迷ったら [`docs/arch-guide/`](docs/arch-guide/)）
+3. `AGENTS.md` の共通指示に従って開発（設計で迷ったら [`docs/arch-guide/`](docs/arch-guide/)）
 4. テストを回す → `git status` で `.env` が出ないことを確認 → コミット＆プッシュ
 5. **「今日の分を資産化して」** で devlog を作り、コミット＆NotebookLMへ
 
@@ -76,11 +90,12 @@
 
 ## 必要なもの
 
-- **Node.js 18 以上**（Claude Code と Next.js に必要）
+- **Node.js 18 以上**（Next.js に必要）
 - **Python 3.12 以上**
 - **VS Code 1.98.0 以上**
 - **Docker Desktop**（PostgreSQL / Redis をコンテナで動かす）
-- **Anthropic の有料プラン**（Claude Code 用。Pro/Max/Team/Enterprise のいずれか。APIキーでも可）
+- **Claude Code または Codex**（両方を併用可能）
+- **Anthropic の利用環境**（Claude Codeを使う場合。対応プランまたはAPIキー）
 
 ## 初回セットアップ
 
@@ -106,7 +121,7 @@ npm install
 以降は `scripts/start-dev.ps1`（または `.sh`）でバックエンドまで起動し、
 画面も見るなら別ターミナルで `cd frontend && npm run dev`（http://localhost:3000）。
 
-## VS Code + Claude Code での開発の始め方
+## Claude Code / Codex での開発の始め方
 
 **お使いのOSに合った手順書を参照すること**（コマンドが異なるため）:
 
@@ -116,15 +131,16 @@ npm install
 要点（共通）：
 
 1. VS Code で **このフォルダ（ルート）を開く**（File → Open Folder）
-2. 拡張機能パネル（Ctrl/Cmd+Shift+X）で **"Claude Code"（発行元 Anthropic）** を検索してインストール
-3. サイドバーの Spark アイコン（✱）をクリックしてサインイン
-4. Claude Code に「`CLAUDE.md` と `docs/product-design.md` を読んで、Step 1 の骨組みから始めて」と依頼
+2. Claude Codeを使う場合は、拡張機能パネルで **"Claude Code"（発行元 Anthropic）** をインストールしてサインイン
+3. Codexを使う場合は、Codexでこのリポジトリルートを開く
+4. 「`AGENTS.md` と `docs/product-design.md` を読み、最新devlogを確認してから作業を始めて」と依頼
 
 ## ディレクトリ構成
 
 ```
 paper-repro/
-├── CLAUDE.md              ← Claude Code が最初に読む指示書
+├── AGENTS.md              ← Claude Code / Codex 共通のAI開発指示（正本）
+├── CLAUDE.md              ← Claude Code から AGENTS.md への入口
 ├── README.md
 ├── .env.example          ← 環境変数のテンプレート（.env にコピーして使う）
 ├── docker-compose.yml    ← PostgreSQL + Redis

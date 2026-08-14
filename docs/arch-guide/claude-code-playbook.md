@@ -1,7 +1,7 @@
-# Claude Code 依頼テンプレート（paper-repro）
+# AIコーディングエージェント依頼テンプレート（paper-repro）
 
-CCAFのノウハウを反映した、Claude Code への依頼文テンプレート。
-`.claude/commands/` にスラッシュコマンドとして置くと、チームで再利用できる。
+CCAFのノウハウを反映した、Claude Code / Codex への依頼文テンプレート。
+テンプレA〜Dは共通で使える。テンプレEと `.claude/commands/` はClaude Code固有である。
 
 ## 共通の原則（CCAF Domain 3 由来）
 
@@ -15,7 +15,7 @@ CCAFのノウハウを反映した、Claude Code への依頼文テンプレー�
 ## テンプレA：新機能の実装依頼（プランモード向け）
 
 ```
-CLAUDE.md と docs/product-design.md、docs/roadmap.md を読んでください。
+AGENTS.md と docs/product-design.md、docs/roadmap.md、最新のdevlogを読んでください。
 いまは＜フェーズ番号・機能名＞に取り組みます。
 
 目的：＜何を実現したいか＞
@@ -65,13 +65,14 @@ CLAUDE.md と docs/product-design.md、docs/roadmap.md を読んでください�
 軽微なスタイルは対象外。報告は「場所・問題・深刻度・修正案」の形式で。
 ```
 
-## テンプレE：CLAUDE.md分割（CCAF Domain 3 由来）
+## テンプレE：Claude Code固有ルールの分割（CCAF Domain 3 由来）
 
 ```
-肥大化したCLAUDE.mdを .claude/rules/ に分割したい。
+Claude Code固有のルールを .claude/rules/ に分割したい。
 
 要件：
-- project-levelのCLAUDE.mdには普遍的な原則だけ残す
+- プロジェクト共通の正本であるAGENTS.mdは変更せず、共通ルールを複製しない
+- project-levelのCLAUDE.mdにはAGENTS.mdへの入口とClaude Code固有の案内だけを残す
 - backend用（paths: ["backend/**/*.py"]）とfrontend用（paths: ["frontend/**/*.tsx", "frontend/**/*.ts"]）
   で規約ファイルを分け、YAMLフロントマターのpathsでglob指定する
 - 該当ファイルを編集するときだけ読み込まれるようにする
@@ -81,7 +82,7 @@ CLAUDE.md と docs/product-design.md、docs/roadmap.md を読んでください�
 
 ---
 
-## スラッシュコマンド化の手順（任意）
+## Claude Codeでのスラッシュコマンド化（任意）
 
 上のテンプレを `.claude/commands/` に置くと、`/コマンド名` で呼べる。
 

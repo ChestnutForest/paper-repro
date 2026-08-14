@@ -126,11 +126,13 @@ PostgreSQL と Redis を「コンテナ」として動かす仕組み。
 
 ## 開発を支える道具
 
-### Claude Code（VS Code拡張）
+### Claude Code / Codex（AIコーディングエージェント）
 
-コードを書かせる相手。フェーズ0-1の PostgreSQL 化は、計画を出させてから実装させた。
-`CLAUDE.md` を毎回読ませることで、設計原則を守らせている。
-頼み方のテンプレートは [`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md)。
+設計・実装・検証を支援する開発エージェント。フェーズ0-1の PostgreSQL 化は、
+Claude Codeに計画を出させてから実装した。今後はCodexとも同じリポジトリを共有する。
+共通の設計原則と作業規約は `AGENTS.md` を正本とし、Claude Codeは `CLAUDE.md` を入口に
+その内容を読み、Codexは `AGENTS.md` を直接読む。頼み方のテンプレートは
+[`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md)。
 
 ### Git / GitHub
 
@@ -143,7 +145,7 @@ PostgreSQL と Redis を「コンテナ」として動かす仕組み。
 | 技術 | 用途 | 導入フェーズ |
 |---|---|---|
 | Celery + Redis | 非同期ジョブと進捗ストリーム | フェーズ2 |
-| next-intl | 日英切り替え（i18n）。方針は `CLAUDE.md` に記載済み | フェーズ6 |
+| next-intl | 日英切り替え（i18n）。共通方針は `AGENTS.md` に記載済み | フェーズ6 |
 | gVisor 等のサンドボックス | 信頼できない第三者コードの隔離実行 | フェーズ4 |
 | Alembic | DBテーブル構造のマイグレーション管理（`requirements.txt` には導入済み） | 必要時 |
 | TiDB | 大規模化・ベクトル検索が必要になった場合のDB候補 | フェーズ6以降で再検討 |

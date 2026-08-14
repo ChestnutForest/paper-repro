@@ -1,9 +1,9 @@
 ---
 name: paper-repro-arch-guide
-description: 英語AI論文の読解〜再現実装ツール（paper-repro）の開発に、Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウハウを適用するための設計指針スキル。エージェント設計・ツール/MCP設計・Claude Code設定・構造化出力・コンテキスト管理/信頼性の5領域から、このツールに効くパターンだけを抜き出し、ロードマップの各フェーズへの適用方針をまとめる。さらに、開発の各工程ステップとCCAFのどのタスクステートメントが結びついているかを一目で確認できるトレーサビリティ表と、5ドメインの配点比率で重みづけした「CCAF適用率インジケーター」を、開発ログ（ccaf-coverage-YYYY-MM-DD.md）として出力する機能を持つ。ユーザーが「この機能をどう設計すべきか」「Claude Codeにどう頼むか」「CLAUDE.mdをどう構成するか」「論文情報の抽出をどう構造化するか」「承認ゲート/エスカレーションをどう設計するか」と設計判断を相談したとき、また「CCAFのノウハウを適用して」「アーキテクチャ指針を出して」「どのノウハウを使ったか一覧にして」「CCAF適用率を出して」「適用状況のインジケーターを作って」「カバレッジを可視化して」と言ったときに使う。日々の開発ログを残すのは paper-repro-devlog、論文そのものを再現実装する手順は arxiv-paper-repro、スキルを安全に更新するのは skill-safe-update が担当し、本スキルは「ツールの設計判断にCCAFの型を当てること」と「その適用状況を計測して可視化すること」に限る。判断基準は「paper-reproの設計・実装方針をCCAFのノウハウで決める／その適用度を測るのか（本スキル）」である。
+description: 英語AI論文の読解〜再現実装ツール（paper-repro）の開発に、Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウハウを適用するための設計指針スキル。エージェント設計・ツール/MCP設計・Claude Code設定・構造化出力・コンテキスト管理/信頼性の5領域から、このツールに効くパターンだけを抜き出し、ロードマップの各フェーズへの適用方針をまとめる。さらに、開発の各工程ステップとCCAFのどのタスクステートメントが結びついているかを一目で確認できるトレーサビリティ表と、5ドメインの配点比率で重みづけした「CCAF適用率インジケーター」を、開発ログ（ccaf-coverage-YYYY-MM-DD.md）として出力する機能を持つ。ユーザーが「この機能をどう設計すべきか」「Claude CodeまたはCodexにどう頼むか」「AGENTS.mdとCLAUDE.mdをどう構成するか」「論文情報の抽出をどう構造化するか」「承認ゲート/エスカレーションをどう設計するか」と設計判断を相談したとき、また「CCAFのノウハウを適用して」「アーキテクチャ指針を出して」「どのノウハウを使ったか一覧にして」「CCAF適用率を出して」「適用状況のインジケーターを作って」「カバレッジを可視化して」と言ったときに使う。日々の開発ログを残すのは paper-repro-devlog、論文そのものを再現実装する手順は arxiv-paper-repro、スキルを安全に更新するのは skill-safe-update が担当し、本スキルは「ツールの設計判断にCCAFの型を当てること」と「その適用状況を計測して可視化すること」に限る。判断基準は「paper-reproの設計・実装方針をCCAFのノウハウで決める／その適用度を測るのか（本スキル）」である。
 ---
 
-# paper-repro 設計指針（CCAF適用版）v1.1
+# paper-repro 設計指針（CCAF適用版）v1.2
 
 英語AI論文の読解〜再現実装ツール **paper-repro** の開発判断に、
 Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウハウを当てるためのスキル。
@@ -12,6 +12,7 @@ Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウ�
 
 | 版 | 変更内容 |
 |---|---|
+| 1.2 | AGENTS.mdを共通正本とし、Claude Code / Codex の併用・引き継ぎ方針を追加 |
 | 1.1 | 工程ステップ↔CCAFタスクのトレーサビリティ表と、配点重みづけの適用率インジケーター出力機能を追加 |
 | 1.0 | 初版。フェーズ別の適用方針、CCAFパターン対応表、Claude Code依頼テンプレート |
 
@@ -29,7 +30,7 @@ Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウ�
 ## 使い方
 
 1. **設計判断が必要なとき** → 下の「フェーズ別の適用方針」を見る。根拠は `references/ccaf-patterns.md`。
-2. **Claude Code に実装を頼むとき** → `references/claude-code-playbook.md` の依頼テンプレートを使う。
+2. **Claude Code / Codex に実装を頼むとき** → `claude-code-playbook.md` の依頼テンプレートを使う。
 3. **適用状況を可視化したいとき** → 下の「適用率インジケーターの出力手順」に従う。算定規則は `references/coverage-rubric.md`。
 
 ---
@@ -67,15 +68,17 @@ Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウ�
 - **矛盾の注記**：食い違いは片方を選ばず両方を出典つきで示す。
 
 ### フェーズ6（公開整備）
-- **CLAUDE.mdの分割**：.claude/rules/ に分割し、パス別（glob）で条件読み込み。
+- **共通指示の一元化**：プロジェクト共通の正本を `AGENTS.md` とし、`CLAUDE.md` はClaude Code用入口に限定する。
+- **Claude固有ルールの分割**：必要な場合だけ `.claude/rules/` に分割し、共通ルールを複製しない。
 
 ---
 
-## Claude Code の使い方（このプロジェクト共通）
+## Claude Code / Codex の使い方（このプロジェクト共通）
 
 - **プランモード vs 直接実行**：複数ファイル・アーキ判断→計画を出させる。単一ファイルの明確な修正→直接実行。
-- **カスタムスラッシュコマンド**：繰り返す依頼は .claude/commands/ に置いてチーム共有。
-- **パス別ルール**：.claude/rules/ にglob（backend/**/*.py、frontend/**/*.tsx）で条件読み込み。
+- **共通正本**：両ツールが参照するプロジェクト方針は `AGENTS.md` に置く。
+- **Claude固有機能**：繰り返す依頼は `.claude/commands/`、固有ルールは `.claude/rules/` に置く。
+- **引き継ぎ**：会話履歴に依存せず、Git、現行文書、devlogへ判断と次の作業を残す。
 - **CI連携（将来）**：-p（非対話）と --output-format json を使う。
 
 ---

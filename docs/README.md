@@ -11,11 +11,18 @@
 | [`daily-routine.md`](daily-routine.md) | **日々のルーチンワーク**。開発の開始〜終了までの手順 |
 | [`dev-startup.md`](dev-startup.md) | 起動スクリプトの使い方・実行後の確認事項チェックリスト |
 
+## 🤖 AI開発指示（Claude Code / Codex 共通）
+
+| ファイル | 内容 |
+|---|---|
+| [`../AGENTS.md`](../AGENTS.md) | **共通正本**。設計原則、規約、検証、Claude Code ↔ Codex の引き継ぎ手順 |
+| [`../CLAUDE.md`](../CLAUDE.md) | Claude Code用エントリーポイント。共通指示として `AGENTS.md` を読み込ませる |
+
 ## 🚀 環境構築（初回・OS別）
 
 | ファイル | 内容 |
 |---|---|
-| [`getting-started-vscode-windows.md`](getting-started-vscode-windows.md) | **Windows版** VS Code + Claude Code の開発開始手順 |
+| [`getting-started-vscode-windows.md`](getting-started-vscode-windows.md) | **Windows版** Claude Code / Codex の開発開始・引き継ぎ手順 |
 | [`getting-started-vscode.md`](getting-started-vscode.md) | Mac / Linux版の同手順 |
 
 ## 📐 設計（何を作るか）
@@ -31,12 +38,12 @@
 
 | ディレクトリ | 内容 |
 |---|---|
-| [`arch-guide/`](arch-guide/) | CCAF（CCAR-F試験ガイド）由来の設計指針、Claude Code依頼テンプレート、**適用率インジケーター** |
+| [`arch-guide/`](arch-guide/) | CCAF（CCAR-F試験ガイド）由来の設計指針、AIコーディングエージェント依頼テンプレート、**適用率インジケーター** |
 
 主要ファイル：
 - [`arch-guide/README.md`](arch-guide/README.md) — 設計指針本体（フェーズ別の適用方針）
 - [`arch-guide/ccaf-patterns.md`](arch-guide/ccaf-patterns.md) — CCAF 5ドメインとの対応表
-- [`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md) — Claude Code 依頼テンプレA〜E
+- [`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md) — Claude Code / Codex 共通テンプレA〜DとClaude固有テンプレE
 - [`arch-guide/coverage-rubric.md`](arch-guide/coverage-rubric.md) — 適用率の算定規則
 - [`arch-guide/coverage-remeasure-howto.md`](arch-guide/coverage-remeasure-howto.md) — 再計測の運用手順
 - `arch-guide/ccaf-coverage-YYYY-MM-DD.md` — 適用率レポート（節目ごとに追加）

@@ -6,7 +6,7 @@
 - 製品方針: paper-repro を正式版プロダクトとして継続開発する
 - 初期リリース範囲: タイプB・公式実装ありの論文を縦切りで完成させる
 - 後続リリース: タイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する
-- 関連文書: `docs/requirements.md`（要件）, `docs/product-design.md`（設計）, `CLAUDE.md`（開発指針）
+- 関連文書: `docs/requirements.md`（要件）, `docs/product-design.md`（設計）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
 
 ---
 
@@ -71,7 +71,7 @@
 ## フェーズ6：公開整備
 
 - 6-1. README 充実（使い方・スクリーンショット・ライセンス明記）
-- 6-2. i18n 導入（日英切り替え。CLAUDE.md に方針記載済み）
+- 6-2. i18n 導入（日英切り替え。`AGENTS.md` に共通方針を記載済み）
 - 6-3. Private を解除して一般公開
 
 ---

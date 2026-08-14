@@ -1,65 +1,20 @@
-# CLAUDE.md — このプロジェクトの取扱説明書（Claude Code 用）
+# CLAUDE.md — Claude Code 用エントリーポイント
 
-Claude Code はこのファイルを毎回読み込む。**作業を始める前に必ずここを参照すること。**
+Claude Code はこのファイルを自動的に読み込む。
+**paper-repro の共通AI開発指示は、リポジトリ直下の `AGENTS.md` を正本とする。**
 
-## このプロジェクトは何か
+## 作業開始時に必ず行うこと
 
-**paper-repro** は、英語のAI論文（arXiv）を読み解き、再現実装まで支援する正式版プロダクト。
-現在は正式版の第1段階として、「タイプB（学習なし・公式実装あり）」の論文を対象に
-初期リリースを縦切りで構築している。GPU・レンダリング・LLM-as-a-Judge は
-製品全体から除外せず、後続リリースで対応する。
+1. `AGENTS.md` を全文読み、その指示に従う。
+2. `docs/requirements.md`、`docs/product-design.md`、`docs/roadmap.md` のうち作業に関係する文書を読む。
+3. `git status --short --branch` と `docs/devlog/` の最新ファイルを確認する。
 
-詳しい要件と設計は次を読むこと：
-- `docs/requirements.md` — 要件定義
-- `docs/product-design.md` — 画面遷移・APIエンドポイント・技術スタック
+## 共有ルール
 
-## 技術スタック
+- プロジェクト共通の方針は `AGENTS.md` に記録し、このファイルへ重複させない。
+- Claude Code 固有のコマンドや設定だけを、このファイルまたは `.claude/` に置く。
+- Codexへ引き継ぐ判断・未解決事項・次の作業は、会話内だけで終わらせず Git 管理下の文書へ残す。
+- `AGENTS.md` を変更した場合は、`README.md` と関連文書の参照も同じ変更で確認する。
 
-- バックエンド: **FastAPI (Python 3.12)** + Celery + Redis + PostgreSQL
-- フロントエンド: **Next.js (React) + TypeScript**
-- 実行分離: サンドボックス（初期リリースは CPU のみ・ネットワーク遮断）
-
-## 設計上の絶対原則（変更しないこと）
-
-1. **human-in-the-loop。** 各 Phase 末に承認ゲートがあり、人間の承認なしに次へ進めない。
-   全自動化しない。
-2. **長時間処理は非同期ジョブ + WebSocket 進捗。** 同期RESTで待たせない。
-3. **信頼できない第三者コードは必ずサンドボックスで実行。** ホスト直実行は禁止。
-4. **成果物の zip 名は `files_reify_YYYYMMDD_hhmm.zip`（JST基準）。** UTCのまま作らない。
-5. **将来的に日英の言語切り替え（i18n）に対応する。** フロントの画面文言は最初から `next-intl` の `t("キー")` 方式で書き、日本語・英語を直接ハードコードしないこと。
-
-## ディレクトリ構成
-
-```
-backend/app/
-  api/       … FastAPI のルーター（エンドポイント）
-  core/      … 設定・DB接続・状態機械
-  models/    … SQLAlchemy モデル / Pydantic スキーマ
-  services/  … 論文取り込み・実装探索・LLM・スコア照合
-  workers/   … Celery タスク（サンドボックス実行など）
-frontend/src/
-  pages/     … 画面（ダッシュボード, インテーク, 作業台, 検証台, レポート）
-  components/… UI部品
-  lib/       … API クライアント・WS クライアント
-```
-
-## コーディング規約
-
-- Python: 型ヒント必須。`ruff` + `black` で整形。関数には docstring
-- TypeScript: strict モード。`any` を避ける
-- コミットは小さく。1つの論理変更 = 1コミット
-- **秘密情報（APIキー等）を絶対にコミットしない。** `.env` は `.gitignore` 済み
-
-## 作業の進め方（Claude Code への指示）
-
-- 大きな変更の前に、まず変更計画を箇条書きで提示し、承認を得てから実装する
-- テストがある機能はテストも同時に更新する
-- `docs/` の設計と矛盾する実装をしそうなときは、勝手に進めず確認する
-- 不明点は推測で埋めず質問する
-
-## 現在の開発フェーズ
-
-**Step 1: 骨組みを1本通す。**
-「arXiv URL 投入 → 論文取り込み → spec 草案 → 手編集 → zip 出力」を、
-サンドボックス無しで最短で動かす。まだ横に広げない（縦切り）。
-`docs/product-design.md` の第6章「実装の着手順」に従う。
+上位のシステム指示やユーザーの明示的な依頼と矛盾しない範囲で、`AGENTS.md` を
+paper-repro のプロジェクト固有ルールとして適用する。

@@ -1,6 +1,6 @@
-# VS Code + Claude Code で開発を始める手順
+# Claude Code / Codex で開発を始める手順
 
-このプロジェクトを、VS Code と Claude Code を使って開発するための手順書。
+このプロジェクトを、Claude CodeとCodexのどちらからでも継続開発するための手順書。
 初めての人でも迷わないよう、順番どおりに進めれば動くように書いている。
 
 （情報は 2026年7月時点の公式ドキュメントに基づく。バージョン要件は変わることがあるので、
@@ -12,14 +12,14 @@
 
 1. 前提ソフトを入れる（Node.js / Python / Docker / VS Code）
 2. VS Code でこのフォルダを開く
-3. Claude Code 拡張機能を入れる
-4. Claude Code にサインインする
+3. Claude Code を使う場合は拡張機能を入れる
+4. Claude Code を使う場合はサインインする／Codexではリポジトリを開く
 5. 推奨拡張機能を入れる
 6. 環境変数ファイル（.env）を用意する
 7. DB と Redis を起動する（Docker）
 8. バックエンドを起動する
 9. フロントエンドを起動する
-10. Claude Code に最初の実装を依頼する
+10. Claude Code または Codex に最初の実装を依頼する
 
 ---
 
@@ -43,14 +43,14 @@ Claude Code に無料枠はない。API キーでの従量課金でも使える�
 
 ## ステップ2：VS Code でこのフォルダを開く
 
-**重要：Claude Code は「フォルダ（ワークスペース）」を単位に動く。** ばらばらのファイルではない。
+**重要：Claude CodeとCodexのどちらでも、リポジトリのルートを開く。** ばらばらのファイルではない。
 
 1. VS Code を開く
 2. File → Open Folder（ファイル → フォルダーを開く）
 3. **このプロジェクトのルート**（`paper-repro` フォルダ）を選ぶ
 
 ルートを開くのが大事。`backend` だけ・`frontend` だけを開くと、
-Claude Code が `CLAUDE.md` や `docs/` を見つけられず、全体像を掴めない。
+`AGENTS.md`、`CLAUDE.md`、`docs/` をまとめて参照できず、全体像を掴めない。
 
 ---
 
@@ -81,6 +81,13 @@ Claude Code が `CLAUDE.md` や `docs/` を見つけられず、全体像を掴�
 > API キーを使いたい場合は、環境変数 `ANTHROPIC_API_KEY` を設定し、
 > **ターミナルから `code .` で VS Code を起動**すると環境変数が引き継がれる。
 > （普通にアイコンから起動すると引き継がれず、サインイン画面が出ることがある）
+
+### Codexを使う場合
+
+Codexでリポジトリルート `paper-repro` を開く。Codexはルートの `AGENTS.md` を
+作業前に読み込む。Claude Codeは `CLAUDE.md` を入口として同じ `AGENTS.md` を読むため、
+共通指示を二重管理しない。詳細は
+[OpenAI公式ドキュメント](https://developers.openai.com/codex/guides/agents-md)を参照。
 
 ---
 
@@ -151,12 +158,12 @@ npm run dev
 
 ---
 
-## ステップ10：Claude Code に最初の実装を依頼する
+## ステップ10：Claude Code または Codex に最初の実装を依頼する
 
-ここからが本番。Claude Code のパネルで、たとえばこう頼む：
+ここからが本番。使用するツールのパネルで、たとえばこう頼む：
 
 ```
-CLAUDE.md と docs/product-design.md を読んで。
+AGENTS.md と docs/product-design.md、docs/roadmap.md、最新のdevlogを読んで。
 いまは Step 1（骨組みを1本通す）の段階。
 backend/app/api/projects.py のインメモリ保存を、
 PostgreSQL + SQLAlchemy の実装に置き換えたい。
@@ -165,12 +172,12 @@ PostgreSQL + SQLAlchemy の実装に置き換えたい。
 
 **うまく使うコツ：**
 
-- **まず計画を出させてから実装させる。** `CLAUDE.md` にもそう書いてあるので従ってくれる
+- **まず計画を出させてから実装させる。** 共通方針は `AGENTS.md` に記載してある
 - **`@ファイル名`** でファイルを指定すると、そのファイルを文脈に読み込む
 - 変更は **diff（差分）ビュー**で表示される。Accept / Reject / Accept Hunk（部分採用）を選べる。
   勝手に書き換わらないので安心してよい
 - ビルドエラーやテスト失敗は、そのファイルをエディタで開いてから頼むと、
-  Claude が診断情報を直接読んでくれる
+  AI開発ツールが診断情報を直接読める
 - 会話が長くなって文脈が一杯になったら、プロンプト欄で **`/compact`** を実行して圧縮する
 
 **動作確認の習慣：**
@@ -180,8 +187,11 @@ PostgreSQL + SQLAlchemy の実装に置き換えたい。
 cd backend && python -m pytest tests/ -q
 ```
 
-Claude が実装したら、必ずテストを回す。緑になってから次へ進む。
+AI開発ツールが実装したら、必ずテストを回す。緑になってから次へ進む。
 これは論文再現の「サニティチェック」と同じ思想 — 小さく確かめてから積み上げる。
+
+ツールを切り替える前には、テスト結果、判断理由、未解決事項、次の一手をGit管理下へ残す。
+切り替え後は `git status`、最新コミット、`AGENTS.md`、最新devlogを確認して再開する。
 
 ---
 
@@ -194,7 +204,7 @@ Claude が実装したら、必ずテストを回す。緑になってから次�
 | `uvicorn` が見つからない | 仮想環境を有効化したか確認（`source .venv/bin/activate`） |
 | フロントが API に繋がらない | バックエンドが 8000 番で起動しているか、`.env.local` の API_BASE を確認 |
 | Docker が起動しない | Docker Desktop 本体が起動しているか確認 |
-| Claude が的外れな実装をする | `CLAUDE.md` を読ませたか確認。`@docs/product-design.md` で設計を指定する |
+| AI開発ツールが的外れな実装をする | `AGENTS.md` を読ませたか確認。`@docs/product-design.md` で設計を指定する |
 
 ---
 

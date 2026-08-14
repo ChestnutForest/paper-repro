@@ -1,7 +1,8 @@
-# 【Windows版】VS Code + Claude Code で開発を始める手順
+# 【Windows版】Claude Code / Codex で開発を始める手順
 
 **この手順書は Windows 専用。** Mac / Linux の人は `getting-started-vscode.md` を見ること。
 コマンド（仮想環境の有効化、ファイルコピー等）が OS で異なるため、混同しないよう分けている。
+Claude Codeのセットアップに加え、同じリポジトリをCodexへ引き継ぐ方法も扱う。
 
 配置先の例: `C:\Users\kazuy\projects\paper-repro`
 （情報は 2026年7月時点の公式ドキュメントに基づく。要件が変わったら https://code.claude.com/docs/en/vs-code を確認）
@@ -13,14 +14,14 @@
 0. プロジェクトを正しい場所に配置する（Windows特有の注意）
 1. 前提ソフトを入れる（Node.js / Python / Docker / VS Code）
 2. VS Code でこのフォルダを開く
-3. Claude Code 拡張機能を入れる
-4. Claude Code にサインインする
+3. Claude Code を使う場合は拡張機能を入れる
+4. Claude Code を使う場合はサインインする／Codexではリポジトリを開く
 5. 推奨拡張機能を入れる
 6. 環境変数ファイル（.env）を用意する
 7. DB と Redis を起動する（Docker）
 8. バックエンドを起動する
 9. フロントエンドを起動する
-10. Claude Code に最初の実装を依頼する
+10. Claude Code または Codex に最初の実装を依頼する
 
 ---
 
@@ -31,6 +32,7 @@ zip を展開し、**`paper-repro` フォルダごと** `C:\Users\kazuy\projects
 ```
 C:\Users\kazuy\projects\
 └── paper-repro\        ← この1フォルダにまとめる（中身をバラで置かない）
+    ├── AGENTS.md
     ├── CLAUDE.md
     ├── backend\
     ├── frontend\
@@ -43,11 +45,11 @@ C:\Users\kazuy\projects\
 エクスプローラーの「すべて展開」は、zip名と同じフォルダを1階層余分に作ることがある。
 
 ```
-✗ 悪い例: projects\files_reify_xxxx\paper-repro\CLAUDE.md
-✓ 良い例: projects\paper-repro\CLAUDE.md
+✗ 悪い例: projects\files_reify_xxxx\paper-repro\AGENTS.md
+✓ 良い例: projects\paper-repro\AGENTS.md
 ```
 
-**目印は「`CLAUDE.md` が `projects\paper-repro\` の直下に見えるか」。**
+**目印は「`AGENTS.md` と `CLAUDE.md` が `projects\paper-repro\` の直下に見えるか」。**
 二重になっていたら、内側の `paper-repro` を `projects` 直下へ移動し、外側の空フォルダを削除する。
 
 **② ドット始まりのファイルが見えない**
@@ -88,15 +90,15 @@ Claude Code に無料枠はない。API キーでの従量課金でも使える�
 
 ## ステップ2：VS Code でこのフォルダを開く
 
-**重要：Claude Code は「フォルダ（ワークスペース）」単位で動く。**
+**重要：Claude CodeとCodexのどちらでも、リポジトリのルートを開く。**
 
 1. VS Code を起動
 2. File → Open Folder（ファイル → フォルダーを開く）
 3. **`C:\Users\kazuy\projects\paper-repro`** を選ぶ
    （`projects` ではなく、その中の `paper-repro` を開く）
 
-ルートを開くのが大事。`backend` だけを開くと、Claude Code が `CLAUDE.md` や `docs\` を
-見つけられず、全体像を掴めない。
+ルートを開くのが大事。`backend` だけを開くと、`AGENTS.md`、`CLAUDE.md`、`docs\` を
+まとめて参照できず、全体像を掴めない。
 
 > 初回は「このフォルダー内のファイルの作成者を信頼しますか？」と聞かれる。
 > 自分の作ったプロジェクトなので「はい、作成者を信頼します」を選ぶ。
@@ -132,6 +134,13 @@ Claude Code に無料枠はない。API キーでの従量課金でも使える�
 > setx ANTHROPIC_API_KEY "sk-ant-xxxx"
 > ```
 > 設定後は VS Code を再起動して反映させる。
+
+### Codexを使う場合
+
+Codexで `C:\Users\kazuy\projects\paper-repro` をプロジェクトとして開く。
+Codexはリポジトリルートの `AGENTS.md` を作業前に読み込む。Claude Codeは
+`CLAUDE.md` を入口として同じ `AGENTS.md` を読むため、共通指示を二重管理しない。
+詳細は [OpenAI公式ドキュメント](https://developers.openai.com/codex/guides/agents-md) を参照。
 
 ---
 
@@ -238,12 +247,12 @@ npm run dev
 
 ---
 
-## ステップ10：Claude Code に最初の実装を依頼する
+## ステップ10：Claude Code または Codex に最初の実装を依頼する
 
-Claude Code のパネルで、たとえばこう頼む：
+使用するツールのパネルで、たとえばこう頼む：
 
 ```
-CLAUDE.md と docs\product-design.md を読んで。
+AGENTS.md と docs\product-design.md、docs\roadmap.md、最新のdevlogを読んで。
 いまは Step 1（骨組みを1本通す）の段階。
 backend\app\api\projects.py のインメモリ保存を、
 PostgreSQL + SQLAlchemy の実装に置き換えたい。
@@ -252,7 +261,7 @@ PostgreSQL + SQLAlchemy の実装に置き換えたい。
 
 **うまく使うコツ：**
 
-- **まず計画を出させてから実装させる。** `CLAUDE.md` にそう書いてあるので従ってくれる
+- **まず計画を出させてから実装させる。** 共通方針は `AGENTS.md` に記載してある
 - **`@ファイル名`** でファイルを指定すると、そのファイルを文脈に読み込む
 - 変更は **diff（差分）ビュー**で表示される。Accept / Reject / Accept Hunk を選べる。
   勝手に書き換わらないので安心してよい
@@ -266,8 +275,11 @@ cd backend
 python -m pytest tests\ -q
 ```
 
-Claude が実装したら、必ずテストを回す。緑になってから次へ進む。
+AI開発ツールが実装したら、必ずテストを回す。緑になってから次へ進む。
 これは論文再現の「サニティチェック」と同じ思想 — 小さく確かめてから積み上げる。
+
+ツールを切り替える前には、テスト結果、判断理由、未解決事項、次の一手をGit管理下へ残す。
+切り替え後は `git status`、最新コミット、`AGENTS.md`、最新devlogを確認して再開する。
 
 ---
 

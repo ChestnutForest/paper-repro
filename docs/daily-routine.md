@@ -10,10 +10,12 @@
 ### 1-1. 前回の続きを確認する
 
 ```
+AGENTS.md を読み、git status と最新コミットを確認する
 docs/devlog/ の最新ファイルを開き、「未解決の疑問と翌日の開発計画」を読む
 ```
 
-前回の自分が残した「次にやること」がここに書いてある。ここから再開する。
+Claude CodeとCodexの会話履歴は共有されない。`AGENTS.md` の共通指示と、前回の自分が
+リポジトリに残した「次にやること」を基準に再開する。
 
 ### 1-2. 環境を起動する（ワンコマンド）
 
@@ -50,7 +52,7 @@ npm run dev
 ## 2. 開発中（都度）
 
 - 設計で迷ったら → [`arch-guide/README.md`](arch-guide/README.md)（CCAF設計指針）
-- Claude Code への頼み方 → [`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md)（依頼テンプレA〜E）
+- Claude Code / Codex への頼み方 → [`arch-guide/claude-code-playbook.md`](arch-guide/claude-code-playbook.md)（共通テンプレA〜D、Claude固有テンプレE）
 - 大きな変更は「まず計画を出させてから実装」
 
 ---
@@ -82,9 +84,13 @@ git commit -m "<英文メッセージ。例: feat: add paper intake endpoint>"
 git push
 ```
 
+別のAI開発ツールへ切り替える場合は、判断理由・未解決事項・次の一手を
+`docs/devlog/` または関連文書へ残す。受け取る側は `AGENTS.md`、`git status`、
+最新コミット、最新devlogを確認してから再開する。
+
 ### 3-3. 今日の分を資産化する（毎日）
 
-Claude に **「今日の分を資産化して」** と言う。
+使用中のAI開発ツールに **「今日の分を資産化して」** と言う。
 生成された `devlog-YYYY-MM-DD.md` を配置してコミットする：
 
 ```powershell
@@ -121,7 +127,7 @@ docker compose down
 
 **手順**：[`arch-guide/coverage-remeasure-howto.md`](arch-guide/coverage-remeasure-howto.md) に従う（要点は下記）。
 
-1. 前回ファイル（`docs/arch-guide/` の最新 `ccaf-coverage-*.md`）を Claude に添付する
+1. 前回ファイル（`docs/arch-guide/` の最新 `ccaf-coverage-*.md`）を使用中のAI開発ツールに添付する
 2. 「CCAF適用率を出して」と言う
 3. 生成されたレポートを配置してコミットする：
 
@@ -142,11 +148,13 @@ git push
 **毎日**
 
 - [ ] 前回の devlog の「翌日の計画」を読んだ
+- [ ] `AGENTS.md`、`git status`、最新コミットを確認した
 - [ ] `start-dev` スクリプトで環境を起動し、Swagger UI を確認した
 - [ ] 今日の範囲を1つに絞った
 - [ ] テストが緑になった
 - [ ] `git status` で `.env` が出ないことを確認してコミット＆プッシュした
 - [ ] 「今日の分を資産化して」で devlog を作り、コミットした
+- [ ] ツールを切り替える場合、判断理由・未解決事項・次の一手をリポジトリに残した
 - [ ] devlog を NotebookLM にアップロードした
 
 **節目（フェーズ完了・大きな機能追加のとき）**
