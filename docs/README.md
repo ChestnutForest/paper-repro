@@ -1,6 +1,6 @@
 # ドキュメント索引
 
-`paper-repro-mvp` のドキュメント一覧。目的から探せるように分類してある。
+`paper-repro` のドキュメント一覧。目的から探せるように分類してある。
 
 ---
 
@@ -23,7 +23,7 @@
 | ファイル | 内容 |
 |---|---|
 | [`requirements.md`](requirements.md) | 要件定義。human-in-the-loop、サンドボックスのリスク |
-| [`mvp-design.md`](mvp-design.md) | MVP設計。画面遷移・APIエンドポイント・技術スタック |
+| [`product-design.md`](product-design.md) | 初期リリース設計。画面遷移・APIエンドポイント・技術スタック |
 | [`tech-stack.md`](tech-stack.md) | 技術スタック解説。各技術の役割と選定理由 |
 | [`roadmap.md`](roadmap.md) | 開発ロードマップ。フェーズ0〜6と進捗、将来のDB候補 |
 

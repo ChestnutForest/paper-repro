@@ -3,7 +3,7 @@
 **この手順書は Windows 専用。** Mac / Linux の人は `getting-started-vscode.md` を見ること。
 コマンド（仮想環境の有効化、ファイルコピー等）が OS で異なるため、混同しないよう分けている。
 
-配置先の例: `C:\Users\kazuy\projects\paper-repro-mvp`
+配置先の例: `C:\Users\kazuy\projects\paper-repro`
 （情報は 2026年7月時点の公式ドキュメントに基づく。要件が変わったら https://code.claude.com/docs/en/vs-code を確認）
 
 ---
@@ -26,11 +26,11 @@
 
 ## ステップ0：プロジェクトを正しい場所に配置する
 
-zip を展開し、**`paper-repro-mvp` フォルダごと** `C:\Users\kazuy\projects` の直下に置く。
+zip を展開し、**`paper-repro` フォルダごと** `C:\Users\kazuy\projects` の直下に置く。
 
 ```
 C:\Users\kazuy\projects\
-└── paper-repro-mvp\        ← この1フォルダにまとめる（中身をバラで置かない）
+└── paper-repro\        ← この1フォルダにまとめる（中身をバラで置かない）
     ├── CLAUDE.md
     ├── backend\
     ├── frontend\
@@ -43,12 +43,12 @@ C:\Users\kazuy\projects\
 エクスプローラーの「すべて展開」は、zip名と同じフォルダを1階層余分に作ることがある。
 
 ```
-✗ 悪い例: projects\files_reify_xxxx\paper-repro-mvp\CLAUDE.md
-✓ 良い例: projects\paper-repro-mvp\CLAUDE.md
+✗ 悪い例: projects\files_reify_xxxx\paper-repro\CLAUDE.md
+✓ 良い例: projects\paper-repro\CLAUDE.md
 ```
 
-**目印は「`CLAUDE.md` が `projects\paper-repro-mvp\` の直下に見えるか」。**
-二重になっていたら、内側の `paper-repro-mvp` を `projects` 直下へ移動し、外側の空フォルダを削除する。
+**目印は「`CLAUDE.md` が `projects\paper-repro\` の直下に見えるか」。**
+二重になっていたら、内側の `paper-repro` を `projects` 直下へ移動し、外側の空フォルダを削除する。
 
 **② ドット始まりのファイルが見えない**
 `.env.example` `.gitignore` `.vscode` などは、エクスプローラーの初期状態では隠れている。
@@ -92,8 +92,8 @@ Claude Code に無料枠はない。API キーでの従量課金でも使える�
 
 1. VS Code を起動
 2. File → Open Folder（ファイル → フォルダーを開く）
-3. **`C:\Users\kazuy\projects\paper-repro-mvp`** を選ぶ
-   （`projects` ではなく、その中の `paper-repro-mvp` を開く）
+3. **`C:\Users\kazuy\projects\paper-repro`** を選ぶ
+   （`projects` ではなく、その中の `paper-repro` を開く）
 
 ルートを開くのが大事。`backend` だけを開くと、Claude Code が `CLAUDE.md` や `docs\` を
 見つけられず、全体像を掴めない。
@@ -243,7 +243,7 @@ npm run dev
 Claude Code のパネルで、たとえばこう頼む：
 
 ```
-CLAUDE.md と docs\mvp-design.md を読んで。
+CLAUDE.md と docs\product-design.md を読んで。
 いまは Step 1（骨組みを1本通す）の段階。
 backend\app\api\projects.py のインメモリ保存を、
 PostgreSQL + SQLAlchemy の実装に置き換えたい。
@@ -288,5 +288,5 @@ Claude が実装したら、必ずテストを回す。緑になってから次�
 
 ## 開発の進め方
 
-`docs\mvp-design.md` 第6章「実装の着手順」に従い、**縦切り**で進める。
+`docs\product-design.md` 第6章「実装の着手順」に従い、**縦切り**で進める。
 横に機能を広げる前に、まず「1論文が最後まで通る細い線」を完成させること。

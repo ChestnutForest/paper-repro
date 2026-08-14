@@ -1,6 +1,6 @@
 """プロジェクト関連の API ルーター。
 
-docs/mvp-design.md の第3章「APIエンドポイント」に対応。
+docs/product-design.md の第3章「APIエンドポイント」に対応。
 まずは骨組み（スタブ）。Claude Code に中身を実装してもらう。
 
 TODO(Claude Code):

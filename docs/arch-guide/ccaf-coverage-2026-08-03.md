@@ -1,4 +1,4 @@
-# CCAF適用率レポート: paper-repro-mvp — 2026-08-03（JST）
+# CCAF適用率レポート: paper-repro — 2026-08-03（JST）
 
 ## サマリー
 
@@ -37,7 +37,7 @@ D4（構造化出力）が0%なのは、論文情報の抽出機能がまだ未�
 | 5 | 資産化・設計指針をスキル化（paper-repro-devlog / arch-guide） | D3 3.2 スキルとスラッシュコマンド | 部分適用 | 各SKILL.md（`.claude/skills/`・`.claude/commands/`への配置は未実施） |
 | 6 | PostgreSQL化を「まず変更計画を出させてから実装」で依頼 | D3 3.4 プランモード vs 直接実行 | **適用済** | `docs/devlog/devlog-2026-07-27.md`、コミット `733a359` |
 | 7 | テスト失敗（no such table／Pydantic v2）を戻して反復修正 | D3 3.5 反復的改善 | 部分適用 | `backend/tests/test_smoke.py`、コミット `733a359`（3 passed） |
-| 8 | 各Phase末に人間の承認を挟むhuman-in-the-loop設計 | D5 5.2 エスカレーションと曖昧性解決 | 部分適用 | `docs/mvp-design.md`、`CLAUDE.md`（ゲート構造のみ。明示基準・few-shotは未実装） |
+| 8 | 各Phase末に人間の承認を挟むhuman-in-the-loop設計 | D5 5.2 エスカレーションと曖昧性解決 | 部分適用 | `docs/product-design.md`、`CLAUDE.md`（ゲート構造のみ。明示基準・few-shotは未実装） |
 | 9 | 設計指針・パターン対応表をリポジトリに常設 | （CCAF適用の運用基盤） | 適用済 | `docs/arch-guide/`、コミット `4b1c965` |
 
 ---

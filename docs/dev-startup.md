@@ -14,7 +14,7 @@
 VS Code のターミナルで、プロジェクトのルートから実行する。
 
 ```powershell
-cd C:\Users\kazuy\projects\paper-repro-mvp
+cd C:\Users\kazuy\projects\paper-repro
 ```
 
 ```powershell
@@ -29,7 +29,7 @@ cd C:\Users\kazuy\projects\paper-repro-mvp
 ### Mac / Linux（bash）
 
 ```bash
-cd ~/projects/paper-repro-mvp
+cd ~/projects/paper-repro
 ```
 
 ```bash

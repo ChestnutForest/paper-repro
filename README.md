@@ -1,11 +1,12 @@
-# paper-repro-mvp
+# paper-repro
 
-英語のAI論文（arXiv）を読み解いて再現実装まで支援するツールの MVP。
-対象は「タイプB（学習なし・公式実装あり）」の論文に限定。
+英語のAI論文（arXiv）を読み解き、再現実装まで支援する正式版プロダクト。
+最初のリリースでは「タイプB（学習なし・公式実装あり）」の論文を縦切りで完成させ、
+その後のリリースでタイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する。
 
 - **ドキュメント索引**: [`docs/README.md`](docs/README.md)
 - 要件: [`docs/requirements.md`](docs/requirements.md)
-- 設計: [`docs/mvp-design.md`](docs/mvp-design.md)
+- 設計: [`docs/product-design.md`](docs/product-design.md)
 - 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
 - ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)
 - プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
@@ -117,12 +118,12 @@ npm install
 1. VS Code で **このフォルダ（ルート）を開く**（File → Open Folder）
 2. 拡張機能パネル（Ctrl/Cmd+Shift+X）で **"Claude Code"（発行元 Anthropic）** を検索してインストール
 3. サイドバーの Spark アイコン（✱）をクリックしてサインイン
-4. Claude Code に「`CLAUDE.md` と `docs/mvp-design.md` を読んで、Step 1 の骨組みから始めて」と依頼
+4. Claude Code に「`CLAUDE.md` と `docs/product-design.md` を読んで、Step 1 の骨組みから始めて」と依頼
 
 ## ディレクトリ構成
 
 ```
-paper-repro-mvp/
+paper-repro/
 ├── CLAUDE.md              ← Claude Code が最初に読む指示書
 ├── README.md
 ├── .env.example          ← 環境変数のテンプレート（.env にコピーして使う）
@@ -136,7 +137,7 @@ paper-repro-mvp/
 │   ├── daily-routine.md      ← 日々のルーチンワーク
 │   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
 │   ├── requirements.md       ← 要件定義
-│   ├── mvp-design.md         ← MVP設計
+│   ├── product-design.md     ← 製品設計（初期リリース範囲）
 │   ├── tech-stack.md         ← 技術スタック解説
 │   ├── roadmap.md            ← 開発ロードマップ
 │   ├── notebooklm-prompts.md ← NotebookLM 活用プロンプト集
@@ -151,7 +152,7 @@ paper-repro-mvp/
 
 ## 開発の進め方
 
-`docs/mvp-design.md` の第6章「実装の着手順」と [`docs/roadmap.md`](docs/roadmap.md) に従い、
+`docs/product-design.md` の第6章「実装の着手順」と [`docs/roadmap.md`](docs/roadmap.md) に従い、
 **縦切り**で進める。まず1論文が最後まで通る細い線を作り、そこに機能を足す。
 
 ---
@@ -164,7 +165,7 @@ paper-repro-mvp/
 | リポジトリ | 役割 | このプロジェクトとの関係 |
 |---|---|---|
 | [ccar-f-study-skills](https://github.com/ChestnutForest/ccar-f-study-skills) | **学ぶ** — CCAR-F 試験対策の Custom Claude Skills 集 | そこで学んだ型を、本プロジェクトで実際に適用している |
-| **paper-repro-mvp**（本リポジトリ） | **実践する** — 学んだ型を適用したアプリ開発 | 適用方針は [`docs/arch-guide/`](docs/arch-guide/)、適用度は `ccaf-coverage-*.md` に記録 |
+| **paper-repro**（本リポジトリ） | **実践する** — 学んだ型を適用したアプリ開発 | 適用方針は [`docs/arch-guide/`](docs/arch-guide/)、適用度は `ccaf-coverage-*.md` に記録 |
 
 ### 適用の記録
 

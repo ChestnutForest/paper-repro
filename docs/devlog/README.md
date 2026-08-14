@@ -1,6 +1,6 @@
 # 開発ログ (devlog)
 
-paper-repro-mvp の日次開発ログを一元管理する場所。
+paper-repro の日次開発ログを一元管理する場所。
 `paper-repro-devlog` スキルで「今日の分を資産化して」と生成したファイルをここに置く。
 NotebookLM のソースとしても利用する。
 

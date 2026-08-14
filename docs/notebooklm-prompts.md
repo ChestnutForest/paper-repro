@@ -1,6 +1,6 @@
-# NotebookLM プロンプト集（paper-repro-mvp 開発ログ用）
+# NotebookLM プロンプト集（paper-repro 開発ログ用）
 
-paper-repro-mvp の開発ログ（`docs/devlog/devlog-YYYY-MM-DD.md`）を NotebookLM に蓄積し、
+paper-repro の開発ログ（`docs/devlog/devlog-YYYY-MM-DD.md`）を NotebookLM に蓄積し、
 チャットで深掘りしたり、スライドを作ったりするための**コピペ用プロンプト集**。
 
 ## 使い方
@@ -18,7 +18,7 @@ paper-repro-mvp の開発ログ（`docs/devlog/devlog-YYYY-MM-DD.md`）を Noteb
 ## ■ コピペ本体
 
 このノートブックにある devlog-YYYY-MM-DD.md 形式の開発ログ全ファイル（登録済みの全期間）を対象に、
-paper-repro-mvp（英語AI論文の読解〜再現実装ツール）の開発progressレポートのスライドを作成してください。
+paper-repro（英語AI論文の読解〜再現実装ツール）の開発progressレポートのスライドを作成してください。
 
 各スライドは「見出し＋箇条書き3〜5点」で、以下の構成にしてください。
 1. 表紙：プロジェクト名／対象期間（最も古い日付〜最新の日付）
@@ -44,7 +44,7 @@ paper-repro-mvp（英語AI論文の読解〜再現実装ツール）の開発pro
 ### ■ コピペ本体
 
 このノートブックにある devlog-YYYY-MM-DD.md 形式の開発ログ全ファイル（登録済みの全期間）を対象に、
-paper-repro-mvp プロジェクトのこれまでの歩みを整理してください。
+paper-repro プロジェクトのこれまでの歩みを整理してください。
 
 以下の順でまとめてください。各項目は、どの日付のログ由来かを（YYYY-MM-DD）で示すこと。
 1. 時系列サマリー：最も古い日付から最新まで、各日に何が前進したかを1日1〜2行で

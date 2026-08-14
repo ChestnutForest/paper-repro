@@ -1,4 +1,4 @@
-# Claude Code 依頼テンプレート（paper-repro-mvp）
+# Claude Code 依頼テンプレート（paper-repro）
 
 CCAFのノウハウを反映した、Claude Code への依頼文テンプレート。
 `.claude/commands/` にスラッシュコマンドとして置くと、チームで再利用できる。
@@ -15,7 +15,7 @@ CCAFのノウハウを反映した、Claude Code への依頼文テンプレー�
 ## テンプレA：新機能の実装依頼（プランモード向け）
 
 ```
-CLAUDE.md と docs/mvp-design.md、docs/roadmap.md を読んでください。
+CLAUDE.md と docs/product-design.md、docs/roadmap.md を読んでください。
 いまは＜フェーズ番号・機能名＞に取り組みます。
 
 目的：＜何を実現したいか＞

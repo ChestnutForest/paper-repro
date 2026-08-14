@@ -74,7 +74,7 @@ docs/arch-guide/ccaf-coverage-2026-08-03.md
 ### コミット手順（Windows PowerShell）
 
 ```powershell
-cd C:\Users\kazuy\projects\paper-repro-mvp
+cd C:\Users\kazuy\projects\paper-repro
 
 # 新しいレポートを docs/arch-guide/ に配置したあと
 git status
@@ -103,6 +103,6 @@ D4 が動き始め、総合適用率が上がる。
 ## 注意点
 
 - **証拠のないものは「適用済」にしない。** 方針を文書に書いただけでは未適用として数える。
-- **適用率を上げること自体を目的化しない。** MVPに不要な型を入れるのは本末転倒で、
+- **適用率を上げること自体を目的化しない。** 初期リリースに不要な型を入れるのは本末転倒で、
   採用しないものは「除外」と理由を書くのが正しい扱い。
 - 過去のレポートファイルは**削除せず残す**（履歴として積み上げ、推移を追えるようにする）。

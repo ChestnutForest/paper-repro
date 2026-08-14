@@ -1,5 +1,5 @@
 // ダッシュボード画面（最小）。
-// docs/mvp-design.md 第2章の画面遷移の入口。
+// docs/product-design.md 第2章の画面遷移の入口。
 // ここから「インテーク → 作業台 → 検証台 → レポート」へ広げていく。
 import { useEffect, useState } from "react";
 import { createProject, listProjects, type Project } from "@/lib/api";
@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   return (
     <main style={{ maxWidth: 720, margin: "40px auto", fontFamily: "system-ui" }}>
-      <h1>論文 再現実装ツール（MVP）</h1>
+      <h1>paper-repro</h1>
       <p>arXiv の URL を入れてプロジェクトを作成します。</p>
 
       <div style={{ display: "flex", gap: 8 }}>

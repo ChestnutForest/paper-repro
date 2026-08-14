@@ -47,7 +47,7 @@ Claude Code に無料枠はない。API キーでの従量課金でも使える�
 
 1. VS Code を開く
 2. File → Open Folder（ファイル → フォルダーを開く）
-3. **このプロジェクトのルート**（`paper-repro-mvp` フォルダ）を選ぶ
+3. **このプロジェクトのルート**（`paper-repro` フォルダ）を選ぶ
 
 ルートを開くのが大事。`backend` だけ・`frontend` だけを開くと、
 Claude Code が `CLAUDE.md` や `docs/` を見つけられず、全体像を掴めない。
@@ -156,7 +156,7 @@ npm run dev
 ここからが本番。Claude Code のパネルで、たとえばこう頼む：
 
 ```
-CLAUDE.md と docs/mvp-design.md を読んで。
+CLAUDE.md と docs/product-design.md を読んで。
 いまは Step 1（骨組みを1本通す）の段階。
 backend/app/api/projects.py のインメモリ保存を、
 PostgreSQL + SQLAlchemy の実装に置き換えたい。
@@ -194,11 +194,11 @@ Claude が実装したら、必ずテストを回す。緑になってから次�
 | `uvicorn` が見つからない | 仮想環境を有効化したか確認（`source .venv/bin/activate`） |
 | フロントが API に繋がらない | バックエンドが 8000 番で起動しているか、`.env.local` の API_BASE を確認 |
 | Docker が起動しない | Docker Desktop 本体が起動しているか確認 |
-| Claude が的外れな実装をする | `CLAUDE.md` を読ませたか確認。`@docs/mvp-design.md` で設計を指定する |
+| Claude が的外れな実装をする | `CLAUDE.md` を読ませたか確認。`@docs/product-design.md` で設計を指定する |
 
 ---
 
 ## 開発の進め方（再掲）
 
-`docs/mvp-design.md` 第6章「実装の着手順」に従い、**縦切り**で進める。
+`docs/product-design.md` 第6章「実装の着手順」に従い、**縦切り**で進める。
 横に機能を広げる前に、まず「1論文が最後まで通る細い線」を完成させること。

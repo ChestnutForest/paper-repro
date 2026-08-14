@@ -1,4 +1,4 @@
-# 開発ログ: paper-repro-mvp — 2026-07-17（JST・環境構築編）
+# 開発ログ: paper-repro — 2026-07-17（JST・環境構築編）
 
 ## メタ情報
 - 日付（JST）: 2026-07-17
@@ -105,11 +105,11 @@ A. deactivateで抜け、間違った場所のRemove-Item -Recurse -Force .venv�
 
 | # | 何の画面か | 結果・状態 |
 |---|---|---|
-| 1 | VS Codeでpaper-repro-mvpを開いた直後（ようこそ画面） | ルートが正しく開けている。エクスプローラーに.vscode/backend/docs/frontend等が見える |
+| 1 | VS Codeでpaper-reproを開いた直後（ようこそ画面） | ルートが正しく開けている。エクスプローラーに.vscode/backend/docs/frontend等が見える |
 | 2 | VS Codeで.envを開いた画面（CLAUDE.mdタブあり） | Copy-Itemで.envを作成成功、817バイト。.env.txt問題を回避 |
 | 3 | GitHubログイン後のDashboard（アカウントChestnutForest） | ログイン成功。空リポジトリ作成の直前 |
 | 4 | Authorize Git Credential Managerの認証画面 | git push途中の認証。緑のAuthorizeボタンで承認する段階 |
-| 5 | GitHubのpaper-repro-mvpリポジトリ（push後） | 初回push成功。Private、1 Commit、初回コミット:MVP雛形が反映 |
+| 5 | GitHubのpaper-reproリポジトリ（push後） | 初回push成功。Private、1 Commit、初回コミット:MVP雛形が反映 |
 | 6 | 拡張機能パネル @recommended（推奨一覧） | ワークスペースの推奨事項7つが表示、一括インストールの直前 |
 | 7 | 拡張機能Dockerの詳細画面 | 7つの推奨拡張がすべてインストール済み（インストールボタンが消え歯車表示） |
 | 8 | Docker Desktopのcontainers画面（Sign in有無の質問） | Sign in不要と判断。左下クジラが緑=Engine running、v4.12.0 |

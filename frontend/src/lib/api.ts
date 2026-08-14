@@ -1,5 +1,5 @@
 // バックエンド API クライアント。
-// docs/mvp-design.md の第3章のエンドポイントに対応させていく。
+// docs/product-design.md の第3章のエンドポイントに対応させていく。
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000/api/v1";
 

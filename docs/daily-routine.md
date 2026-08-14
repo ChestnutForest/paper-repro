@@ -70,7 +70,7 @@ python -m pytest tests\ -q
 ### 3-2. コミット＆プッシュ
 
 ```powershell
-cd C:\Users\kazuy\projects\paper-repro-mvp
+cd C:\Users\kazuy\projects\paper-repro
 git status
 ```
 

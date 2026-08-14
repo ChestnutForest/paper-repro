@@ -11,9 +11,9 @@ from app.api import projects
 from app.core.db import init_db
 
 app = FastAPI(
-    title="paper-repro-mvp",
+    title="paper-repro",
     version="0.1.0",
-    description="英語AI論文の読解〜再現実装 支援ツール（MVP: タイプB・公式実装あり）",
+    description="英語AI論文の読解〜再現実装を支援する正式版プロダクト",
 )
 
 # フロントエンド（Next.js: localhost:3000）からのアクセスを許可

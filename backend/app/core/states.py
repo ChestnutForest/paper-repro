@@ -1,6 +1,6 @@
 """プロジェクトの状態機械。
 
-docs/mvp-design.md の第1章「状態遷移」に対応する。
+docs/product-design.md の第1章「状態遷移」に対応する。
 承認ゲートを通らないと次の状態に進めない。
 """
 from enum import Enum
@@ -34,8 +34,8 @@ def can_transition(src: ProjectState, dst: ProjectState) -> bool:
 
 
 class PaperType(str, Enum):
-    A = "A"  # 学習あり（MVPスコープ外だが、判定は行う）
-    B = "B"  # 学習なし（MVPの対象）
+    A = "A"  # 学習あり（初期リリーススコープ外だが、判定は行う）
+    B = "B"  # 学習なし（初期リリースの対象）
 
 
 class Policy(str, Enum):
