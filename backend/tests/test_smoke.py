@@ -62,3 +62,36 @@ def test_state_machine_rejects_illegal():
     # created から done へ直接飛ぶ遷移は許可されない
     assert not can_transition(ProjectState.CREATED, ProjectState.DONE)
     assert can_transition(ProjectState.CREATED, ProjectState.INTAKE_REVIEW)
+
+
+def test_api_state_transition():
+    # Create project
+    r = client.post("/api/v1/projects", json={"arxiv_url": "https://arxiv.org/abs/2505.20139"})
+    pid = r.json()["project_id"]
+    
+    # Valid transition to INTAKE_REVIEW
+    r2 = client.post(f"/api/v1/projects/{pid}/state", json={"state": "intake_review"})
+    assert r2.status_code == 200
+    assert r2.json()["state"] == "intake_review"
+    
+    # Invalid transition back to CREATED
+    r3 = client.post(f"/api/v1/projects/{pid}/state", json={"state": "created"})
+    assert r3.status_code == 400
+
+
+def test_api_policy_transition():
+    # Create project
+    r = client.post("/api/v1/projects", json={"arxiv_url": "https://arxiv.org/abs/2505.20139"})
+    pid = r.json()["project_id"]
+    
+    # Invalid transition from CREATED to READING via policy directly
+    r1 = client.post(f"/api/v1/projects/{pid}/policy", json={"policy": "full"})
+    assert r1.status_code == 400
+    
+    # Advance state to intake_review
+    client.post(f"/api/v1/projects/{pid}/state", json={"state": "intake_review"})
+    
+    # Valid transition to READING via set_policy
+    r2 = client.post(f"/api/v1/projects/{pid}/policy", json={"policy": "full"})
+    assert r2.status_code == 200
+    assert r2.json()["state"] == "reading"

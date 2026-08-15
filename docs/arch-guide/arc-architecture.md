@@ -1,0 +1,222 @@
+# Paper-Repro アーキテクチャ仕様書
+
+Paper-Repro を**どういう構造で作るか**を定める。
+
+---
+
+## 1. 本書の位置づけ
+
+### 1.1 目的と範囲
+
+英語AI論文の読解〜再現実装支援ツール「Paper-Repro」の初期リリース（タイプB・公式実装ありの論文）を対象とする。
+フェーズ6までの縦切り機能を対象とし、将来的な拡張（タイプA、GPU実行、LLM-as-a-Judge等）の土台となる構造を定義する。
+
+### 1.2 上位文書との関係
+
+| 文書 | 関係 |
+|---|---|
+| `docs/requirements.md` | 要件定義。本書は要求を実現する構造を定める |
+| `docs/product-design.md` | プロダクト設計・画面遷移。本書のUI構造の根拠 |
+| `docs/roadmap.md` | 開発フェーズ。段階的な実装の指標 |
+| `AGENTS.md` | 共通開発指針。コーディング規約やAIエージェントの運用方針 |
+
+### 1.3 用語
+
+`docs/product-design.md` および `AGENTS.md` の用語集に従う。本書では再定義しない。
+
+---
+
+## 2. 全体構成
+
+### 2.1 層構成
+
+```mermaid
+flowchart TD
+    subgraph frontend["frontend（Next.js）"]
+        UI[画面群: インテーク, 作業台など]
+        API_Route[API Clients]
+    end
+    subgraph backend["backend（FastAPI）"]
+        API[API エンドポイント]
+        CORE[状態遷移・ビジネスロジック]
+        SERVICES[論文処理・LLM連携]
+        WORKERS[非同期タスク Celery]
+    end
+    subgraph db["永続化"]
+        PG[(PostgreSQL)]
+        REDIS[(Redis)]
+    end
+    subgraph execution["隔離実行環境"]
+        SANDBOX[サンドボックス CPUのみ]
+    end
+
+    UI --> API_Route
+    API_Route -->|REST / WebSocket| API
+    API --> CORE
+    API --> SERVICES
+    SERVICES --> WORKERS
+    CORE --> PG
+    WORKERS --> REDIS
+    WORKERS --> PG
+    WORKERS --> SANDBOX
+```
+
+### 2.2 バックエンドとフロントエンドを分離する理由
+
+システムを FastAPI（バックエンド）と Next.js（フロントエンド）に分離する。
+分離により次を得る。
+
+| 利点 | 内容 |
+|---|---|
+| テストと検証の独立性 | UIを起動せずともREST APIを通じて状態機械やサンドボックスのテストが可能 |
+| 長時間処理の非同期化 | LLM推論やコード実行など重い処理をCeleryワーカーに逃し、WebSocketでUIに進捗をストリームできる |
+| 隔離環境との親和性 | 信頼できないコードを実行するサンドボックス環境をバックエンド側で安全に統制できる |
+
+### 2.3 依存の方向
+
+**フロントエンドはバックエンドAPIに依存するが、バックエンドはフロントエンドを意識しない。** 一方向の依存とする。
+
+### 2.4 プロジェクト構成
+
+```text
+backend/app/
+  api/        FastAPI のルーター
+  core/       設定・DB接続・状態機械
+  models/     SQLAlchemy モデル
+  services/   論文取り込み・LLM等の連携
+  workers/    Celery タスク
+frontend/src/
+  pages/      画面
+  components/ UI部品
+  lib/        API クライアント
+docs/         各種ドキュメント
+```
+
+---
+
+## 3. データモデル
+
+### 3.1 エンティティ一覧
+
+| # | エンティティ | 役割 | 状態 |
+|---|---|---|---|
+| 1 | **Project** | 論文プロジェクトの基本情報と状態管理 | 実装済 |
+| 2 | **Spec** | LLMによって抽出された仕様・草案 | 未着手 (Phase 3) |
+| 3 | **Assumption** | 論文から読み取った仮定台帳 | 未着手 (Phase 3) |
+
+### 3.2 ER図
+
+```mermaid
+erDiagram
+    Project ||--o{ Spec : "持つ"
+    Project ||--o{ Assumption : "記録される"
+
+    Project {
+        string project_id PK
+        string arxiv_url
+        string state
+        string policy
+    }
+    Spec {
+        int id PK
+        string project_id FK
+        string content
+    }
+    Assumption {
+        int id PK
+        string project_id FK
+        string description
+        string source_claim
+    }
+```
+
+### 3.3 データ保存の方針
+
+状態機械の進行（`Project.state`）は厳密に `PostgreSQL` に永続化し、中途半端な状態でのインメモリ消失を防ぐ。
+
+---
+
+## 4. 状態遷移エンジン
+
+### 4.1 状態機械 (State Machine) の役割
+
+Paper-Repro は Human-in-the-loop を前提とするため、各フェーズの完了時には必ず「承認ゲート」が存在し、状態機械によって制御される。
+
+### 4.2 状態一覧
+
+- `CREATED`: プロジェクト作成直後
+- `INTAKE_REVIEW`: 承認ゲート① (方針の選択)
+- `READING`: Specや仮定台帳の作成フェーズ
+- `IMPLEMENTING`: サニティ階段の実行
+- `SCORING`: 論文値との照合
+- `DONE`: 完了
+- `SKIPPED`: 見送り
+- `FAILED`: エラー状態
+
+### 4.3 状態遷移の強制 (Enforcement)
+
+`can_transition(src, dst)` を通じてのみ状態変更を許可する。APIエンドポイントは必ずこの関数を経由し、不正な遷移（未承認での次フェーズへのジャンプなど）を 400 エラーとしてブロックする。
+
+---
+
+## 5. 永続化
+
+### 5.1 データベース
+
+初期リリースでは **PostgreSQL** を採用する。
+- 既存のインメモリ実装からの移行が容易。
+- 小〜中規模のプロジェクトデータ管理に十分。
+- SQLAlchemy (ORM) を介してアクセスを抽象化し、特定のRDBMSへの依存を減らす。
+
+将来的にスケーリングやベクトル検索が必要になった場合は、TiDBへの移行を検討する。
+
+### 5.2 ジョブキューと状態ストア
+
+Celeryのバックエンドおよびメッセージブローカーとして **Redis** を使用する。長時間処理の背骨となる。
+
+---
+
+## 6. 画面
+
+- **インテーク画面**: 論文の取り込み、タイプ判定結果の提示、方針選択。
+- **作業台 (Reading)**: Specエディタ、仮定台帳。
+- **検証台 (Implementing)**: サンドボックスでの実行状況とサニティ階段の確認。
+- **レポート画面**: 再現スコアの照合、成果物ZIPのダウンロード。
+
+詳細は `docs/product-design.md` を参照。
+
+---
+
+## 7. API
+
+FastAPI を用いて REST API を提供する。
+状態遷移を進める際は、各専用エンドポイント（例: `POST /projects/{id}/policy`）または汎用状態更新エンドポイント（`POST /projects/{id}/state`）を利用する。
+
+---
+
+## 8. テスト方式
+
+- バックエンドのテストは `pytest` を使用する。
+- DBアクセスを伴うテストは in-memory の SQLite に差し替えて実行する。
+- UIのテスト・ビルド検証は `npm run build` で行う。
+
+---
+
+## 9. 横断的な方針
+
+### 9.1 サンドボックス実行の原則
+
+**信頼できない第三者のコード（論文の公式実装等）は必ず隔離されたサンドボックスで実行する。**
+ホスト環境での直接実行は固く禁ずる。初期リリースではCPUのみ、ネットワーク遮断環境を想定。
+
+### 9.2 国際化 (i18n) の準備
+
+フロントエンドの画面文言は最初から `next-intl` 等を用いてキー化（例: `t("key")`）し、日本語・英語のハードコードを避ける。
+
+---
+
+## 10. 決定の一覧
+
+- ライセンス: MITライセンスを採用
+- DB: PostgreSQL (将来候補: TiDB)
+- 状態遷移: `states.py` の辞書ベースバリデーションによる強制

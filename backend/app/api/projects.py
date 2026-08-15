@@ -16,7 +16,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
-from app.core.states import Policy, ProjectState
+from app.core.states import Policy, ProjectState, can_transition
 from app.models.project import Project
 
 router = APIRouter(tags=["projects"])
@@ -80,10 +80,44 @@ def set_policy(
     project = db.get(Project, project_id)
     if project is None:
         raise HTTPException(status_code=404, detail="project not found")
-    project.policy = req.policy.value
-    project.state = (
+        
+    target_state = (
         ProjectState.SKIPPED if req.policy == Policy.SKIP else ProjectState.READING
     )
+    if not can_transition(project.state, target_state):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Cannot transition from {project.state.value} to {target_state.value}"
+        )
+
+    project.policy = req.policy.value
+    project.state = target_state
+    db.add(project)
+    db.commit()
+    db.refresh(project)
+    return ProjectRes.from_orm(project)
+
+
+class StateTransitionReq(BaseModel):
+    state: ProjectState
+
+
+@router.post("/projects/{project_id}/state", response_model=ProjectRes)
+def transition_state(
+    project_id: str, req: StateTransitionReq, db: Session = Depends(get_db)
+) -> ProjectRes:
+    """プロジェクトの状態を遷移させる汎用エンドポイント。"""
+    project = db.get(Project, project_id)
+    if project is None:
+        raise HTTPException(status_code=404, detail="project not found")
+        
+    if not can_transition(project.state, req.state):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Cannot transition from {project.state.value} to {req.state.value}"
+        )
+        
+    project.state = req.state
     db.add(project)
     db.commit()
     db.refresh(project)
