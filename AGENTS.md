@@ -127,3 +127,13 @@ git status --short --branch
 「arXiv URL 投入 → 論文取り込み → spec 草案 → 手編集 → zip 出力」を、
 サンドボックス無しで最短で動かす。まだ横に広げない（縦切り）。
 `docs/product-design.md` の第6章「実装の着手順」に従う。
+
+## 12. エージェントの出力フォーマット（GitHub URL等）
+
+`commit` や `push` を実行した後は、その結果として生成されたGitHubのURLを**必ず一行ずつ独立したコードブロックで出力**し、人間が個別に簡単にコピーできるようにすること。
+「commit/pushしたURLを教えて」と指示された場合も同様の形式で出力する。
+
+対象とするURLは以下の通り：
+*   対象ファイルごとのブランチのURL（例: `https://github.com/.../blob/main/filename.md`）
+*   特定のコミットに紐づくファイルのURL（例: `https://github.com/.../blob/<commit-hash>/filename.md`）
+*   コミット自体のURL（例: `https://github.com/.../commit/<commit-hash>`）
