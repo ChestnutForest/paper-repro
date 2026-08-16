@@ -11,17 +11,42 @@ export default function Dashboard() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    listProjects().then(setProjects).catch((e) => setError(String(e)));
+    // 初期読み込み時のエラーハンドリング
+    listProjects().then(setProjects).catch((e) => {
+      const errStr = String(e);
+      if (errStr.includes("Failed to fetch") || errStr.includes("NetworkError")) {
+        setError("バックエンドサーバーへの接続に失敗しました。サーバーが起動しているか確認してください。");
+      } else {
+        setError(errStr);
+      }
+    });
   }, []);
 
   async function handleCreate(url: string) {
     setError(null);
     setIsSubmitting(true);
     try {
-      const p = await createProject(url);
-      setProjects((prev) => [...prev, p]);
+      // ----------------------------------------------------
+      // モック処理: バックエンド未実装/未起動時のためのダミーロジック
+      // ----------------------------------------------------
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const mockProject: Project = {
+        project_id: `mock-${Date.now()}`,
+        arxiv_url: url,
+        state: "intake_review"
+      };
+      setProjects((prev) => [mockProject, ...prev]); // 新しいものを先頭に追加
+      
+      // 実際の実装（バックエンド稼働時）は以下を利用します:
+      // const p = await createProject(url);
+      // setProjects((prev) => [p, ...prev]);
     } catch (e) {
-      setError(String(e));
+      const errStr = String(e);
+      if (errStr.includes("Failed to fetch") || errStr.includes("NetworkError")) {
+        setError("バックエンドサーバーへの接続に失敗しました。サーバーが起動しているか確認してください。");
+      } else {
+        setError(errStr);
+      }
     } finally {
       setIsSubmitting(false);
     }
