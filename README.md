@@ -13,6 +13,15 @@
 - Claude Code / Codex 共通指示: [`AGENTS.md`](AGENTS.md)
 - Claude Code 用エントリーポイント: [`CLAUDE.md`](CLAUDE.md)
 
+## AI Agent 連携と共通スキル
+
+当プロジェクトでは、複数のAI開発エージェント（Antigravity IDE, Gemini Gem, Codex, Claude Code）を併用したリレー開発を行っています。
+エージェント設定の二重管理を防ぐため、すべてのエージェントのルールとスキルの正本（Single Source of Truth）は `AGENTS.md` に集約しています（`CLAUDE.md` などは `AGENTS.md` への参照指示のみを保持します）。
+
+**実装済み共通スキル**
+- **Auto Model Selector**: タスクの複雑度（Z言語やAlloyを用いた形式仕様の推論・複雑な設計 vs 単純な整形・翻訳作業）を分析し、最適な推論レベルのAIモデルを自動選択します。
+- **Resource Limit Advisor**: トークン上限やAPI利用枠の超過による実行失敗を事前に検知し、処理の中断と具体的な代替案（タスク分割、軽量モデルへのダウングレード等）を提示するフェイルセーフ機能です。
+
 ## Claude Code と Codex の併用
 
 プロジェクト共通の指示は `AGENTS.md` を正本とする。Codex は `AGENTS.md` を直接読み、
