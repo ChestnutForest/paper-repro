@@ -1,0 +1,23 @@
+{
+  "dashboard": {
+    "title": "paper-repro",
+    "subtitle": "論文読解から再現実装までの伴走パイプライン",
+    "project_list_title": "プロジェクト一覧",
+    "project_list_empty": "プロジェクトはまだありません"
+  },
+  "paper_input": {
+    "card_title": "新規プロジェクト",
+    "card_desc": "再現実装を行いたいAI論文のURL（arXivやオープンアクセスリンク等）を入力してください。",
+    "placeholder": "https://arxiv.org/abs/... または その他のURL",
+    "error_invalid_url": "有効なURLを入力してください（例: https://arxiv.org/abs/2505.20139）",
+    "error_network": "バックエンドサーバーへの接続に失敗しました。サーバーが起動しているか確認してください。",
+    "btn_loading": "処理中...",
+    "btn_submit": "取り込み開始"
+  },
+  "locale_switcher": {
+    "switch_lang": "Language",
+    "ja": "日本語",
+    "en": "English",
+    "zh-TW": "繁體中文"
+  }
+}

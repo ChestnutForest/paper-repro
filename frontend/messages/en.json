@@ -1,0 +1,23 @@
+{
+  "dashboard": {
+    "title": "paper-repro",
+    "subtitle": "A companion pipeline from paper reading to reproduction",
+    "project_list_title": "Projects",
+    "project_list_empty": "No projects yet"
+  },
+  "paper_input": {
+    "card_title": "New Project",
+    "card_desc": "Enter the URL of the AI paper (e.g. arXiv or open access link) you want to reproduce.",
+    "placeholder": "https://arxiv.org/abs/... or other URL",
+    "error_invalid_url": "Please enter a valid URL (e.g. https://arxiv.org/abs/2505.20139)",
+    "error_network": "Failed to connect to the backend server. Please check if the server is running.",
+    "btn_loading": "Processing...",
+    "btn_submit": "Start Intake"
+  },
+  "locale_switcher": {
+    "switch_lang": "Language",
+    "ja": "日本語",
+    "en": "English",
+    "zh-TW": "繁體中文"
+  }
+}

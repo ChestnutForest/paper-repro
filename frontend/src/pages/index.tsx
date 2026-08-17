@@ -1,11 +1,20 @@
-// ダッシュボード画面（最小）。
-// docs/product-design.md 第2章の画面遷移の入口。
-// ここから「インテーク → 作業台 → 検証台 → レポート」へ広げていく。
 import { useEffect, useState } from "react";
 import { createProject, listProjects, type Project } from "@/lib/api";
 import { PaperInput } from "@/components/PaperInput";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { useTranslations } from "next-intl";
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default
+    }
+  };
+}
 
 export default function Dashboard() {
+  const t = useTranslations("dashboard");
+  const tApi = useTranslations("paper_input");
   const [projects, setProjects] = useState<Project[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,12 +24,12 @@ export default function Dashboard() {
     listProjects().then(setProjects).catch((e) => {
       const errStr = String(e);
       if (errStr.includes("Failed to fetch") || errStr.includes("NetworkError")) {
-        setError("バックエンドサーバーへの接続に失敗しました。サーバーが起動しているか確認してください。");
+        setError(tApi("error_network"));
       } else {
         setError(errStr);
       }
     });
-  }, []);
+  }, [tApi]);
 
   async function handleCreate(url: string) {
     setError(null);
@@ -43,7 +52,7 @@ export default function Dashboard() {
     } catch (e) {
       const errStr = String(e);
       if (errStr.includes("Failed to fetch") || errStr.includes("NetworkError")) {
-        setError("バックエンドサーバーへの接続に失敗しました。サーバーが起動しているか確認してください。");
+        setError(tApi("error_network"));
       } else {
         setError(errStr);
       }
@@ -54,10 +63,13 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground pb-12">
-      <main className="container max-w-4xl py-16 mx-auto space-y-12 px-4 md:px-0">
+      <header className="container max-w-4xl mx-auto py-4 px-4 md:px-0 flex justify-end">
+        <LocaleSwitcher />
+      </header>
+      <main className="container max-w-4xl py-8 mx-auto space-y-12 px-4 md:px-0">
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-primary">paper-repro</h1>
-          <p className="text-xl text-muted-foreground">論文読解から再現実装までの伴走パイプライン</p>
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-primary">{t("title")}</h1>
+          <p className="text-xl text-muted-foreground">{t("subtitle")}</p>
         </div>
 
         <PaperInput onSubmit={handleCreate} isLoading={isSubmitting} />
@@ -69,10 +81,10 @@ export default function Dashboard() {
         )}
 
         <div className="space-y-6 pt-8">
-          <h2 className="text-2xl font-semibold tracking-tight border-b pb-2">プロジェクト一覧</h2>
+          <h2 className="text-2xl font-semibold tracking-tight border-b pb-2">{t("project_list_title")}</h2>
           {projects.length === 0 ? (
             <div className="p-12 text-center border rounded-lg bg-muted/20 text-muted-foreground border-dashed">
-              プロジェクトはまだありません
+              {t("project_list_empty")}
             </div>
           ) : (
             <ul className="grid gap-3">

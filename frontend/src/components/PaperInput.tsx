@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Loader2, Link as LinkIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface PaperInputProps {
   onSubmit: (url: string) => void;
@@ -10,6 +11,7 @@ interface PaperInputProps {
 }
 
 export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
+  const t = useTranslations("paper_input");
   const [url, setUrl] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +22,7 @@ export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
     // 一般的なURLのバリデーション（arXiv以外も許可）
     const urlRegex = /^https?:\/\/\S+$/;
     if (!urlRegex.test(url)) {
-      setError("有効なURLを入力してください（例: https://arxiv.org/abs/2505.20139）");
+      setError(t("error_invalid_url"));
       return;
     }
     
@@ -31,9 +33,9 @@ export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-sm transition-all hover:shadow-md border-muted/60">
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl font-bold">新規プロジェクト</CardTitle>
+        <CardTitle className="text-2xl font-bold">{t("card_title")}</CardTitle>
         <CardDescription>
-          再現実装を行いたいAI論文のURL（arXivやオープンアクセスリンク等）を入力してください。
+          {t("card_desc")}
         </CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit}>
@@ -43,7 +45,7 @@ export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
               <LinkIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
                 type="url"
-                placeholder="https://arxiv.org/abs/... または その他のURL"
+                placeholder={t("placeholder")}
                 value={url}
                 onChange={(e) => {
                   setUrl(e.target.value);
@@ -61,11 +63,11 @@ export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                処理中...
+                {t("btn_loading")}
               </>
             ) : (
               <>
-                取り込み開始
+                {t("btn_submit")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </>
             )}

@@ -1,0 +1,23 @@
+{
+  "dashboard": {
+    "title": "paper-repro",
+    "subtitle": "從論文閱讀到重現部署的陪伴管道",
+    "project_list_title": "專案列表",
+    "project_list_empty": "目前沒有專案"
+  },
+  "paper_input": {
+    "card_title": "新增專案",
+    "card_desc": "請輸入您想要重現的 AI 論文 URL（例如 arXiv 或開放獲取連結）。",
+    "placeholder": "https://arxiv.org/abs/... 或其他 URL",
+    "error_invalid_url": "請輸入有效的 URL（例如: https://arxiv.org/abs/2505.20139）",
+    "error_network": "無法連線至後端伺服器。請確認伺服器是否正在執行。",
+    "btn_loading": "處理中...",
+    "btn_submit": "開始匯入"
+  },
+  "locale_switcher": {
+    "switch_lang": "語言",
+    "ja": "日本語",
+    "en": "English",
+    "zh-TW": "繁體中文"
+  }
+}
