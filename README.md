@@ -6,6 +6,7 @@
 
 - **ドキュメント索引**: [`docs/README.md`](docs/README.md)
 - 要件: [`docs/requirements.md`](docs/requirements.md)
+- 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 設計: [`docs/product-design.md`](docs/product-design.md)
 - 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
 - ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)
@@ -162,6 +163,7 @@ paper-repro/
 │   ├── daily-routine.md      ← 日々のルーチンワーク
 │   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
 │   ├── requirements.md       ← 要件定義
+│   ├── requirements-update-workflow.md ← 要件定義を更新するための検討手順
 │   ├── product-design.md     ← 製品設計（初期リリース範囲）
 │   ├── tech-stack.md         ← 技術スタック解説
 │   ├── roadmap.md            ← 開発ロードマップ
