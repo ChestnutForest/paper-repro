@@ -4,8 +4,8 @@
 - 位置づけ: 要件定義を確定する前の検討・意思決定プロセス
 - 正本との関係: 確定済み要件の正本は [`requirements.md`](requirements.md)。本書は正本を直接置き換えない
 - 対象資料: 『原論文から解き明かす生成AI』PDFの「はじめに」
-- 現在の進捗: 第3段階の第2バッチ（REQ-C06〜REQ-C09）を提示済み。利用者の選択待ち
-- 版: v0.6（第2バッチの5択を追加）
+- 現在の進捗: 全9件の選択と整合性確認を完了。第4段階の要件定義変更案を作成し、利用者の承認待ち
+- 版: v0.7（第2バッチの選択結果と要件定義変更案を追加）
 
 ---
 
@@ -57,8 +57,8 @@
 |---|---|---|
 | 第1段階 | 「はじめに」の範囲確認と根拠抽出 | 完了 |
 | 第2段階 | 現行要件の確認と差分分析 | 完了 |
-| 第3段階 | 要求項目ごとの5択 | 進行中（第1バッチ完了・5/9件選択済み、第2バッチ選択待ち） |
-| 第4段階 | 要件定義変更案の作成 | 未着手 |
+| 第3段階 | 要求項目ごとの5択 | 完了（9/9件選択済み、整合性確認済み） |
+| 第4段階 | 要件定義変更案の作成 | 進行中（変更案作成済み、利用者の承認待ち） |
 
 ## 4. 第1段階：「はじめに」だけを抽出する
 
@@ -262,9 +262,9 @@
 [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) に記録する。
 第1バッチは5件すべて選択済みである。
 
-第2バッチの `REQ-C06`〜`REQ-C09` の選択肢と回答欄は、
+第2バッチの `REQ-C06`〜`REQ-C09` の選択肢、選択結果、理由、段階開発条件、受入基準は、
 [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) に記録する。
-第2バッチは提示済みで、利用者の選択待ちである。
+第2バッチは4件すべて選択済みであり、全9件の整合性確認で選び直しが必要な矛盾は確認されなかった。
 
 ### 7.1 選択肢の共通規則
 
@@ -324,9 +324,10 @@ REQ-04: 4
 
 第1バッチの決定台帳は
 [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) の7〜9節を正本とする。
-第2バッチの選択肢は
-[`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) を正本とする。
-第2バッチの選択完了後、同ファイルに決定台帳を追記し、全9件を要件定義変更案へ統合する。
+第2バッチの決定台帳は
+[`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) の6〜9節を正本とする。
+全9件を統合した変更内容は、
+[`requirements-change-proposal.md`](requirements-change-proposal.md) を正本とする。
 
 | 要求ID | 要求項目 | 選択番号 | 確定内容 | 根拠 | 影響範囲 | 状態 |
 |---|---|---:|---|---|---|---|
@@ -336,6 +337,10 @@ REQ-04: 4
 提示し、変更が必要な項目に限って利用者へ戻す。
 
 ## 9. 第4段階：全選択後に作成する要件定義変更案
+
+全9件の選択と整合性確認を完了し、
+[`requirements-change-proposal.md`](requirements-change-proposal.md) に変更案を作成した。
+現在は利用者の承認待ちである。承認前には確定要件と製品コードを変更しない。
 
 すべての対象項目が選択済みになった時点で、次の構成の変更案を作成する。
 
