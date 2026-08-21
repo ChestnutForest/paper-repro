@@ -7,6 +7,7 @@
 - **ドキュメント索引**: [`docs/README.md`](docs/README.md)
 - 要件: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
+- 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
 - 設計: [`docs/product-design.md`](docs/product-design.md)
 - 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
 - ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)

@@ -31,6 +31,7 @@
 |---|---|
 | [`requirements.md`](requirements.md) | 要件定義。human-in-the-loop、サンドボックスのリスク |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
+| [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択と回答欄 |
 | [`product-design.md`](product-design.md) | 初期リリース設計。画面遷移・APIエンドポイント・技術スタック |
 | [`tech-stack.md`](tech-stack.md) | 技術スタック解説。各技術の役割と選定理由 |
 | [`roadmap.md`](roadmap.md) | 開発ロードマップ。フェーズ0〜6と進捗、将来のDB候補 |
@@ -67,7 +68,7 @@
 ## ディレクトリ構成の方針
 
 現在は `docs/` 直下をフラットに保ち、**性質が異なり継続的に増えるものだけ**を
-サブディレクトリに分けている（`arch-guide/`・`devlog/`・`history/`）。
+サブディレクトリに分けている（`arch-guide/`・`devlog/`・`history/`・`requirements-decisions/`）。
 
 ファイル数が増えて見通しが悪くなったら、`guide/`（手順）と `design/`（設計）への
 分割を検討する。その際は README とドキュメント間の相互リンクの更新が必要になる。
