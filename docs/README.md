@@ -31,7 +31,9 @@
 |---|---|
 | [`requirements.md`](requirements.md) | 要件定義。human-in-the-loop、サンドボックスのリスク |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
-| [`requirements-change-proposal.md`](requirements-change-proposal.md) | 全9件の選択を統合した要件定義変更案。追加・修正・維持・保留、受入基準、変更順序 |
+| [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み9件を統合した要件定義変更案。「1.2」の追加候補を選択するまで承認保留 |
+| [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
+| [`requirements-analysis/section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md) | 「1.2 論文を読み解く技術」と現行要件の比較。`REQ-C10`・`REQ-C11`とサブ要求候補10件 |
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択、選択結果、理由、影響範囲、受入基準 |
 | [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) | 要件選択の第2バッチ。REQ-C06〜REQ-C09の5択、選択結果、段階開発条件、受入基準 |
 | [`product-design.md`](product-design.md) | 初期リリース設計。画面遷移・APIエンドポイント・技術スタック |
@@ -70,7 +72,7 @@
 ## ディレクトリ構成の方針
 
 現在は `docs/` 直下をフラットに保ち、**性質が異なり継続的に増えるものだけ**を
-サブディレクトリに分けている（`arch-guide/`・`devlog/`・`history/`・`requirements-decisions/`）。
+サブディレクトリに分けている（`arch-guide/`・`devlog/`・`history/`・`requirements-analysis/`・`requirements-decisions/`）。
 
 ファイル数が増えて見通しが悪くなったら、`guide/`（手順）と `design/`（設計）への
 分割を検討する。その際は README とドキュメント間の相互リンクの更新が必要になる。

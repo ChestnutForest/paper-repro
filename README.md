@@ -8,6 +8,8 @@
 - 要件: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
+- 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
+- 「1.2 論文を読み解く技術」の要求分析: [`docs/requirements-analysis/section-1.2-reading-techniques.md`](docs/requirements-analysis/section-1.2-reading-techniques.md)
 - 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
 - 要件選択・第2バッチ: [`docs/requirements-decisions/batch-02-options.md`](docs/requirements-decisions/batch-02-options.md)
 - 設計: [`docs/product-design.md`](docs/product-design.md)
@@ -167,6 +169,9 @@ paper-repro/
 │   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
 │   ├── requirements.md       ← 要件定義
 │   ├── requirements-update-workflow.md ← 要件定義を更新するための検討手順
+│   ├── requirements-change-proposal.md ← 承認前の要件定義変更案
+│   ├── requirements-analysis/ ← 一次資料と現行要件の差分分析
+│   ├── requirements-decisions/ ← 5択と利用者の決定記録
 │   ├── product-design.md     ← 製品設計（初期リリース範囲）
 │   ├── tech-stack.md         ← 技術スタック解説
 │   ├── roadmap.md            ← 開発ロードマップ
