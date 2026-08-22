@@ -12,6 +12,7 @@
 - 「1.2 論文を読み解く技術」の要求分析: [`docs/requirements-analysis/section-1.2-reading-techniques.md`](docs/requirements-analysis/section-1.2-reading-techniques.md)
 - 「1.2.1 論文を読む環境の構築」の詳細分析: [`docs/requirements-analysis/section-1.2.1-reading-environment.md`](docs/requirements-analysis/section-1.2.1-reading-environment.md)
 - 「1.2.1.1 論文を入手する」の詳細分析: [`docs/requirements-analysis/section-1.2.1.1-paper-acquisition.md`](docs/requirements-analysis/section-1.2.1.1-paper-acquisition.md)
+- 「1.2.1.2 論文を電子媒体で読む」の詳細分析: [`docs/requirements-analysis/section-1.2.1.2-electronic-reading.md`](docs/requirements-analysis/section-1.2.1.2-electronic-reading.md)
 - 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
 - 要件選択・第2バッチ: [`docs/requirements-decisions/batch-02-options.md`](docs/requirements-decisions/batch-02-options.md)
 - 追加要件選択・第3バッチ: [`docs/requirements-decisions/batch-03-options.md`](docs/requirements-decisions/batch-03-options.md)
@@ -233,7 +234,8 @@ paper-repro/
     │   ├── README.md
     │   ├── section-1.2-reading-techniques.md
     │   ├── section-1.2.1-reading-environment.md
-    │   └── section-1.2.1.1-paper-acquisition.md
+    │   ├── section-1.2.1.1-paper-acquisition.md
+    │   └── section-1.2.1.2-electronic-reading.md
     ├── requirements-decisions/
     │   ├── batch-01-options.md
     │   ├── batch-02-options.md

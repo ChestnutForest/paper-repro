@@ -8,6 +8,7 @@
 - 上位分析: [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md)
 - 選択資料: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 - 「1.2.1.1」詳細: [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)
+- 「1.2.1.2」詳細: [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)
 - 比較対象: [`requirements.md`](../requirements.md)、
   [`requirements-change-proposal.md`](../requirements-change-proposal.md)
 
@@ -59,7 +60,7 @@
 |---|---|---|---|
 | 1.2.1.1 | 入手元、版、カテゴリー、プレプリント・査読・採択状態を管理する | サブ要求 | [`REQ-C03-S01`](section-1.2.1.1-paper-acquisition.md#51-req-c03-s01論文取得情報分類公開状態の管理) |
 | 1.2.1.1 | 採択、引用、著者実績、専門家意見を信頼性の参考情報として比較する | サブ要求 | [`REQ-C07-S01`](section-1.2.1.1-paper-acquisition.md#52-req-c07-s01信頼性参考情報の分離表示) |
-| 1.2.1.2 | PDF、注釈、計算、メモ、検索、バックアップを電子的に管理する | サブ要求 | `REQ-C09-S01` |
+| 1.2.1.2 | PDF、注釈、計算、メモ、検索、バックアップを電子的に管理する | サブ要求 | [`REQ-C09-S01`](section-1.2.1.2-electronic-reading.md#51-req-c09-s01電子読解注釈再参照環境) |
 | 1.2.1.3 | 誤り、誇張、推測、著者バイアスを考慮して批判的に読む | メイン要求の根拠 | `REQ-C10` |
 | 1.2.1.3 | 事実、結果、推論、仮説等を区別し、バイアスと不確実性を表示する | サブ要求 | `REQ-C10-S04` |
 
@@ -118,6 +119,9 @@
 - 利用者が採用、保留、不採用の判断理由を記録できる。
 
 ### 5.3 REQ-C09-S01：電子的な読解・注釈環境
+
+検証可能な要求文、受入基準、設計解釈と要求にしない記述は、
+[`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)を正本とする。
 
 #### 要求文案
 
@@ -187,7 +191,9 @@
 
 1. [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)の選択結果、理由、受入基準を維持する。
 2. [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)で具体化した
-   `REQ-C03-S01`と`REQ-C07-S01`を変更案へ統合する。
-3. 本書の4件を含む既存サブ要求候補を、採用、修正、保留へ分類する。
+   `REQ-C03-S01`と`REQ-C07-S01`、および
+   [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)で具体化した
+   `REQ-C09-S01`を変更案へ統合する。
+3. `REQ-C10-S04`を含む残りの既存サブ要求候補を、採用、修正、保留へ分類する。
 4. [`requirements-change-proposal.md`](../requirements-change-proposal.md)を更新する。
 5. 利用者が変更案を承認するまで、`requirements.md`、設計、ロードマップ、製品コードを変更しない。

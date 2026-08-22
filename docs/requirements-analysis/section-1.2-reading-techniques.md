@@ -9,6 +9,7 @@
 - 関連手順: [`requirements-update-workflow.md`](../requirements-update-workflow.md)
 - 小節別詳細: [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)
 - 「1.2.1.1」詳細: [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)
+- 「1.2.1.2」詳細: [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)
 - 選択結果: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 
 > 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、利用者は両方で選択肢4を選択した。
@@ -36,6 +37,8 @@
 [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)に詳しく記録する。
 「1.2.1.1」の取得情報、分類、公開状態、信頼性参考情報は、
 [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)で限定分析する。
+「1.2.1.2」の電子読解、注釈、再参照、バックアップは、
+[`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)で限定分析する。
 
 ## 2. 分類基準
 

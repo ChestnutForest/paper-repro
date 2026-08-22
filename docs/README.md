@@ -36,6 +36,7 @@
 | [`requirements-analysis/section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md) | 「1.2 論文を読み解く技術」と現行要件の比較。`REQ-C10`・`REQ-C11`とサブ要求候補10件 |
 | [`requirements-analysis/section-1.2.1-reading-environment.md`](requirements-analysis/section-1.2.1-reading-environment.md) | 「1.2.1 論文を読む環境の構築」の詳細検証。`REQ-C10`の根拠とサブ要求候補4件を具体化 |
 | [`requirements-analysis/section-1.2.1.1-paper-acquisition.md`](requirements-analysis/section-1.2.1.1-paper-acquisition.md) | 「1.2.1.1 論文を入手する」の限定分析。新規メイン要求なし、`REQ-C03-S01`・`REQ-C07-S01`を具体化 |
+| [`requirements-analysis/section-1.2.1.2-electronic-reading.md`](requirements-analysis/section-1.2.1.2-electronic-reading.md) | 「1.2.1.2 論文を電子媒体で読む」の限定分析。新規メイン要求なし、`REQ-C09-S01`を要求文と受入基準まで具体化 |
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択、選択結果、理由、影響範囲、受入基準 |
 | [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) | 要件選択の第2バッチ。REQ-C06〜REQ-C09の5択、選択結果、段階開発条件、受入基準 |
 | [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。REQ-C10・REQ-C11の選択結果、理由、受入基準、段階開発条件 |
