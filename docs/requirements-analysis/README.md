@@ -29,6 +29,7 @@
 | [`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md) | 同書「1.2.2.2 具体例を構成する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S01`・`REQ-C10-S03`を詳細化し、`REQ-C10-S01`の根拠を補強 |
 | [`section-1.2.2.3-implementation-reading.md`](section-1.2.2.3-implementation-reading.md) | 同書「1.2.2.3 実装を読み解いて理解を深める」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C05-S01`を詳細化し、`REQ-C07:4`・`REQ-C08:4`・`REQ-C10-S04`の根拠を補強 |
 | [`section-1.2.2.4-important-references.md`](section-1.2.2.4-important-references.md) | 同書「1.2.2.4 重要となる参考文献は踏み込んで調べる」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C09-S02`を詳細化し、`REQ-C03-S01`・`REQ-C04-S01`・`REQ-C07-S01`・`REQ-C08:4`の根拠を補強 |
+| [`section-1.2.2.5-output-for-understanding.md`](section-1.2.2.5-output-for-understanding.md) | 同書「1.2.2.5 アウトプットすることで理解を深める」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S02`・`REQ-C09-S03`を詳細化し、`REQ-C09-S02`・`REQ-C10-S01`・`REQ-C08:4`の根拠を補強 |
 
 ## 追加分析の共通手順
 
