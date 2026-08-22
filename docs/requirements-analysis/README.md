@@ -24,6 +24,7 @@
 | [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md) | 同書「1.2.1.1 論文を入手する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C03-S01`・`REQ-C07-S01`を要求文と受入基準まで具体化 |
 | [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md) | 同書「1.2.1.2 論文を電子媒体で読む」 | 限定分析完了 | 新規メイン要求なし、`REQ-C09-S01`を要求文と受入基準まで具体化 |
 | [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md) | 同書「1.2.1.3 論文は人間が書いたものであることを認識する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C10`の根拠を補強し、`REQ-C10-S04`を具体化 |
+| [`section-1.2.2-independent-reading-techniques.md`](section-1.2.2-independent-reading-techniques.md) | 同書「1.2.2 自分の力で論文を読み解くための技術」 | 限定分析完了 | 新規メイン要求なし、`REQ-C04`・`REQ-C05`・`REQ-C09`・`REQ-C10`のサブ要求候補8件を具体化 |
 
 ## 追加分析の共通手順
 
