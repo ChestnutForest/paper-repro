@@ -1,13 +1,15 @@
 # 要件定義変更案：原論文の読解・学習・再現実装支援
 
 - 対象プロダクト: `paper-repro`
-- 状態: 「1.2」の追加要求候補を選択するまで承認保留
-- 版: v0.2（「1.2」の増分分析を参照し、承認状態を更新）
+- 状態: 第3バッチで提示した`REQ-C10`・`REQ-C11`の選択完了まで承認保留
+- 版: v0.4（第3バッチと「1.2.1」の小節別詳細分析への参照を追加）
 - 作成日: 2026年8月21日
 - 現行要件の正本: [`requirements.md`](requirements.md)
 - 一次資料: 『原論文から解き明かす生成AI』PDF「はじめに」（PDFページ1〜3）と「1.2 論文を読み解く技術」（本文4〜18、脚注19〜21）
 - 決定台帳: [`batch-01-options.md`](requirements-decisions/batch-01-options.md)、[`batch-02-options.md`](requirements-decisions/batch-02-options.md)
+- 追加選択資料: [`batch-03-options.md`](requirements-decisions/batch-03-options.md)
 - 追加分析: [`section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md)
+- 小節別詳細: [`section-1.2.1-reading-environment.md`](requirements-analysis/section-1.2.1-reading-environment.md)
 
 > 本書は変更案であり、まだ確定要件の正本ではない。既存の`REQ-C01`〜`REQ-C09`は選択済みだが、
 > 追加分析で見つかった`REQ-C10`・`REQ-C11`は未選択である。追加候補の選択と本書の再更新後に
@@ -115,6 +117,8 @@
 | REQ-C07 | 4 | 主張単位の証拠台帳で矛盾を隠さず比較する | 確定 |
 | REQ-C08 | 4 | 完全プロヴェナンスを最終目標とし、1から4へ段階開発する | 確定 |
 | REQ-C09 | 4 | 論文ポートフォリオを最終目標とし、1から4へ段階開発する | 確定 |
+| REQ-C10 | — | 第3バッチの5択から利用者が選択する | 未選択 |
+| REQ-C11 | — | 第3バッチの5択から利用者が選択する | 未選択 |
 
 ## 9. 根拠ページとのトレーサビリティ
 
@@ -132,6 +136,8 @@
 
 `REQ-C10`・`REQ-C11`の根拠ページ、要求文案、サブ要求候補、受入基準は、選択完了まで
 [`section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md)を正本とする。
+「1.2.1」の境界、判定理由、要求文案、受入基準は
+[`section-1.2.1-reading-environment.md`](requirements-analysis/section-1.2.1-reading-environment.md)で補足する。
 未選択の候補を、上表の確定済み要求と同じ状態では記録しない。
 
 ## 10. 影響を受ける既存ファイル

@@ -7,6 +7,7 @@
 - 一次資料: 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」
 - 比較対象: [`requirements.md`](../requirements.md)、[`requirements-change-proposal.md`](../requirements-change-proposal.md)
 - 関連手順: [`requirements-update-workflow.md`](../requirements-update-workflow.md)
+- 小節別詳細: [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)
 
 > 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、確定要件ではない。
 > 5択による利用者の選択と変更案の承認が完了するまで、`requirements.md`へ反映しない。
@@ -28,6 +29,9 @@
 1. 論文を読む環境の構築
 2. 自分の力で論文を読み解く技術
 3. 自分以外の力も借りて論文を読み解く技術
+
+「1.2.1」の境界、要求ごとの判定理由、要求文案、受入基準および要求にしない記述は、
+[`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)に詳しく記録する。
 
 ## 2. 分類基準
 
