@@ -14,6 +14,7 @@
 - 「1.2.2」詳細: [`section-1.2.2-independent-reading-techniques.md`](section-1.2.2-independent-reading-techniques.md)
 - 「1.2.2.1」詳細: [`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md)
 - 「1.2.2.2」詳細: [`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md)
+- 「1.2.2.3」詳細: [`section-1.2.2.3-implementation-reading.md`](section-1.2.2.3-implementation-reading.md)
 - 選択結果: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 
 > 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、利用者は両方で選択肢4を選択した。
@@ -53,6 +54,9 @@
 で詳細検証する。
 「1.2.2.2」の操作可能な具体例、評価指標の計算、支持例・反例・境界条件および仮説の区分は、
 [`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md)
+で詳細検証する。
+「1.2.2.3」の論文と版付き公式実装の対応、差異、入手可能性および検査可能性は、
+[`section-1.2.2.3-implementation-reading.md`](section-1.2.2.3-implementation-reading.md)
 で詳細検証する。
 
 ## 2. 分類基準

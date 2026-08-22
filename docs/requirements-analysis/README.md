@@ -27,6 +27,7 @@
 | [`section-1.2.2-independent-reading-techniques.md`](section-1.2.2-independent-reading-techniques.md) | 同書「1.2.2 自分の力で論文を読み解くための技術」 | 限定分析完了 | 新規メイン要求なし、`REQ-C04`・`REQ-C05`・`REQ-C09`・`REQ-C10`のサブ要求候補8件を具体化 |
 | [`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md) | 同書「1.2.2.1 議論が成立する条件を確認する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C10-S01`〜`S03`を詳細化し、`REQ-C07-S01`・`REQ-C10-S04`の根拠を補強 |
 | [`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md) | 同書「1.2.2.2 具体例を構成する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S01`・`REQ-C10-S03`を詳細化し、`REQ-C10-S01`の根拠を補強 |
+| [`section-1.2.2.3-implementation-reading.md`](section-1.2.2.3-implementation-reading.md) | 同書「1.2.2.3 実装を読み解いて理解を深める」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C05-S01`を詳細化し、`REQ-C07:4`・`REQ-C08:4`・`REQ-C10-S04`の根拠を補強 |
 
 ## 追加分析の共通手順
 
