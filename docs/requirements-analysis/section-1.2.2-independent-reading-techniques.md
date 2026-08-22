@@ -8,6 +8,7 @@
 - 比較対象: [`requirements.md`](../requirements.md)、
   [`requirements-change-proposal.md`](../requirements-change-proposal.md)
 - 上位分析: [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md)
+- 小節別詳細: [`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md)
 - 選択結果: [`batch-01-options.md`](../requirements-decisions/batch-01-options.md)、
   [`batch-02-options.md`](../requirements-decisions/batch-02-options.md)、
   [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
@@ -32,6 +33,9 @@
 | OCR | 不要。見出しと要求根拠に文字欠損は確認されなかった |
 | 目視検証 | PDFページ6〜15を画像化し、開始・終了境界と各小節の見出しを照合済み |
 | 対象外 | 「1.2.1.3」の前半、「1.2.3」以降の本文、脚注以外のページ19〜20、参考文献、おわりに |
+
+「1.2.2.1」の開始・終了境界、一次資料の抽出、要求ごとの判定理由、詳細要求文および受入基準は、
+[`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md)を正本とする。
 
 ## 2. 一次資料から抽出した内容
 
@@ -240,6 +244,7 @@
 一方、選択済みの`REQ-C04`、`REQ-C05`、`REQ-C09`、`REQ-C10`を支える既存サブ要求候補8件について、
 検証可能な要求文、受入基準および影響範囲を具体化できた。
 
-次の処理は、8件を[`requirements-change-proposal.md`](../requirements-change-proposal.md)へ統合し、
-残る未具体化サブ要求を後続小節の分析で処理した後、利用者が変更案全体を承認、修正または保留と
-判断することである。承認前は`requirements.md`、製品設計、ロードマップ、製品コードを変更しない。
+`REQ-C10-S01`〜`S03`のうち「1.2.2.1」に対応する部分は小節別に詳細検証済みである。
+次の処理は、「1.2.2.2」以降を同じ方法で限定分析し、残る未具体化サブ要求を処理した後、利用者が
+変更案全体を承認、修正または保留と判断することである。承認前は`requirements.md`、製品設計、
+ロードマップ、製品コードを変更しない。

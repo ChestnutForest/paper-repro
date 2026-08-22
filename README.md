@@ -15,6 +15,7 @@
 - 「1.2.1.2 論文を電子媒体で読む」の詳細分析: [`docs/requirements-analysis/section-1.2.1.2-electronic-reading.md`](docs/requirements-analysis/section-1.2.1.2-electronic-reading.md)
 - 「1.2.1.3 論文は人間が書いたものであることを認識する」の詳細分析: [`docs/requirements-analysis/section-1.2.1.3-human-authorship.md`](docs/requirements-analysis/section-1.2.1.3-human-authorship.md)
 - 「1.2.2 自分の力で論文を読み解くための技術」の詳細分析: [`docs/requirements-analysis/section-1.2.2-independent-reading-techniques.md`](docs/requirements-analysis/section-1.2.2-independent-reading-techniques.md)
+- 「1.2.2.1 議論が成立する条件を確認する」の詳細分析: [`docs/requirements-analysis/section-1.2.2.1-discussion-conditions.md`](docs/requirements-analysis/section-1.2.2.1-discussion-conditions.md)
 - 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
 - 要件選択・第2バッチ: [`docs/requirements-decisions/batch-02-options.md`](docs/requirements-decisions/batch-02-options.md)
 - 追加要件選択・第3バッチ: [`docs/requirements-decisions/batch-03-options.md`](docs/requirements-decisions/batch-03-options.md)
@@ -239,7 +240,8 @@ paper-repro/
     │   ├── section-1.2.1.1-paper-acquisition.md
     │   ├── section-1.2.1.2-electronic-reading.md
     │   ├── section-1.2.1.3-human-authorship.md
-    │   └── section-1.2.2-independent-reading-techniques.md
+    │   ├── section-1.2.2-independent-reading-techniques.md
+    │   └── section-1.2.2.1-discussion-conditions.md
     ├── requirements-decisions/
     │   ├── batch-01-options.md
     │   ├── batch-02-options.md
