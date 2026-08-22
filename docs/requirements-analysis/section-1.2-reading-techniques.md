@@ -2,15 +2,17 @@
 
 - 対象プロダクト: `paper-repro`
 - 文書種別: 一次資料に基づく要件追加候補の分析
-- 状態: 分析完了・追加要求候補の選択待ち
+- 状態: 分析完了・追加要求候補2件を選択済み・変更案の承認待ち
 - 作成日: 2026年8月21日
 - 一次資料: 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」
 - 比較対象: [`requirements.md`](../requirements.md)、[`requirements-change-proposal.md`](../requirements-change-proposal.md)
 - 関連手順: [`requirements-update-workflow.md`](../requirements-update-workflow.md)
 - 小節別詳細: [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)
+- 「1.2.1.1」詳細: [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)
+- 選択結果: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 
-> 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、確定要件ではない。
-> 5択による利用者の選択と変更案の承認が完了するまで、`requirements.md`へ反映しない。
+> 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、利用者は両方で選択肢4を選択した。
+> 要件定義変更案の承認が完了するまで、`requirements.md`へ反映しない。
 
 ---
 
@@ -32,6 +34,8 @@
 
 「1.2.1」の境界、要求ごとの判定理由、要求文案、受入基準および要求にしない記述は、
 [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)に詳しく記録する。
+「1.2.1.1」の取得情報、分類、公開状態、信頼性参考情報は、
+[`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)で限定分析する。
 
 ## 2. 分類基準
 
@@ -169,16 +173,14 @@
 | 文書 | 今回の処理 | 次の処理 |
 |---|---|---|
 | [`requirements.md`](../requirements.md) | 変更しない | 追加候補の選択と変更案承認後に更新する |
-| [`requirements-change-proposal.md`](../requirements-change-proposal.md) | 本分析への参照と承認保留を記録する | 選択後に候補とサブ要求を統合する |
-| [`requirements-update-workflow.md`](../requirements-update-workflow.md) | 増分分析の進捗と次の意思決定を記録する | 選択結果と変更案更新を記録する |
-| `requirements-decisions/` | 変更しない | `REQ-C10`、`REQ-C11`の5択を別バッチとして追加する |
+| [`requirements-change-proposal.md`](../requirements-change-proposal.md) | 選択結果と小節別サブ要求を統合する | 利用者の承認後に確定要件へ反映する |
+| [`requirements-update-workflow.md`](../requirements-update-workflow.md) | 選択完了、限定分析、変更案更新を記録する | 利用者の承認結果を記録する |
+| [`requirements-decisions/batch-03-options.md`](../requirements-decisions/batch-03-options.md) | `REQ-C10:4`、`REQ-C11:4`と段階開発条件を記録する | 決定台帳として維持する |
 | `product-design.md`、`roadmap.md`、製品コード | 変更しない | 変更案承認後に別作業として更新する |
 
 ## 9. 次の意思決定
 
-1. `REQ-C10`と`REQ-C11`について、それぞれ5つの選択肢を作成する。
-2. 各5択では、選択肢1〜4を具体案、選択肢5だけをLLMによる自動作成とする。
-3. 利用者の選択理由、影響範囲、受入基準を決定台帳へ記録する。
-4. 既存10件のサブ要求候補を、採用、修正、保留へ分類する。
-5. 全ての選択後に要件定義変更案を更新する。
-6. 更新した変更案が承認されるまで、確定要件、設計、ロードマップ、製品コードを変更しない。
+1. 既存10件のサブ要求候補を、採用、修正、保留へ分類する。
+2. 更新した要件定義変更案について、利用者が承認、修正または保留を判断する。
+3. 承認後に、確定要件、設計、ロードマップを別の作業単位で更新する。
+4. 変更案が承認されるまで、確定要件、設計、ロードマップ、製品コードを変更しない。

@@ -19,8 +19,9 @@
 
 | ファイル | 対象 | 状態 | 主な結果 |
 |---|---|---|---|
-| [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md) | 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」 | 分析完了・追加候補の選択待ち | メイン要求候補2件、サブ要求候補10件 |
+| [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md) | 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」 | 分析完了・追加候補2件を選択済み | メイン要求候補2件、サブ要求候補10件 |
 | [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md) | 同書「1.2.1 論文を読む環境の構築」 | 詳細検証完了 | `REQ-C10`の根拠補強、既存サブ要求候補4件、新規IDなし |
+| [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md) | 同書「1.2.1.1 論文を入手する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C03-S01`・`REQ-C07-S01`を要求文と受入基準まで具体化 |
 
 ## 追加分析の共通手順
 

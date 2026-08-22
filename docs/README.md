@@ -31,13 +31,14 @@
 |---|---|
 | [`requirements.md`](requirements.md) | 要件定義。human-in-the-loop、サンドボックスのリスク |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
-| [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み9件を統合した要件定義変更案。「1.2」の追加候補を選択するまで承認保留 |
+| [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
 | [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
 | [`requirements-analysis/section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md) | 「1.2 論文を読み解く技術」と現行要件の比較。`REQ-C10`・`REQ-C11`とサブ要求候補10件 |
 | [`requirements-analysis/section-1.2.1-reading-environment.md`](requirements-analysis/section-1.2.1-reading-environment.md) | 「1.2.1 論文を読む環境の構築」の詳細検証。`REQ-C10`の根拠とサブ要求候補4件を具体化 |
+| [`requirements-analysis/section-1.2.1.1-paper-acquisition.md`](requirements-analysis/section-1.2.1.1-paper-acquisition.md) | 「1.2.1.1 論文を入手する」の限定分析。新規メイン要求なし、`REQ-C03-S01`・`REQ-C07-S01`を具体化 |
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択、選択結果、理由、影響範囲、受入基準 |
 | [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) | 要件選択の第2バッチ。REQ-C06〜REQ-C09の5択、選択結果、段階開発条件、受入基準 |
-| [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。未選択のREQ-C10・REQ-C11について各5択と回答欄を提示 |
+| [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。REQ-C10・REQ-C11の選択結果、理由、受入基準、段階開発条件 |
 | [`product-design.md`](product-design.md) | 初期リリース設計。画面遷移・APIエンドポイント・技術スタック |
 | [`tech-stack.md`](tech-stack.md) | 技術スタック解説。各技術の役割と選定理由 |
 | [`roadmap.md`](roadmap.md) | 開発ロードマップ。フェーズ0〜6と進捗、将来のDB候補 |
