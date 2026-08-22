@@ -154,37 +154,101 @@ npm install
 
 ## ディレクトリ構成
 
-```
+現在Gitで追跡している主要なファイルとディレクトリを示す。
+仮想環境、依存パッケージ、ビルド生成物、`.env` などのGit管理外ファイルは省略している。
+
+```text
 paper-repro/
-├── AGENTS.md              ← Claude Code / Codex 共通のAI開発指示（正本）
-├── CLAUDE.md              ← Claude Code から AGENTS.md への入口
+├── .env.example
+├── .gitignore
+├── AGENTS.md                    ← Claude Code / Codex 共通のAI開発指示（正本）
+├── CLAUDE.md                    ← Claude Code から AGENTS.md への入口
+├── LICENSE
 ├── README.md
-├── .env.example          ← 環境変数のテンプレート（.env にコピーして使う）
-├── docker-compose.yml    ← PostgreSQL + Redis
-├── .vscode/              ← VS Code 推奨設定・拡張機能
+├── docker-compose.yml           ← PostgreSQL + Redis
+├── .vscode/
+│   ├── extensions.json
+│   └── settings.json
 ├── scripts/
-│   ├── start-dev.ps1         ← 開発環境の起動（Windows）
-│   └── start-dev.sh          ← 開発環境の起動（Mac / Linux）
-├── docs/
-│   ├── README.md             ← ドキュメント索引
-│   ├── daily-routine.md      ← 日々のルーチンワーク
-│   ├── dev-startup.md        ← 起動スクリプトの使い方・確認事項
-│   ├── requirements.md       ← 要件定義
-│   ├── requirements-update-workflow.md ← 要件定義を更新するための検討手順
-│   ├── requirements-change-proposal.md ← 承認前の要件定義変更案
-│   ├── requirements-analysis/ ← 一次資料と現行要件の差分分析
-│   ├── requirements-decisions/ ← 5択と利用者の決定記録
-│   ├── product-design.md     ← 製品設計（初期リリース範囲）
-│   ├── tech-stack.md         ← 技術スタック解説
-│   ├── roadmap.md            ← 開発ロードマップ
-│   ├── notebooklm-prompts.md ← NotebookLM 活用プロンプト集
-│   ├── getting-started-vscode-windows.md
-│   ├── getting-started-vscode.md
-│   ├── arch-guide/           ← CCAF由来の設計指針と適用率レポート
-│   ├── devlog/               ← 日次開発ログ
-│   └── history/              ← プロジェクト経緯
-├── backend/              ← FastAPI + Celery
-└── frontend/             ← Next.js
+│   ├── start-dev.ps1            ← 開発環境の起動（Windows）
+│   └── start-dev.sh             ← 開発環境の起動（Mac / Linux）
+├── backend/                      ← FastAPIバックエンド
+│   ├── requirements.txt
+│   ├── app/
+│   │   ├── main.py              ← FastAPIエントリーポイント
+│   │   ├── api/
+│   │   │   └── projects.py      ← プロジェクトAPI
+│   │   ├── core/
+│   │   │   ├── config.py        ← アプリケーション設定
+│   │   │   ├── db.py            ← データベース接続
+│   │   │   └── states.py        ← 状態定義
+│   │   ├── models/
+│   │   │   └── project.py       ← プロジェクトモデル
+│   │   ├── services/            ← サービス層
+│   │   └── workers/             ← 非同期ワーカー層
+│   └── tests/
+│       └── test_smoke.py
+├── frontend/                     ← Next.jsフロントエンド
+│   ├── .env.local.example
+│   ├── components.json
+│   ├── next-env.d.ts
+│   ├── next.config.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.ts
+│   ├── tsconfig.json
+│   ├── messages/                 ← 多言語メッセージ
+│   │   ├── en.json
+│   │   ├── ja.json
+│   │   └── zh-TW.json
+│   └── src/
+│       ├── components/
+│       │   ├── LocaleSwitcher.tsx
+│       │   ├── PaperInput.tsx
+│       │   └── ui/
+│       ├── lib/
+│       │   ├── api.ts
+│       │   └── utils.ts
+│       ├── pages/
+│       │   ├── _app.tsx
+│       │   └── index.tsx
+│       └── styles/
+│           └── globals.css
+└── docs/
+    ├── README.md                 ← ドキュメント索引
+    ├── daily-routine.md          ← 日々のルーチンワーク
+    ├── dev-startup.md            ← 起動スクリプトの使い方・確認事項
+    ├── getting-started-vscode-windows.md
+    ├── getting-started-vscode.md
+    ├── notebooklm-prompts.md     ← NotebookLM活用プロンプト集
+    ├── product-design.md         ← 製品設計
+    ├── requirements.md           ← 確定済み要件の正本
+    ├── requirements-change-proposal.md
+    ├── requirements-update-workflow.md
+    ├── roadmap.md                ← 開発ロードマップ
+    ├── tech-stack.md             ← 技術スタック解説
+    ├── requirements-analysis/
+    │   ├── README.md
+    │   ├── section-1.2-reading-techniques.md
+    │   └── section-1.2.1-reading-environment.md
+    ├── requirements-decisions/
+    │   ├── batch-01-options.md
+    │   ├── batch-02-options.md
+    │   └── batch-03-options.md
+    ├── arch-guide/               ← CCAF由来の設計指針と適用率レポート
+    │   ├── README.md
+    │   ├── arc-architecture.md
+    │   ├── ccaf-coverage-2026-08-03.md
+    │   ├── ccaf-patterns.md
+    │   ├── claude-code-playbook.md
+    │   ├── coverage-remeasure-howto.md
+    │   └── coverage-rubric.md
+    ├── devlog/                   ← 日次開発ログ
+    │   ├── README.md
+    │   └── devlog-YYYY-MM-DD*.md
+    └── history/
+        └── project-history.md
 ```
 
 ## 開発の進め方
