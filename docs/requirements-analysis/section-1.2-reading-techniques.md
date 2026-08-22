@@ -13,6 +13,7 @@
 - 「1.2.1.3」詳細: [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md)
 - 「1.2.2」詳細: [`section-1.2.2-independent-reading-techniques.md`](section-1.2.2-independent-reading-techniques.md)
 - 「1.2.2.1」詳細: [`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md)
+- 「1.2.2.2」詳細: [`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md)
 - 選択結果: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 
 > 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、利用者は両方で選択肢4を選択した。
@@ -49,6 +50,9 @@
 で限定分析する。
 「1.2.2.1」の前提、帰結、成立範囲、実験設定、不確実性および自力検証は、
 [`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md)
+で詳細検証する。
+「1.2.2.2」の操作可能な具体例、評価指標の計算、支持例・反例・境界条件および仮説の区分は、
+[`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md)
 で詳細検証する。
 
 ## 2. 分類基準
@@ -197,7 +201,8 @@
 1. `REQ-C03-S01`、`REQ-C04-S01`、`REQ-C04-S02`、`REQ-C05-S01`、`REQ-C07-S01`、
    `REQ-C09-S01`〜`S03`、`REQ-C10-S01`〜`S04`を統合した変更案を確認する。
 2. `REQ-C10-S01`〜`S03`の「1.2.2.1」に対応する部分は詳細検証済みとして維持する。
-3. 残る`REQ-C02-S01`と`REQ-C08-S01`を、後続小節の詳細分析で具体化する。
-4. 更新した要件定義変更案について、利用者が承認、修正または保留を判断する。
-5. 承認後に、確定要件、設計、ロードマップを別の作業単位で更新する。
-6. 変更案が承認されるまで、確定要件、設計、ロードマップ、製品コードを変更しない。
+3. `REQ-C04-S01`と`REQ-C10-S03`の「1.2.2.2」に対応する部分は詳細検証済みとして維持する。
+4. 残る`REQ-C02-S01`と`REQ-C08-S01`を、後続小節の詳細分析で具体化する。
+5. 更新した要件定義変更案について、利用者が承認、修正または保留を判断する。
+6. 承認後に、確定要件、設計、ロードマップを別の作業単位で更新する。
+7. 変更案が承認されるまで、確定要件、設計、ロードマップ、製品コードを変更しない。

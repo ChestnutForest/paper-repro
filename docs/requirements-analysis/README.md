@@ -26,6 +26,7 @@
 | [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md) | 同書「1.2.1.3 論文は人間が書いたものであることを認識する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C10`の根拠を補強し、`REQ-C10-S04`を具体化 |
 | [`section-1.2.2-independent-reading-techniques.md`](section-1.2.2-independent-reading-techniques.md) | 同書「1.2.2 自分の力で論文を読み解くための技術」 | 限定分析完了 | 新規メイン要求なし、`REQ-C04`・`REQ-C05`・`REQ-C09`・`REQ-C10`のサブ要求候補8件を具体化 |
 | [`section-1.2.2.1-discussion-conditions.md`](section-1.2.2.1-discussion-conditions.md) | 同書「1.2.2.1 議論が成立する条件を確認する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C10-S01`〜`S03`を詳細化し、`REQ-C07-S01`・`REQ-C10-S04`の根拠を補強 |
+| [`section-1.2.2.2-concrete-examples.md`](section-1.2.2.2-concrete-examples.md) | 同書「1.2.2.2 具体例を構成する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S01`・`REQ-C10-S03`を詳細化し、`REQ-C10-S01`の根拠を補強 |
 
 ## 追加分析の共通手順
 

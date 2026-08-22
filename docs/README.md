@@ -40,6 +40,7 @@
 | [`requirements-analysis/section-1.2.1.3-human-authorship.md`](requirements-analysis/section-1.2.1.3-human-authorship.md) | 「1.2.1.3 論文は人間が書いたものであることを認識する」の限定分析。`REQ-C10`の根拠を補強し、`REQ-C10-S04`を具体化 |
 | [`requirements-analysis/section-1.2.2-independent-reading-techniques.md`](requirements-analysis/section-1.2.2-independent-reading-techniques.md) | 「1.2.2 自分の力で論文を読み解くための技術」の限定分析。新規メイン要求なし、既存サブ要求候補8件を要求文と受入基準まで具体化 |
 | [`requirements-analysis/section-1.2.2.1-discussion-conditions.md`](requirements-analysis/section-1.2.2.1-discussion-conditions.md) | 「1.2.2.1 議論が成立する条件を確認する」の限定分析。新規メイン要求なし、`REQ-C10-S01`〜`S03`を詳細化 |
+| [`requirements-analysis/section-1.2.2.2-concrete-examples.md`](requirements-analysis/section-1.2.2.2-concrete-examples.md) | 「1.2.2.2 具体例を構成する」の限定分析。新規メイン要求なし、`REQ-C04-S01`・`REQ-C10-S03`を詳細化 |
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択、選択結果、理由、影響範囲、受入基準 |
 | [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) | 要件選択の第2バッチ。REQ-C06〜REQ-C09の5択、選択結果、段階開発条件、受入基準 |
 | [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。REQ-C10・REQ-C11の選択結果、理由、受入基準、段階開発条件 |
