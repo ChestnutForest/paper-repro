@@ -23,6 +23,7 @@
 | [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md) | 同書「1.2.1 論文を読む環境の構築」 | 詳細検証完了 | `REQ-C10`の根拠補強、既存サブ要求候補4件、新規IDなし |
 | [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md) | 同書「1.2.1.1 論文を入手する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C03-S01`・`REQ-C07-S01`を要求文と受入基準まで具体化 |
 | [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md) | 同書「1.2.1.2 論文を電子媒体で読む」 | 限定分析完了 | 新規メイン要求なし、`REQ-C09-S01`を要求文と受入基準まで具体化 |
+| [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md) | 同書「1.2.1.3 論文は人間が書いたものであることを認識する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C10`の根拠を補強し、`REQ-C10-S04`を具体化 |
 
 ## 追加分析の共通手順
 

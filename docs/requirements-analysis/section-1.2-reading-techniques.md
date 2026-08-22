@@ -10,6 +10,7 @@
 - 小節別詳細: [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)
 - 「1.2.1.1」詳細: [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)
 - 「1.2.1.2」詳細: [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)
+- 「1.2.1.3」詳細: [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md)
 - 選択結果: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 
 > 本書に記載する`REQ-C10`と`REQ-C11`は候補IDであり、利用者は両方で選択肢4を選択した。
@@ -39,6 +40,8 @@
 [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)で限定分析する。
 「1.2.1.2」の電子読解、注釈、再参照、バックアップは、
 [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)で限定分析する。
+「1.2.1.3」の主張区分、直接支持範囲、誤り・誇張・バイアス・不確実性は、
+[`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md)で限定分析する。
 
 ## 2. 分類基準
 
@@ -90,7 +93,7 @@
 | `REQ-C10-S01` | 主張から前提条件、帰結、適用範囲、議論を追う深さを分離して記録する |
 | `REQ-C10-S02` | データ、乱数、パラメータ、試行回数、エラーバー、比較条件などの実験設定を確認する |
 | `REQ-C10-S03` | 手計算、具体例、反例、境界条件を作成・実行し、対象主張へ関連付ける |
-| `REQ-C10-S04` | 事実、実験結果、推論、仮説、宣伝的表現を区別し、バイアスと不確実性を表示する |
+| `REQ-C10-S04` | 事実、実験結果、解釈・推論、仮説、予測、宣伝的表現を区別し、直接支持範囲、バイアスと不確実性を表示する |
 
 #### 最小受入基準
 
@@ -183,7 +186,8 @@
 
 ## 9. 次の意思決定
 
-1. 既存10件のサブ要求候補を、採用、修正、保留へ分類する。
+1. `REQ-C03-S01`、`REQ-C07-S01`、`REQ-C09-S01`、`REQ-C10-S04`を統合した変更案を確認し、
+   残る6件のサブ要求候補を採用、修正、保留へ分類する。
 2. 更新した要件定義変更案について、利用者が承認、修正または保留を判断する。
 3. 承認後に、確定要件、設計、ロードマップを別の作業単位で更新する。
 4. 変更案が承認されるまで、確定要件、設計、ロードマップ、製品コードを変更しない。

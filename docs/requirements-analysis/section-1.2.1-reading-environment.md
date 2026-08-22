@@ -9,6 +9,7 @@
 - 選択資料: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 - 「1.2.1.1」詳細: [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)
 - 「1.2.1.2」詳細: [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)
+- 「1.2.1.3」詳細: [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md)
 - 比較対象: [`requirements.md`](../requirements.md)、
   [`requirements-change-proposal.md`](../requirements-change-proposal.md)
 
@@ -61,8 +62,8 @@
 | 1.2.1.1 | 入手元、版、カテゴリー、プレプリント・査読・採択状態を管理する | サブ要求 | [`REQ-C03-S01`](section-1.2.1.1-paper-acquisition.md#51-req-c03-s01論文取得情報分類公開状態の管理) |
 | 1.2.1.1 | 採択、引用、著者実績、専門家意見を信頼性の参考情報として比較する | サブ要求 | [`REQ-C07-S01`](section-1.2.1.1-paper-acquisition.md#52-req-c07-s01信頼性参考情報の分離表示) |
 | 1.2.1.2 | PDF、注釈、計算、メモ、検索、バックアップを電子的に管理する | サブ要求 | [`REQ-C09-S01`](section-1.2.1.2-electronic-reading.md#51-req-c09-s01電子読解注釈再参照環境) |
-| 1.2.1.3 | 誤り、誇張、推測、著者バイアスを考慮して批判的に読む | メイン要求の根拠 | `REQ-C10` |
-| 1.2.1.3 | 事実、結果、推論、仮説等を区別し、バイアスと不確実性を表示する | サブ要求 | `REQ-C10-S04` |
+| 1.2.1.3 | 誤り、誇張、推測、著者バイアスを考慮して批判的に読む | メイン要求の根拠 | [`REQ-C10`](section-1.2.1.3-human-authorship.md#41-対応するメイン要求req-c10) |
+| 1.2.1.3 | 事実、結果、推論、仮説等を区別し、直接支持範囲、バイアス、不確実性を表示する | サブ要求 | [`REQ-C10-S04`](section-1.2.1.3-human-authorship.md#51-req-c10-s04主張区分直接支持範囲バイアス不確実性の表示) |
 
 ## 4. メイン要求候補
 
@@ -140,21 +141,26 @@
 
 ### 5.4 REQ-C10-S04：主張区分・バイアス・不確実性の表示
 
+検証可能な要求文、受入基準、設計解釈と要求にしない記述は、
+[`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md)を正本とする。
+
 #### 要求文案
 
-システムは、論文中の重要な記述を、事実、実験結果、推論、仮説、予想および宣伝的表現に分類し、
-誤り、誇張、確証バイアスその他の不確実性が疑われる箇所を、根拠とともに利用者へ提示する。
+システムは、論文中の重要な記述を、確認可能な事実、実験結果、著者の解釈・推論、仮説、
+将来予測および宣伝的・価値判断的表現に分類する。根拠が直接支持する範囲と追加の推論を要する
+範囲を分け、誤り、誇張、確証バイアスその他の不確実性を断定せず検討状態として提示する。
 
 #### 受入基準
 
-- 主張区分と根拠箇所を表示できる。
-- LLMによる分類であることを識別できる。
-- 利用者が分類を修正できる。
-- 誤り、未確認、情報不足を区別できる。
-- LLMだけで真偽または検討完了を確定できない。
+- 主張区分、根拠箇所、直接支持範囲を表示できる。
+- LLMによる分類と、そのモデル・生成条件・日時を識別できる。
+- 利用者が分類、警告、判断理由を修正し、変更履歴を追跡できる。
+- 確認済みの誤り、不一致の疑い、未確認、情報不足を区別できる。
+- 査読・採択や人物属性だけで真偽、バイアス、不正を自動判定しない。
+- LLMだけで真偽、不正または検討完了を確定できない。
 
-`REQ-C10-S04`は、`REQ-C10`を独立要求として採用するか、既存要求へ統合すると決定した後に、
-採用、修正、保留を判断する。
+`REQ-C10`は選択肢4で選択済みである。`REQ-C10-S04`は独立した5択へ進めず、
+選択済みメイン要求を具体化するサブ要求候補として変更案へ統合する。
 
 ## 6. 新しいメイン要求を追加しない理由
 
@@ -191,9 +197,11 @@
 
 1. [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)の選択結果、理由、受入基準を維持する。
 2. [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md)で具体化した
-   `REQ-C03-S01`と`REQ-C07-S01`、および
+   `REQ-C03-S01`と`REQ-C07-S01`、
    [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md)で具体化した
-   `REQ-C09-S01`を変更案へ統合する。
-3. `REQ-C10-S04`を含む残りの既存サブ要求候補を、採用、修正、保留へ分類する。
+   `REQ-C09-S01`、および
+   [`section-1.2.1.3-human-authorship.md`](section-1.2.1.3-human-authorship.md)で具体化した
+   `REQ-C10-S04`を変更案へ統合する。
+3. 残りの既存サブ要求候補を、採用、修正、保留へ分類する。
 4. [`requirements-change-proposal.md`](../requirements-change-proposal.md)を更新する。
 5. 利用者が変更案を承認するまで、`requirements.md`、設計、ロードマップ、製品コードを変更しない。
