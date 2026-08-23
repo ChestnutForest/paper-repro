@@ -4,7 +4,7 @@
 - 文書種別: 一次資料の小節に限定した増分要求分析
 - 状態: 詳細検証完了・新しいメイン要求なし・既存サブ要求候補8件を具体化
 - 作成日: 2026年8月22日
-- 一次資料: 『原論文から解き明かす生成AI』「1.2.2 自分の力で論文を読み解くための技術」
+- 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 の「1.2.2 自分の力で論文を読み解くための技術」
 - 比較対象: [`requirements.md`](../requirements.md)、
   [`requirements-change-proposal.md`](../requirements-change-proposal.md)
 - 上位分析: [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md)

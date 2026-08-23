@@ -5,7 +5,8 @@
 - 版: v0.12（「1.2.2.4」の限定分析と`REQ-C09-S02`の詳細検証を反映）
 - 作成日: 2026年8月21日
 - 現行要件の正本: [`requirements.md`](requirements.md)
-- 一次資料: 『原論文から解き明かす生成AI』PDF「はじめに」（PDFページ1〜3）と「1.2 論文を読み解く技術」（本文4〜18、脚注19〜21）
+- 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 のPDF版「はじめに」（PDFページ1〜3）と「1.2 論文を読み解く技術」（本文4〜18、脚注19〜21）
+- 書誌情報: [`references.md`](references.md)
 - 決定台帳: [`batch-01-options.md`](requirements-decisions/batch-01-options.md)、
   [`batch-02-options.md`](requirements-decisions/batch-02-options.md)、
   [`batch-03-options.md`](requirements-decisions/batch-03-options.md)

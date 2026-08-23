@@ -4,7 +4,7 @@
 - 文書種別: 一次資料の節に限定した増分要求分析（**導入部のみを対象とする暫定版**）
 - 状態: 導入部の検証完了・新しいメイン要求なし・新規サブ要求候補2件・小節本文の分析は未実施
 - 作成日: 2026年8月22日
-- 一次資料: 『原論文から解き明かす生成AI』「1.2.3 自分以外の力も借りて論文を読み解くための技術」の導入部
+- 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 の「1.2.3 自分以外の力も借りて論文を読み解くための技術」の導入部
 - 比較対象: [`requirements.md`](../requirements.md)、
   [`requirements-change-proposal.md`](../requirements-change-proposal.md)
 - 上位分析: [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md)

@@ -4,7 +4,7 @@
 - 文書種別: 一次資料の小節に限定した詳細要求分析
 - 状態: 分析完了・既存サブ要求候補への対応確認済み
 - 作成日: 2026年8月22日
-- 一次資料: 『原論文から解き明かす生成AI』「1.2.1.1 論文を入手する」
+- 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 の「1.2.1.1 論文を入手する」
 - 上位分析: [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)
 - 選択結果: [`batch-03-options.md`](../requirements-decisions/batch-03-options.md)
 - 比較対象: [`requirements.md`](../requirements.md)、

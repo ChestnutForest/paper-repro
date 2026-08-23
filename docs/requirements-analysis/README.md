@@ -11,6 +11,7 @@
 | 要件定義変更案 | [`../requirements-change-proposal.md`](../requirements-change-proposal.md) | 選択済み要求を統合した承認前の変更案 |
 | 意思決定記録 | [`../requirements-decisions/`](../requirements-decisions/) | 5択、利用者の選択、理由、受入基準 |
 | 一次資料分析 | 本ディレクトリ | 根拠範囲、現行要件との対応、新規要求候補 |
+| 参考文献 | [`../references.md`](../references.md) | 一次資料の書誌情報と引用の方針 |
 
 分析文書で見つかったメイン要求候補は、利用者が5択で方針を選ぶまで未確定とする。
 既存要求を具体化するサブ要求も、変更案へ統合して承認されるまでは確定要件として扱わない。
@@ -19,7 +20,7 @@
 
 | ファイル | 対象 | 状態 | 主な結果 |
 |---|---|---|---|
-| [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md) | 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」 | 分析完了・追加候補2件を選択済み | メイン要求候補2件、サブ要求候補10件 |
+| [`section-1.2-reading-techniques.md`](section-1.2-reading-techniques.md) | 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 の「1.2 論文を読み解く技術」 | 分析完了・追加候補2件を選択済み | メイン要求候補2件、サブ要求候補10件 |
 | [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md) | 同書「1.2.1 論文を読む環境の構築」 | 詳細検証完了 | `REQ-C10`の根拠補強、既存サブ要求候補4件、新規IDなし |
 | [`section-1.2.1.1-paper-acquisition.md`](section-1.2.1.1-paper-acquisition.md) | 同書「1.2.1.1 論文を入手する」 | 限定分析完了 | 新規メイン要求なし、`REQ-C03-S01`・`REQ-C07-S01`を要求文と受入基準まで具体化 |
 | [`section-1.2.1.2-electronic-reading.md`](section-1.2.1.2-electronic-reading.md) | 同書「1.2.1.2 論文を電子媒体で読む」 | 限定分析完了 | 新規メイン要求なし、`REQ-C09-S01`を要求文と受入基準まで具体化 |

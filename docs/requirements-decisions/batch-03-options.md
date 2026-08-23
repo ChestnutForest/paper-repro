@@ -7,7 +7,8 @@
 - 状態: 第3バッチ選択完了（2/2件）・要件定義変更案の承認待ち
 - 作成日: 2026年8月21日
 - 選択完了日: 2026年8月22日
-- 一次資料: 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」
+- 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 の「1.2 論文を読み解く技術」
+- 書誌情報: [`../references.md`](../references.md)
 - 分析資料: [`section-1.2-reading-techniques.md`](../requirements-analysis/section-1.2-reading-techniques.md)
 - 小節別詳細: [`section-1.2.1-reading-environment.md`](../requirements-analysis/section-1.2.1-reading-environment.md)
 - 関連文書: [`requirements-update-workflow.md`](../requirements-update-workflow.md)、

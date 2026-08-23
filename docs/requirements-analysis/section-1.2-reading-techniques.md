@@ -4,7 +4,7 @@
 - 文書種別: 一次資料に基づく要件追加候補の分析
 - 状態: 分析完了・追加要求候補2件を選択済み・変更案の承認待ち
 - 作成日: 2026年8月21日
-- 一次資料: 『原論文から解き明かす生成AI』「1.2 論文を読み解く技術」
+- 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 の「1.2 論文を読み解く技術」
 - 比較対象: [`requirements.md`](../requirements.md)、[`requirements-change-proposal.md`](../requirements-change-proposal.md)
 - 関連手順: [`requirements-update-workflow.md`](../requirements-update-workflow.md)
 - 小節別詳細: [`section-1.2.1-reading-environment.md`](section-1.2.1-reading-environment.md)

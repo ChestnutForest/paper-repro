@@ -8,6 +8,7 @@
 - 要件: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
+- 参考文献: [`docs/references.md`](docs/references.md)
 - 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
 - 「1.2 論文を読み解く技術」の要求分析: [`docs/requirements-analysis/section-1.2-reading-techniques.md`](docs/requirements-analysis/section-1.2-reading-techniques.md)
 - 「1.2.1 論文を読む環境の構築」の詳細分析: [`docs/requirements-analysis/section-1.2.1-reading-environment.md`](docs/requirements-analysis/section-1.2.1-reading-environment.md)
@@ -233,6 +234,7 @@ paper-repro/
     ├── getting-started-vscode.md
     ├── notebooklm-prompts.md     ← NotebookLM活用プロンプト集
     ├── product-design.md         ← 製品設計
+    ├── references.md             ← 参考文献（一次資料の書誌と引用方針）
     ├── requirements.md           ← 確定済み要件の正本
     ├── requirements-change-proposal.md
     ├── requirements-update-workflow.md
