@@ -2,18 +2,25 @@
 
 ## メタ情報
 
-- 検証日（JST）: 2026-08-23
-- 検証対象ソース: `対照学習_論文再現実装ハンズオン_4_.pdf`（DL COMMUNITY, MATSUO-IWASAWA LAB, THE UNIVERSITY OF TOKYO／発表者: 角居雄太）
-- 対象論文: Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. "A Simple Framework for Contrastive Learning of Visual Representations." *Proc. 37th ICML*, **2020**, 1597–1607.
-- 対象論文URL: https://doi.org/10.48550/arxiv.2002.05709
-- 検証範囲: 「論文概要」から「発展/自己教師あり学習の一般化 ― ロボティクス分野への展開」まで（APPENDIX を含む）
-- 検証の目的: paper-repro が「高効率・高生産性で論文を読み解き、再現実装する」ことを支援するために、本PDFの解説の流れを機能要求として写し取る
+- 対象プロダクト: `paper-repro`
+- 文書種別: 一次資料（講義解説資料）に基づく要求追加候補の分析
+- 状態: 分析完了・5択未実施・`requirements.md` との突合未実施
+- 作成日: 2026年8月23日
+- 一次資料: 角居雄太「論文再現実装ハンズオン #4 対照学習」DL COMMUNITY, 松尾・岩澤研究室, 東京大学, 2026
+- 一次資料が解説する原典: Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. "A Simple Framework for Contrastive Learning of Visual Representations." *Proc. 37th ICML*, **2020**, 1597–1607. https://doi.org/10.48550/arxiv.2002.05709
+- 検証範囲: 一次資料の「論文概要」から「発展/自己教師あり学習の一般化 ― ロボティクス分野への展開」まで（APPENDIX を含む）
+- 検証の目的: paper-repro が「高効率・高生産性で論文を読み解き、再現実装する」ことを支援するために、一次資料の解説の流れを機能要求として写し取る
+- 比較対象: [`requirements.md`](../requirements.md)、[`requirements-change-proposal.md`](../requirements-change-proposal.md)（**本書ではまだ突合していない**）
+- 関連手順: [`requirements-update-workflow.md`](../requirements-update-workflow.md)
 - 既存の要求収集ソース: 書籍『原論文から解き明かす生成AI』「はじめに」「1.2 論文を読み解く技術」およびその節以下
+- 索引: [`README.md`](README.md)
 
 ### 本ファイルの前提と要確認事項
 
-- 本ファイルの要求ID（`PR-M-xx` / `PR-S-xx-y`）は**本ファイル内でのみ一意な暫定ID**である。既に GitHub リポジトリへ commit 済みの書籍由来の要求ファイルと通し番号が競合する場合は、リポジトリ側の採番規則に合わせて振り直すこと。
+- **本書の「メイン項目」は索引（[`README.md`](README.md)）の「メイン要求候補」に、「サブ項目」は「サブ要求候補」に対応する。** 語が異なるだけで、指すものは同じである。
+- 本ファイルの要求ID（`PR-M-xx` / `PR-S-xx-y`）は**本ファイル内でのみ一意な暫定ID**であり、リポジトリの正本が用いる `REQ-Cxx` / `REQ-Cxx-Sxx` の体系とは別である。5択で方針を選ぶ段階で、リポジトリ側の採番規則に合わせて振り直すこと。
 - 書籍由来の既存要求との重複判定は、本ファイル単独では確定できない。重複可能性がある項目には「重複要確認」を明記した。
+- **本書のメイン要求候補は、利用者が5択で方針を選ぶまで未確定である。** 既存要求を具体化するサブ要求候補も、要件定義変更案へ統合して承認されるまで確定要件として扱わない（索引の[`README.md`](README.md)の規約に従う）。
 
 ---
 
