@@ -21,6 +21,12 @@
 - 「1.2.2.3 実装を読み解いて理解を深める」の詳細分析: [`docs/requirements-analysis/section-1.2.2.3-implementation-reading.md`](docs/requirements-analysis/section-1.2.2.3-implementation-reading.md)
 - 「1.2.2.4 重要となる参考文献は踏み込んで調べる」の詳細分析: [`docs/requirements-analysis/section-1.2.2.4-important-references.md`](docs/requirements-analysis/section-1.2.2.4-important-references.md)
 - 「1.2.2.5 アウトプットすることで理解を深める」の詳細分析: [`docs/requirements-analysis/section-1.2.2.5-output-for-understanding.md`](docs/requirements-analysis/section-1.2.2.5-output-for-understanding.md)
+- 「1.2.3 自分以外の力も借りて論文を読み解くための技術」の詳細分析: [`docs/requirements-analysis/section-1.2.3-external-help.md`](docs/requirements-analysis/section-1.2.3-external-help.md)
+- 「1.2.3.1 少人数で深く議論する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.1-small-group-discussion.md`](docs/requirements-analysis/section-1.2.3.1-small-group-discussion.md)
+- 「1.2.3.2 論文の著者に直接質問する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.2-contacting-authors.md`](docs/requirements-analysis/section-1.2.3.2-contacting-authors.md)
+- 「1.2.3.3 ウェブ上で議論する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.3-web-discussion.md`](docs/requirements-analysis/section-1.2.3.3-web-discussion.md)
+- 「1.2.3.4 生成AIを使う」の詳細分析: [`docs/requirements-analysis/section-1.2.3.4-using-generative-ai.md`](docs/requirements-analysis/section-1.2.3.4-using-generative-ai.md)
+- 「Academic and Research Skills」の要求分析: [`docs/requirements-analysis/academic-research-skills.md`](docs/requirements-analysis/academic-research-skills.md)
 - 「論文再現実装ハンズオン #4 対照学習（SimCLR）」の要求分析: [`docs/requirements-analysis/simclr-handson-deck.md`](docs/requirements-analysis/simclr-handson-deck.md)
 - 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
 - 要件選択・第2バッチ: [`docs/requirements-decisions/batch-02-options.md`](docs/requirements-decisions/batch-02-options.md)
@@ -252,6 +258,13 @@ paper-repro/
     │   ├── section-1.2.2.2-concrete-examples.md
     │   ├── section-1.2.2.3-implementation-reading.md
     │   ├── section-1.2.2.4-important-references.md
+    │   ├── section-1.2.2.5-output-for-understanding.md
+    │   ├── section-1.2.3-external-help.md
+    │   ├── section-1.2.3.1-small-group-discussion.md
+    │   ├── section-1.2.3.2-contacting-authors.md
+    │   ├── section-1.2.3.3-web-discussion.md
+    │   ├── academic-research-skills.md
+    │   ├── section-1.2.3.4-using-generative-ai.md
     │   └── simclr-handson-deck.md
     ├── requirements-decisions/
     │   ├── batch-01-options.md

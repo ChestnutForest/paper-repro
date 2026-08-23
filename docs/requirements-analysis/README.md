@@ -31,6 +31,12 @@
 | [`section-1.2.2.3-implementation-reading.md`](section-1.2.2.3-implementation-reading.md) | 同書「1.2.2.3 実装を読み解いて理解を深める」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C05-S01`を詳細化し、`REQ-C07:4`・`REQ-C08:4`・`REQ-C10-S04`の根拠を補強 |
 | [`section-1.2.2.4-important-references.md`](section-1.2.2.4-important-references.md) | 同書「1.2.2.4 重要となる参考文献は踏み込んで調べる」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C09-S02`を詳細化し、`REQ-C03-S01`・`REQ-C04-S01`・`REQ-C07-S01`・`REQ-C08:4`の根拠を補強 |
 | [`section-1.2.2.5-output-for-understanding.md`](section-1.2.2.5-output-for-understanding.md) | 同書「1.2.2.5 アウトプットすることで理解を深める」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S02`・`REQ-C09-S03`を詳細化し、`REQ-C09-S02`・`REQ-C10-S01`・`REQ-C08:4`の根拠を補強 |
+| [`section-1.2.3-external-help.md`](section-1.2.3-external-help.md) | 同書「1.2.3 自分以外の力も借りて論文を読み解くための技術」の導入部 | 導入部の検証完了・小節本文は未分析 | 新規メイン要求なし、暫定サブ要求候補`REQ-C07-S02`・`REQ-C09-S04`を提案 |
+| [`section-1.2.3.1-small-group-discussion.md`](section-1.2.3.1-small-group-discussion.md) | 同書「1.2.3.1 少人数で深く議論する」 | 詳細検証完了 | 新規メイン要求・新規サブ要求ともになし、`REQ-C04-S02`と暫定の`REQ-C09-S04`の根拠を補強 |
+| [`section-1.2.3.2-contacting-authors.md`](section-1.2.3.2-contacting-authors.md) | 同書「1.2.3.2 論文の著者に直接質問する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C09-S05`を提案し、保留中の`REQ-C07-S02`の確定案を提示 |
+| [`section-1.2.3.3-web-discussion.md`](section-1.2.3.3-web-discussion.md) | 同書「1.2.3.3 ウェブ上で議論する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C07-S03`を提案し、`REQ-C07-S02`・`REQ-C09-S03`の根拠を補強 |
+| [`section-1.2.3.4-using-generative-ai.md`](section-1.2.3.4-using-generative-ai.md) | 同書「1.2.3.4 生成AIを使う」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S03`・`REQ-C10-S05`を提案し、`REQ-C07:4`・`REQ-C10:4`・`REQ-C04-S02`・`REQ-C08:4`の根拠を補強 |
+| [`academic-research-skills.md`](academic-research-skills.md) | University of Sussex・University of Kent・University of Galway の「Academic and Research Skills」科目ページ（REF-04〜REF-06） | 分析完了・5択未実施・現行要件との突合未実施 | メイン要求候補3件（引用管理、研究倫理、プロジェクト計画）、サブ要求候補17件。7領域のうち4領域は既存要求の補強にとどまる |
 | [`simclr-handson-deck.md`](simclr-handson-deck.md) | 角居雄太「論文再現実装ハンズオン #4 対照学習」DL COMMUNITY, 松尾・岩澤研究室, 東京大学, 2026（解説する原典: Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. *Proc. 37th ICML*, 2020, 1597–1607. [arXiv:2002.05709](https://doi.org/10.48550/arxiv.2002.05709)） | 分析完了・5択未実施・現行要件との突合未実施 | メイン要求候補16件、サブ要求候補44件、非機能要求8件。暫定IDは`PR-M-xx`/`PR-S-xx-y`で、`REQ-Cxx`体系への合流は5択時に行う |
 
 ## 追加分析の共通手順

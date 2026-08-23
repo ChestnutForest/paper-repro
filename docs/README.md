@@ -44,6 +44,14 @@
 | [`requirements-analysis/section-1.2.2.2-concrete-examples.md`](requirements-analysis/section-1.2.2.2-concrete-examples.md) | 「1.2.2.2 具体例を構成する」の限定分析。新規メイン要求なし、`REQ-C04-S01`・`REQ-C10-S03`を詳細化 |
 | [`requirements-analysis/section-1.2.2.3-implementation-reading.md`](requirements-analysis/section-1.2.2.3-implementation-reading.md) | 「1.2.2.3 実装を読み解いて理解を深める」の限定分析。新規メイン要求なし、`REQ-C05-S01`を詳細化 |
 | [`requirements-analysis/section-1.2.2.4-important-references.md`](requirements-analysis/section-1.2.2.4-important-references.md) | 「1.2.2.4 重要となる参考文献は踏み込んで調べる」の限定分析。新規メイン要求なし、`REQ-C09-S02`を詳細化 |
+| [`requirements-analysis/section-1.2.2.5-output-for-understanding.md`](requirements-analysis/section-1.2.2.5-output-for-understanding.md) | 「1.2.2.5 アウトプットすることで理解を深める」の限定分析。新規メイン要求なし、`REQ-C04-S02`・`REQ-C09-S03`を詳細化 |
+| [`requirements-analysis/section-1.2.3-external-help.md`](requirements-analysis/section-1.2.3-external-help.md) | 「1.2.3 自分以外の力も借りて論文を読み解くための技術」導入部の暫定分析。暫定サブ要求候補`REQ-C07-S02`・`REQ-C09-S04`を提案 |
+| [`requirements-analysis/section-1.2.3.1-small-group-discussion.md`](requirements-analysis/section-1.2.3.1-small-group-discussion.md) | 「1.2.3.1 少人数で深く議論する」の限定分析。輪講や読み会は人間同士の活動のため新規要求なし、既存2件の根拠を補強 |
+| [`requirements-analysis/section-1.2.3.2-contacting-authors.md`](requirements-analysis/section-1.2.3.2-contacting-authors.md) | 「1.2.3.2 論文の著者に直接質問する」の限定分析。`REQ-C09-S05`を提案し、保留中の`REQ-C07-S02`を確定案へ |
+| [`requirements-analysis/section-1.2.3.3-web-discussion.md`](requirements-analysis/section-1.2.3.3-web-discussion.md) | 「1.2.3.3 ウェブ上で議論する」の限定分析。公開議論由来の情報を扱う`REQ-C07-S03`を提案 |
+| [`requirements-analysis/section-1.2.3.4-using-generative-ai.md`](requirements-analysis/section-1.2.3.4-using-generative-ai.md) | 「1.2.3.4 生成AIを使う」の限定分析。製品の中核機能を直接扱う唯一の小節。`REQ-C04-S03`・`REQ-C10-S05`を提案 |
+| [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) | 英国・アイルランドの大学科目「Academic and Research Skills」からの要求抽出。引用管理・研究倫理・プロジェクト計画の3件が新規メイン要求候補 |
+| [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) | SimCLR解説資料からの要求抽出。メイン要求候補16件・サブ要求候補44件。5択と現行要件との突合は未実施 |
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択、選択結果、理由、影響範囲、受入基準 |
 | [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) | 要件選択の第2バッチ。REQ-C06〜REQ-C09の5択、選択結果、段階開発条件、受入基準 |
 | [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。REQ-C10・REQ-C11の選択結果、理由、受入基準、段階開発条件 |

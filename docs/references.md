@@ -24,6 +24,9 @@
 |---|---|---|
 | REF-01 | 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 | 菊田遥平『原論文から解き明かす生成AI』技術評論社、2025年8月18日、304ページ、B5変形判、ISBN 978-4-297-15078-5（電子版 ISBN 978-4-297-15079-2）。書誌情報: https://gihyo.jp/book/2025/978-4-297-15078-5 |
 | REF-02 | 角居雄太「論文再現実装ハンズオン #4 対照学習」DL COMMUNITY, 松尾・岩澤研究室, 東京大学, 2026 | 角居雄太「論文再現実装ハンズオン #4 対照学習」DL COMMUNITY、松尾・岩澤研究室、東京大学、2026年。講義解説資料。 |
+| REF-04 | University of Sussex「Academic and Research Skills MAIED (883X4)」2025 | University of Sussex, "Academic and Research Skills MAIED (883X4)", Postgraduate module, 2025/26. 修士（Level 7）60単位の通年科目。https://www.sussex.ac.uk/study/modules/postgraduate/2025/101236-academic-and-research-skills-maied （2026年8月23日閲覧） |
+| REF-05 | University of Kent「Academic and Research Skills (ANTS3080)」 | University of Kent, "Academic and Research Skills - ANTS3080", Module page. 人類学・環境科学系の学部科目。**2023/24年度は開講していない旨がページに明記されている**。https://www.kent.ac.uk/courses/modules/module/ANTS3080 （2026年8月23日閲覧） |
+| REF-06 | University of Galway「Reading and Research Skills」 | University of Galway, "Reading and Research Skills", Academic Skills. https://www.universityofgalway.ie/academic-skills/readingandresearch/ （2026年8月23日閲覧） |
 | REF-03 | Chen et al., *Proc. 37th ICML*, 2020 | Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. "A Simple Framework for Contrastive Learning of Visual Representations." *Proceedings of the 37th International Conference on Machine Learning*, 2020, 1597–1607. https://doi.org/10.48550/arxiv.2002.05709 |
 
 ---
@@ -35,6 +38,18 @@
 | REF-01 | [`requirements-update-workflow.md`](requirements-update-workflow.md)、[`requirements-change-proposal.md`](requirements-change-proposal.md)、[`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md)、[`requirements-analysis/`](requirements-analysis/) の `section-1.2*.md` 各文書 |
 | REF-02 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) |
 | REF-03 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md)（REF-02 が解説する原典） |
+| REF-04〜REF-06 | [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) |
+
+---
+
+## 採用しなかった資料
+
+一次資料として検討したが、書誌一覧へ載せなかったもの。同じ資料を再検討する手間を省くために記録する。
+
+| 資料 | 不採用の理由 |
+|---|---|
+| `dl.icdst.org` 上の「Academic and Research Skills Handbook」PDF | 出所不明のファイルホストにあり、発行主体と権利関係を確認できない |
+| 生成AIによる「Academic and Research Skills」の解説回答 | 二次資料。一次資料の所在を知る手がかりとしてのみ用い、記述そのものは引用しない |
 
 ---
 
