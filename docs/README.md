@@ -80,6 +80,8 @@
 |---|---|
 | [`devlog/`](devlog/) | **日次開発ログ**。Q&A知識カード、決定ログ、つまずき、画面キャプチャ記録 |
 | [`history/project-history.md`](history/project-history.md) | **プロジェクト経緯**。指示と成果物の対応を日付順に整理 |
+| [`worknotes/`](worknotes/) | **作業メモ**。分析をどう反映したか、なぜその方法を選んだか、何を保留したか |
+| [`worknotes/pre-approval-screening.md`](worknotes/pre-approval-screening.md) | **承認前の矛盾スクリーニング**。新規32件と選択済み11件を突き合わせ、真の矛盾0件・要手当て2件・要注意4件と判定 |
 
 ## 🔍 知識の活用
 
@@ -92,7 +94,7 @@
 ## ディレクトリ構成の方針
 
 現在は `docs/` 直下をフラットに保ち、**性質が異なり継続的に増えるものだけ**を
-サブディレクトリに分けている（`arch-guide/`・`devlog/`・`history/`・`requirements-analysis/`・`requirements-decisions/`）。
+サブディレクトリに分けている（`arch-guide/`・`devlog/`・`history/`・`requirements-analysis/`・`requirements-decisions/`・`worknotes/`）。
 
 ファイル数が増えて見通しが悪くなったら、`guide/`（手順）と `design/`（設計）への
 分割を検討する。その際は README とドキュメント間の相互リンクの更新が必要になる。

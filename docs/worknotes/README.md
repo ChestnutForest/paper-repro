@@ -15,7 +15,9 @@
 | [`reflection-1.2.3.1.md`](reflection-1.2.3.1.md) | 「1.2.3.1」の判定（新規要求なし）と`REQ-C07-S02`保留の記録 | `section-1.2.3.1-small-group-discussion.md` |
 | [`reflection-1.2.3.2.md`](reflection-1.2.3.2.md) | 「1.2.3.2」の判定、`REQ-C07-S02`確定と`REQ-C09-S05`候補化 | `section-1.2.3.2-contacting-authors.md` |
 | [`reflection-1.2.3.3.md`](reflection-1.2.3.3.md) | 「1.2.3.3」の判定と`REQ-C07-S03`を分けた理由 | `section-1.2.3.3-web-discussion.md` |
+| [`reflection-1.2.3.4.md`](reflection-1.2.3.4.md) | 「1.2.3.4」の判定と既存文書への追記記録 | `section-1.2.3.4-using-generative-ai.md` |
 | [`pending-req-c09-s04.md`](pending-req-c09-s04.md) | 未確定の要求候補`REQ-C09-S04`の状態管理と判断保留の経緯 | `section-1.2.3-external-help.md` ほか |
+| [`pre-approval-screening.md`](pre-approval-screening.md) | 変更案v0.12の承認前に、新規32件と選択済み11件の矛盾だけを確認した記録 | `simclr-handson-deck.md`、`academic-research-skills.md`、`academic-research-skills-frameworks.md` |
 
 ## 保存する理由
 

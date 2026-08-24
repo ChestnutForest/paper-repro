@@ -8,6 +8,7 @@
 - 要件: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
+- 承認前の矛盾スクリーニング: [`docs/worknotes/pre-approval-screening.md`](docs/worknotes/pre-approval-screening.md)
 - 参考文献: [`docs/references.md`](docs/references.md)
 - 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
 - 「1.2 論文を読み解く技術」の要求分析: [`docs/requirements-analysis/section-1.2-reading-techniques.md`](docs/requirements-analysis/section-1.2-reading-techniques.md)
@@ -283,8 +284,11 @@ paper-repro/
     ├── devlog/                   ← 日次開発ログ
     │   ├── README.md
     │   └── devlog-YYYY-MM-DD*.md
-    └── history/
-        └── project-history.md
+    ├── history/
+    │   └── project-history.md
+    └── worknotes/            ← 反映メモ・保留記録・承認前スクリーニング
+        ├── README.md
+        └── pre-approval-screening.md ほか
 ```
 
 ## 開発の進め方
