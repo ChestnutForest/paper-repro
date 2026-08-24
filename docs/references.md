@@ -27,6 +27,14 @@
 | REF-04 | University of Sussex「Academic and Research Skills MAIED (883X4)」2025 | University of Sussex, "Academic and Research Skills MAIED (883X4)", Postgraduate module, 2025/26. 修士（Level 7）60単位の通年科目。https://www.sussex.ac.uk/study/modules/postgraduate/2025/101236-academic-and-research-skills-maied （2026年8月23日閲覧） |
 | REF-05 | University of Kent「Academic and Research Skills (ANTS3080)」 | University of Kent, "Academic and Research Skills - ANTS3080", Module page. 人類学・環境科学系の学部科目。**2023/24年度は開講していない旨がページに明記されている**。https://www.kent.ac.uk/courses/modules/module/ANTS3080 （2026年8月23日閲覧） |
 | REF-06 | University of Galway「Reading and Research Skills」 | University of Galway, "Reading and Research Skills", Academic Skills. https://www.universityofgalway.ie/academic-skills/readingandresearch/ （2026年8月23日閲覧） |
+| REF-07 | SCONUL「Seven Pillars of Information Literacy: Core Model」2011 | SCONUL Working Group on Information Literacy, "The SCONUL Seven Pillars of Information Literacy: Core Model for Higher Education", 2011. Research Lens を含む。https://www.sconul.ac.uk/page/seven-pillars-of-information-literacy （2026年8月23日確認） |
+| REF-08 | ACRL「Framework for Information Literacy for Higher Education」2015 | Association of College and Research Libraries, "Framework for Information Literacy for Higher Education", ACRL理事会承認 2015年2月2日。6つのフレームで構成。https://www.ala.org/acrl/standards/ilframework （2026年8月23日確認） |
+| REF-09 | Vitae「Researcher Development Framework」 | Vitae (CRAC), "Researcher Development Framework". 2010年版は4ドメイン・12サブドメイン・63記述子。**2025年改訂版へ移行中で両版が併存する**。https://vitae.ac.uk/vitae-researcher-development-framework/ （2026年8月23日確認） |
+| REF-10 | ACM「Artifact Review and Badging」Version 1.1, 2020 | Association for Computing Machinery, "Artifact Review and Badging - Version 1.1", 2020年8月24日. https://www.acm.org/publications/policies/artifact-review-and-badging-current （2026年8月23日に本文を確認） |
+| REF-11 | Pineau et al., *JMLR* 22, 2021 | Pineau, J. et al. "Improving Reproducibility in Machine Learning Research (A Report from the NeurIPS 2019 Reproducibility Program)." *Journal of Machine Learning Research*, 22, 2021. https://jmlr.org/papers/volume22/20-303/20-303.pdf （2026年8月23日確認） |
+| REF-12 | Wilkinson et al., *Scientific Data* 3, 160018, 2016 | Wilkinson, M. D. et al. "The FAIR Guiding Principles for scientific data management and stewardship." *Scientific Data*, 3, 160018, 2016. 15の原則からなる。https://doi.org/10.1038/sdata.2016.18 （2026年8月23日確認） |
+| REF-13 | CRediT (Contributor Roles Taxonomy), ANSI/NISO, 2022 | National Information Standards Organization, "CRediT (Contributor Roles Taxonomy)", ANSI/NISO標準として2022年承認。14の貢献役割。CC BY 4.0。https://credit.niso.org/ （2026年8月23日確認） |
+| REF-14 | ALLEA「The European Code of Conduct for Research Integrity」2023年改訂版 | ALLEA (All European Academies), "The European Code of Conduct for Research Integrity", Revised Edition 2023. 欧州委員会がEU資金研究の第一基準として認める。https://allea.org/code-of-conduct/ （2026年8月23日確認） |
 | REF-03 | Chen et al., *Proc. 37th ICML*, 2020 | Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. "A Simple Framework for Contrastive Learning of Visual Representations." *Proceedings of the 37th International Conference on Machine Learning*, 2020, 1597–1607. https://doi.org/10.48550/arxiv.2002.05709 |
 
 ---
@@ -39,6 +47,7 @@
 | REF-02 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) |
 | REF-03 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md)（REF-02 が解説する原典） |
 | REF-04〜REF-06 | [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) |
+| REF-07〜REF-14 | [`requirements-analysis/academic-research-skills-frameworks.md`](requirements-analysis/academic-research-skills-frameworks.md) |
 
 ---
 

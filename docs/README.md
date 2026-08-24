@@ -50,6 +50,7 @@
 | [`requirements-analysis/section-1.2.3.2-contacting-authors.md`](requirements-analysis/section-1.2.3.2-contacting-authors.md) | 「1.2.3.2 論文の著者に直接質問する」の限定分析。`REQ-C09-S05`を提案し、保留中の`REQ-C07-S02`を確定案へ |
 | [`requirements-analysis/section-1.2.3.3-web-discussion.md`](requirements-analysis/section-1.2.3.3-web-discussion.md) | 「1.2.3.3 ウェブ上で議論する」の限定分析。公開議論由来の情報を扱う`REQ-C07-S03`を提案 |
 | [`requirements-analysis/section-1.2.3.4-using-generative-ai.md`](requirements-analysis/section-1.2.3.4-using-generative-ai.md) | 「1.2.3.4 生成AIを使う」の限定分析。製品の中核機能を直接扱う唯一の小節。`REQ-C04-S03`・`REQ-C10-S05`を提案 |
+| [`requirements-analysis/academic-research-skills-frameworks.md`](requirements-analysis/academic-research-skills-frameworks.md) | 学術スキルの8枠組み（SCONUL・ACRL・Vitae RDF・ACM badging・ML再現性チェックリスト・FAIR・CRediT・ALLEA）からの詳細抽出。メイン要求候補13件 |
 | [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) | 英国・アイルランドの大学科目「Academic and Research Skills」からの要求抽出。引用管理・研究倫理・プロジェクト計画の3件が新規メイン要求候補 |
 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) | SimCLR解説資料からの要求抽出。メイン要求候補16件・サブ要求候補44件。5択と現行要件との突合は未実施 |
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。REQ-C01〜REQ-C05の5択、選択結果、理由、影響範囲、受入基準 |

@@ -11,6 +11,7 @@
 - 比較対象: [`requirements.md`](../requirements.md)、[`requirements-change-proposal.md`](../requirements-change-proposal.md)（**本書ではまだ突合していない**）
 - 関連手順: [`requirements-update-workflow.md`](../requirements-update-workflow.md)
 - 書誌情報: [`../references.md`](../references.md)（REF-04・REF-05・REF-06）
+- 後続分析: [`academic-research-skills-frameworks.md`](academic-research-skills-frameworks.md)（確立された8つの枠組みによる詳細版）
 - 索引: [`README.md`](README.md)
 
 ### 本ファイルの前提と要確認事項

@@ -26,6 +26,7 @@
 - 「1.2.3.2 論文の著者に直接質問する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.2-contacting-authors.md`](docs/requirements-analysis/section-1.2.3.2-contacting-authors.md)
 - 「1.2.3.3 ウェブ上で議論する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.3-web-discussion.md`](docs/requirements-analysis/section-1.2.3.3-web-discussion.md)
 - 「1.2.3.4 生成AIを使う」の詳細分析: [`docs/requirements-analysis/section-1.2.3.4-using-generative-ai.md`](docs/requirements-analysis/section-1.2.3.4-using-generative-ai.md)
+- 「Academic and Research Skills」の詳細要求分析（8つの確立された枠組み）: [`docs/requirements-analysis/academic-research-skills-frameworks.md`](docs/requirements-analysis/academic-research-skills-frameworks.md)
 - 「Academic and Research Skills」の要求分析: [`docs/requirements-analysis/academic-research-skills.md`](docs/requirements-analysis/academic-research-skills.md)
 - 「論文再現実装ハンズオン #4 対照学習（SimCLR）」の要求分析: [`docs/requirements-analysis/simclr-handson-deck.md`](docs/requirements-analysis/simclr-handson-deck.md)
 - 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
@@ -263,6 +264,7 @@ paper-repro/
     │   ├── section-1.2.3.1-small-group-discussion.md
     │   ├── section-1.2.3.2-contacting-authors.md
     │   ├── section-1.2.3.3-web-discussion.md
+    │   ├── academic-research-skills-frameworks.md
     │   ├── academic-research-skills.md
     │   ├── section-1.2.3.4-using-generative-ai.md
     │   └── simclr-handson-deck.md
