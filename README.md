@@ -11,6 +11,7 @@
 - ID一本化とPhase暫定化の決定記録: [`docs/worknotes/id-unification-and-phase-provisional.md`](docs/worknotes/id-unification-and-phase-provisional.md)
 - 承認前の矛盾スクリーニング: [`docs/worknotes/pre-approval-screening.md`](docs/worknotes/pre-approval-screening.md)
 - 参考文献: [`docs/references.md`](docs/references.md)
+- USDM・IPAガイドラインの一次情報: [`docs/references-usdm-ipa.md`](docs/references-usdm-ipa.md)
 - 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
 - 「1.2 論文を読み解く技術」の要求分析: [`docs/requirements-analysis/section-1.2-reading-techniques.md`](docs/requirements-analysis/section-1.2-reading-techniques.md)
 - 「1.2.1 論文を読む環境の構築」の詳細分析: [`docs/requirements-analysis/section-1.2.1-reading-environment.md`](docs/requirements-analysis/section-1.2.1-reading-environment.md)
@@ -244,6 +245,7 @@ paper-repro/
     ├── notebooklm-prompts.md     ← NotebookLM活用プロンプト集
     ├── product-design.md         ← 製品設計
     ├── references.md             ← 参考文献（一次資料の書誌と引用方針）
+    ├── references-usdm-ipa.md    ← USDM・IPAガイドラインのURL一覧と使用条件
     ├── requirements.md           ← 確定済み要件の正本
     ├── requirements-change-proposal.md
     ├── requirements-update-workflow.md

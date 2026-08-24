@@ -19,6 +19,31 @@ Paper-Repro を**どういう構造で作るか**を定める。
 | `docs/product-design.md` | プロダクト設計・画面遷移。本書のUI構造の根拠 |
 | `docs/roadmap.md` | 開発フェーズ。段階的な実装の指標 |
 | `AGENTS.md` | 共通開発指針。コーディング規約やAIエージェントの運用方針 |
+| `docs/references.md` | 参考文献の書誌。本書の章立ての由来（REF-15〜REF-17）を含む |
+| `docs/references-usdm-ipa.md` | USDM と IPA ガイドラインの URL 一覧・採用範囲・使用条件 |
+
+### 1.2.1 本書の章立ての由来
+
+本書の章立ては、姉妹プロジェクト Processloop のアーキテクチャ仕様書
+（`https://github.com/ChestnutForest/processloop/blob/main/docs/phase1/arc-architecture.md`）
+の構成に合わせている。ゼロから独自構成を組むより抜け漏れが少ないと判断したためである
+（決定の記録: `docs/devlog/devlog-2026-08-15.md`）。
+
+Processloop 側の構成は、IPA（情報処理推進機構）の要件定義に関するガイドラインを土台としている。
+該当する書誌は `docs/references.md` の **REF-15**（発注者ビューガイドライン ver.1.0、2008年）
+および **REF-16**（機能要件の合意形成ガイド ver.1.0、2010年）である。
+
+Processloop 側はあわせて USDM（Universal Specification Describing Manner、**REF-17**）を
+要求仕様の記述法として採用している。ただし `paper-repro` の要求は `REQ-Cxx` 形式で
+管理しており、**USDM の記法は採用していない**。
+
+URL の一覧、著作権上の使用条件、採用範囲の詳細は
+`docs/references-usdm-ipa.md` を参照する。
+
+> ⚠️ **IPA の「機能要件の合意形成ガイド」は改変・翻案が禁じられている。**
+> 本リポジトリのどの文書にも、同ガイドの本文を転記・翻案してはならない。
+> 参照してよいのは著作物にあたらない事実（技術領域の区分、成熟度のレベル名、
+> 作業の区分、工程成果物の名称）に限る。
 
 ### 1.3 用語
 

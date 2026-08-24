@@ -6,7 +6,8 @@
 - 製品方針: paper-repro を正式版プロダクトとして継続開発する
 - 初期リリース範囲: タイプB・公式実装ありの論文を縦切りで完成させる
 - 後続リリース: タイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する
-- 関連文書: `docs/requirements.md`（要件）, `docs/product-design.md`（設計）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
+- 関連文書: `docs/requirements.md`（要件 v0.2）, `docs/product-design.md`（設計 v0.2）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
+- フェーズ0の注意: `Project.course` は後から足すとスキーマ変更と状態機械の書き直しが要る。永続化の設計時に必ず含める（`docs/product-design.md` 1.4・7章）
 
 ---
 
@@ -15,7 +16,7 @@
 | フェーズ | 内容 | 状態 |
 |---|---|---|
 | Step 1 土台 | プロジェクト作成 → 一覧表示、GitHub登録、MITライセンス設定 | ✅ 完了 |
-| **フェーズ0** | **データ永続化（PostgreSQL化）・状態遷移** | ⬜ **次はここ** |
+| **フェーズ0** | **データ永続化（PostgreSQL化）・状態遷移・`course`の導入（`REQ-C01`）** | ⬜ **次はここ** |
 | フェーズ1 | インテーク（論文取込・タイプ判定・方針選択ゲート） | ⬜ |
 | フェーズ2 | 非同期ジョブ（Celery/Redis）・WebSocket進捗 | ⬜ |
 | フェーズ3 | リーディング（spec草案・エディタ・仮定台帳） | ⬜ |

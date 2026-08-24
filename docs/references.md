@@ -35,6 +35,9 @@
 | REF-12 | Wilkinson et al., *Scientific Data* 3, 160018, 2016 | Wilkinson, M. D. et al. "The FAIR Guiding Principles for scientific data management and stewardship." *Scientific Data*, 3, 160018, 2016. 15の原則からなる。https://doi.org/10.1038/sdata.2016.18 （2026年8月23日確認） |
 | REF-13 | CRediT (Contributor Roles Taxonomy), ANSI/NISO, 2022 | National Information Standards Organization, "CRediT (Contributor Roles Taxonomy)", ANSI/NISO標準として2022年承認。14の貢献役割。CC BY 4.0。https://credit.niso.org/ （2026年8月23日確認） |
 | REF-14 | ALLEA「The European Code of Conduct for Research Integrity」2023年改訂版 | ALLEA (All European Academies), "The European Code of Conduct for Research Integrity", Revised Edition 2023. 欧州委員会がEU資金研究の第一基準として認める。https://allea.org/code-of-conduct/ （2026年8月23日確認） |
+| REF-15 | IPA「発注者ビューガイドライン ver.1.0」2008 | 実践的アプローチに基づく要求仕様の発注者ビュー検討会（民間9社）策定、独立行政法人情報処理推進機構（IPA）ソフトウェア・エンジニアリング・センター（SEC）公開、2008年7月。概説編・用語集／システム振舞い編／画面編／データモデル編で構成。**IPA旧サイト（sec.ipa.go.jp）は閉鎖済み。** 国立国会図書館インターネット資料収集保存事業（WARP）の保存ページ: https://warp.ndl.go.jp/web/20130117225954/http://sec.ipa.go.jp/reports/20080710.html （詳細は [`references-usdm-ipa.md`](references-usdm-ipa.md) 第3節） |
+| REF-16 | IPA「機能要件の合意形成ガイド ver.1.0」2010 | 独立行政法人情報処理推進機構（IPA）ソフトウェア・エンジニアリング・センター（SEC）要求・アーキテクチャ領域 機能要件の合意形成技法WG『機能要件の合意形成ガイド(ver.1.0) ～「発注者ビューガイドラインver.1.0」改訂版～』2010年3月31日。概要編＋6技術領域（画面／システム振舞い／データモデル／帳票／バッチ／外部インタフェース）の全7分冊。**IPA公式サイトのアーカイブページが現存し、7分冊のPDFを取得できる**: https://www.ipa.go.jp/archive/digital/iot-en-ci/jyouryuu/ent03-a.html （2026年8月24日に本文を確認。7分冊の個別URL・使用条件・採用範囲は [`references-usdm-ipa.md`](references-usdm-ipa.md) 第2節） |
+| REF-17 | AFFORDD T2研究会「USDM 小冊子」ver 1.3, 2016 | 派生開発推進協議会（AFFORDD）T2研究会「USDM 小冊子 基礎編／付録編」ver 1.3、2016年。USDM（Universal Specification Describing Manner）は清水吉男氏が提唱した要求仕様の記述法。基礎編: https://affordd.jp/previous/tech_documents/affordd-t2-usdmtext-basic_1.3.pdf ／ 付録編: https://affordd.jp/previous/tech_documents/affordd-t2-usdmtext-appendix_1.3.pdf ／ 成果物一覧: https://affordd.jp/previous/results.shtml （URLの一覧と採用範囲は [`references-usdm-ipa.md`](references-usdm-ipa.md) 第1節） |
 | REF-03 | Chen et al., *Proc. 37th ICML*, 2020 | Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. "A Simple Framework for Contrastive Learning of Visual Representations." *Proceedings of the 37th International Conference on Machine Learning*, 2020, 1597–1607. https://doi.org/10.48550/arxiv.2002.05709 |
 
 ---
@@ -48,6 +51,7 @@
 | REF-03 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md)（REF-02 が解説する原典） |
 | REF-04〜REF-06 | [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) |
 | REF-07〜REF-14 | [`requirements-analysis/academic-research-skills-frameworks.md`](requirements-analysis/academic-research-skills-frameworks.md) |
+| REF-15〜REF-17 | [`references-usdm-ipa.md`](references-usdm-ipa.md)（URL一覧・採用範囲・使用条件）、[`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md)（章立ての由来）、[`devlog/devlog-2026-08-15.md`](devlog/devlog-2026-08-15.md)（決定記録） |
 
 ---
 
@@ -59,6 +63,17 @@
 |---|---|
 | `dl.icdst.org` 上の「Academic and Research Skills Handbook」PDF | 出所不明のファイルホストにあり、発行主体と権利関係を確認できない |
 | 生成AIによる「Academic and Research Skills」の解説回答 | 二次資料。一次資料の所在を知る手がかりとしてのみ用い、記述そのものは引用しない |
+
+---
+
+## 詳細を別ファイルに置く資料
+
+URL の一覧、採用範囲、使用条件が長くなる資料は、書誌だけを本ファイルに置き、
+詳細は専用ファイルへ分ける。
+
+| 資料 | 詳細ファイル |
+|---|---|
+| REF-15・REF-16・REF-17（IPA ガイドラインと USDM） | [`references-usdm-ipa.md`](references-usdm-ipa.md)。Processloop の「参照した一次情報」を移設したもの。7分冊の個別URL、著作権上の使用条件、Processloop での採用範囲と `paper-repro` での採用状況を含む |
 
 ---
 
