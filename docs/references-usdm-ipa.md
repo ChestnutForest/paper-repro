@@ -228,7 +228,15 @@ flowchart TD
 
 作図記法の選定理由は Processloop 側の
 `https://github.com/ChestnutForest/processloop/blob/main/docs/adr/adr-0003-diagram-notation.md`
-を参照。**`paper-repro` は作図記法をまだ選定していない。**
+を参照。
+
+**`paper-repro` も Mermaid を採用している。** 図は次の対で書く。
+
+1. 描画される `mermaid` ブロック
+2. その直後に `<details><summary>Mermaid のソースを見る</summary>` で包んだソース表示
+
+ソース側は4連バッククォートで囲み、内側の3連バッククォートがそのまま見えるようにする。
+ASCII アートの図は、この対に置き換える。
 
 ---
 

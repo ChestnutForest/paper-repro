@@ -42,26 +42,50 @@ GPU 不要・レンダリング不要・LLM-as-a-Judge 不要に絞った範囲�
 
 ### 1.1 主経路
 
+```mermaid
+stateDiagram-v2
+    direction TB
+    [*] --> created
+    created --> intake_review: POST /course<br/>POST /intake
+    intake_review --> reading: POST /policy<br/>★ゲート①方針5択
+    intake_review --> skipped: 見送りを選択
+    reading --> implementing: POST /spec:finalize<br/>★ゲート②spec・タイプ確定
+    implementing --> scoring: POST /sanity:gate<br/>★ゲート③段3満点・段4=0
+    scoring --> done: POST /artifacts/zip
+    done --> [*]
+    skipped --> [*]
+    reading --> reading: course=reading のとき<br/>ここで反復
+    reading --> failed: ジョブ失敗
+    implementing --> failed: ジョブ失敗
+    scoring --> failed: ジョブ失敗
+    failed --> reading: 原因ログを提示し<br/>同じ状態へ戻す
 ```
-created
-  │ POST /course（コース選択：reading / reproduction）   ← REQ-C01
-  │ POST /intake（取り込み・第1パス・タイプ判定・実装探索）
-  ▼
-intake_review        ← 承認ゲート①：方針を5択で確定
-  │ POST /policy
-  ▼
-reading              ← spec 編集・仮定台帳作成（公式コード読解で埋める）
-  │ POST /spec:finalize（承認ゲート②：タイプ判定と spec を確定）
-  ▼
-implementing         ← サニティ階段を下から実行
-  │  段3(オラクル満点) と 段4(異常系0点) の pass が必須
-  │ POST /sanity:gate（承認ゲート③：評価器の正しさを確認）
-  ▼
-scoring              ← 識別力の高い2タスクで論文値と照合
-  │ POST /artifacts/zip
-  ▼
-done
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+stateDiagram-v2
+    direction TB
+    [*] --> created
+    created --> intake_review: POST /course<br/>POST /intake
+    intake_review --> reading: POST /policy<br/>★ゲート①方針5択
+    intake_review --> skipped: 見送りを選択
+    reading --> implementing: POST /spec:finalize<br/>★ゲート②spec・タイプ確定
+    implementing --> scoring: POST /sanity:gate<br/>★ゲート③段3満点・段4=0
+    scoring --> done: POST /artifacts/zip
+    done --> [*]
+    skipped --> [*]
+    reading --> reading: course=reading のとき<br/>ここで反復
+    reading --> failed: ジョブ失敗
+    implementing --> failed: ジョブ失敗
+    scoring --> failed: ジョブ失敗
+    failed --> reading: 原因ログを提示し<br/>同じ状態へ戻す
 ```
+````
+
+</details>
 
 **失敗系**: どの状態でも実行ジョブが失敗すれば `failed` に落ち、原因ログを提示して同じ状態へ戻す。
 `skip`（見送り）は intake_review からいつでも選べる終端。
@@ -120,43 +144,56 @@ Project
 
 ## 2. 画面遷移
 
+```mermaid
+flowchart TD
+    DASH["ダッシュボード<br/>プロジェクト一覧・進捗・コスト"]
+    COURSE["コース選択<br/>読解・学習 / 再現実装<br/><b>F-15 / REQ-C01</b>"]
+    INTAKE["インテーク<br/>第1パス要約・公式実装の有無<br/>タイプA/B判定"]
+    READ["リーディング作業台（3ペイン）<br/>論文ビューア / spec エディタ / 仮定台帳"]
+    IMPL["実装・検証台<br/>ノートブック・実行コンソール<br/>サニティ階段 段1..7"]
+    SCORE["照合・レポート<br/>再現値 vs 論文値（±5判定）<br/>規約名 zip ダウンロード"]
+    PEND["解決待ちパネル<br/>解釈・証拠矛盾・理解確認"]
+
+    DASH -->|新規: arXiv URL 入力| COURSE
+    COURSE --> INTAKE
+    INTAKE -->|★ゲート①方針5択| READ
+    READ -->|★ゲート②spec・タイプ確定| IMPL
+    IMPL -->|★ゲート③段3満点・段4=0| SCORE
+    READ -.->|course=reading は<br/>ここで留まる| READ
+    READ <-->|☆ゲート④⑤⑥<br/>事象駆動で割り込む| PEND
+
+    style COURSE fill:#e8f4ff
+    style PEND fill:#fff4e8
 ```
-┌─────────────┐
-│ ダッシュボード │ プロジェクト一覧・進捗・コスト
-└──────┬──────┘
-       │「新規」→ arXiv URL 入力
-       ▼
-┌─────────────┐
-│  コース選択   │ 読解・学習 / 再現実装 の2択      ← F-15 / REQ-C01
-│             │ 後から切り替え可能である旨を明示
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│  インテーク   │ 第1パス要約 / 公式実装の有無 / タイプA・B判定
-│             │ ★承認ゲート①: 方針5択（フル/縮小/改造/部分/見送り）
-└──────┬──────┘
-       ▼
-┌─────────────────────────┐
-│  リーディング作業台（3ペイン）  │
-│ [論文ビューア][specエディタ][仮定台帳] │
-│ タイプ判定の確認・上書き        │
-│ ★承認ゲート②: spec と タイプ を確定 │
-│ ☆ゲート④⑤⑥（事象駆動）はここに割り込む │
-└──────┬──────────────────┘
-       │ course=reading のときはここで留まる
-       ▼
-┌─────────────────────────┐
-│  実装・検証台               │
-│ [ノートブック/コード][実行コンソール] │
-│ [サニティ階段: 段1..7 の pass/fail]  │
-│ ★承認ゲート③: 段3満点・段4=0 を確認  │
-└──────┬──────────────────┘
-       ▼
-┌─────────────┐
-│ 照合・レポート │ 再現値 vs 論文値（±5判定・色分け）
-│             │ 規約名 zip ダウンロード
-└─────────────┘
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+flowchart TD
+    DASH["ダッシュボード<br/>プロジェクト一覧・進捗・コスト"]
+    COURSE["コース選択<br/>読解・学習 / 再現実装<br/><b>F-15 / REQ-C01</b>"]
+    INTAKE["インテーク<br/>第1パス要約・公式実装の有無<br/>タイプA/B判定"]
+    READ["リーディング作業台（3ペイン）<br/>論文ビューア / spec エディタ / 仮定台帳"]
+    IMPL["実装・検証台<br/>ノートブック・実行コンソール<br/>サニティ階段 段1..7"]
+    SCORE["照合・レポート<br/>再現値 vs 論文値（±5判定）<br/>規約名 zip ダウンロード"]
+    PEND["解決待ちパネル<br/>解釈・証拠矛盾・理解確認"]
+
+    DASH -->|新規: arXiv URL 入力| COURSE
+    COURSE --> INTAKE
+    INTAKE -->|★ゲート①方針5択| READ
+    READ -->|★ゲート②spec・タイプ確定| IMPL
+    IMPL -->|★ゲート③段3満点・段4=0| SCORE
+    READ -.->|course=reading は<br/>ここで留まる| READ
+    READ <-->|☆ゲート④⑤⑥<br/>事象駆動で割り込む| PEND
+
+    style COURSE fill:#e8f4ff
+    style PEND fill:#fff4e8
 ```
+````
+
+</details>
 
 ### 画面別の主要UI要素
 
@@ -288,14 +325,36 @@ Project
 
 ### 4.3 サンドボックスの構成（最重要・再掲）
 
+```mermaid
+flowchart LR
+    API["APIサーバ"] -->|ジョブ投入| W["実行ワーカー"]
+    W --> C["1実行 = 1 使い捨てコンテナ"]
+    C --> N["ネットワーク<br/>原則遮断<br/>許可リスト proxy 経由のみ"]
+    C --> R["リソース上限<br/>CPU / mem / 時間 / 書込量"]
+    C --> F["FS隔離<br/>ホスト・他PJへ到達不可"]
+    C --> D["実行後<br/>コンテナ破棄<br/>生成物のみストレージへ退避"]
+
+    style C fill:#ffe8e8
 ```
-[APIサーバ]──(ジョブ投入)──▶[実行ワーカー]
-                              └─ 1実行 = 1 使い捨てコンテナ
-                                 ├─ ネットワーク: 原則遮断（許可リストproxy経由のみ）
-                                 ├─ リソース上限: CPU/mem/時間/書込量
-                                 ├─ FS隔離: ホスト・他PJへ到達不可
-                                 └─ 実行後: コンテナ破棄、生成物のみストレージへ退避
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+flowchart LR
+    API["APIサーバ"] -->|ジョブ投入| W["実行ワーカー"]
+    W --> C["1実行 = 1 使い捨てコンテナ"]
+    C --> N["ネットワーク<br/>原則遮断<br/>許可リスト proxy 経由のみ"]
+    C --> R["リソース上限<br/>CPU / mem / 時間 / 書込量"]
+    C --> F["FS隔離<br/>ホスト・他PJへ到達不可"]
+    C --> D["実行後<br/>コンテナ破棄<br/>生成物のみストレージへ退避"]
+
+    style C fill:#ffe8e8
 ```
+````
+
+</details>
 
 - 初期リリースは **CPU のみ・ネットワーク遮断**で十分（タイプBに絞ったため）。
 - gVisor/Firecracker で**カーネル分離**まで行うと、任意コード実行前提でも安全度が上がる。
@@ -318,27 +377,52 @@ Project
 
 ## 5. 初期リリース構成図（デプロイ）
 
+```mermaid
+flowchart TD
+    BROWSER["ブラウザ: Next.js"]
+    BROWSER -->|HTTPS / WSS| API["FastAPI（APIサーバ）<br/>REST + WS"]
+
+    subgraph store["永続化・キュー・保管"]
+        PG[("PostgreSQL<br/>状態・台帳・履歴")]
+        REDIS[("Redis<br/>キュー / 進捗 Pub-Sub")]
+        S3[("S3 / MinIO<br/>成果物・中間物")]
+    end
+
+    API --> PG
+    API --> REDIS
+    API --> S3
+    REDIS --> WORKER["実行ワーカー（Python / Celery）"]
+    WORKER -->|1実行 = 1コンテナ<br/>隔離・使い捨て| SANDBOX["サンドボックス<br/>gVisor / Firecracker<br/>ネット遮断・上限・破棄<br/>CPUのみ（初期リリース）"]
+
+    style SANDBOX fill:#ffe8e8
 ```
-                 [ブラウザ: Next.js]
-                        │ HTTPS / WSS
-                 ┌──────▼──────┐
-                 │  FastAPI     │  REST + WS
-                 │  (APIサーバ)  │
-                 └──┬────┬───┬──┘
-       ┌────────────┘    │   └────────────┐
-   [PostgreSQL]      [Redis]          [S3/MinIO]
-   状態・台帳・履歴   キュー/進捗Pub/Sub  成果物・中間物
-                       │
-                 ┌─────▼─────┐
-                 │ 実行ワーカー │ Celery
-                 │ (Python)   │
-                 └─────┬─────┘
-                       │ 1実行=1コンテナ（隔離・使い捨て）
-                 ┌─────▼─────────────┐
-                 │ サンドボックス       │ gVisor/Firecracker
-                 │ ネット遮断・上限・破棄 │ CPUのみ(初期リリース)
-                 └───────────────────┘
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+flowchart TD
+    BROWSER["ブラウザ: Next.js"]
+    BROWSER -->|HTTPS / WSS| API["FastAPI（APIサーバ）<br/>REST + WS"]
+
+    subgraph store["永続化・キュー・保管"]
+        PG[("PostgreSQL<br/>状態・台帳・履歴")]
+        REDIS[("Redis<br/>キュー / 進捗 Pub-Sub")]
+        S3[("S3 / MinIO<br/>成果物・中間物")]
+    end
+
+    API --> PG
+    API --> REDIS
+    API --> S3
+    REDIS --> WORKER["実行ワーカー（Python / Celery）"]
+    WORKER -->|1実行 = 1コンテナ<br/>隔離・使い捨て| SANDBOX["サンドボックス<br/>gVisor / Firecracker<br/>ネット遮断・上限・破棄<br/>CPUのみ（初期リリース）"]
+
+    style SANDBOX fill:#ffe8e8
 ```
+````
+
+</details>
 
 ---
 

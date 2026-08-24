@@ -86,6 +86,44 @@ flowchart TD
     WORKERS --> SANDBOX
 ```
 
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+flowchart TD
+    subgraph frontend["frontend（Next.js）"]
+        UI[画面群: インテーク, 作業台など]
+        API_Route[API Clients]
+    end
+    subgraph backend["backend（FastAPI）"]
+        API[API エンドポイント]
+        CORE[状態遷移・ビジネスロジック]
+        SERVICES[論文処理・LLM連携]
+        WORKERS[非同期タスク Celery]
+    end
+    subgraph db["永続化"]
+        PG[(PostgreSQL)]
+        REDIS[(Redis)]
+    end
+    subgraph execution["隔離実行環境"]
+        SANDBOX[サンドボックス CPUのみ]
+    end
+
+    UI --> API_Route
+    API_Route -->|REST / WebSocket| API
+    API --> CORE
+    API --> SERVICES
+    SERVICES --> WORKERS
+    CORE --> PG
+    WORKERS --> REDIS
+    WORKERS --> PG
+    WORKERS --> SANDBOX
+```
+````
+
+</details>
+
 ### 2.2 バックエンドとフロントエンドを分離する理由
 
 システムを FastAPI（バックエンド）と Next.js（フロントエンド）に分離する。
@@ -154,6 +192,37 @@ erDiagram
         string source_claim
     }
 ```
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+erDiagram
+    Project ||--o{ Spec : "持つ"
+    Project ||--o{ Assumption : "記録される"
+
+    Project {
+        string project_id PK
+        string arxiv_url
+        string state
+        string policy
+    }
+    Spec {
+        int id PK
+        string project_id FK
+        string content
+    }
+    Assumption {
+        int id PK
+        string project_id FK
+        string description
+        string source_claim
+    }
+```
+````
+
+</details>
 
 ### 3.3 データ保存の方針
 

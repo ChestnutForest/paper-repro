@@ -112,22 +112,74 @@ arXiv の AI/ML 論文を入力すると、**Phase 0〜6 のワークフロー�
 
 ## 2. 全体アーキテクチャ
 
+```mermaid
+flowchart TD
+    BROWSER["ブラウザ: フロントエンド"]
+    BROWSER -->|REST / WebSocket<br/>進捗ストリーム| API["APIサーバ: バックエンド"]
+
+    subgraph services["バックエンドのサービス群"]
+        INTAKE["論文取り込み<br/>arXiv / PDF / HTML"]
+        SEARCH["実装探索<br/>GitHub / Papers with Code / OpenReview"]
+        LLM["LLMオーケストレータ<br/>Claude API: 仕様抽出・数式→コード・翻訳"]
+        REPO["リポジトリ読解<br/>clone・静的解析"]
+        SANDBOX["★サンドボックス実行エンジン★<br/>使い捨てコンテナ"]
+        EVID["証拠・プロヴェナンス台帳<br/>主張 / 情報源 / 由来"]
+        STORE["仮定台帳・プロジェクト ストア（DB）"]
+        NB["ノートブック生成<br/>.ipynb"]
+        SCORE["スコア照合"]
+    end
+
+    API --> INTAKE
+    API --> SEARCH
+    API --> LLM
+    API --> REPO
+    API --> SANDBOX
+    API --> EVID
+    API --> STORE
+    API --> NB
+    API --> SCORE
+    services --> OBJ[("オブジェクトストレージ<br/>成果物・生成物・中間ファイル")]
+
+    style SANDBOX fill:#ffe8e8
 ```
-[ブラウザ:フロントエンド]
-   │  REST / WebSocket（進捗ストリーム）
-[APIサーバ:バックエンド]
-   ├── 論文取り込みサービス（arXiv / PDF / HTML）
-   ├── 実装探索サービス（GitHub / Papers with Code / OpenReview）
-   ├── LLMオーケストレータ（Claude API：仕様抽出・数式→コード・翻訳）
-   ├── リポジトリ読解サービス（clone・静的解析）
-   ├── ★サンドボックス実行エンジン（使い捨てコンテナ）★
-   ├── 証拠・プロヴェナンス台帳（主張／情報源／由来）
-   ├── 仮定台帳／プロジェクト ストア（DB）
-   ├── ノートブック生成サービス（.ipynb）
-   └── スコア照合サービス
-        │
-   [オブジェクトストレージ]（成果物・生成物・中間ファイル）
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+flowchart TD
+    BROWSER["ブラウザ: フロントエンド"]
+    BROWSER -->|REST / WebSocket<br/>進捗ストリーム| API["APIサーバ: バックエンド"]
+
+    subgraph services["バックエンドのサービス群"]
+        INTAKE["論文取り込み<br/>arXiv / PDF / HTML"]
+        SEARCH["実装探索<br/>GitHub / Papers with Code / OpenReview"]
+        LLM["LLMオーケストレータ<br/>Claude API: 仕様抽出・数式→コード・翻訳"]
+        REPO["リポジトリ読解<br/>clone・静的解析"]
+        SANDBOX["★サンドボックス実行エンジン★<br/>使い捨てコンテナ"]
+        EVID["証拠・プロヴェナンス台帳<br/>主張 / 情報源 / 由来"]
+        STORE["仮定台帳・プロジェクト ストア（DB）"]
+        NB["ノートブック生成<br/>.ipynb"]
+        SCORE["スコア照合"]
+    end
+
+    API --> INTAKE
+    API --> SEARCH
+    API --> LLM
+    API --> REPO
+    API --> SANDBOX
+    API --> EVID
+    API --> STORE
+    API --> NB
+    API --> SCORE
+    services --> OBJ[("オブジェクトストレージ<br/>成果物・生成物・中間ファイル")]
+
+    style SANDBOX fill:#ffe8e8
 ```
+````
+
+</details>
 
 **★印がこのツールの心臓部かつ最大のリスク**（第7章）。
 
