@@ -118,31 +118,29 @@ flowchart LR
     BROWSER["ブラウザ<br/>フロントエンド"]
     BROWSER -->|REST / WebSocket<br/>進捗ストリーム| API["APIサーバ<br/>バックエンド"]
 
-    subgraph services["バックエンドのサービス群"]
-        direction TB
-        INTAKE["論文取り込み<br/>arXiv / PDF / HTML"]
-        SEARCH["実装探索<br/>GitHub / Papers with Code<br/>OpenReview"]
-        LLM["LLMオーケストレータ<br/>Claude API"]
-        REPO["リポジトリ読解<br/>clone・静的解析"]
-        SANDBOX["★サンドボックス実行エンジン★<br/>使い捨てコンテナ"]
-        EVID["証拠・プロヴェナンス台帳"]
-        STORE["仮定台帳・PJ ストア（DB）"]
-        NB["ノートブック生成<br/>.ipynb"]
-        SCORE["スコア照合"]
-    end
+    API --> INTAKE["論文取り込み<br/>arXiv / PDF / HTML"]
+    API --> SEARCH["実装探索<br/>GitHub / Papers with Code<br/>OpenReview"]
+    API --> LLM["LLMオーケストレータ<br/>Claude API"]
+    API --> REPO["リポジトリ読解<br/>clone・静的解析"]
+    API --> SANDBOX["★サンドボックス実行エンジン★<br/>使い捨てコンテナ"]
+    API --> EVID["証拠・プロヴェナンス台帳"]
+    API --> STORE["仮定台帳・PJ ストア（DB）"]
+    API --> NB["ノートブック生成<br/>.ipynb"]
+    API --> SCORE["スコア照合"]
 
-    API --> INTAKE
-    API --> SEARCH
-    API --> LLM
-    API --> REPO
-    API --> SANDBOX
-    API --> EVID
-    API --> STORE
-    API --> NB
-    API --> SCORE
-    services --> OBJ[("オブジェクトストレージ<br/>成果物・生成物・中間ファイル")]
+    INTAKE --> OBJ[("オブジェクトストレージ<br/>成果物・生成物・中間ファイル")]
+    SEARCH --> OBJ
+    LLM --> OBJ
+    REPO --> OBJ
+    SANDBOX --> OBJ
+    EVID --> OBJ
+    STORE --> OBJ
+    NB --> OBJ
+    SCORE --> OBJ
 
-    style SANDBOX fill:#ffe8e8
+    classDef svc fill:#f4f4ff,stroke:#8888cc
+    class INTAKE,SEARCH,LLM,REPO,EVID,STORE,NB,SCORE svc
+    style SANDBOX fill:#ffe8e8,stroke:#cc6666
 ```
 
 <details>
@@ -155,31 +153,29 @@ flowchart LR
     BROWSER["ブラウザ<br/>フロントエンド"]
     BROWSER -->|REST / WebSocket<br/>進捗ストリーム| API["APIサーバ<br/>バックエンド"]
 
-    subgraph services["バックエンドのサービス群"]
-        direction TB
-        INTAKE["論文取り込み<br/>arXiv / PDF / HTML"]
-        SEARCH["実装探索<br/>GitHub / Papers with Code<br/>OpenReview"]
-        LLM["LLMオーケストレータ<br/>Claude API"]
-        REPO["リポジトリ読解<br/>clone・静的解析"]
-        SANDBOX["★サンドボックス実行エンジン★<br/>使い捨てコンテナ"]
-        EVID["証拠・プロヴェナンス台帳"]
-        STORE["仮定台帳・PJ ストア（DB）"]
-        NB["ノートブック生成<br/>.ipynb"]
-        SCORE["スコア照合"]
-    end
+    API --> INTAKE["論文取り込み<br/>arXiv / PDF / HTML"]
+    API --> SEARCH["実装探索<br/>GitHub / Papers with Code<br/>OpenReview"]
+    API --> LLM["LLMオーケストレータ<br/>Claude API"]
+    API --> REPO["リポジトリ読解<br/>clone・静的解析"]
+    API --> SANDBOX["★サンドボックス実行エンジン★<br/>使い捨てコンテナ"]
+    API --> EVID["証拠・プロヴェナンス台帳"]
+    API --> STORE["仮定台帳・PJ ストア（DB）"]
+    API --> NB["ノートブック生成<br/>.ipynb"]
+    API --> SCORE["スコア照合"]
 
-    API --> INTAKE
-    API --> SEARCH
-    API --> LLM
-    API --> REPO
-    API --> SANDBOX
-    API --> EVID
-    API --> STORE
-    API --> NB
-    API --> SCORE
-    services --> OBJ[("オブジェクトストレージ<br/>成果物・生成物・中間ファイル")]
+    INTAKE --> OBJ[("オブジェクトストレージ<br/>成果物・生成物・中間ファイル")]
+    SEARCH --> OBJ
+    LLM --> OBJ
+    REPO --> OBJ
+    SANDBOX --> OBJ
+    EVID --> OBJ
+    STORE --> OBJ
+    NB --> OBJ
+    SCORE --> OBJ
 
-    style SANDBOX fill:#ffe8e8
+    classDef svc fill:#f4f4ff,stroke:#8888cc
+    class INTAKE,SEARCH,LLM,REPO,EVID,STORE,NB,SCORE svc
+    style SANDBOX fill:#ffe8e8,stroke:#cc6666
 ```
 ````
 
@@ -409,25 +405,29 @@ flowchart LR
 
 ## 6. データモデル（主要エンティティ）
 
+主要エンティティは17件ある。**1つのER図に収めると横へ広がって読めなくなる**ため、
+役割ごとに4つへ分けて示す。関係はすべて `Project` を基点とする。
+
+| 図 | 扱うエンティティ |
+|---|---|
+| 6.1 中核 | `Project` `Paper` `Spec` `Assumption` `Delta` |
+| 6.2 批判的検証と由来 | `Claim` `Evidence` `ExperimentCond` `Provenance` |
+| 6.3 実行・照合・成果物 | `SanityRun` `ScoreCompare` `Artifact` `Approval` `CostRecord` |
+| 6.4 学習と質問 | `SelfExplanation` `DeepDiveQueue` `Question` |
+
+> エンティティ間の関係は、モデル一覧が明示するもの（`Paper` の取り込み、`Evidence` が
+> 主張に対する証拠であること）のみを線で表し、明示のないものは `Project` に属するものとして描いている。
+> `Project` の属性は 6.1 にのみ記載し、6.2〜6.4 では関係の基点としてのみ現れる。
+
+### 6.1 中核：プロジェクトと論文
+
 ```mermaid
-%%{init: {'er': {'layoutDirection': 'LR', 'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif'}}}%%
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
 erDiagram
     Project ||--|| Paper : "取り込む"
     Project ||--o{ Spec : "版管理する"
     Project ||--o{ Assumption : "仮定台帳を持つ"
-    Project ||--o{ Claim : "重要な主張を持つ"
-    Project ||--o{ ExperimentCond : "実験条件を構造化する"
-    Project ||--o{ Provenance : "由来を記録する"
     Project ||--o{ Delta : "差分を持つ"
-    Project ||--o{ SanityRun : "サニティを実行する"
-    Project ||--o{ ScoreCompare : "照合結果を持つ"
-    Project ||--o{ SelfExplanation : "自己説明を記録する"
-    Project ||--o{ DeepDiveQueue : "深掘りキューを持つ"
-    Project ||--o{ Question : "質問台帳を持つ"
-    Project ||--o{ Artifact : "生成物を持つ"
-    Project ||--o{ Approval : "承認履歴を持つ"
-    Project ||--o{ CostRecord : "コストを計上する"
-    Claim ||--o{ Evidence : "証拠を持つ"
 
     Project {
         string id PK
@@ -462,6 +462,74 @@ erDiagram
         enum suspicion "high / mid / low"
         enum status
     }
+    Delta {
+        string body "最大3推奨・5超で警告"
+    }
+```
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
+erDiagram
+    Project ||--|| Paper : "取り込む"
+    Project ||--o{ Spec : "版管理する"
+    Project ||--o{ Assumption : "仮定台帳を持つ"
+    Project ||--o{ Delta : "差分を持つ"
+
+    Project {
+        string id PK
+        string arxiv_id
+        string title
+        enum paper_type "A / B / null"
+        enum course "reading or reproduction - REQ-C01"
+        enum policy "full / reduced / adapt / partial / skip / null"
+        datetime created_at
+        datetime updated_at
+    }
+    Paper {
+        string abstract
+        string html_body
+        string pdf_ref
+        array versions
+        string official_repo_url
+        string source "REQ-C03-S01"
+        string identifier "REQ-C03-S01"
+        string category "REQ-C03-S01"
+        datetime fetched_at "REQ-C03-S01"
+        array publication_status "REQ-C03-S01"
+    }
+    Spec {
+        string body "spec.md 本文・版管理"
+    }
+    Assumption {
+        string topic
+        string paper_says
+        string chosen
+        string rationale
+        enum suspicion "high / mid / low"
+        enum status
+    }
+    Delta {
+        string body "最大3推奨・5超で警告"
+    }
+```
+````
+
+</details>
+
+### 6.2 批判的検証と由来
+
+```mermaid
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
+erDiagram
+    Project ||--o{ Claim : "重要な主張を持つ"
+    Project ||--o{ ExperimentCond : "実験条件を構造化する"
+    Project ||--o{ Provenance : "由来を記録する"
+    Claim ||--o{ Evidence : "証拠を持つ"
+
     Claim {
         enum kind "fact / result / interpretation / hypothesis / prediction / promotional"
         string premises "REQ-C10-S01"
@@ -496,9 +564,70 @@ erDiagram
     Provenance {
         string chain "原文から成果物までの由来 - REQ-C08 / B-13"
     }
-    Delta {
-        string body "最大3推奨・5超で警告"
+```
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
+erDiagram
+    Project ||--o{ Claim : "重要な主張を持つ"
+    Project ||--o{ ExperimentCond : "実験条件を構造化する"
+    Project ||--o{ Provenance : "由来を記録する"
+    Claim ||--o{ Evidence : "証拠を持つ"
+
+    Claim {
+        enum kind "fact / result / interpretation / hypothesis / prediction / promotional"
+        string premises "REQ-C10-S01"
+        string consequences "REQ-C10-S01"
+        string scope "REQ-C10-S01"
+        enum reading_depth "REQ-C10-S01"
+        string direct_support_range "REQ-C10-S01"
     }
+    Evidence {
+        string source_type "REQ-C07 / B-12"
+        string version
+        string authorship
+        enum directness
+        enum agreement
+        float confidence
+        bool approved_by_human
+        string approval_rationale
+    }
+    ExperimentCond {
+        string data "REQ-C10-S02"
+        string preprocessing
+        string model
+        string hyperparams
+        int seed
+        int runs
+        string metric
+        string error_bar
+        string compute
+        string comparison
+        enum state "reported / unreported / estimated / verified"
+    }
+    Provenance {
+        string chain "原文から成果物までの由来 - REQ-C08 / B-13"
+    }
+```
+````
+
+</details>
+
+### 6.3 実行・照合・成果物
+
+```mermaid
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
+erDiagram
+    Project ||--o{ SanityRun : "サニティを実行する"
+    Project ||--o{ ScoreCompare : "照合結果を持つ"
+    Project ||--o{ Artifact : "生成物を持つ"
+    Project ||--o{ Approval : "承認履歴を持つ"
+    Project ||--o{ CostRecord : "コストを計上する"
+
     SanityRun {
         enum paper_type
         string rung
@@ -511,24 +640,6 @@ erDiagram
         float paper
         float diff
         enum verdict "ok / investigate"
-    }
-    SelfExplanation {
-        string text "REQ-C04-S02"
-        string anchor
-        enum state "understood / partial / not / recheck"
-        enum visibility
-    }
-    DeepDiveQueue {
-        string entry "重要文献の深掘りキュー - REQ-C09-S02"
-    }
-    Question {
-        string body "REQ-C11 / B-15"
-        array answers
-        string respondent
-        string source
-        string medium
-        enum visibility
-        array history
     }
     Artifact {
         enum kind "notebook / code / zip"
@@ -546,95 +657,14 @@ erDiagram
 
 ````markdown
 ```mermaid
-%%{init: {'er': {'layoutDirection': 'LR', 'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif'}}}%%
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
 erDiagram
-    Project ||--|| Paper : "取り込む"
-    Project ||--o{ Spec : "版管理する"
-    Project ||--o{ Assumption : "仮定台帳を持つ"
-    Project ||--o{ Claim : "重要な主張を持つ"
-    Project ||--o{ ExperimentCond : "実験条件を構造化する"
-    Project ||--o{ Provenance : "由来を記録する"
-    Project ||--o{ Delta : "差分を持つ"
     Project ||--o{ SanityRun : "サニティを実行する"
     Project ||--o{ ScoreCompare : "照合結果を持つ"
-    Project ||--o{ SelfExplanation : "自己説明を記録する"
-    Project ||--o{ DeepDiveQueue : "深掘りキューを持つ"
-    Project ||--o{ Question : "質問台帳を持つ"
     Project ||--o{ Artifact : "生成物を持つ"
     Project ||--o{ Approval : "承認履歴を持つ"
     Project ||--o{ CostRecord : "コストを計上する"
-    Claim ||--o{ Evidence : "証拠を持つ"
 
-    Project {
-        string id PK
-        string arxiv_id
-        string title
-        enum paper_type "A / B / null"
-        enum course "reading or reproduction - REQ-C01"
-        enum policy "full / reduced / adapt / partial / skip / null"
-        datetime created_at
-        datetime updated_at
-    }
-    Paper {
-        string abstract
-        string html_body
-        string pdf_ref
-        array versions
-        string official_repo_url
-        string source "REQ-C03-S01"
-        string identifier "REQ-C03-S01"
-        string category "REQ-C03-S01"
-        datetime fetched_at "REQ-C03-S01"
-        array publication_status "REQ-C03-S01"
-    }
-    Spec {
-        string body "spec.md 本文・版管理"
-    }
-    Assumption {
-        string topic
-        string paper_says
-        string chosen
-        string rationale
-        enum suspicion "high / mid / low"
-        enum status
-    }
-    Claim {
-        enum kind "fact / result / interpretation / hypothesis / prediction / promotional"
-        string premises "REQ-C10-S01"
-        string consequences "REQ-C10-S01"
-        string scope "REQ-C10-S01"
-        enum reading_depth "REQ-C10-S01"
-        string direct_support_range "REQ-C10-S01"
-    }
-    Evidence {
-        string source_type "REQ-C07 / B-12"
-        string version
-        string authorship
-        enum directness
-        enum agreement
-        float confidence
-        bool approved_by_human
-        string approval_rationale
-    }
-    ExperimentCond {
-        string data "REQ-C10-S02"
-        string preprocessing
-        string model
-        string hyperparams
-        int seed
-        int runs
-        string metric
-        string error_bar
-        string compute
-        string comparison
-        enum state "reported / unreported / estimated / verified"
-    }
-    Provenance {
-        string chain "原文から成果物までの由来 - REQ-C08 / B-13"
-    }
-    Delta {
-        string body "最大3推奨・5超で警告"
-    }
     SanityRun {
         enum paper_type
         string rung
@@ -648,6 +678,29 @@ erDiagram
         float diff
         enum verdict "ok / investigate"
     }
+    Artifact {
+        enum kind "notebook / code / zip"
+    }
+    Approval {
+        string gate "承認ゲートの履歴"
+    }
+    CostRecord {
+        string phase "Phase単位のコスト計上"
+    }
+```
+````
+
+</details>
+
+### 6.4 学習と質問
+
+```mermaid
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
+erDiagram
+    Project ||--o{ SelfExplanation : "自己説明を記録する"
+    Project ||--o{ DeepDiveQueue : "深掘りキューを持つ"
+    Project ||--o{ Question : "質問台帳を持つ"
+
     SelfExplanation {
         string text "REQ-C04-S02"
         string anchor
@@ -666,22 +719,41 @@ erDiagram
         enum visibility
         array history
     }
-    Artifact {
-        enum kind "notebook / code / zip"
+```
+
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+%%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
+erDiagram
+    Project ||--o{ SelfExplanation : "自己説明を記録する"
+    Project ||--o{ DeepDiveQueue : "深掘りキューを持つ"
+    Project ||--o{ Question : "質問台帳を持つ"
+
+    SelfExplanation {
+        string text "REQ-C04-S02"
+        string anchor
+        enum state "understood / partial / not / recheck"
+        enum visibility
     }
-    Approval {
-        string gate "承認ゲートの履歴"
+    DeepDiveQueue {
+        string entry "重要文献の深掘りキュー - REQ-C09-S02"
     }
-    CostRecord {
-        string phase "Phase単位のコスト計上"
+    Question {
+        string body "REQ-C11 / B-15"
+        array answers
+        string respondent
+        string source
+        string medium
+        enum visibility
+        array history
     }
 ```
 ````
 
 </details>
-
-> エンティティ間の関係は、上の一覧が明示するもの（`Paper` の取り込み、`Evidence` が主張に対する証拠であること）
-> のみを線で表し、明示のないものは `Project` に属するものとして描いている。
 
 ---
 
