@@ -113,6 +113,7 @@ arXiv の AI/ML 論文を入力すると、**Phase 0〜6 のワークフロー�
 ## 2. 全体アーキテクチャ
 
 ```mermaid
+%%{init: {'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
 flowchart LR
     BROWSER["ブラウザ<br/>フロントエンド"]
     BROWSER -->|REST / WebSocket<br/>進捗ストリーム| API["APIサーバ<br/>バックエンド"]
@@ -149,6 +150,7 @@ flowchart LR
 
 ````markdown
 ```mermaid
+%%{init: {'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
 flowchart LR
     BROWSER["ブラウザ<br/>フロントエンド"]
     BROWSER -->|REST / WebSocket<br/>進捗ストリーム| API["APIサーバ<br/>バックエンド"]
@@ -408,6 +410,7 @@ flowchart LR
 ## 6. データモデル（主要エンティティ）
 
 ```mermaid
+%%{init: {'er': {'layoutDirection': 'LR', 'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif'}}}%%
 erDiagram
     Project ||--|| Paper : "取り込む"
     Project ||--o{ Spec : "版管理する"
@@ -543,6 +546,7 @@ erDiagram
 
 ````markdown
 ```mermaid
+%%{init: {'er': {'layoutDirection': 'LR', 'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif'}}}%%
 erDiagram
     Project ||--|| Paper : "取り込む"
     Project ||--o{ Spec : "版管理する"
