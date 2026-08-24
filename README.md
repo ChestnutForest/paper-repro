@@ -5,9 +5,10 @@
 その後のリリースでタイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する。
 
 - **ドキュメント索引**: [`docs/README.md`](docs/README.md)
-- 要件: [`docs/requirements.md`](docs/requirements.md)
+- 要件（v0.2-draft・骨組み更新）: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
+- ID一本化とPhase暫定化の決定記録: [`docs/worknotes/id-unification-and-phase-provisional.md`](docs/worknotes/id-unification-and-phase-provisional.md)
 - 承認前の矛盾スクリーニング: [`docs/worknotes/pre-approval-screening.md`](docs/worknotes/pre-approval-screening.md)
 - 参考文献: [`docs/references.md`](docs/references.md)
 - 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
@@ -286,9 +287,11 @@ paper-repro/
     │   └── devlog-YYYY-MM-DD*.md
     ├── history/
     │   └── project-history.md
-    └── worknotes/            ← 反映メモ・保留記録・承認前スクリーニング
+    └── worknotes/            ← 反映メモ・保留記録・承認前スクリーニング・骨組み更新決定
         ├── README.md
-        └── pre-approval-screening.md ほか
+        ├── pre-approval-screening.md
+        ├── id-unification-and-phase-provisional.md
+        └── ほか
 ```
 
 ## 開発の進め方

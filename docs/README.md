@@ -29,7 +29,7 @@
 
 | ファイル | 内容 |
 |---|---|
-| [`requirements.md`](requirements.md) | 要件定義。human-in-the-loop、サンドボックスのリスク |
+| [`requirements.md`](requirements.md) | 要件定義（**v0.2-draft・骨組み更新**）。human-in-the-loop、サンドボックスのリスク、ID体系、再現の水準 |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
 | [`references.md`](references.md) | **参考文献**。一次資料の書誌情報と引用の方針。各分析文書は短縮形で引用する |
@@ -82,6 +82,7 @@
 | [`history/project-history.md`](history/project-history.md) | **プロジェクト経緯**。指示と成果物の対応を日付順に整理 |
 | [`worknotes/`](worknotes/) | **作業メモ**。分析をどう反映したか、なぜその方法を選んだか、何を保留したか |
 | [`worknotes/pre-approval-screening.md`](worknotes/pre-approval-screening.md) | **承認前の矛盾スクリーニング**。新規32件と選択済み11件を突き合わせ、真の矛盾0件・要手当て2件・要注意4件と判定 |
+| [`worknotes/id-unification-and-phase-provisional.md`](worknotes/id-unification-and-phase-provisional.md) | **ID一本化とPhase暫定化の決定記録**。`REQ-Cxx`を一次識別子とし、`F-xx`等を二次識別子として維持する方針を確定 |
 
 ## 🔍 知識の活用
 

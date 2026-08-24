@@ -18,6 +18,7 @@
 | [`reflection-1.2.3.4.md`](reflection-1.2.3.4.md) | 「1.2.3.4」の判定と既存文書への追記記録 | `section-1.2.3.4-using-generative-ai.md` |
 | [`pending-req-c09-s04.md`](pending-req-c09-s04.md) | 未確定の要求候補`REQ-C09-S04`の状態管理と判断保留の経緯 | `section-1.2.3-external-help.md` ほか |
 | [`pre-approval-screening.md`](pre-approval-screening.md) | 変更案v0.12の承認前に、新規32件と選択済み11件の矛盾だけを確認した記録 | `simclr-handson-deck.md`、`academic-research-skills.md`、`academic-research-skills-frameworks.md` |
+| [`id-unification-and-phase-provisional.md`](id-unification-and-phase-provisional.md) | ID体系を`REQ-Cxx`へ一本化し、Phase 0〜6を暫定と明記した決定記録（v0.2骨組み更新） | `requirements.md` v0.2-draft |
 
 ## 保存する理由
 
