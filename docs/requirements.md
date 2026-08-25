@@ -430,7 +430,7 @@ erDiagram
     Project ||--o{ Delta : "差分を持つ"
 
     Project {
-        string id PK
+        string project_id PK
         string arxiv_id
         string title
         enum paper_type "A / B / null"
@@ -480,7 +480,7 @@ erDiagram
     Project ||--o{ Delta : "差分を持つ"
 
     Project {
-        string id PK
+        string project_id PK
         string arxiv_id
         string title
         enum paper_type "A / B / null"

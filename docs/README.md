@@ -33,7 +33,7 @@
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
 | [`references.md`](references.md) | **参考文献**。一次資料の書誌情報と引用の方針。各分析文書は短縮形で引用する |
-| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（草案）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、既存記述との矛盾9件 |
+| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（v1.0 確定）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、矛盾9件の解消、決定の記録3件 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |
 | [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
 | [`requirements-analysis/section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md) | 「1.2 論文を読み解く技術」と現行要件の比較。`REQ-C10`・`REQ-C11`とサブ要求候補10件 |

@@ -7,7 +7,7 @@
 - 初期リリース範囲: タイプB・公式実装ありの論文を縦切りで完成させる
 - 後続リリース: タイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する
 - 関連文書: `docs/requirements.md`（要件 v0.2）, `docs/product-design.md`（設計 v0.2）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
-- フェーズ0の注意: `Project.course` は後から足すとスキーマ変更と状態機械の書き直しが要る。永続化の設計時に必ず含める（`docs/product-design.md` 1.4・7章）
+- フェーズ0の仕様: [`docs/arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) v1.0（確定）。DDL・ENUM・状態遷移表・決定の記録
 
 ---
 
@@ -30,15 +30,16 @@
 
 土台に残る穴を塞ぐ。ここを固めてから機能を積む。
 
-- **0-0. データモデル仕様を確定する** ← 次の一手
-  [`docs/arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) の未決事項3件を判断する。
-  既存記述との矛盾が9件あり、うち状態の持ち方（`state` 1列 → `phase` × `status` 2列）は
-  実装済みコードの変更を伴う。**判断前に 0-1 へ進まない。**
-- **0-1. インメモリ保存を PostgreSQL に置き換える**
+- **0-0. データモデル仕様を確定する** ✅ 完了（2026-08-25）
+  [`docs/arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) **v1.0（確定）**。
+  既存記述との矛盾9件の解消方針と、未決事項3件の決定を記録済み。
+- **0-1. `projects` / `papers` を作り、PostgreSQL に永続化する** ← 次の一手
   現状は uvicorn 再起動でプロジェクトが消える。Docker で起動済みの PostgreSQL に保存する。
-  `projects.py` の仮のインメモリ保存を、SQLAlchemy 経由の DB 保存に置き換える。
+  **DDL・ENUM の値は `arc-datamodel.md` 3章に従う。**
+  `course` は `NOT NULL`・既定値なしのため、`POST /projects` の変更を伴う（同 5.1）。
 - **0-2. 状態遷移を動かす**
-  `states.py` の状態機械（created→intake_review→…）を API で実際に遷移させる。承認ゲートの土台。
+  `state` 1列を **`phase` × `status` の2列**へ分ける（同 2.1）。
+  遷移表は同 3.4・3.5 に従い、`POST /projects/{id}/state` は**廃止する**（同 5.2）。
 
 ## フェーズ1：インテーク（Phase 0 を製品化）
 

@@ -127,6 +127,9 @@ v0.2 では、**進行中でも人間に判断を戻す事象駆動型**を追�
 
 ### 1.4 スキーマへの追加（v0.1 からの差分）
 
+> 列の型・NULL可否・ENUM の値・状態遷移表は
+> [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) v1.0 が正本である。本節は差分の要点のみを示す。
+
 ```
 Project
  ├─ course             ENUM(reading, reproduction)     ← REQ-C01（新規・NOT NULL）
@@ -223,9 +226,16 @@ flowchart TD
 | メソッド | パス | 役割 | 返却 | 対応要求 |
 |---|---|---|---|---|
 | GET | `/projects` | 一覧（状態・**コース**・進捗・コスト） | `Project[]` | `REQ-C09` |
-| POST | `/projects` | 作成。arXiv URL を受け、取り込みジョブ起動 | `{project_id, job_id}` | `REQ-C03` |
+| POST | `/projects` | 作成。**arXiv URL と `course` を必須で受け**、取り込みジョブ起動 | `{project_id, job_id}` | `REQ-C01`、`REQ-C03` |
 | GET | `/projects/{id}` | 詳細（現在の phase/status/course を含む） | `Project` | `REQ-C09` |
-| **POST** | **`/projects/{id}/course`** | **コース選択・切替。`{course: reading/reproduction}`。既存の成果物を保持したまま切り替える** | `Project` | **`REQ-C01`** |
+| **POST** | **`/projects/{id}/course`** | **作成後の切替専用。`{course: reading/reproduction}`。既存の成果物を保持したまま切り替える** | `Project` | **`REQ-C01`** |
+
+> **`course` は作成時に必須である**（[`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) 5.1 で確定）。
+> 列に既定値を置かないため、未選択のプロジェクトは存在しない。上の `/course` は**切替のみ**を担う。
+>
+> **`phase` を直接指定して遷移させる汎用エンドポイントは設けない**（同 5.2 で確定）。
+> 遷移は `policy`・`spec:finalize`・`sanity:gate` などゲートのエンドポイント経由に限る。
+> 経路を1つに絞ることで、承認ゲートの迂回が構造上できなくなる（`REQ-C06`）。
 | DELETE | `/projects/{id}` | 削除（コンテナ・成果物も破棄） | `204` | `REQ-C09-S01` |
 
 ### 3.2 Phase 0：インテーク
