@@ -1,9 +1,80 @@
 # 技術スタック解説
 
-`paper-repro` で使っている技術を、層ごとにまとめる。
+`paper-repro` の開発で使う道具を、層ごとにまとめる。
 「なぜそれを選んだか」も併記しているので、設計判断を振り返るときにも使う。
+**まだ使っていないが導入済みのもの**も、状態を明記して載せる。
 
-関連文書：[`product-design.md`](product-design.md)（設計）／[`roadmap.md`](roadmap.md)（導入時期）
+**本書が道具の一覧の正本である。** 同じ一覧を他の文書へ複製しない。
+
+| 関連文書 | 本書との関係 |
+|---|---|
+| [`product-design.md`](product-design.md) | 設計。どの道具をどこで使うか（4章 技術スタック選定、5章 構成図） |
+| [`roadmap.md`](roadmap.md) | 導入時期。未導入の道具がどのフェーズで入るか |
+| [`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md) | 構造。層の分け方と道具の対応 |
+| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | Alembic を当面導入しない決定と、導入する3条件（第4章） |
+| [`../AGENTS.md`](../AGENTS.md) | 検査・整形の運用規約（§7 コーディング規約、§7.1 コメントと docstring、§9 検証） |
+| [`references.md`](references.md) | 準拠する標準の書誌（PEP 257・PEP 8 は REF-18・REF-19） |
+| [`dev-startup.md`](dev-startup.md)／[`daily-routine.md`](daily-routine.md) | 道具の起動と日々の使い方 |
+
+---
+
+## 道具の一覧
+
+依存の実体は `backend/requirements.txt`、`frontend/package.json`、`docker-compose.yml` にある。
+本表はそれを役割で読めるようにしたもの。**✅ は現在すでに使っているもの。**
+
+### 実行に必要なもの（バックエンド）
+
+| 道具 | 役割 | 状態 |
+|---|---|---|
+| Python 3.13 | 実行環境 | ✅ |
+| FastAPI | Web API フレームワーク | ✅ |
+| uvicorn | ASGI サーバー。FastAPI の窓口を開く | ✅ |
+| Pydantic / pydantic-settings | 入出力の検証と設定の読み込み | ✅ |
+| SQLAlchemy | ORM。Python オブジェクトと DB テーブルの対応づけ | ✅ |
+| psycopg | PostgreSQL のドライバ | ✅ |
+| httpx | HTTP クライアント。外部 API 呼び出し用 | 未使用 |
+| anthropic | Claude API の SDK | 未使用 |
+| python-dotenv | `.env` の読み込み | ✅ |
+| Celery | 非同期ジョブの実行 | 未使用（フェーズ2） |
+| redis（クライアント） | Celery のブローカーへの接続 | 未使用（フェーズ2） |
+| **Alembic** | **DB スキーマのマイグレーション管理** | **導入済みだが未使用**（後述） |
+
+### 評価・照合に使うもの
+
+| 道具 | 役割 | 状態 |
+|---|---|---|
+| PyYAML / xmltodict / toml | 構造化データの読み書き。スコア照合で使う | 未使用（フェーズ5） |
+
+### 開発を検査するもの
+
+| 道具 | 役割 | 状態 |
+|---|---|---|
+| pytest | テスト実行 | ✅ |
+| **Ruff** | **Python の静的検査（リンタ）** | ✅（後述） |
+| **Black** | **Python の整形（フォーマッタ）** | ✅（後述） |
+
+### フロントエンド
+
+| 道具 | 役割 | 状態 |
+|---|---|---|
+| Next.js / React / TypeScript | 画面の構築 | ✅ |
+| next-intl | 日英中の言語切り替え | ✅（`messages/` に3言語） |
+| Tailwind CSS / PostCSS / autoprefixer | スタイル | ✅ |
+| shadcn/ui 系（Radix Slot、CVA、clsx、tailwind-merge） | UI 部品の土台 | ✅ |
+| lucide-react | アイコン | ✅ |
+| ESLint / Prettier | 検査と整形 | ✅ |
+
+### 基盤・運用
+
+| 道具 | 役割 | 状態 |
+|---|---|---|
+| PostgreSQL 16 | 本番のデータベース | ✅ |
+| Redis 7 | 待ち行列（起動のみ） | 起動のみ |
+| Docker / Docker Compose | PostgreSQL と Redis をコンテナで動かす | ✅ |
+| Git / GitHub | バージョン管理と公開 | ✅ |
+| Claude Code / Codex | AI コーディングエージェント | ✅ |
+| gVisor 等のサンドボックス | 第三者コードの隔離実行 | 未導入（フェーズ4） |
 
 ---
 
@@ -98,9 +169,64 @@ Celery が「時間のかかる仕事を裏で処理する係」、Redis が「�
 
 `backend/tests/test_smoke.py` を走らせているのがこれ。
 
-### Ruff / Black（整形・検査）
+### Ruff 0.7（静的検査）
 
-Python 版の ESLint / Prettier にあたる。Ruff は非常に高速なのが特徴。
+**コードを実行せずに問題を見つける道具（リンタ）。** Python 版の ESLint にあたる。
+Rust 製で、同種の道具（Flake8 など）より桁違いに速いのが特徴。
+
+検出するのは、未使用の import や変数、未定義の名前、書式の逸脱など。
+実際に本プロジェクトでも `from fastapi import Depends` が未使用であることを検出し、
+`F401` として報告した。**整形はしない。指摘するだけ**である点が Black との違い。
+
+```powershell
+backend\.venv\Scripts\python.exe -m ruff check backend
+```
+
+### Black 24（整形）
+
+**コードの見た目を機械的に統一する道具（フォーマッタ）。** Prettier にあたる。
+改行位置、空行、クォートの種類などを、設定ではなく **Black の決めた形**に揃える。
+「どう書くか」を議論しなくて済むのが利点で、そのため設定項目がほとんど無い
+（"uncompromising" を掲げている）。
+
+既定の行長は88文字。本プロジェクトはこれに従う（PEP 8 の72文字からの逸脱は
+[`../AGENTS.md`](../AGENTS.md) §7.1.5 に理由つきで記録）。
+
+**`--check` は指摘するだけで直さない。** 必ず整形を実行してから確認する。
+ファイルを絞ると触っていない既存の違反を見逃すため、対象は `backend` 全体にする。
+
+```powershell
+backend\.venv\Scripts\python.exe -m black backend; backend\.venv\Scripts\python.exe -m black --check backend
+```
+
+> 実例：2026-08-25 に docstring を追加した際、Black が
+> 「モジュール docstring の後ろに空行を1つ入れよ」と要求した。
+> PEP 257 はこれを明記していないため、規約側（`AGENTS.md` §7.1.2）に書き足した。
+
+### Alembic 1（マイグレーション）— **導入済みだが当面使わない**
+
+**DB のテーブル構造の変更履歴を管理する道具。** 列の追加や型の変更を「リビジョン」として
+記録し、前後へ移動できる。`requirements.txt` には入っているが、**まだ使っていない。**
+
+現在は `Base.metadata.create_all()` でテーブルを作り、
+スキーマを変えるときは**テーブルごと作り直す**。
+
+```powershell
+docker compose down -v; docker compose up -d
+```
+
+`-v` はボリュームごと消す指定で、**入っているデータも消える。**
+
+この方針は [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) 第4章で決めたもので、
+理由は「公開前・利用者1名・捨ててよいデータしか無い段階では、マイグレーションを書く手間が
+得られる安全に見合わない」こと。ただし先送りが続かないよう、**導入する条件を3つ**定めてある。
+
+1. 捨てられないデータが入ったとき
+2. 利用者が2名以上になったとき
+3. フェーズ6の一般公開に着手するとき
+
+`create_all()` は**既存テーブルを変更しない**点に注意する。列を足しても既存の DB には
+反映されないため、上のコマンドで作り直すまで実行時エラーになる。
 
 ---
 
@@ -147,12 +273,12 @@ Claude Codeに計画を出させてから実装した。今後はCodexとも同�
 | Celery + Redis | 非同期ジョブと進捗ストリーム | フェーズ2 |
 | next-intl | 日英切り替え（i18n）。共通方針は `AGENTS.md` に記載済み | フェーズ6 |
 | gVisor 等のサンドボックス | 信頼できない第三者コードの隔離実行 | フェーズ4 |
-| Alembic | DBテーブル構造のマイグレーション管理（`requirements.txt` には導入済み） | 必要時 |
+| Alembic | DBテーブル構造のマイグレーション管理。**導入済みだが当面使わない。**判断と3つの導入条件は [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) 第4章 | 条件を満たしたとき |
 | TiDB | 大規模化・ベクトル検索が必要になった場合のDB候補 | フェーズ6以降で再検討 |
 
 ---
 
-## バージョン一覧（2026-08-03時点）
+## バージョン一覧（2026-08-25時点）
 
 | 区分 | 技術 | バージョン |
 |---|---|---|
@@ -166,6 +292,13 @@ Claude Codeに計画を出させてから実装した。今後はCodexとも同�
 | バック | SQLAlchemy | 2 |
 | データ | PostgreSQL | 16 |
 | データ | Redis | 7 |
+| 開発 | pytest | 8 |
+| 開発 | Ruff | 0.7 |
+| 開発 | Black | 24 |
 | 開発 | Git | 2.55.0.windows.3 |
+| 未使用 | Alembic | 1 |
+| 未使用 | Celery | 5 |
+| 未使用 | anthropic（SDK） | 0.39 |
 
 > 正確な依存バージョンは `backend/requirements.txt` と `frontend/package.json` を参照。
+> **本表と実体が食い違ったら、実体が正しい。**依存を変えたら本書も同じ変更で直す。

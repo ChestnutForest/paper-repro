@@ -209,6 +209,7 @@ print('same' if s(sys.argv[1])==s(sys.argv[2]) else 'DIFFER')" $env:TEMP\before.
 
 ## 9. 検証
 
+各道具の役割と選定理由は [`docs/tech-stack.md`](docs/tech-stack.md) を参照する。
 変更範囲に応じて、少なくとも次を実行する。
 
 ```powershell
