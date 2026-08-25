@@ -4,7 +4,43 @@
 最初のリリースでは「タイプB（学習なし・公式実装あり）」の論文を縦切りで完成させ、
 その後のリリースでタイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する。
 
+---
+
+## 📍 開発ロードマップの進捗
+
+**現在地: フェーズ0「土台の仕上げ」／ 全7フェーズ中 0 完了**
+
+詳細と各フェーズの中身は **[`docs/roadmap.md`](docs/roadmap.md)** を参照。
+
+| フェーズ | 内容 | 状態 |
+|---|---|---|
+| Step 1 土台 | プロジェクト作成 → 一覧表示、GitHub登録、MITライセンス設定 | ✅ 完了 |
+| **▶ フェーズ0** | **データ永続化・状態遷移・`course`の導入（`REQ-C01`）** | 🔨 **進行中** |
+| フェーズ1 | インテーク（論文取込・タイプ判定・方針選択ゲート） | ⬜ 未着手 |
+| フェーズ2 | 非同期ジョブ（Celery/Redis）・WebSocket進捗 | ⬜ 未着手 |
+| フェーズ3 | リーディング（spec草案・エディタ・仮定台帳） | ⬜ 未着手 |
+| フェーズ4 | 検証（サンドボックス・サニティ階段・ノートブック生成） | ⬜ 未着手 |
+| フェーズ5 | 照合・レポート（スコア照合・zip出力） | ⬜ 未着手 |
+| フェーズ6 | 公開整備（README・i18n・一般公開） | ⬜ 未着手 |
+
+### 進行中のフェーズ0の中身
+
+| 項目 | 状態 |
+|---|---|
+| 0-0. データモデル仕様の確定（[`arc-datamodel.md`](docs/arch-guide/arc-datamodel.md) v1.0） | ✅ 完了（2026-08-25） |
+| **0-1. `projects` / `papers` を作り PostgreSQL に永続化する** | **← 次の一手** |
+| 0-2. 状態遷移を動かす（`state` 1列 → `phase` × `status` の2列） | ⬜ 未着手 |
+
+> **進捗の正本は [`docs/roadmap.md`](docs/roadmap.md) である。**
+> フェーズの状態を変えるときは、まず `roadmap.md` を更新し、同じ変更で本表も合わせる。
+> 直近の作業内容は [`docs/devlog/`](docs/devlog/) の最新ファイルを見る。
+
+---
+
+## ドキュメント
+
 - **ドキュメント索引**: [`docs/README.md`](docs/README.md)
+- **ロードマップ（進捗の正本）**: [`docs/roadmap.md`](docs/roadmap.md)
 - 要件（**v0.2・確定要求23件を統合済み**）: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
@@ -38,7 +74,6 @@
 - 追加要件選択・第3バッチ: [`docs/requirements-decisions/batch-03-options.md`](docs/requirements-decisions/batch-03-options.md)
 - 設計: [`docs/product-design.md`](docs/product-design.md)
 - 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
-- ロードマップ: [`docs/roadmap.md`](docs/roadmap.md)
 - プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
 - Claude Code / Codex 共通指示: [`AGENTS.md`](AGENTS.md)
 - Claude Code 用エントリーポイント: [`CLAUDE.md`](CLAUDE.md)

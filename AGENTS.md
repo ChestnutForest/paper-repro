@@ -219,6 +219,12 @@ print('same' if s(sys.argv[1])==s(sys.argv[2]) else 'DIFFER')" $env:TEMP\before.
 - README以外の現行文書を追加・改名した場合は、`README.md` と `docs/README.md` の索引を同期する。
 - commit / push はユーザーが依頼した場合に実行し、実行後はローカルとリモートのSHA一致を確認する。
 
+## 8.1 進捗の更新
+
+フェーズの状態が変わったときは、**`docs/roadmap.md` を正本として先に直し、
+同じ変更でルート `README.md` 冒頭の進捗表も合わせる。**
+README はリポジトリを開いた人が最初に見る場所であり、そこが古いと誤解が生じる。
+
 ## 9. 検証
 
 各道具の役割と選定理由は [`docs/tech-stack.md`](docs/tech-stack.md) を参照する。
