@@ -112,7 +112,7 @@ ALLOWED_TRANSITIONS: dict[Phase, set[Phase]] = {
 
 
 def can_transition(src: Phase, dst: Phase) -> bool:
-    """src から dst への phase 遷移が許可されているかを返す。
+    """指定された phase 遷移が許可されているかを返す。
 
     Args:
         src: 遷移元の工程。

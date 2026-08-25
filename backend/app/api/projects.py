@@ -87,7 +87,7 @@ def list_projects(db: Session = Depends(get_db)) -> list[ProjectRes]:
 
 @router.post("/projects", response_model=ProjectRes, status_code=201)
 def create_project(req: CreateProjectReq, db: Session = Depends(get_db)) -> ProjectRes:
-    """arXiv URL と course を受けてプロジェクトを作成する。
+    """論文の URL と course を受けてプロジェクトを作成する。
 
     `phase=created` / `status=idle` で登録する。
 

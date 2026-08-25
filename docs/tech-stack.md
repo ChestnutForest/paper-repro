@@ -51,7 +51,7 @@
 | 道具 | 役割 | 状態 |
 |---|---|---|
 | pytest | テスト実行 | ✅ |
-| **Ruff** | **Python の静的検査（リンタ）** | ✅（後述） |
+| **Ruff** | **Python の静的検査（リンタ）。PEP 257 の docstring 規則を含む。設定は `backend/ruff.toml`** | ✅（後述） |
 | **Black** | **Python の整形（フォーマッタ）** | ✅（後述） |
 
 ### フロントエンド
@@ -181,6 +181,11 @@ Rust 製で、同種の道具（Flake8 など）より桁違いに速いのが�
 ```powershell
 backend\.venv\Scripts\python.exe -m ruff check backend
 ```
+
+**検査する規則は `backend/ruff.toml` で決まる。** 既定のままでは PEP 257 の
+docstring 規則（`D` 規則）を一切見ないため、設定で明示的に有効にしている。
+日本語では必ず誤検出になる `D400`（要約行を ASCII のピリオドで終えること）だけを、
+理由を書いたうえで無効化している。
 
 ### Black 24（整形）
 
