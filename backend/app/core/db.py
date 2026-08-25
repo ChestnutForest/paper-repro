@@ -11,6 +11,7 @@ Note:
     マイグレーションツール（Alembic）は当面導入しない。スキーマを変えるときは
     テーブルを作り直す。導入する条件は docs/arch-guide/arc-datamodel.md 第4章に定めた。
 """
+
 from typing import Generator
 
 from sqlalchemy import create_engine

@@ -1,4 +1,5 @@
 """アプリ設定。環境変数（.env）から読み込む。"""
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 

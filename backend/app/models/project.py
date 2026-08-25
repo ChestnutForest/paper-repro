@@ -5,6 +5,7 @@
 
 列の型・NULL可否・既定値は docs/arch-guide/arc-datamodel.md v1.0 の 3.1 節を正本とする。
 """
+
 from sqlalchemy import Column, Enum, String
 
 from app.core.db import Base
