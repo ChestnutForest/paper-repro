@@ -80,46 +80,100 @@ docs/         要件、設計、ロードマップ、運用手順、開発履歴
 - 秘密情報（APIキー等）を絶対にコミットしない。`.env` と `.env.local` は追跡対象にしない。
 - 既存のAPI入出力や状態遷移を変える場合は、理由を設計文書または履歴に記録する。
 
-### 7.1 インターフェース情報のコメント（必須）
+### 7.1 コメントと docstring（PEP 257 / PEP 8 準拠・必須）
 
-コードを追加・変更したときは、**同じ変更の中で** インターフェース情報を記載する。
-「あとで書く」は残らない。レビューではこの記載の有無も見る。
+**Python のコメントは PEP 257（Docstring Conventions）と PEP 8（Style Guide for Python Code）に従う。**
+両者は Python 公式の情報提供 PEP であり、書誌は `docs/references.md` の REF-18・REF-19。
 
-**クラスに書くこと**
+コードを追加・変更したときは、**同じ変更の中で** docstring を書く。「あとで書く」は残らない。
 
-- そのクラスが何を表すか（1文）
-- `Attributes:` — 各属性の意味。列や項目に制約（NOT NULL、既定値なし、必須など）があれば明記する
-- 根拠となる要求ID（`REQ-Cxx`）や仕様の節番号
+#### 7.1.1 どこに書くか（PEP 8）
 
-**関数・メソッドに書くこと**
+公開するモジュール・関数・クラス・メソッドには docstring を書く。
+非公開（`_` 始まり）には docstring は必須でないが、**何をするかのコメントは置く**。
+パッケージは `__init__.py` のモジュール docstring で文書化する（PEP 257）。
 
-- 何をするか（1文）
-- `Args:` — 各引数の意味
-- `Returns:` — 戻り値の意味。HTTP を返す場合はステータスコードも
-- `Raises:` — 送出しうる例外と、**その条件**。条件が複数あるなら分けて書く
-- `Note:` — 誤用しやすい点、他の関数との境界、過去に起きた不具合
+#### 7.1.2 書式（PEP 257）
 
-**特に必ず書くもの**
+- 常に `"""三重ダブルクォート"""` で囲む。バックスラッシュを含むなら `r"""..."""`。
+- **1行 docstring**: 本当に自明な場合だけ。閉じクォートは開きクォートと同じ行に置き、
+  前後に空行を入れない。末尾はピリオド（日本語なら句点）で終える。
+- **複数行 docstring**: 要約行 → **空行** → 詳細、の順。要約行は1行に収める。
+  要約行は開きクォートと同じ行に置く。閉じクォートは独立した行に置く。
+- クラスの docstring の**後ろに空行**を1行入れ、最初のメソッドと離す。
+- 1行 docstring に**シグネチャを書かない**。引数は内省で得られるため。
+  ただし**戻り値の性質**は内省で分からないので書く。
+- 要約行は効果を**命令形**で述べる。「〜を返す」と書き、「〜を返します」とは書かない。
+
+#### 7.1.3 何を書くか（PEP 257）
+
+| 対象 | 書く内容 |
+|---|---|
+| モジュール | エクスポートするクラス・例外・関数を、それぞれ1行の要約つきで列挙する |
+| パッケージ | 上に加えて、エクスポートするモジュールとサブパッケージを列挙する |
+| クラス | 振る舞いの要約、公開メソッドとインスタンス変数。継承元と主に振る舞いが同じなら、その旨と差分 |
+| 関数・メソッド | 振る舞いの要約、**引数・戻り値・副作用・送出する例外・呼び出せる条件の制限**（該当するものすべて）。省略可能な引数はその旨を示す |
+
+**節見出しの書式は Google スタイル**（`Args:` / `Returns:` / `Yields:` / `Raises:` /
+`Attributes:` / `Note:` / `Todo:`）を用いる。PEP 257 は「マークアップ構文には立ち入らない」と
+明言しており、節見出しの形式は PEP が定めていない。**プロジェクトとして Google スタイルを選ぶ。**
+
+#### 7.1.4 コメント（PEP 8）
+
+- ブロックコメントは、説明する**コードと同じインデント**に置き、各行を `# ` で始める。
+  段落の区切りは `#` だけの行にする。
+- インラインコメントは控えめに使う。文と**2つ以上のスペース**で離し、`# ` で始める。
+  自明なことを書かない。
+- **コードと矛盾するコメントは、コメントが無いより悪い。** コードを変えたらコメントも変える。
+
+#### 7.1.5 このプロジェクトの逸脱（意図的）
+
+| PEP の記述 | 本プロジェクトの扱い | 理由 |
+|---|---|---|
+| コメントは英語で書く（PEP 8） | **日本語で書く。**コミットメッセージは英語 | 読み手が日本語話者に限られる。PEP 8 も「その言語を話さない人に読まれないと120%確信できる場合」は例外としている |
+| docstring とコメントは72文字まで（PEP 8） | `black` の既定（88文字）に合わせる | PEP 8 自身がチームの合意による延長を認めている。日本語では文字数の意味も異なる |
+
+#### 7.1.6 特に必ず書くもの
 
 | 対象 | 書く理由 |
 |---|---|
 | 似た名前で意味が違うもの | 例: `Course.READING` と `Phase.READING` は値が同じ文字列だが別の型。取り違えた比較は常に偽になり気づきにくい |
 | 何に答え、何に答えないか | 例: `can_transition` は遷移の可否には答えるが、ゲートを押せる工程かには答えない |
 | 制約とその根拠 | 例: `course` に既定値を置かない理由（`REQ-C01`） |
-| 過去の不具合 | 再発防止のテストには、何を守るテストかを書く |
+| 過去の不具合 | 退行テストには、何を守るテストかを書く |
 
-**やってはいけないこと**
+#### 7.1.7 やってはいけないこと
 
-- 型注釈をそのまま日本語にしただけの記述（`db: DB セッション` だけで終わる等）
+- 型注釈をそのまま日本語にしただけの記述（`db: DB セッション` だけで終える等）
 - 実装の手順をなぞるだけの記述。**呼び出す側が知りたいこと**を書く
 - docstring を足すついでに実行コードを変えること。**別のコミットに分ける**
 
-**実行コードを変えずに docstring だけを足したことの証明**
+#### 7.1.8 検証
 
-docstring を除いた抽象構文木（AST）を追加前後で比較し、一致することを確認する。
+**docstring の欠落を検出する。**
 
 ```powershell
-backend\.venv\Scripts\python.exe -c "import ast,sys;
+backend\.venv\Scripts\python.exe -c "import ast,pathlib
+for p in sorted(pathlib.Path('backend').rglob('*.py')):
+    if '.venv' in str(p): continue
+    t=ast.parse(p.read_text(encoding='utf-8'))
+    m=[] if ast.get_docstring(t) else ['module']
+    for n in ast.walk(t):
+        if isinstance(n,(ast.ClassDef,ast.FunctionDef,ast.AsyncFunctionDef)) and not (n.name.startswith('_') and n.name!='__init__') and not ast.get_docstring(n): m.append(n.name)
+    if m: print(p, m)"
+```
+
+**実行コードを変えずに docstring だけを足したことを証明する。**
+docstring を除いた抽象構文木（AST）が追加前後で一致することを確認する。
+比較元は `git show` で取り出す。**`git stash` は使わない。** 未追跡ファイルを退避せず、
+`pop` に失敗すると変更が stash に残って気づきにくいため。
+
+```powershell
+git show HEAD:backend/app/core/states.py > $env:TEMP\before.py
+```
+
+```powershell
+backend\.venv\Scripts\python.exe -c "import ast,sys
 def s(p):
     t=ast.parse(open(p,encoding='utf-8').read())
     for n in ast.walk(t):
@@ -127,7 +181,7 @@ def s(p):
             b=n.body
             if b and isinstance(b[0],ast.Expr) and isinstance(b[0].value,ast.Constant) and isinstance(b[0].value.value,str): n.body=b[1:]
     return ast.dump(t)
-print('same' if s(sys.argv[1])==s(sys.argv[2]) else 'DIFFER')" before.py after.py
+print('same' if s(sys.argv[1])==s(sys.argv[2]) else 'DIFFER')" $env:TEMP\before.py backend\app\core\states.py
 ```
 
 ## 8. 作業の進め方

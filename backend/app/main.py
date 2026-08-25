@@ -29,6 +29,11 @@ app.include_router(projects.router, prefix="/api/v1")
 
 @app.on_event("startup")
 def on_startup() -> None:
+    """起動時にテーブルを作成する。
+
+    既存テーブルは変更しない。列を追加したときは、テーブルを作り直す必要がある
+    （docs/arch-guide/arc-datamodel.md 第4章）。
+    """
     init_db()
 
 

@@ -1,8 +1,19 @@
 """プロジェクトの状態機械。
 
-docs/arch-guide/arc-datamodel.md v1.0 の 3.3〜3.5 節に対応する。
 `phase`（工程上の現在地）と `status`（その工程での実行状態）を分けて持つ。
 承認ゲートを通らないと次の phase に進めない。
+
+エクスポートするもの:
+    Course: 利用者が選ぶ主要経路。
+    Phase: 工程上の現在地。`failed` を含めない。
+    Status: その工程での実行状態。
+    ApprovalKind: 待っている承認ゲートの種別。
+    PaperType: 論文のタイプ判定結果。
+    Policy: 承認ゲート①で選ぶ方針の5択。
+    ALLOWED_TRANSITIONS: 許可された phase 遷移の表。
+    can_transition: 遷移が許可されているかを返す。
+
+値と遷移表は docs/arch-guide/arc-datamodel.md v1.0 の 3.3〜3.5 節を正本とする。
 """
 
 from enum import Enum

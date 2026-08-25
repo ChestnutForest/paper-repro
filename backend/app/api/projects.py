@@ -1,9 +1,21 @@
 """プロジェクト関連の API ルーター。
 
-docs/arch-guide/arc-datamodel.md v1.0 に対応。
-TODO(Claude Code):
-  - 取り込み・spec草案・照合を services 層に実装し、長時間処理は Celery タスク化する
-  - 承認ゲート（spec finalize, sanity gate）で phase 遷移を検証する
+エクスポートするもの:
+    router: `/projects` 配下のエンドポイントを持つ APIRouter。
+    CreateProjectReq: 作成リクエストのボディ。
+    ProjectRes: プロジェクトの応答。
+    PolicyReq: 承認ゲート①のリクエストボディ。
+    list_projects: プロジェクトを全件返す。
+    create_project: プロジェクトを作成する。
+    get_project: プロジェクトを1件返す。
+    set_policy: 承認ゲート①。方針を確定して次の工程へ進める。
+
+`phase` を進める経路はゲートのエンドポイントに限る。汎用の状態遷移エンドポイントは
+承認ゲートを迂回できたため廃止した（docs/arch-guide/arc-datamodel.md 5.2・`REQ-C06`）。
+
+Todo:
+    取り込み・spec 草案・照合を services 層へ実装し、長時間処理を Celery タスク化する。
+    承認ゲート②（spec finalize）と③（sanity gate）を追加する。
 """
 
 from uuid import uuid4
