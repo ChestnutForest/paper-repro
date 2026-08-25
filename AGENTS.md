@@ -72,11 +72,63 @@ docs/         要件、設計、ロードマップ、運用手順、開発履歴
 
 ## 7. コーディング規約
 
-- Python: 型ヒント必須。`ruff` + `black` で整形し、関数には docstring を付ける。
+- Python: 型ヒント必須。`ruff` + `black` で整形する。
+- **インターフェース情報の記載は必須。** 公開するクラス・関数・メソッドには、
+  次を含む docstring を必ず付ける（詳細は §7.1）。
 - TypeScript: strict モードを維持し、`any` を避ける。
 - 1つの論理変更を1コミットにまとめ、無関係な差分を混ぜない。
 - 秘密情報（APIキー等）を絶対にコミットしない。`.env` と `.env.local` は追跡対象にしない。
 - 既存のAPI入出力や状態遷移を変える場合は、理由を設計文書または履歴に記録する。
+
+### 7.1 インターフェース情報のコメント（必須）
+
+コードを追加・変更したときは、**同じ変更の中で** インターフェース情報を記載する。
+「あとで書く」は残らない。レビューではこの記載の有無も見る。
+
+**クラスに書くこと**
+
+- そのクラスが何を表すか（1文）
+- `Attributes:` — 各属性の意味。列や項目に制約（NOT NULL、既定値なし、必須など）があれば明記する
+- 根拠となる要求ID（`REQ-Cxx`）や仕様の節番号
+
+**関数・メソッドに書くこと**
+
+- 何をするか（1文）
+- `Args:` — 各引数の意味
+- `Returns:` — 戻り値の意味。HTTP を返す場合はステータスコードも
+- `Raises:` — 送出しうる例外と、**その条件**。条件が複数あるなら分けて書く
+- `Note:` — 誤用しやすい点、他の関数との境界、過去に起きた不具合
+
+**特に必ず書くもの**
+
+| 対象 | 書く理由 |
+|---|---|
+| 似た名前で意味が違うもの | 例: `Course.READING` と `Phase.READING` は値が同じ文字列だが別の型。取り違えた比較は常に偽になり気づきにくい |
+| 何に答え、何に答えないか | 例: `can_transition` は遷移の可否には答えるが、ゲートを押せる工程かには答えない |
+| 制約とその根拠 | 例: `course` に既定値を置かない理由（`REQ-C01`） |
+| 過去の不具合 | 再発防止のテストには、何を守るテストかを書く |
+
+**やってはいけないこと**
+
+- 型注釈をそのまま日本語にしただけの記述（`db: DB セッション` だけで終わる等）
+- 実装の手順をなぞるだけの記述。**呼び出す側が知りたいこと**を書く
+- docstring を足すついでに実行コードを変えること。**別のコミットに分ける**
+
+**実行コードを変えずに docstring だけを足したことの証明**
+
+docstring を除いた抽象構文木（AST）を追加前後で比較し、一致することを確認する。
+
+```powershell
+backend\.venv\Scripts\python.exe -c "import ast,sys;
+def s(p):
+    t=ast.parse(open(p,encoding='utf-8').read())
+    for n in ast.walk(t):
+        if isinstance(n,(ast.Module,ast.ClassDef,ast.FunctionDef,ast.AsyncFunctionDef)):
+            b=n.body
+            if b and isinstance(b[0],ast.Expr) and isinstance(b[0].value,ast.Constant) and isinstance(b[0].value.value,str): n.body=b[1:]
+    return ast.dump(t)
+print('same' if s(sys.argv[1])==s(sys.argv[2]) else 'DIFFER')" before.py after.py
+```
 
 ## 8. 作業の進め方
 
