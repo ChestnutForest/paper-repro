@@ -30,7 +30,11 @@
 
 土台に残る穴を塞ぐ。ここを固めてから機能を積む。
 
-- **0-1. インメモリ保存を PostgreSQL に置き換える** ← 次の一手
+- **0-0. データモデル仕様を確定する** ← 次の一手
+  [`docs/arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) の未決事項3件を判断する。
+  既存記述との矛盾が9件あり、うち状態の持ち方（`state` 1列 → `phase` × `status` 2列）は
+  実装済みコードの変更を伴う。**判断前に 0-1 へ進まない。**
+- **0-1. インメモリ保存を PostgreSQL に置き換える**
   現状は uvicorn 再起動でプロジェクトが消える。Docker で起動済みの PostgreSQL に保存する。
   `projects.py` の仮のインメモリ保存を、SQLAlchemy 経由の DB 保存に置き換える。
 - **0-2. 状態遷移を動かす**

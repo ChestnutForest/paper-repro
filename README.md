@@ -10,6 +10,7 @@
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
 - ID一本化とPhase暫定化の決定記録: [`docs/worknotes/id-unification-and-phase-provisional.md`](docs/worknotes/id-unification-and-phase-provisional.md)
 - 承認前の矛盾スクリーニング: [`docs/worknotes/pre-approval-screening.md`](docs/worknotes/pre-approval-screening.md)
+- データモデル仕様（草案）: [`docs/arch-guide/arc-datamodel.md`](docs/arch-guide/arc-datamodel.md)
 - 参考文献: [`docs/references.md`](docs/references.md)
 - USDM・IPAガイドラインの一次情報: [`docs/references-usdm-ipa.md`](docs/references-usdm-ipa.md)
 - 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
