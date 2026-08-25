@@ -12,7 +12,10 @@
     "error_invalid_url": "有効なURLを入力してください（例: https://arxiv.org/abs/2505.20139）",
     "error_network": "バックエンドサーバーへの接続に失敗しました。サーバーが起動しているか確認してください。",
     "btn_loading": "処理中...",
-    "btn_submit": "取り込み開始"
+    "btn_submit": "取り込み開始",
+    "course_label": "コース",
+    "course_reading": "読解",
+    "course_reproduction": "再現実装"
   },
   "locale_switcher": {
     "switch_lang": "Language",

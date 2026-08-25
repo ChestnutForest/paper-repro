@@ -1,22 +1,19 @@
 """プロジェクト関連の API ルーター。
 
-docs/product-design.md の第3章「APIエンドポイント」に対応。
-まずは骨組み（スタブ）。Claude Code に中身を実装してもらう。
-
+docs/arch-guide/arc-datamodel.md v1.0 に対応。
 TODO(Claude Code):
-  - DB モデルと接続（app/models, app/core/db）を実装する
   - 取り込み・spec草案・照合を services 層に実装し、長時間処理は Celery タスク化する
-  - 承認ゲート（policy 確定, spec finalize, sanity gate）で状態遷移を検証する
+  - 承認ゲート（spec finalize, sanity gate）で phase 遷移を検証する
 """
 
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
-from app.core.states import Policy, ProjectState, can_transition
+from app.core.states import Course, Phase, Policy, Status, can_transition
 from app.models.project import Project
 
 router = APIRouter(tags=["projects"])
@@ -24,15 +21,15 @@ router = APIRouter(tags=["projects"])
 
 class CreateProjectReq(BaseModel):
     arxiv_url: str
-
-
-from pydantic import BaseModel, ConfigDict
+    course: Course
 
 
 class ProjectRes(BaseModel):
     project_id: str
     arxiv_url: str
-    state: ProjectState
+    course: Course
+    phase: Phase
+    status: Status
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -45,14 +42,18 @@ def list_projects(db: Session = Depends(get_db)) -> list[ProjectRes]:
 
 @router.post("/projects", response_model=ProjectRes, status_code=201)
 def create_project(req: CreateProjectReq, db: Session = Depends(get_db)) -> ProjectRes:
-    """arXiv URL を受けてプロジェクトを作成する。
+    """arXiv URL と course を受けてプロジェクトを作成する。
 
     本来はここで取り込みジョブ（Celery）を起動し job_id を返す。
     いまは骨組みなので、作成だけ行う。
     """
     pid = str(uuid4())
     project = Project(
-        project_id=pid, arxiv_url=req.arxiv_url, state=ProjectState.CREATED
+        project_id=pid,
+        arxiv_url=req.arxiv_url,
+        course=req.course,
+        phase=Phase.CREATED,
+        status=Status.IDLE,
     )
     db.add(project)
     db.commit()
@@ -80,44 +81,22 @@ def set_policy(
     project = db.get(Project, project_id)
     if project is None:
         raise HTTPException(status_code=404, detail="project not found")
-        
-    target_state = (
-        ProjectState.SKIPPED if req.policy == Policy.SKIP else ProjectState.READING
-    )
-    if not can_transition(project.state, target_state):
+
+    if project.phase != Phase.INTAKE_REVIEW:
         raise HTTPException(
             status_code=400,
-            detail=f"Cannot transition from {project.state.value} to {target_state.value}"
+            detail=f"policy can only be set from intake_review, current phase is {project.phase.value}",
+        )
+
+    target_phase = Phase.SKIPPED if req.policy == Policy.SKIP else Phase.READING
+    if not can_transition(project.phase, target_phase):
+        raise HTTPException(
+            status_code=400,
+            detail=f"Cannot transition from {project.phase.value} to {target_phase.value}",
         )
 
     project.policy = req.policy.value
-    project.state = target_state
-    db.add(project)
-    db.commit()
-    db.refresh(project)
-    return ProjectRes.from_orm(project)
-
-
-class StateTransitionReq(BaseModel):
-    state: ProjectState
-
-
-@router.post("/projects/{project_id}/state", response_model=ProjectRes)
-def transition_state(
-    project_id: str, req: StateTransitionReq, db: Session = Depends(get_db)
-) -> ProjectRes:
-    """プロジェクトの状態を遷移させる汎用エンドポイント。"""
-    project = db.get(Project, project_id)
-    if project is None:
-        raise HTTPException(status_code=404, detail="project not found")
-        
-    if not can_transition(project.state, req.state):
-        raise HTTPException(
-            status_code=400,
-            detail=f"Cannot transition from {project.state.value} to {req.state.value}"
-        )
-        
-    project.state = req.state
+    project.phase = target_phase
     db.add(project)
     db.commit()
     db.refresh(project)

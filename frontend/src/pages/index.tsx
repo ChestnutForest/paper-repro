@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createProject, listProjects, type Project } from "@/lib/api";
+import { createProject, listProjects, type Course, type Project } from "@/lib/api";
 import { PaperInput } from "@/components/PaperInput";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { useTranslations } from "next-intl";
@@ -31,7 +31,7 @@ export default function Dashboard() {
     });
   }, [tApi]);
 
-  async function handleCreate(url: string) {
+  async function handleCreate(url: string, course: Course) {
     setError(null);
     setIsSubmitting(true);
     try {
@@ -42,12 +42,14 @@ export default function Dashboard() {
       const mockProject: Project = {
         project_id: `mock-${Date.now()}`,
         arxiv_url: url,
-        state: "intake_review"
+        course,
+        phase: "intake_review",
+        status: "idle"
       };
       setProjects((prev) => [mockProject, ...prev]); // 新しいものを先頭に追加
-      
+
       // 実際の実装（バックエンド稼働時）は以下を利用します:
-      // const p = await createProject(url);
+      // const p = await createProject(url, course);
       // setProjects((prev) => [p, ...prev]);
     } catch (e) {
       const errStr = String(e);
@@ -95,8 +97,13 @@ export default function Dashboard() {
                       {p.arxiv_url}
                     </a>
                   </div>
-                  <div className="px-3 py-1 text-xs font-semibold rounded-full bg-secondary text-secondary-foreground w-fit">
-                    {p.state}
+                  <div className="flex gap-2">
+                    <div className="px-3 py-1 text-xs font-semibold rounded-full bg-secondary text-secondary-foreground w-fit">
+                      {p.phase}
+                    </div>
+                    <div className="px-3 py-1 text-xs font-semibold rounded-full bg-muted text-muted-foreground w-fit">
+                      {p.status}
+                    </div>
                   </div>
                 </li>
               ))}

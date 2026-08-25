@@ -12,7 +12,10 @@
     "error_invalid_url": "請輸入有效的 URL（例如: https://arxiv.org/abs/2505.20139）",
     "error_network": "無法連線至後端伺服器。請確認伺服器是否正在執行。",
     "btn_loading": "處理中...",
-    "btn_submit": "開始匯入"
+    "btn_submit": "開始匯入",
+    "course_label": "課程",
+    "course_reading": "閱讀",
+    "course_reproduction": "重現實作"
   },
   "locale_switcher": {
     "switch_lang": "語言",

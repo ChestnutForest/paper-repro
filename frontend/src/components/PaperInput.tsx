@@ -4,30 +4,32 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Loader2, Link as LinkIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
+import type { Course } from "@/lib/api";
 
 interface PaperInputProps {
-  onSubmit: (url: string) => void;
+  onSubmit: (url: string, course: Course) => void;
   isLoading?: boolean;
 }
 
 export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
   const t = useTranslations("paper_input");
   const [url, setUrl] = useState("");
+  const [course, setCourse] = useState<Course>("reading");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!url) return;
-    
+
     // 一般的なURLのバリデーション（arXiv以外も許可）
     const urlRegex = /^https?:\/\/\S+$/;
     if (!urlRegex.test(url)) {
       setError(t("error_invalid_url"));
       return;
     }
-    
+
     setError(null);
-    onSubmit(url);
+    onSubmit(url, course);
   };
 
   return (
@@ -56,6 +58,34 @@ export function PaperInput({ onSubmit, isLoading }: PaperInputProps) {
               />
             </div>
             {error && <p className="text-sm text-destructive font-medium px-1">{error}</p>}
+
+            <div className="flex flex-col space-y-2 pt-2">
+              <span className="text-sm font-medium px-1">{t("course_label")}</span>
+              <div className="flex gap-4 px-1">
+                <label className="flex items-center gap-2 text-sm cursor-pointer">
+                  <input
+                    type="radio"
+                    name="course"
+                    value="reading"
+                    checked={course === "reading"}
+                    onChange={() => setCourse("reading")}
+                    disabled={isLoading}
+                  />
+                  {t("course_reading")}
+                </label>
+                <label className="flex items-center gap-2 text-sm cursor-pointer">
+                  <input
+                    type="radio"
+                    name="course"
+                    value="reproduction"
+                    checked={course === "reproduction"}
+                    onChange={() => setCourse("reproduction")}
+                    disabled={isLoading}
+                  />
+                  {t("course_reproduction")}
+                </label>
+              </div>
+            </div>
           </div>
         </CardContent>
         <CardFooter className="flex justify-end">

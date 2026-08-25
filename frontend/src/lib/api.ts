@@ -1,22 +1,28 @@
 // バックエンド API クライアント。
 // docs/product-design.md の第3章のエンドポイントに対応させていく。
+// 型は backend/app/core/states.py の Course / Phase / Status と一致させる。
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000/api/v1";
 
-export type ProjectState =
+export type Course = "reading" | "reproduction";
+
+export type Phase =
   | "created"
   | "intake_review"
   | "reading"
   | "implementing"
   | "scoring"
   | "done"
-  | "skipped"
-  | "failed";
+  | "skipped";
+
+export type Status = "idle" | "running" | "waiting_approval" | "failed";
 
 export interface Project {
   project_id: string;
   arxiv_url: string;
-  state: ProjectState;
+  course: Course;
+  phase: Phase;
+  status: Status;
 }
 
 export async function listProjects(): Promise<Project[]> {
@@ -25,11 +31,11 @@ export async function listProjects(): Promise<Project[]> {
   return res.json();
 }
 
-export async function createProject(arxivUrl: string): Promise<Project> {
+export async function createProject(arxivUrl: string, course: Course): Promise<Project> {
   const res = await fetch(`${API_BASE}/projects`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ arxiv_url: arxivUrl }),
+    body: JSON.stringify({ arxiv_url: arxivUrl, course }),
   });
   if (!res.ok) throw new Error("failed to create project");
   return res.json();
