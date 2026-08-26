@@ -230,6 +230,11 @@ README はリポジトリを開いた人が最初に見る場所であり、そ�
 各道具の役割と選定理由は [`docs/tech-stack.md`](docs/tech-stack.md) を参照する。
 変更範囲に応じて、少なくとも次を実行する。
 
+**加えて、機能を追加・変更したときは画面で確かめる。**
+テストが通ることと、利用者が操作できることは別である。
+確認する画面は [`docs/roadmap.md`](docs/roadmap.md) の各フェーズの「確認画面」の表、
+投入する論文は [`docs/test-papers.md`](docs/test-papers.md) の基準論文を使う。
+
 ```powershell
 # バックエンド
 backend\.venv\Scripts\python.exe -m pytest backend\tests -q

@@ -35,12 +35,28 @@
 > フェーズの状態を変えるときは、まず `roadmap.md` を更新し、同じ変更で本表も合わせる。
 > 直近の作業内容は [`docs/devlog/`](docs/devlog/) の最新ファイルを見る。
 
+### 🧪 動作確認の方針
+
+**各開発項目には、それを画面で確かめる手段を必ず対にする。**
+バックエンドだけを作って「テストが通ったので完了」とはしない。
+各フェーズの確認画面は [`docs/roadmap.md`](docs/roadmap.md) の「◯◯の確認画面」を見る。
+
+確認に投入する論文は **[`docs/test-papers.md`](docs/test-papers.md)** の基準論文を使う。
+
+| | |
+|---|---|
+| **基準論文** | [StructEval（arXiv:2505.20139）](https://arxiv.org/abs/2505.20139) |
+| 選定理由 | タイプB・GPU不要・公式実装あり・照合できる数値あり・CC BY 4.0 |
+
+毎回同じ論文を使うことで、前回との違いが画面の差として現れる。
+
 ---
 
 ## ドキュメント
 
 - **ドキュメント索引**: [`docs/README.md`](docs/README.md)
-- **ロードマップ（進捗の正本）**: [`docs/roadmap.md`](docs/roadmap.md)
+- **ロードマップ（進捗の正本・確認画面の対応表）**: [`docs/roadmap.md`](docs/roadmap.md)
+- **動作確認用のテスト論文**: [`docs/test-papers.md`](docs/test-papers.md)
 - 要件（**v0.2・確定要求23件を統合済み**）: [`docs/requirements.md`](docs/requirements.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
@@ -285,7 +301,8 @@ paper-repro/
     ├── requirements.md           ← 確定済み要件の正本
     ├── requirements-change-proposal.md
     ├── requirements-update-workflow.md
-    ├── roadmap.md                ← 開発ロードマップ
+    ├── roadmap.md                ← 開発ロードマップ（進捗の正本）
+    ├── test-papers.md            ← 動作確認に使うテスト論文
     ├── tech-stack.md             ← 技術スタック解説
     ├── requirements-analysis/
     │   ├── README.md

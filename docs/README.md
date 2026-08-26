@@ -60,6 +60,7 @@
 | [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。REQ-C10・REQ-C11の選択結果、理由、受入基準、段階開発条件 |
 | [`product-design.md`](product-design.md) （**v0.2・要件v0.2準拠**） | 初期リリース設計。画面遷移・APIエンドポイント・技術スタック |
 | [`tech-stack.md`](tech-stack.md) （**道具の一覧の正本**） | 技術スタック解説。各技術の役割と選定理由 |
+| [`test-papers.md`](test-papers.md) | **動作確認に使うテスト論文**。基準論文の書誌・ライセンス・採用理由と、フェーズごとに画面で見えるべきこと |
 | [`roadmap.md`](roadmap.md) （**進捗の正本**） | 開発ロードマップ。フェーズ0〜6と進捗、将来のDB候補 |
 
 ## 🧭 設計判断の指針（どう作るか）
