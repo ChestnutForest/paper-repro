@@ -58,6 +58,7 @@
 - **ロードマップ（進捗の正本・確認画面の対応表）**: [`docs/roadmap.md`](docs/roadmap.md)
 - **動作確認用のテスト論文**: [`docs/test-papers.md`](docs/test-papers.md)
 - 要件（**v0.2・確定要求23件を統合済み**）: [`docs/requirements.md`](docs/requirements.md)
+- **USDM 形式の要求仕様書**: [`docs/requirements-usdm.md`](docs/requirements-usdm.md)
 - 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
 - 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
 - ID一本化とPhase暫定化の決定記録: [`docs/worknotes/id-unification-and-phase-provisional.md`](docs/worknotes/id-unification-and-phase-provisional.md)
@@ -302,6 +303,7 @@ paper-repro/
     ├── requirements-change-proposal.md
     ├── requirements-update-workflow.md
     ├── roadmap.md                ← 開発ロードマップ（進捗の正本）
+    ├── requirements-usdm.md      ← USDM形式の要求仕様書
     ├── test-papers.md            ← 動作確認に使うテスト論文
     ├── tech-stack.md             ← 技術スタック解説
     ├── requirements-analysis/

@@ -7,6 +7,7 @@
 - 骨組み更新の決定記録: [`worknotes/id-unification-and-phase-provisional.md`](worknotes/id-unification-and-phase-provisional.md)
 - 承認前の矛盾スクリーニング: [`worknotes/pre-approval-screening.md`](worknotes/pre-approval-screening.md)
 - 用いた一次資料の書誌: [`references.md`](references.md)
+- USDM 形式の要求仕様書: [`requirements-usdm.md`](requirements-usdm.md)（`REQ-C01` を仕様まで展開済み）
 
 > **本版で確定したもの。** 選択済みの `REQ-C01`〜`REQ-C11` と、具体化済みサブ要求12件を、
 > 要求文・受入基準つきで第3章へ統合した。第4〜5章の実装単位は、この要求へ対応づけて更新した。
@@ -187,7 +188,13 @@ flowchart LR
 
 ## 3. 確定要求
 
-本章が要求の正本である。要求文と受入基準は
+本章が要求の正本である。
+
+> **USDM 形式への書き直しを進めている。**
+> [`requirements-usdm.md`](requirements-usdm.md) が、同じ要求を USDM
+> （要求・理由・説明・仕様グループ・仕様）で表現したもの。`REQ-C01` は仕様まで展開済み。
+> 展開が全要求へ及んだ時点で、どちらを正本とするかを判断する。
+要求文と受入基準は
 [`requirements-change-proposal.md`](requirements-change-proposal.md) v0.12 第11・12章から統合した。
 根拠となる一次資料は [`requirements-analysis/`](requirements-analysis/) の各分析文書、
 選択の経緯は [`requirements-decisions/`](requirements-decisions/) の決定台帳を参照する。

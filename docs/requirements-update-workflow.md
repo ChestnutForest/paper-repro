@@ -5,6 +5,7 @@
 - 正本との関係: 確定済み要件の正本は [`requirements.md`](requirements.md)。本書は正本を直接置き換えない
 - 対象資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 のPDF版の「はじめに」と「1.2 論文を読み解く技術」
 - 書誌情報: [`references.md`](references.md)
+- USDM 形式の要求仕様書: [`requirements-usdm.md`](requirements-usdm.md)
 - 現在の進捗: 選択済み11件と具体化済みサブ要求12件を`requirements.md` v0.2へ統合済み。次は新しい一次資料3件の要求候補32件の仕分けと5択
 - 版: v0.20（`requirements.md` v0.2への要求文統合完了を反映）
 
