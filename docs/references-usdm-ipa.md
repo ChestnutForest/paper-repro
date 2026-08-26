@@ -1,4 +1,4 @@
-# USDM と IPA ガイドライン：参照した一次情報
+# USDM・XDDP と IPA ガイドライン：参照した一次情報
 
 `paper-repro` の要求仕様と設計に関する**記法・方針**の根拠となる一次情報をまとめる。
 
@@ -70,6 +70,96 @@ USDM（Universal Specification Describing Manner）は清水吉男氏が提唱�
 分析文書19本の追跡が切れるため。下位要求と仕様の ID だけを USDM の流儀で追加した。
 
 ⚠️ **小冊子の本文は転記していない。** 記法という方法論を採用しているにとどまる。
+
+---
+
+## 1.5 XDDP（派生開発プロセス）
+
+USDM は単独の技法ではなく、**XDDP（eXtreme Derivative Development Process）という
+派生開発プロセスの中で使われる**。XDDP は清水吉男氏が提唱したもので、
+既存のソフトウェアへ変更を加える開発を対象とする。
+
+### USDM と XDDP の関係
+
+XDDP は「3点セット」と呼ばれる成果物を持ち、**USDM はそのうちの1つ**にあたる。
+
+| 確認すること | XDDP の成果物 | 役割 |
+|---|---|---|
+| **What / Why** — 何を、なぜ変えるか | **USDM 形式の変更要求仕様書** | 要求・理由・仕様を階層化し、Before / After で変更内容を明確にする |
+| **Where** — どこが影響を受けるか | **スペックアウト＋トレーサビリティ・マトリクス（TM）** | 変更仕様とモジュール・ファイル・関数を対応づける |
+| **How** — どのように変えるか | **変更設計書** | コード変更の具体的な方法を、実装の前に記述する |
+
+3点セットを**レビューしてからコードを変更する**。これを「コーディング留保」と呼び、
+「見つけ次第コーディング」による誤りと手戻りを防ぐことが狙いである。
+
+XDDP はさらに、**既存機能の変更**（変更プロセス）と**新しい機能の追加**（機能追加プロセス）を
+分けて進め、最後に統合・テスト・正式文書の更新を行う。
+
+### 一次資料（AFFORDD 公式）
+
+**優先して読むもの**
+
+| 資料 | 内容 | URL |
+|---|---|---|
+| **えくす・でぃ・でぃ・ぴぃ概論＆入門ワークショップ**（54ページ、2016） | 派生開発の問題、XDDP 全体像、変更／機能追加プロセス、PFD、USDM、TM、変更設計書、コーディング留保。**最初に読む資料** | https://affordd.jp/previous/conference2016/affordd_conference2016_ws_XDDP.pdf |
+| AFFORDD の活動と XDDP の成り立ち（23ページ） | XDDP が必要になった背景。「変更依頼では要求が省略される」「短納期で全体を理解できない」「早すぎるコード変更が問題を生む」 | https://affordd.jp/wp-content/uploads/et2018/ET2018_01.pdf |
+
+**演習用（上の資料1と組で使う）**
+
+| 資料 | 内容 | URL |
+|---|---|---|
+| 入門ワークショップ用 TM（1ページ） | 変更仕様と変更対象を交差表で扱う演習 | https://affordd.jp/previous/conference2016/affordd_conference2016_ws_TM.pdf |
+| 入門ワークショップ用 母体仕様書（6ページ） | 既存仕様から変更箇所を探し TM へ対応づける演習 | https://affordd.jp/previous/conference2016/affordd_conference2016_ws_Specification.pdf |
+
+**適用事例**
+
+| 資料 | 内容 | URL |
+|---|---|---|
+| 制御モデルの仕様化と派生開発への展開（トヨタ自動車、26ページ） | 制御モデルと設計書を USDM＋TM へ再構成。**従来の設計書を変更設計書として活用したテーラリング例** | https://affordd.jp/previous/conference2021/affordd_conference2021_toyota.pdf |
+| 公共系システムでの XDDP 実践（42ページ） | 自治体向け Web システムへの適用。**XDDP は組込み専用ではない**ことを示す | https://affordd.jp/previous/conference2017/affordd_conference2017_p3.pdf |
+| XDDP 導入してから3年経ちました（53ページ） | 導入後の定着、変更設計書レビュー、Before / After、差分成果物から正式仕様書を更新する方法 | https://affordd.jp/previous/conference2019/affordd_conference2019_session2.pdf |
+| XDDP による派生開発ソフトウェア品質向上の取り組み（Panasonic、19ページ） | PFD によるプロセス設計と組織導入の観点 | https://affordd.jp/previous/conference2010/xddp2010_P7.pdf |
+| ソースコード主体からモデル主体の派生開発へ（35ページ） | 変更スコープ特定図、Before / After モデル、クラスレベルの TM。**Mermaid・PlantUML との連携を検討する際の参考** | https://affordd.jp/previous/conference2013/xddp2013_p4.pdf |
+
+### 原典書籍
+
+| 書籍 | 内容 | URL |
+|---|---|---|
+| 清水吉男『「派生開発」を成功させるプロセス改善の技術と極意』技術評論社, 2007 | **XDDP の原典。** 変更要求仕様書、PFD、TM、変更設計書、スペックアウト、レビュー、見積り、構成管理 | https://gihyo.jp/book/2007/978-4-7741-3249-5 |
+| 清水吉男『【改訂第2版】要求を仕様化する技術・表現する技術』技術評論社, 2010 | **USDM の原典。** REF-17 の小冊子はこの本をもとにしている | https://gihyo.jp/book/2010/978-4-7741-4257-9 |
+
+### ⚠️ 二次資料（根拠にしない）
+
+次の資料は解説として有用だが、**AFFORDD 公式でも原典でもない**。
+第5節「一次資料に当たる」の原則により、**記法や方針の根拠には使わない。**
+理解の助けとして読むにとどめ、記述の裏づけは必ず上の一次資料へ当たる。
+
+| 資料 | 発行 | URL |
+|---|---|---|
+| 派生開発プロセス XDDP 導入支援 | エクスモーション（企業） | https://www.exmotion.co.jp/solution/xddp.html |
+| USDM による要件定義と要求仕様化 | エクスモーション（企業） | https://www.exmotion.co.jp/solution/yokyu-1.html |
+| XDDP とは？ 第1回 | Eureka Box（企業） | https://www.eureka-box.com/media/column/a34 |
+| XDDP の背景を知る 第2回 | Eureka Box（企業） | https://www.eureka-box.com/media/column/a47 |
+| 品質確保に効果のあった派生開発プロセスの工夫（100ページ） | 個人サイト。**発行主体と権利関係を確認できない** | https://creative-1st.com/doc/110_DevelopmentProcess/developProcess_v1.0_SoSato.pdf |
+
+### `paper-repro` での採用範囲
+
+| XDDP の要素 | 採否 | 理由 |
+|---|---|---|
+| USDM 形式の要求仕様書 | **採用** | [`requirements-usdm.md`](requirements-usdm.md) |
+| トレーサビリティ・マトリクス（TM） | **採用（テーラリング）** | [`traceability-matrix.md`](traceability-matrix.md)。後述の違いに注意 |
+| 変更設計書 | **未採用** | 現在は新規開発であり、変更対象の母体が無い |
+| コーディング留保 | **部分的に採用** | 承認ゲートが同じ役割を担う（`REQ-C06`） |
+| 変更プロセスと機能追加プロセスの分離 | **未採用** | 同上 |
+| PFD（Process Flow Diagram） | **未採用** | 工程は [`roadmap.md`](roadmap.md) が担う |
+
+⚠️ **`paper-repro` は現時点で新規開発であり、XDDP が前提とする「母体」が無い。**
+XDDP をそのまま適用することはできない。採用したのは USDM と TM の2つで、
+**TM は本来の用途（変更箇所の特定）から、工程の進捗管理へ用途を広げている。**
+その差は [`traceability-matrix.md`](traceability-matrix.md) 第2章に記録した。
+
+**確認日**: 上記 URL は 2026年8月26日に確認した。うち「概論＆入門ワークショップ」は
+**本文を取得して内容を確認済み**。他は URL の所在のみ確認している。
 
 ---
 

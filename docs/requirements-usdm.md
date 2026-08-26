@@ -6,6 +6,8 @@
 - 記法: USDM（Universal Specification Describing Manner）
 - 記法の出典: [`references.md`](references.md) の **REF-17**（AFFORDD T2研究会「USDM 小冊子 基礎編」ver 1.3, 2016）
 - 記法の採用範囲: [`references-usdm-ipa.md`](references-usdm-ipa.md) 第1節
+- 仕様ごとの工程の進捗: [`traceability-matrix.md`](traceability-matrix.md)
+- USDM を含む派生開発プロセス XDDP: [`references-usdm-ipa.md`](references-usdm-ipa.md) 1.5節
 
 ## 1. 本書の位置づけ
 

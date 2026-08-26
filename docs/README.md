@@ -29,6 +29,7 @@
 
 | ファイル | 内容 |
 |---|---|
+| [`traceability-matrix.md`](traceability-matrix.md) | **トレーサビリティ・マトリクス（XDDP）**。仕様ごとに要求・設計・実装・テスト・画面・リリースの進捗を追う |
 | [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く。`REQ-C01` は24仕様まで展開済み |
 | [`requirements.md`](requirements.md) | **要件定義の正本（v0.2）**。確定要求`REQ-C01`〜`REQ-C11`とサブ要求12件、受入基準、実装単位との対応表 |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |

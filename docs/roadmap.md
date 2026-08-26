@@ -9,6 +9,7 @@
 - 関連文書: `docs/requirements.md`（要件 v0.2）, `docs/product-design.md`（設計 v0.2）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
 - フェーズ0の仕様: [`docs/arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) v1.0（確定）。DDL・ENUM・状態遷移表・決定の記録
 - 動作確認に投入する論文: [`test-papers.md`](test-papers.md)
+- 仕様ごとの工程の進捗: [`traceability-matrix.md`](traceability-matrix.md)
 
 ---
 
