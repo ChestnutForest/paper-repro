@@ -35,6 +35,9 @@
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
 | [`references.md`](references.md) | **参考文献**。一次資料の書誌情報と引用の方針。各分析文書は短縮形で引用する |
+| [`arch-guide/arc-screen-rules.md`](arch-guide/arc-screen-rules.md) | **画面の共通ルール**。エリア構成・配色・フォント・エラー表示・多言語・承認ゲートの見せ方 |
+| [`arch-guide/arc-screen-list.md`](arch-guide/arc-screen-list.md) | **画面一覧**。7画面の識別子・分類・対応要求と階層構造 |
+| [`arch-guide/screens/`](arch-guide/screens/) | **画面ごとのレイアウト設計書**（7ファイル） |
 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) | **画面アーキテクチャ設計の枠組み（IPA 画面編準拠）**。6つの工程成果物、ID体系、合意成熟度の読み替え、6編の作成順序 |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（v1.0 確定）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、矛盾9件の解消、決定の記録3件 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |
