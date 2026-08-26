@@ -67,6 +67,7 @@
 - 画面アーキテクチャ設計の枠組み: [`docs/arch-guide/arc-screen.md`](docs/arch-guide/arc-screen.md)
 - 画面の共通ルール（配色・エリア構成）: [`docs/arch-guide/arc-screen-rules.md`](docs/arch-guide/arc-screen-rules.md)
 - 画面一覧とレイアウト: [`docs/arch-guide/arc-screen-list.md`](docs/arch-guide/arc-screen-list.md)
+- 画面遷移: [`docs/arch-guide/arc-screen-flow.md`](docs/arch-guide/arc-screen-flow.md)
 - データモデル仕様（**v1.0 確定**）: [`docs/arch-guide/arc-datamodel.md`](docs/arch-guide/arc-datamodel.md)
 - 参考文献: [`docs/references.md`](docs/references.md)
 - USDM・IPAガイドラインの一次情報: [`docs/references-usdm-ipa.md`](docs/references-usdm-ipa.md)

@@ -36,6 +36,7 @@
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
 | [`references.md`](references.md) | **参考文献**。一次資料の書誌情報と引用の方針。各分析文書は短縮形で引用する |
 | [`arch-guide/arc-screen-rules.md`](arch-guide/arc-screen-rules.md) | **画面の共通ルール**。エリア構成・配色・フォント・エラー表示・多言語・承認ゲートの見せ方 |
+| [`arch-guide/arc-screen-flow.md`](arch-guide/arc-screen-flow.md) | **画面遷移**。承認ゲートを通る線・異常系・引かなかった線とその理由 |
 | [`arch-guide/arc-screen-list.md`](arch-guide/arc-screen-list.md) | **画面一覧**。7画面の識別子・分類・対応要求と階層構造 |
 | [`arch-guide/screens/`](arch-guide/screens/) | **画面ごとのレイアウト設計書**（7ファイル） |
 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) | **画面アーキテクチャ設計の枠組み（IPA 画面編準拠）**。6つの工程成果物、ID体系、合意成熟度の読み替え、6編の作成順序 |
