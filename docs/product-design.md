@@ -147,6 +147,10 @@ Project
 
 ## 2. 画面遷移
 
+> **画面設計の枠組みは [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) が定める。**
+> 本章の遷移図は、`arc-screen-flow.md` を作成した時点で、そちらへ移すか参照に置き換える
+> （同 第10章の未解決事項）。
+
 ```mermaid
 flowchart TD
     DASH["ダッシュボード<br/>プロジェクト一覧・進捗・コスト"]

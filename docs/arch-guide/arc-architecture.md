@@ -22,6 +22,7 @@ Paper-Repro を**どういう構造で作るか**を定める。
 | `docs/references.md` | 参考文献の書誌。本書の章立ての由来（REF-15〜REF-17）を含む |
 | `docs/references-usdm-ipa.md` | USDM と IPA ガイドラインの URL 一覧・採用範囲・使用条件 |
 | `docs/arch-guide/arc-datamodel.md` | データモデル仕様。永続化層の DDL・ENUM・状態遷移表 |
+| `docs/arch-guide/arc-screen.md` | 画面アーキテクチャ設計の枠組み（IPA 画面編に準拠） |
 
 ### 1.2.1 本書の章立ての由来
 

@@ -239,9 +239,22 @@ Processloop は個人プロジェクトであり、この想定から大きく�
 
 ### `paper-repro` での状況
 
-**間接的に採用している。** [`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md)
-の章立てが、Processloop のアーキテクチャ仕様書の構成に合わせられており、
-その構成が本ガイドを土台としている。区分やレベル名を直接引用してはいない。
+**直接採用している（2026-08-26 から）。**
+
+| 採用したもの | 反映先 |
+|---|---|
+| 画面編の6つの工程成果物の名称と区分 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) 第3章 |
+| 合意成熟度の3レベル（仕掛・充実・完成） | 同 第5章。TM の工程へ読み替えた |
+| 4つの作業の区分 | 同 第6章 |
+| 6技術領域の区分 | 同 第9章。6編の作成順序 |
+| 章立ての土台（間接） | [`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md)。Processloop 経由 |
+
+⚠️ **コツの本文は転記も言い換えもしていない。** 参照しているのは著作物にあたらない
+事実（工程成果物の名称、技術領域の区分、成熟度のレベル名、作業の区分）に限る。
+
+⚠️ **前提の読み替えが必要だった。** 本ガイドは発注者と開発者の合意形成を目的とするが、
+`paper-repro` は個人開発で両者が同一人物である。読み替えの内容と、それにより
+失われるものは [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) 第2章に記録した。
 
 ---
 
