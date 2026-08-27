@@ -1,6 +1,6 @@
 ---
 name: paper-repro-commit-steps
-description: paper-repro プロジェクト（C:\Users\kazuy\projects\paper-repro、GitHub は ChestnutForest/paper-repro）で作成した md ファイルやスクリプトを、Windows PowerShell 5.1 から配置して GitHub にコミット・プッシュするまでの手順を、番号ごとに1つのコピー可能なコマンドブロックとして出力する。ユーザーが「コミットするコマンドを示して」「配置手順を教えて」「GitHub にコミットしたい」「番号付きの手順で」「コマンドラインをコピーできる形式で」と言ったときに従うこと。さらに重要な発火条件として、paper-repro 向けのファイルを create_file や str_replace で作成・修正したときは、ユーザーが求めなくても必ず同じ応答の中で present_files による提示と、配置・コミット・確認の手順まで続けること。ファイルを作って説明だけで終えてはならない。提示しなければユーザーはダウンロードできず、手順がなければ配置できないためである。zip の展開方式、配置後の取り違えの検証、Conventional Commits 形式の英語コミットメッセージ、プッシュ後の確認 URL までを含む。確認 URL は1つずつ別ブロックにして、コピーボタンでそのままブラウザへ貼れる形にする。コミットメッセージの本文は2〜3文かつ50語以内に収め、1文は20語程度にとどめる。差分やコミットした文書に書いてあることを繰り返さない。paper-repro 以外のプロジェクト（Processloop は processloop-commit-steps を使う）や、Linux/macOS 環境の手順には使わない。
+description: paper-repro プロジェクト（C:\Users\kazuy\projects\paper-repro、GitHub は ChestnutForest/paper-repro）で作成した md ファイルやスクリプトを、Windows PowerShell 5.1 から配置して GitHub にコミット・プッシュするまでの手順を、番号ごとに1つのコピー可能なコマンドブロックとして出力する。ユーザーが「コミットするコマンドを示して」「配置手順を教えて」「GitHub にコミットしたい」「番号付きの手順で」「コマンドラインをコピーできる形式で」と言ったときに従うこと。さらに重要な発火条件として、paper-repro 向けのファイルを create_file や str_replace で作成・修正したときは、ユーザーが求めなくても必ず同じ応答の中で present_files による提示と、配置・コミット・確認の手順まで続けること。ファイルを作って説明だけで終えてはならない。提示しなければユーザーはダウンロードできず、手順がなければ配置できないためである。zip の展開方式、配置後の取り違えの検証、Conventional Commits 形式の英語コミットメッセージ、プッシュ後の確認 URL までを含む。確認 URL には、変更後のファイルやフォルダに加えて、今回のコミットの差分を見る commit ログの URL を必ず含める。コミット SHA は Claude 側では分からないため、コミットのブロックに git log でSHAを表示するコマンドを組み込み、ユーザーがその値を URL に差し込む形で案内する。確認 URL は1つずつ別ブロックにして、コピーボタンでそのままブラウザへ貼れる形にする。コミットメッセージの本文は2〜3文かつ50語以内に収め、1文は20語程度にとどめる。差分やコミットした文書に書いてあることを繰り返さない。paper-repro 以外のプロジェクト（Processloop は processloop-commit-steps を使う）や、Linux/macOS 環境の手順には使わない。
 ---
 
 # paper-repro 配置・コミット手順の出力形式
@@ -9,6 +9,7 @@ description: paper-repro プロジェクト（C:\Users\kazuy\projects\paper-repr
 
 | 版 | 変更内容 |
 | --- | --- |
+| 1.1 | 確認 URL に commit ログの URL を追加（第「確認 URL」章）。SHA の入手をコミットのブロックへ組み込む規約を追加 |
 | 1.0 | 初版。`processloop-commit-steps` の規約を `paper-repro` の前提へ移した |
 
 ## ★ 発火条件 — ファイルを作ったら必ず提示と手順まで続ける
@@ -96,7 +97,7 @@ Copy-Item "$tmp\docs\worknotes\reflection.md" ".\docs\worknotes\" -Force
 | 5 | 手編集が必要な場合（該当時） |
 | 6 | コミットとプッシュ |
 | 7 | 片付け |
-| 8 | 確認 URL |
+| 8 | 確認 URL（**commit ログを先頭に**） |
 
 ⚠️ **Processloop より番号が少ない。** `paper-repro` は `README.md` が
 ルートと `docs/` の2箇所だけで、退避方式を要する場面が少ないためである。
@@ -266,11 +267,21 @@ cross-artifact consistency chapter that the predecessor guide had.
 
 `git add` は**対象を明示指定する。** `git add .` は作業メモを巻き込む。
 
+### ★ SHA の表示をブロックに組み込む
+
+**コミットのブロックの末尾に `git log --oneline -1` を必ず入れる。**
+確認 URL で commit ログを開くために SHA が要るが、
+**Claude は push 後の SHA を知らない。** ユーザーが自分で取得できるようにする。
+
 ```powershell
 git add docs/arch-guide/arc-screen.md docs/worknotes/reflection.md
 git commit -m "docs(arch-guide): ..." -m "..."
 git push
+git log --oneline -1
 ```
+
+⚠️ **`git log` を別の番号に分けない。** コミットと同じブロックに置くことで、
+一度の貼り付けで SHA まで得られる。
 
 ---
 
@@ -291,6 +302,72 @@ Remove-Item -Recurse -Force $tmp
 ## 確認 URL
 
 最後の番号として、GitHub の確認先を示す。
+
+### ★ 必ず含める2種類
+
+| 種類 | 用途 |
+| --- | --- |
+| **commit ログ** | **今回の変更だけを差分で見る。最初に置く** |
+| 変更後のファイル | 描画や表示を確認する |
+
+**commit ログを先に置く。** 何が変わったかを差分で見るのが先で、
+描画の確認は後である。順序が逆だと、変更点を把握しないまま個別ファイルを開くことになる。
+
+### commit ログの URL
+
+| 見たいもの | URL の形 |
+| --- | --- |
+| **今回のコミットの差分** | `.../commit/<SHA>` |
+| コミット履歴（全体） | `.../commits/main` |
+| 特定ファイルの変更履歴 | `.../commits/main/<path>` |
+| 2コミット間の差分 | `.../compare/<A>...<B>` |
+
+**基本は1つ目である。** 残り3つは、履歴を追いたいときや複数コミットにまたがるときに使う。
+
+### ⚠️ SHA が分からない場合の書き方
+
+**Claude は push 後の SHA を知らない。** 推測で書いてはならない。
+コミットのブロックに組み込んだ `git log --oneline -1` の出力を使うよう案内する。
+
+**正しい形**
+
+````markdown
+## 7. 確認 URL
+
+**今回のコミットの差分**
+
+手順5で表示された SHA を、次の URL の末尾に差し込んでください。
+
+```
+https://github.com/ChestnutForest/paper-repro/commit/
+```
+
+**画面編の設計（v0.2）**
+
+```
+https://github.com/ChestnutForest/paper-repro/blob/main/docs/arch-guide/arc-screen.md
+```
+````
+
+**やってはいけない形**
+
+````markdown
+```
+https://github.com/ChestnutForest/paper-repro/commit/abc1234
+```
+````
+
+⚠️ **`abc1234` のような架空の SHA を書かない。** 実在しない URL は 404 になり、
+ユーザーが自分で SHA を調べ直すことになる。**末尾を空けて差し込ませるほうが速い。**
+
+### SHA が分かっている場合
+
+会話の中でユーザーが `git log` の出力を貼ってくれたときや、
+過去のコミットを参照するときは、**実在する SHA を使って完全な URL を書く。**
+
+```
+https://github.com/ChestnutForest/paper-repro/commit/4551722
+```
 
 ### ★ URL は1つずつ別ブロックにする
 
@@ -354,6 +431,9 @@ https://github.com/ChestnutForest/paper-repro/tree/main/docs/arch-guide
 - ❌ 手順を示さずに「コミットしてください」とだけ書く
 - ❌ 1つの番号でブロックを分割する
 - ❌ 複数の URL を1ブロックにまとめる
+- ❌ **確認 URL に commit ログを含めない**（何が変わったか差分で見られない）
+- ❌ **架空のコミット SHA を書く**（404 になる。末尾を空けて差し込ませる）
+- ❌ **`git log --oneline -1` を別の番号に分ける**（コミットと同じブロックに置く）
 - ❌ 日本語を含む PowerShell スクリプトで自動化する
 - ❌ `git add .` を使う（作業メモを巻き込む）
 - ❌ コミットメッセージで、コミットした文書の内容を要約する
