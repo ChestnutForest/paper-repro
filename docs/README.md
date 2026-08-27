@@ -29,6 +29,7 @@
 
 | ファイル | 内容 |
 |---|---|
+| [`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md) | **アーキテクチャ仕様書**。IPA発注者ビューガイドライン準拠の章立てで、どういう構造で作るかを定める |
 | [`traceability-matrix.md`](traceability-matrix.md) | **トレーサビリティ・マトリクス（XDDP）**。仕様ごとに要求・設計・実装・テスト・画面・リリースの進捗を追う |
 | [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く。`REQ-C01` は24仕様まで展開済み |
 | [`requirements.md`](requirements.md) | **要件定義の正本（v0.2）**。確定要求`REQ-C01`〜`REQ-C11`とサブ要求12件、受入基準、実装単位との対応表 |
@@ -40,6 +41,7 @@
 | [`arch-guide/arc-screen-list.md`](arch-guide/arc-screen-list.md) | **画面一覧**。7画面の識別子・分類・対応要求と階層構造 |
 | [`arch-guide/screens/`](arch-guide/screens/) | **画面ごとのレイアウト設計書**（7ファイル） |
 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) | **画面アーキテクチャ設計の枠組み（IPA 画面編準拠）**。6つの工程成果物、ID体系、合意成熟度の読み替え、6編の作成順序 |
+| [`arch-guide/arc-behavior.md`](arch-guide/arc-behavior.md) | **システム振舞いアーキテクチャ設計の枠組み（IPA システム振舞い編準拠）**。4つの工程成果物、システム利用作業と機能の区別、成果物間の関連 |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（v1.0 確定）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、矛盾9件の解消、決定の記録3件 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |
 | [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
