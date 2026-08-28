@@ -42,6 +42,7 @@
 | [`arch-guide/screens/`](arch-guide/screens/) | **画面ごとのレイアウト設計書**（7ファイル） |
 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) | **画面アーキテクチャ設計の枠組み（IPA 画面編準拠）**。6つの工程成果物、ID体系、合意成熟度の読み替え、6編の作成順序 |
 | [`arch-guide/arc-behavior.md`](arch-guide/arc-behavior.md) | **システム振舞いアーキテクチャ設計の枠組み（IPA システム振舞い編準拠）**。4つの工程成果物、システム利用作業と機能の区別、成果物間の関連 |
+| [`arch-guide/arc-artifact-order.md`](arch-guide/arc-artifact-order.md) | **工程成果物の作成順序**。6編に共通する「一覧が先」の原則と、逆にした場合に起きること |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（v1.0 確定）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、矛盾9件の解消、決定の記録3件 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |
 | [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
