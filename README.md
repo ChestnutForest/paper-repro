@@ -33,14 +33,14 @@
 
 ### 📐 設計工程の進捗（IPA 6編）
 
-**現在地: 画面編・システム振舞い編の枠組みが完了／ 全6編中 2 編**
+**現在地: システム振舞い編の業務一覧まで完了／ 全6編中 2 編**
 
 詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
 | 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- | --- |
 | 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
-| **システム振舞い** | ✅ [v0.2.1](docs/arch-guide/arc-behavior.md) | ⬜ **← 次の一手** | ⬜ | ⬜ | ⬜ |
+| **システム振舞い** | ✅ [v0.2.2](docs/arch-guide/arc-behavior.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-list.md) | ⬜ **← 次の一手** | ⬜ | ⬜ |
 | データモデル | — | — | — | — | ✅ [v1.0](docs/arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
 | 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
