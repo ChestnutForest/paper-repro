@@ -1,7 +1,12 @@
+param(
+    [switch]$RequireGitTracked
+)
+
 $ErrorActionPreference = 'Stop'
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $expectedSkills = @(
+    'paper-repro-skill-source-policy',
     'arxiv-paper-repro',
     'paper-repro-devlog',
     'paper-repro-commit-output'
@@ -90,6 +95,8 @@ if ($claudeFiles.Count -ne $expectedSkills.Count) {
 foreach ($skill in $expectedSkills) {
     $canonical = Join-Path $canonicalRoot "$skill\SKILL.md"
     $adapter = Join-Path $claudeRoot "$skill\SKILL.md"
+    $canonicalRelative = ".agents/skills/$skill/SKILL.md"
+    $adapterRelative = ".claude/skills/$skill/SKILL.md"
     if (-not (Test-Path -LiteralPath $canonical -PathType Leaf)) {
         Add-Failure "Missing canonical skill: $canonical"
         continue
@@ -97,6 +104,24 @@ foreach ($skill in $expectedSkills) {
     if (-not (Test-Path -LiteralPath $adapter -PathType Leaf)) {
         Add-Failure "Missing Claude entrypoint: $adapter"
         continue
+    }
+
+    if ($RequireGitTracked) {
+        foreach ($relativePath in @($canonicalRelative, $adapterRelative)) {
+            $trackedPath = & git -C $repoRoot ls-files -- $relativePath
+            if ($LASTEXITCODE -ne 0 -or $trackedPath -ne $relativePath) {
+                Add-Failure "Skill file is not Git tracked: $relativePath"
+                continue
+            }
+            $headPath = & git -C $repoRoot ls-tree -r --name-only HEAD -- $relativePath
+            if ($LASTEXITCODE -ne 0 -or $headPath -ne $relativePath) {
+                Add-Failure "Skill file is not present in HEAD: $relativePath"
+            }
+            $status = & git -C $repoRoot status --short -- $relativePath
+            if ($status) {
+                Add-Failure "Skill file has uncommitted changes: $relativePath"
+            }
+        }
     }
 
     $canonicalText = Test-Frontmatter $canonical $skill
@@ -117,6 +142,7 @@ foreach ($skill in $expectedSkills) {
 }
 
 $requiredFiles = @(
+    '.agents\skills\paper-repro-skill-source-policy\SKILL.md',
     '.agents\skills\arxiv-paper-repro\assets\assumption-ledger-template.md',
     '.agents\skills\arxiv-paper-repro\references\debug-playbook.md',
     '.agents\skills\arxiv-paper-repro\references\english-cues.md',
@@ -158,4 +184,5 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Output "Agent skill validation passed: $($expectedSkills.Count) canonical skills and $($expectedSkills.Count) Claude entrypoints."
+$mode = if ($RequireGitTracked) { ' Git-tracked mode passed.' } else { '' }
+Write-Output "Agent skill validation passed: $($expectedSkills.Count) canonical skills and $($expectedSkills.Count) Claude entrypoints.$mode"

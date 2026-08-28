@@ -1,7 +1,7 @@
 # paper-repro AI Agent Skills運用ガイド
 
-> 版: 2.0.0
-> 更新日: 2026-08-28
+> 版: 2.1.0
+> 更新日: 2026-08-29
 
 Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重複による内容ずれを防ぐための運用ガイドである。
 この文書は人間向けの案内であり、スキル本文ではない。
@@ -39,6 +39,8 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 
 ```text
 .agents/skills/
+├── paper-repro-skill-source-policy/
+│   └── SKILL.md
 ├── arxiv-paper-repro/
 │   ├── SKILL.md
 │   ├── assets/
@@ -50,12 +52,13 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
     └── references/
 
 .claude/skills/
+├── paper-repro-skill-source-policy/SKILL.md
 ├── arxiv-paper-repro/SKILL.md
 ├── paper-repro-devlog/SKILL.md
 └── paper-repro-commit-output/SKILL.md
 ```
 
-`.agents/skills`の3ファイルが本文の正本である。`.claude/skills`の3ファイルは正本への短い入口だけを持ち、
+`.agents/skills`の4ファイルが本文の正本である。`.claude/skills`の4ファイルは正本への短い入口だけを持ち、
 手順本文を複製しない。WindowsでGitのシンボリックリンクが通常ファイルへ変わる問題を避けるため、
 シンボリックリンクではなく参照入口を採用した。
 
@@ -69,15 +72,28 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 
 各`SKILL.md`のfrontmatterは、移植性を保つため`name`と`description`だけを使う。
 
-## 3スキルの責務
+## 4スキルの責務
 
 | スキル | 責務 | 使わない場面 |
 |---|---|---|
+| `paper-repro-skill-source-policy` | GitHub登録済みのリポジトリスキルだけを許可 | paper-repro以外のプロジェクト |
 | `arxiv-paper-repro` | AI/ML論文の再現、部分採用、スコア不一致の切り分け | 単純な要約・英文解釈 |
 | `paper-repro-devlog` | paper-repro開発の日次知識を`docs/devlog/`へ保存 | 他アプリ、論文そのものの実装 |
 | `paper-repro-commit-output` | commit/pushコマンド、実行、SHA照合、GitHub URL、結果検証 | 他リポジトリ |
 
 用途の異なる機能は別スキルのまま保ち、保存場所、正本、参照方法だけを一本化する。
+
+## スキル利用元の制限
+
+他のスキルを選ぶ前に`paper-repro-skill-source-policy`を適用する。候補の`SKILL.md`が
+`.agents/skills/`配下にあり、Git追跡済みで、`HEAD`に存在し、未コミット差分がないことを確認する。
+GitHub登録済みとして利用する前に、ローカルとoriginの完全SHAも必ず照合する。
+
+Windows個人領域、Codexプラグインキャッシュ、他リポジトリのスキルはpaper-reproへ適用しない。
+移行済みのローカル旧スキルは非アクティブな移行元として残し、呼び出し・直接編集・直接削除をしない。
+重複発火を止める必要がある場合は、キャッシュ削除ではなく元プラグインの無効化またはアンインストールを選ぶ。
+
+ローカルにしかない機能が必要な場合は使用を中止し、リポジトリスキルとして追加・検証・commit/pushしてから利用する。
 
 ## 更新規則
 
@@ -86,7 +102,8 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 3. `.claude/skills/<name>/SKILL.md`には、名前・発火条件・正本リンクだけを置く。
 4. `docs/skills/`へスキル本文を複製しない。
 5. スキルを追加・改名したら、この文書、`README.md`、`docs/README.md`、検証スクリプトを同期する。
-6. プラグインキャッシュや個人用スキルを直接編集しない。
+6. プラグインキャッシュや個人用スキルを呼び出し・直接編集しない。
+7. 新規・更新中のスキルは、commit/pushとリモートSHA照合が終わるまで通常作業へ適用しない。
 
 ## 検証
 
@@ -100,6 +117,12 @@ git diff --check
 
 検証は、正本とClaude入口の1対1対応、標準frontmatter、参照先、禁止された古い環境依存語、
 BOMなしUTF-8、LF、関連文書の参照を確認する。
+
+commit後は、Git追跡・`HEAD`登録・未コミット差分なしも確認する。
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\validate-agent-skills.ps1' -RequireGitTracked
+```
 
 ## commit/pushと確認URL
 

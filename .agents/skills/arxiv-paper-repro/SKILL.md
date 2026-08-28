@@ -5,11 +5,18 @@ description: arXivのAI/ML論文で提案されている手法やアプリケー
 
 # arXiv論文の再現実装
 
+## 利用元の前提
+
+作業前に`paper-repro-skill-source-policy`で、このファイルがGitHub登録済みの
+`.agents/skills/arxiv-paper-repro/SKILL.md`であることを確認する。
+個人領域、プラグインキャッシュ、他リポジトリの同名スキルは使用しない。
+
 このファイルは `paper-repro` リポジトリにおける本スキルの正本である。
 Claude Code、Codex、Antigravity IDEのいずれから利用しても、この内容を基準にする。
 
 ## 変更履歴
 
+- v2.2.0 (2026-08-29) `paper-repro-skill-source-policy`によるGit追跡・HEAD・リモート同期確認を利用前提に追加し、個人領域、プラグインキャッシュ、他リポジトリの同名スキルを除外
 - v2.1.0 (2026-08-28) 正本を `.agents/skills/arxiv-paper-repro/` に移し、3つのAI開発環境で共用する構成へ変更。生成元と生成物の二重管理および環境固有の成果物提示方法を廃止
 - v2.0.0 (2026-07-13) スリーパス法（第1〜第3パス）をマージ。(1) Phase 0 に「読む価値の判断」を追加し、方針に「部分採用」を新設。(2) Phase 1 を第2パス/第3パスの二段構えに再編し、Related Work の位置づけを「理解のためではなくベースライン実装を探すため」と定義して矛盾を解消。(3) **論文タイプ（A:学習あり / B:学習なし）による分岐を新設**し、Phase 4 のサニティチェックの階段をタイプ別に用意。(4) LLM応用論文向けチェックリスト `references/llm-paper-checklist.md` を追加
 - v1.1.0 (2026-07-13) english-parsing スキルとの発火条件の交差を解消。description から単独の「読み解いて」を削除し、実装・再現の意図を必須条件化。「他スキルとの境界」節を追加

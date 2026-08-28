@@ -5,6 +5,12 @@ description: paper-reproリポジトリで、変更ファイルのcommit/pushコ
 
 # paper-repro commit/push・結果URL
 
+## 利用元の前提
+
+作業前に`paper-repro-skill-source-policy`で、このファイルがGitHub登録済みの
+`.agents/skills/paper-repro-commit-output/SKILL.md`であることを確認する。
+個人領域、プラグインキャッシュ、他リポジトリの同名スキルは使用しない。
+
 ## 正本と対応環境
 
 この`SKILL.md`がスキル本文の唯一の正本である。
@@ -23,6 +29,7 @@ description: paper-reproリポジトリで、変更ファイルのcommit/pushコ
 
 | 版 | 日付 | 変更内容 |
 |---|---|---|
+| 2.1.0 | 2026-08-29 | `paper-repro-skill-source-policy`によるGit追跡・HEAD・リモート同期確認を利用前提に追加し、リポジトリ外の同名スキルを除外 |
 | 2.0.0 | 2026-08-28 | 個人用URL出力規約とリポジトリ内の重複手順を統合。3環境共通の正本、権限境界、全ファイルURL、SHA照合を明文化し、環境固有のzip・提示ツール依存を廃止 |
 | 1.1 | 2026-08-23 | commit URLと実行結果検証を追加 |
 | 1.0 | 2026-08-23 | 初版 |

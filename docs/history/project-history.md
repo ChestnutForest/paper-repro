@@ -115,6 +115,14 @@
 | 3つのAI開発環境で共通利用したい | `.agents/skills`を本文正本、`.claude/skills`をClaude Code用の参照入口とする3スキル構成へ統合 |
 | 矛盾を除去して検証したい | zip・`present_files`・架空SHA・URL件数制限を廃止し、`scripts/validate-agent-skills.ps1`で構造、参照、frontmatter、文字コードを検証可能にした |
 
+## 2026-08-29：GitHub登録済みスキルだけを使用する方針
+
+| 指示 | 対応・成果物 |
+|---|---|
+| GitHubリポジトリのスキルだけで仕事をしたい | `paper-repro-skill-source-policy`を追加し、他スキルより先にGit追跡・HEAD・必要時のリモートSHAを確認する規則を定義 |
+| Windowsローカルの旧スキルを適切に扱いたい | 移行済みキャッシュは非アクティブな移行元とし、呼び出し・直接編集・直接削除を禁止。必要時はプラグイン単位で無効化する方針を記録 |
+| 3環境で同じ制約を使いたい | `AGENTS.md`、`CLAUDE.md`、`.claude/skills`、README、文書索引、検証スクリプトを4スキル構成へ同期 |
+
 ---
 
 ## 全体の流れ
@@ -123,7 +131,8 @@
 → 永続化とライセンス（7/27）→ 知識活用（7/28）→ CCAF適用と運用整備（8/3）
 → paper-reproへの改称と正式版開発への移行（8/15）
 → Claude Code / Codex 共通開発指示への統合（8/15）
-→ Claude Code / Codex / Antigravity IDE共通スキルへの統合（8/28）**
+→ Claude Code / Codex / Antigravity IDE共通スキルへの統合（8/28）
+→ GitHub登録済みスキル限定ポリシー（8/29）**
 
 前半は「作るものを決める」、中盤は「動かす」、後半は「進め方を仕組みにする」
 という重心の移り方をしている。

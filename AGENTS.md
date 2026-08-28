@@ -24,13 +24,24 @@ SSOTとは、組織内のあらゆるデータ要素を「たった1つの場所
 - エージェントを切り替えるときは、未解決事項・判断理由・次の作業を文書化し、作業ツリーの状態を確認する。
 - このファイルを変更したら、同じ変更で `CLAUDE.md`、`README.md`、関連する現行文書の参照も確認する。
 
+### 1.1 スキル利用元の制限
+
+paper-reproの作業では、Gitで追跡され、`HEAD`に登録されている`.agents/skills/`配下の正本スキルだけを使用する。
+スキルを選択する前に`paper-repro-skill-source-policy`を適用し、候補のGit追跡状態を確認する。
+さらにローカル`HEAD`とoriginブランチの完全SHAを照合し、一致しない場合はスキルを呼び出さない。
+
+Windows個人領域、Codexプラグインキャッシュ、他リポジトリにあるスキルをpaper-reproへ適用しない。
+`.claude/skills/`はGit管理下のClaude Code用入口としてだけ使用し、本文は`.agents/skills/`から読む。
+未追跡・未コミット・未pushのスキルを「GitHub登録済み」と扱わない。
+
 ## 2. 作業開始時の読み順
 
 1. `git status --short --branch` で作業ツリーを確認し、既存のユーザー変更を保護する。
 2. この `AGENTS.md` を全文読む。
 3. `docs/requirements.md`、`docs/product-design.md`、`docs/roadmap.md` を読む。
 4. `docs/daily-routine.md` と `docs/devlog/` の最新ファイルで、未解決事項と次の作業を確認する。
-5. 依頼が該当する場合は、`.agents/skills/`の`arxiv-paper-repro`、`paper-repro-devlog`、`paper-repro-commit-output`を読む。
+5. `paper-repro-skill-source-policy`で利用元を確認し、依頼に該当する場合だけ
+   `arxiv-paper-repro`、`paper-repro-devlog`、`paper-repro-commit-output`を読む。
 6. ユーザーの依頼範囲を確認し、その範囲を越える変更は行わない。
 
 ## 3. このプロジェクトは何か

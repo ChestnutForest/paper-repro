@@ -124,8 +124,10 @@
 当プロジェクトでは、Claude Code、Codex、Antigravity IDEを併用したリレー開発を行っています。
 共通ルールの正本は`AGENTS.md`、スキル本文の正本は`.agents/skills/`である。
 Claude Codeは`.claude/skills/`の短い入口から同じ正本を読み、手順本文を重複管理しない。
+paper-reproでは、GitHubへ登録されたリポジトリスキルだけを使用し、個人領域やプラグインキャッシュのスキルを適用しない。
 
 **実装済み共通スキル**
+- **[`paper-repro-skill-source-policy`](.agents/skills/paper-repro-skill-source-policy/SKILL.md)**: Git追跡・HEAD・リモート同期を確認し、リポジトリスキルだけを許可
 - **[`arxiv-paper-repro`](.agents/skills/arxiv-paper-repro/SKILL.md)**: AI/ML論文の再現実装、部分採用、スコア不一致の切り分け
 - **[`paper-repro-devlog`](.agents/skills/paper-repro-devlog/SKILL.md)**: paper-repro開発の日次知識を`docs/devlog/`へ資産化
 - **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、GitHub URL、実行結果検証

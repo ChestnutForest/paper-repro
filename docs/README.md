@@ -18,6 +18,7 @@
 | [`../AGENTS.md`](../AGENTS.md) | **共通ルール正本**。設計原則、規約、検証、3環境の引き継ぎ手順 |
 | [`../CLAUDE.md`](../CLAUDE.md) | Claude Code用エントリーポイント。共通指示として `AGENTS.md` を読み込ませる |
 | [`skills/paper-repro-commit-steps.md`](skills/paper-repro-commit-steps.md) | AI Agent Skillsの調査結果、正本構成、更新・検証手順 |
+| [`../.agents/skills/paper-repro-skill-source-policy/SKILL.md`](../.agents/skills/paper-repro-skill-source-policy/SKILL.md) | `paper-repro-skill-source-policy`。GitHub登録済みのリポジトリスキルだけを許可 |
 | [`../.agents/skills/arxiv-paper-repro/SKILL.md`](../.agents/skills/arxiv-paper-repro/SKILL.md) | `arxiv-paper-repro`。論文の再現実装・部分採用 |
 | [`../.agents/skills/paper-repro-devlog/SKILL.md`](../.agents/skills/paper-repro-devlog/SKILL.md) | `paper-repro-devlog`。開発の日次知識化 |
 | [`../.agents/skills/paper-repro-commit-output/SKILL.md`](../.agents/skills/paper-repro-commit-output/SKILL.md) | `paper-repro-commit-output`。commit/push、SHA照合、結果URL |

@@ -5,6 +5,12 @@ description: paper-repro（FastAPI＋Next.js）の開発で得た学び、決定
 
 # 論文再現ツール開発ログの資産化（paper-repro-devlog）
 
+## 利用元の前提
+
+作業前に`paper-repro-skill-source-policy`で、このファイルがGitHub登録済みの
+`.agents/skills/paper-repro-devlog/SKILL.md`であることを確認する。
+個人領域、プラグインキャッシュ、他リポジトリの同名スキルは使用しない。
+
 英語AI論文の読解〜再現実装ツール **paper-repro** の開発で、その日に得た学び・決定・つまずきを、
 **1日1ファイルの構造化Markdown**に変換し、**NotebookLM のソース**として投入するためのスキル。
 
@@ -17,6 +23,7 @@ Antigravity IDEのいずれから利用しても同じ内容を基準にする�
 
 | 版 | 日付 | 変更内容 |
 |---|---|---|
+| 2.1.0 | 2026-08-29 | `paper-repro-skill-source-policy`によるGit追跡・HEAD・リモート同期確認を利用前提に追加し、リポジトリ外の同名スキルを除外 |
 | 2.0.0 | 2026-08-28 | 正式名称をpaper-reproへ統一し、出力先を`docs/devlog/`へ固定。3環境共通のリポジトリ正本へ移行し、環境固有のzip・提示ツール依存を廃止 |
 | 1.0.0 | 2026-07-17 | 初版 |
 
