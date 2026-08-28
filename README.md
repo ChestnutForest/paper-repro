@@ -31,6 +31,24 @@
 | **0-1. `projects` / `papers` を作り PostgreSQL に永続化する** | **← 次の一手** |
 | 0-2. 状態遷移を動かす（`state` 1列 → `phase` × `status` の2列） | ⬜ 未着手 |
 
+### 📐 設計工程の進捗（IPA 6編）
+
+**現在地: 画面編・システム振舞い編の枠組みが完了／ 全6編中 2 編**
+
+詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
+
+| 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
+| --- | --- | --- | --- | --- | --- |
+| 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
+| **システム振舞い** | ✅ [v0.2.1](docs/arch-guide/arc-behavior.md) | ⬜ **← 次の一手** | ⬜ | ⬜ | ⬜ |
+| データモデル | — | — | — | — | ✅ [v1.0](docs/arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
+| 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+
+> **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
+> 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
+
 > **進捗の正本は [`docs/roadmap.md`](docs/roadmap.md) である。**
 > フェーズの状態を変えるときは、まず `roadmap.md` を更新し、同じ変更で本表も合わせる。
 > 直近の作業内容は [`docs/devlog/`](docs/devlog/) の最新ファイルを見る。
