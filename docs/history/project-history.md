@@ -106,6 +106,15 @@
 | READMEと関連文書も同期したい | README、文書索引、日次手順、OS別開始手順、技術スタック、ロードマップ、設計指針を更新 |
 | commit/push結果URLのスキルを登録したい | 登録済みの `github-result-urls` v1.3を確認し、重複するスキルは作成せず既存スキルを継続利用 |
 
+## 2026-08-28：Claude Code / Codex / Antigravity IDE共通スキルへの統合
+
+| 指示 | 対応・成果物 |
+|---|---|
+| paper-repro開発で作ったローカルスキルだけを一本化したい | プラグインキャッシュの`arxiv-paper-repro`と`paper-repro-devlog`をリポジトリへ正本化し、processloop由来の個人用`github-result-urls`は除外 |
+| リポジトリ内のSkill関連ファイルを調査したい | 既存の2つの`SKILL.md`、`AGENTS.md`、`CLAUDE.md`、人間向け手順書を確認し、要件調査文書との違いも分類 |
+| 3つのAI開発環境で共通利用したい | `.agents/skills`を本文正本、`.claude/skills`をClaude Code用の参照入口とする3スキル構成へ統合 |
+| 矛盾を除去して検証したい | zip・`present_files`・架空SHA・URL件数制限を廃止し、`scripts/validate-agent-skills.ps1`で構造、参照、frontmatter、文字コードを検証可能にした |
+
 ---
 
 ## 全体の流れ
@@ -113,7 +122,8 @@
 **スキル整備（7/13-15）→ 設計（7/16）→ 環境構築と土台完成（7/17）
 → 永続化とライセンス（7/27）→ 知識活用（7/28）→ CCAF適用と運用整備（8/3）
 → paper-reproへの改称と正式版開発への移行（8/15）
-→ Claude Code / Codex 共通開発指示への統合（8/15）**
+→ Claude Code / Codex 共通開発指示への統合（8/15）
+→ Claude Code / Codex / Antigravity IDE共通スキルへの統合（8/28）**
 
 前半は「作るものを決める」、中盤は「動かす」、後半は「進め方を仕組みにする」
 という重心の移り方をしている。

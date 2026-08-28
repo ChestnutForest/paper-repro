@@ -115,30 +115,33 @@
 - 設計: [`docs/product-design.md`](docs/product-design.md)
 - 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
 - プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
-- Claude Code / Codex 共通指示: [`AGENTS.md`](AGENTS.md)
+- Claude Code / Codex / Antigravity IDE 共通指示: [`AGENTS.md`](AGENTS.md)
 - Claude Code 用エントリーポイント: [`CLAUDE.md`](CLAUDE.md)
+- AI Agent Skills運用ガイド: [`docs/skills/paper-repro-commit-steps.md`](docs/skills/paper-repro-commit-steps.md)
 
 ## AI Agent 連携と共通スキル
 
-当プロジェクトでは、複数のAI開発エージェント（Antigravity IDE, Gemini Gem, Codex, Claude Code）を併用したリレー開発を行っています。
-エージェント設定の二重管理を防ぐため、すべてのエージェントのルールとスキルの正本（Single Source of Truth）は `AGENTS.md` に集約しています（`CLAUDE.md` などは `AGENTS.md` への参照指示のみを保持します）。
+当プロジェクトでは、Claude Code、Codex、Antigravity IDEを併用したリレー開発を行っています。
+共通ルールの正本は`AGENTS.md`、スキル本文の正本は`.agents/skills/`である。
+Claude Codeは`.claude/skills/`の短い入口から同じ正本を読み、手順本文を重複管理しない。
 
 **実装済み共通スキル**
-- **Auto Model Selector**: タスクの複雑度（Z言語やAlloyを用いた形式仕様の推論・複雑な設計 vs 単純な整形・翻訳作業）を分析し、最適な推論レベルのAIモデルを自動選択します。
-- **Resource Limit Advisor**: トークン上限やAPI利用枠の超過による実行失敗を事前に検知し、処理の中断と具体的な代替案（タスク分割、軽量モデルへのダウングレード等）を提示するフェイルセーフ機能です。
+- **[`arxiv-paper-repro`](.agents/skills/arxiv-paper-repro/SKILL.md)**: AI/ML論文の再現実装、部分採用、スコア不一致の切り分け
+- **[`paper-repro-devlog`](.agents/skills/paper-repro-devlog/SKILL.md)**: paper-repro開発の日次知識を`docs/devlog/`へ資産化
+- **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、GitHub URL、実行結果検証
 
-## Claude Code と Codex の併用
+## Claude Code、Codex、Antigravity IDEの併用
 
-プロジェクト共通の指示は `AGENTS.md` を正本とする。Codex は `AGENTS.md` を直接読み、
-Claude Code は自動読込される `CLAUDE.md` から `AGENTS.md` を全文参照する。
-共通方針を2ファイルへ重複させないため、どちらのツールに戻っても同じ基準で開発を再開できる。
+CodexとAntigravity IDEは`.agents/skills/`を直接利用し、Claude Codeは`.claude/skills/`から
+同じ本文を参照する。WindowsでのGit利用を安定させるため、シンボリックリンクではなく短い参照入口を使う。
 
-会話履歴そのものは両ツール間で共有されない。切り替える前に変更を保存し、テスト結果、判断理由、
+会話履歴そのものは3環境間で共有されない。切り替える前に変更を保存し、テスト結果、判断理由、
 未解決事項、次の一手を Git と [`docs/devlog/`](docs/devlog/) に残す。切り替え後は
 `git status`、最新コミット、`AGENTS.md`、最新devlogを確認してから作業する。
 
-Codexの `AGENTS.md` 読み込み仕様は
-[OpenAI公式ドキュメント](https://developers.openai.com/codex/guides/agents-md)を参照。
+仕様は[OpenAI Codex Agent Skills](https://developers.openai.com/codex/skills)、
+[Claude Code Skills](https://code.claude.com/docs/en/slash-commands)、
+[Google Antigravity Skills](https://antigravity.google/docs/skills)を参照。
 
 ---
 
@@ -258,7 +261,9 @@ npm install
 paper-repro/
 ├── .env.example
 ├── .gitignore
-├── AGENTS.md                    ← Claude Code / Codex 共通のAI開発指示（正本）
+├── .agents/skills/              ← Codex / Antigravity IDE共通スキル本文（正本）
+├── .claude/skills/              ← Claude Code用の正本参照入口
+├── AGENTS.md                    ← 3環境共通のAI開発ルール（正本）
 ├── CLAUDE.md                    ← Claude Code から AGENTS.md への入口
 ├── LICENSE
 ├── README.md
@@ -268,7 +273,8 @@ paper-repro/
 │   └── settings.json
 ├── scripts/
 │   ├── start-dev.ps1            ← 開発環境の起動（Windows）
-│   └── start-dev.sh             ← 開発環境の起動（Mac / Linux）
+│   ├── start-dev.sh             ← 開発環境の起動（Mac / Linux）
+│   └── validate-agent-skills.ps1 ← 共通スキル構造の検証
 ├── backend/                      ← FastAPIバックエンド
 │   ├── requirements.txt
 │   ├── app/

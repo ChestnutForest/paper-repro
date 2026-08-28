@@ -1,0 +1,4 @@
+/.agents/skills/** text eol=lf
+/.claude/skills/** text eol=lf
+/docs/skills/** text eol=lf
+/scripts/validate-agent-skills.ps1 text eol=lf

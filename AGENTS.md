@@ -1,7 +1,7 @@
 # AGENTS.md — paper-repro 共通AI開発指示
 
-このファイルはリポジトリ全体に適用する、**Claude Code と Codex の共通正本**である。
-Codex はこのファイルを直接読み、Claude Code は `CLAUDE.md` を入口としてこのファイルを全文読む。
+このファイルはリポジトリ全体に適用する、**Claude Code、Codex、Antigravity IDEの共通ルール正本**である。
+CodexとAntigravity IDEはこのファイルをプロジェクト指示として読み、Claude Codeは`CLAUDE.md`を入口として全文読む。
 
 ## 基本方針: SSOT（Single Source of Truth）について
 
@@ -11,14 +11,15 @@ SSOTとは、組織内のあらゆるデータ要素を「たった1つの場所
 情報が複数の場所に点在・重複することを防ぐことで、「どのデータが最新で正しいのか」という迷いや、同期漏れによる不整合（バグ）を根本から排除します。
 
 **【当プロジェクトにおけるSSOTの適用例】**
-*   **開発ルール・AIエージェントのスキル**: 本ファイル（`AGENTS.md`）をSSOTとします。他のすべての環境（Claude Codeの `CLAUDE.md` 等）は、個別にルールを持たず、本ファイルへの参照指示のみを保持します。
+*   **開発ルール**: 本ファイル（`AGENTS.md`）をSSOTとします。`CLAUDE.md`等は環境固有の入口だけを保持します。
+*   **AI Agent Skills**: `.agents/skills/<skill>/SKILL.md`を本文のSSOTとします。`.claude/skills/`はClaude Code用の参照入口だけを保持し、本文を複製しません。
 *   **バックエンド/フロントエンドのデータモデル**: データベースのスキーマやAPIの型定義においても、情報の重複管理を避け、一箇所で定義したものを各所で参照・再利用する設計を徹底してください。
 
 ## 1. 指示と開発データの共有方針
 
 - プロジェクト共通の方針・設計原則・作業手順は、この `AGENTS.md` だけで管理する。
-- `CLAUDE.md` には Claude Code 固有の入口情報だけを置き、共通内容を複製しない。
-- Claude Code と Codex の会話履歴や一時的な内部状態は共有されない。引き継ぐ情報は Git、`docs/`、
+- `CLAUDE.md`と`.claude/skills/`にはClaude Code固有の入口情報だけを置き、共通内容を複製しない。
+- Claude Code、Codex、Antigravity IDEの会話履歴や一時的な内部状態は共有されない。引き継ぐ情報はGit、`docs/`、
   `docs/devlog/` に残す。
 - エージェントを切り替えるときは、未解決事項・判断理由・次の作業を文書化し、作業ツリーの状態を確認する。
 - このファイルを変更したら、同じ変更で `CLAUDE.md`、`README.md`、関連する現行文書の参照も確認する。
@@ -29,7 +30,8 @@ SSOTとは、組織内のあらゆるデータ要素を「たった1つの場所
 2. この `AGENTS.md` を全文読む。
 3. `docs/requirements.md`、`docs/product-design.md`、`docs/roadmap.md` を読む。
 4. `docs/daily-routine.md` と `docs/devlog/` の最新ファイルで、未解決事項と次の作業を確認する。
-5. ユーザーの依頼範囲を確認し、その範囲を越える変更は行わない。
+5. 依頼が該当する場合は、`.agents/skills/`の`arxiv-paper-repro`、`paper-repro-devlog`、`paper-repro-commit-output`を読む。
+6. ユーザーの依頼範囲を確認し、その範囲を越える変更は行わない。
 
 ## 3. このプロジェクトは何か
 
@@ -249,7 +251,7 @@ git status --short --branch
 
 実行できない検証がある場合は、理由と未検証範囲を報告する。
 
-## 10. Claude Code ↔ Codex の引き継ぎ
+## 10. Claude Code ↔ Codex ↔ Antigravity IDE の引き継ぎ
 
 作業を渡す側：
 
@@ -272,10 +274,9 @@ git status --short --branch
 
 ## 12. エージェントの出力フォーマット（GitHub URL等）
 
-`commit` や `push` を実行した後は、その結果として生成されたGitHubのURLを**必ず一行ずつ独立したコードブロックで出力**し、人間が個別に簡単にコピーできるようにすること。
-「commit/pushしたURLを教えて」と指示された場合も同様の形式で出力する。
+commit/pushコマンド、実行、結果URL、Git実行結果の検証には、リポジトリ内の
+`.agents/skills/paper-repro-commit-output/SKILL.md`を使う。コマンド提示だけの依頼ではcommit/pushを実行しない。
 
-対象とするURLは以下の通り：
-*   対象ファイルごとのブランチのURL（例: `https://github.com/.../blob/main/filename.md`）
-*   特定のコミットに紐づくファイルのURL（例: `https://github.com/.../blob/<commit-hash>/filename.md`）
-*   コミット自体のURL（例: `https://github.com/.../commit/<commit-hash>`）
+実際にpushした後は完全SHAをリモートと照合し、リポジトリ、コミット、ブランチ、
+全コミット対象ファイル、履歴のURLを1件ずつ独立したコードブロックで出力する。
+空または架空のSHAを使用せず、ファイル数を理由にURLを省略しない。

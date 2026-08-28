@@ -11,18 +11,22 @@
 | [`daily-routine.md`](daily-routine.md) | **日々のルーチンワーク**。開発の開始〜終了までの手順 |
 | [`dev-startup.md`](dev-startup.md) | 起動スクリプトの使い方・実行後の確認事項チェックリスト |
 
-## 🤖 AI開発指示（Claude Code / Codex 共通）
+## 🤖 AI開発指示・スキル（Claude Code / Codex / Antigravity IDE 共通）
 
 | ファイル | 内容 |
 |---|---|
-| [`../AGENTS.md`](../AGENTS.md) | **共通正本**。設計原則、規約、検証、Claude Code ↔ Codex の引き継ぎ手順 |
+| [`../AGENTS.md`](../AGENTS.md) | **共通ルール正本**。設計原則、規約、検証、3環境の引き継ぎ手順 |
 | [`../CLAUDE.md`](../CLAUDE.md) | Claude Code用エントリーポイント。共通指示として `AGENTS.md` を読み込ませる |
+| [`skills/paper-repro-commit-steps.md`](skills/paper-repro-commit-steps.md) | AI Agent Skillsの調査結果、正本構成、更新・検証手順 |
+| [`../.agents/skills/arxiv-paper-repro/SKILL.md`](../.agents/skills/arxiv-paper-repro/SKILL.md) | `arxiv-paper-repro`。論文の再現実装・部分採用 |
+| [`../.agents/skills/paper-repro-devlog/SKILL.md`](../.agents/skills/paper-repro-devlog/SKILL.md) | `paper-repro-devlog`。開発の日次知識化 |
+| [`../.agents/skills/paper-repro-commit-output/SKILL.md`](../.agents/skills/paper-repro-commit-output/SKILL.md) | `paper-repro-commit-output`。commit/push、SHA照合、結果URL |
 
 ## 🚀 環境構築（初回・OS別）
 
 | ファイル | 内容 |
 |---|---|
-| [`getting-started-vscode-windows.md`](getting-started-vscode-windows.md) | **Windows版** Claude Code / Codex の開発開始・引き継ぎ手順 |
+| [`getting-started-vscode-windows.md`](getting-started-vscode-windows.md) | **Windows版** Claude Code / Codex / Antigravity IDE の開発開始・引き継ぎ手順 |
 | [`getting-started-vscode.md`](getting-started-vscode.md) | Mac / Linux版の同手順 |
 
 ## 📐 設計（何を作るか）
