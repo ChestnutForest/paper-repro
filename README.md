@@ -33,14 +33,14 @@
 
 ### 📐 設計工程の進捗（IPA 6編）
 
-**現在地: システム振舞い編の業務一覧まで完了／ 全6編中 2 編**
+**現在地: 現行確定要求について、システム振舞い編の4成果物と状態遷移補助資料を作成／ 全6編中 2 編**
 
 詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
 | 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- | --- |
 | 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
-| **システム振舞い** | ✅ [v0.2.2](docs/arch-guide/arc-behavior.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-list.md) | ⬜ **← 次の一手** | ⬜ | ⬜ |
+| **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [47業務 v0.1](docs/arch-guide/behaviors/) |
 | データモデル | — | — | — | — | ✅ [v1.0](docs/arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
 | 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
@@ -48,6 +48,10 @@
 
 > **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
 > 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
+
+> システム振舞い編の✅は、**現行の確定要求を要求単位で設計した**ことを示す。
+> `REQ-C02`〜`REQ-C11`はUSDM仕様未展開のため、仕様展開後に再検査する。
+> ソフトウェア実装の現在地は変わらずフェーズ0である。
 
 > **進捗の正本は [`docs/roadmap.md`](docs/roadmap.md) である。**
 > フェーズの状態を変えるときは、まず `roadmap.md` を更新し、同じ変更で本表も合わせる。
@@ -128,6 +132,7 @@ paper-reproでは、GitHubへ登録されたリポジトリスキルだけを使
 
 **実装済み共通スキル**
 - **[`paper-repro-skill-source-policy`](.agents/skills/paper-repro-skill-source-policy/SKILL.md)**: Git追跡・HEAD・リモート同期を確認し、リポジトリスキルだけを許可
+- **[`paper-repro-arch-guide`](.agents/skills/paper-repro-arch-guide/SKILL.md)**: 要求から設計文書へ展開し、Mermaid CLIで図を実描画して検証
 - **[`arxiv-paper-repro`](.agents/skills/arxiv-paper-repro/SKILL.md)**: AI/ML論文の再現実装、部分採用、スコア不一致の切り分け
 - **[`paper-repro-devlog`](.agents/skills/paper-repro-devlog/SKILL.md)**: paper-repro開発の日次知識を`docs/devlog/`へ資産化
 - **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、GitHub URL、実行結果検証
@@ -268,6 +273,8 @@ paper-repro/
 ├── AGENTS.md                    ← 3環境共通のAI開発ルール（正本）
 ├── CLAUDE.md                    ← Claude Code から AGENTS.md への入口
 ├── LICENSE
+├── package.json                  ← Mermaid CLI検証コマンドと固定依存
+├── package-lock.json             ← Mermaid CLI依存のlockfile
 ├── README.md
 ├── docker-compose.yml           ← PostgreSQL + Redis
 ├── .vscode/
@@ -276,7 +283,8 @@ paper-repro/
 ├── scripts/
 │   ├── start-dev.ps1            ← 開発環境の起動（Windows）
 │   ├── start-dev.sh             ← 開発環境の起動（Mac / Linux）
-│   └── validate-agent-skills.ps1 ← 共通スキル構造の検証
+│   ├── validate-agent-skills.ps1 ← 共通スキル構造の検証
+│   └── validate-mermaid.mjs      ← Markdown内のMermaidをSVG描画して検証
 ├── backend/                      ← FastAPIバックエンド
 │   ├── requirements.txt
 │   ├── app/

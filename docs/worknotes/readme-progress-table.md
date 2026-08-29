@@ -2,7 +2,7 @@
 
 - 作成日: 2026年8月28日
 - 対象: リポジトリルートの `README.md`
-- 状態: 手作業での追加が必要（全文が長いため差分指示とする）
+- 状態: **READMEへ反映済み。2026年8月29日にシステム振舞い編の進捗を再同期**
 
 ---
 
@@ -39,21 +39,21 @@
 ```markdown
 ### 📐 設計工程の進捗（IPA 6編）
 
-**現在地: 画面編・システム振舞い編の枠組みが完了／ 全6編中 2 編**
+**現在地: 現行確定要求について、システム振舞い編の4成果物と状態遷移補助資料を作成／ 全6編中 2 編**
 
-詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
+詳細は **[`docs/arch-guide/arc-artifact-order.md`](../arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
 | 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- | --- |
-| 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
-| **システム振舞い** | ✅ [v0.2.1](docs/arch-guide/arc-behavior.md) | ⬜ **← 次の一手** | ⬜ | ⬜ | ⬜ |
-| データモデル | — | — | — | — | ✅ [v1.0](docs/arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
+| 画面 | ✅ [v0.2.2](../arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
+| **システム振舞い** | ✅ [v0.3](../arch-guide/arc-behavior.md) | ✅ [v0.2](../arch-guide/arc-behavior-list.md) | ✅ [v0.1](../arch-guide/arc-behavior-rules.md) | ✅ フロー・状態 v0.1 | ✅ 47業務 v0.1 |
+| データモデル | — | — | — | — | ✅ [v1.0](../arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
 | 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 
 > **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
-> 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
+> 根拠は [`docs/arch-guide/arc-artifact-order.md`](../arch-guide/arc-artifact-order.md) を参照。
 ```
 
 ## 削除を検討する箇所
@@ -64,7 +64,7 @@
 **次のように置き換えることを提案する。**
 
 ```markdown
-- 要求分析資料（一次資料の小節別分析・19件）: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
+- 要求分析資料（一次資料の小節別分析・19件）: [`docs/requirements-analysis/README.md`](../requirements-analysis/README.md)
 ```
 
 19行が1行になり、**索引の二重管理が解消される。**
@@ -80,5 +80,8 @@
 2. **`docs/README.md` の索引に1行追加する**
 3. **ルート README のリンク一覧には追加しない**
 4. フェーズの状態が変わるときは、**先に `docs/roadmap.md` を更新する**
+
+今回の更新は設計成果物の進捗であり、ソフトウェア実装フェーズは変わらないため、
+`docs/roadmap.md`は変更していない。
 
 規約は `.agents/skills/paper-repro-commit-output/SKILL.md` 3.7章に記録した。

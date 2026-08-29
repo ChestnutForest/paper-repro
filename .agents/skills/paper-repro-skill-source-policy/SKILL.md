@@ -17,6 +17,7 @@ paper-reproの作業で、GitHubリポジトリに登録されているスキル
 
 | 版 | 日付 | 変更内容 |
 |---|---|---|
+| 1.1.0 | 2026-08-29 | `paper-repro-arch-guide`をリポジトリ正本へ追加し、設計文書とMermaid描画検証を3環境で共有 |
 | 1.0.0 | 2026-08-29 | GitHub登録済みスキルだけを使用する選択規則、確認手順、ローカル旧スキルの扱いを定義 |
 
 ## 現在許可されている正本スキル
@@ -24,6 +25,7 @@ paper-reproの作業で、GitHubリポジトリに登録されているスキル
 | スキル | 正本パス | 責務 |
 |---|---|---|
 | `paper-repro-skill-source-policy` | `.agents/skills/paper-repro-skill-source-policy/SKILL.md` | スキル利用元の検証 |
+| `paper-repro-arch-guide` | `.agents/skills/paper-repro-arch-guide/SKILL.md` | 要求から設計文書への展開、Mermaid CLI描画検証 |
 | `arxiv-paper-repro` | `.agents/skills/arxiv-paper-repro/SKILL.md` | 論文の再現実装・部分採用 |
 | `paper-repro-devlog` | `.agents/skills/paper-repro-devlog/SKILL.md` | 開発ログの資産化 |
 | `paper-repro-commit-output` | `.agents/skills/paper-repro-commit-output/SKILL.md` | commit/push・結果URL・実行結果検証 |

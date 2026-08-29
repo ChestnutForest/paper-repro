@@ -1,138 +1,52 @@
----
-name: paper-repro-arch-guide
-description: 英語AI論文の読解〜再現実装ツール（paper-repro）の開発に、Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウハウを適用するための設計指針スキル。エージェント設計・ツール/MCP設計・Claude Code設定・構造化出力・コンテキスト管理/信頼性の5領域から、このツールに効くパターンだけを抜き出し、ロードマップの各フェーズへの適用方針をまとめる。さらに、開発の各工程ステップとCCAFのどのタスクステートメントが結びついているかを一目で確認できるトレーサビリティ表と、5ドメインの配点比率で重みづけした「CCAF適用率インジケーター」を、開発ログ（ccaf-coverage-YYYY-MM-DD.md）として出力する機能を持つ。ユーザーが「この機能をどう設計すべきか」「Claude CodeまたはCodexにどう頼むか」「AGENTS.mdとCLAUDE.mdをどう構成するか」「論文情報の抽出をどう構造化するか」「承認ゲート/エスカレーションをどう設計するか」と設計判断を相談したとき、また「CCAFのノウハウを適用して」「アーキテクチャ指針を出して」「どのノウハウを使ったか一覧にして」「CCAF適用率を出して」「適用状況のインジケーターを作って」「カバレッジを可視化して」と言ったときに使う。日々の開発ログを残すのは paper-repro-devlog、論文そのものを再現実装する手順は arxiv-paper-repro、スキルを安全に更新するのは skill-safe-update が担当し、本スキルは「ツールの設計判断にCCAFの型を当てること」と「その適用状況を計測して可視化すること」に限る。判断基準は「paper-reproの設計・実装方針をCCAFのノウハウで決める／その適用度を測るのか（本スキル）」である。
----
+# paper-reproアーキテクチャ設計文書
 
-# paper-repro 設計指針（CCAF適用版）v1.2
+paper-reproの要求を、アーキテクチャ、画面、システム振舞い、データモデルへ展開した
+現行設計文書の索引である。AI Agent Skillの本文は
+[`../../.agents/skills/paper-repro-arch-guide/SKILL.md`](../../.agents/skills/paper-repro-arch-guide/SKILL.md)
+を正本とし、この文書には複製しない。
 
-英語AI論文の読解〜再現実装ツール **paper-repro** の開発判断に、
-Claude Certified Architect – Foundations（CCAR-F）試験ガイドのノウハウを当てるためのスキル。
+## 設計成果物
 
-## 変更履歴
-
-| 版 | 変更内容 |
+| 文書 | 内容 |
 |---|---|
-| 1.2 | AGENTS.mdを共通正本とし、Claude Code / Codex の併用・引き継ぎ方針を追加 |
-| 1.1 | 工程ステップ↔CCAFタスクのトレーサビリティ表と、配点重みづけの適用率インジケーター出力機能を追加 |
-| 1.0 | 初版。フェーズ別の適用方針、CCAFパターン対応表、Claude Code依頼テンプレート |
+| [`arc-artifact-order.md`](arc-artifact-order.md) | 成果物の作成順、責務、相互参照 |
+| [`arc-architecture.md`](arc-architecture.md) | システム全体のアーキテクチャ |
+| [`arc-screen.md`](arc-screen.md) | 画面設計の枠組み |
+| [`arc-screen-list.md`](arc-screen-list.md) | 画面一覧 |
+| [`arc-screen-flow.md`](arc-screen-flow.md) | 画面遷移 |
+| [`arc-screen-rules.md`](arc-screen-rules.md) | 画面共通ルール |
+| [`arc-behavior.md`](arc-behavior.md) | システム振舞い設計の枠組み |
+| [`arc-behavior-list.md`](arc-behavior-list.md) | 要求から導いた業務・自動処理の一覧 |
+| [`arc-behavior-flow.md`](arc-behavior-flow.md) | 振舞いフロー |
+| [`arc-behavior-rules.md`](arc-behavior-rules.md) | 振舞い共通ルール |
+| [`arc-behavior-state.md`](arc-behavior-state.md) | 実装と照合した状態遷移 |
+| [`behaviors/README.md`](behaviors/README.md) | グループ別システム振舞い説明の索引 |
+| [`arc-datamodel.md`](arc-datamodel.md) | データモデル設計 |
 
-## 隣接スキルとの境界
+## CCAF適用資料
 
-| スキル | 役割 |
+| 文書 | 内容 |
 |---|---|
-| **本スキル（paper-repro-arch-guide）** | ツールの**設計判断**にCCAFの型を当てる／**適用度を計測**する |
-| paper-repro-devlog | その日の開発の**日次ログ**を残す |
-| arxiv-paper-repro | 論文そのものを**再現実装する手順** |
-| skill-safe-update | スキルを**安全に更新**する規律 |
+| [`ccaf-patterns.md`](ccaf-patterns.md) | paper-reproへ適用するCCAFパターン |
+| [`claude-code-playbook.md`](claude-code-playbook.md) | Claude Code / Codexへの設計・実装依頼例 |
+| [`coverage-rubric.md`](coverage-rubric.md) | CCAF適用率の算定規則 |
+| [`coverage-remeasure-howto.md`](coverage-remeasure-howto.md) | 適用率の再計測手順 |
+| [`ccaf-coverage-2026-08-03.md`](ccaf-coverage-2026-08-03.md) | 2026-08-03時点の適用率 |
 
-判断基準：「paper-repro の設計・実装方針を CCAF のノウハウで決める／その適用度を測るのか」＝本スキル。
+## Mermaid描画検証
 
-## 使い方
+Mermaidを含む設計文書を追加・変更したら、構造検査に加えてリポジトリ固定の
+Mermaid CLIで実際にSVGへ描画する。
 
-1. **設計判断が必要なとき** → 下の「フェーズ別の適用方針」を見る。根拠は `references/ccaf-patterns.md`。
-2. **Claude Code / Codex に実装を頼むとき** → `claude-code-playbook.md` の依頼テンプレートを使う。
-3. **適用状況を可視化したいとき** → 下の「適用率インジケーターの出力手順」に従う。算定規則は `references/coverage-rubric.md`。
+```powershell
+npm ci
+npm run validate:mermaid
+```
 
----
+全Markdownを検査する場合は次を使う。
 
-## フェーズ別の適用方針（ロードマップ対応）
+```powershell
+npm run validate:mermaid:all
+```
 
-ロードマップ（docs/roadmap.md）の各フェーズに、CCAFのどのノウハウを当てるか。
-
-### フェーズ0（データ永続化・状態遷移）
-- **プランモードの発想**：DB移行のような複数ファイル・アーキテクチャ判断は、まず計画を出させてから実装。
-- **状態機械＝プログラム的enforcement**：承認ゲートは「プロンプトでお願い」でなく、状態遷移の検証で強制する（states.pyのcan_transition）。
-
-### フェーズ1（インテーク：論文取込・タイプ判定・方針選択）
-- **構造化出力（tool_use + JSONスキーマ）**：タイプA/B判定、方針5択は自由文でなくJSONスキーマで受ける。enumに"unclear"を足す。
-- **nullableフィールドで幻覚防止**：欠損項目は必須にせずnullを返させる。
-- **エスカレーション基準の明示**：方針選択ゲートに明示基準とfew-shot例を持たせる。
-
-### フェーズ2（非同期ジョブ・WebSocket）
-- **エージェントループの終了条件**：完了判定は自然言語の合図でなく明示的な状態シグナルで行う。
-- **構造化エラー**：失敗種別（transient/validation/permission）・リトライ可否・部分結果を構造化して返す。
-
-### フェーズ3（リーディング：spec草案・仮定台帳）
-- **lost in the middle対策**：長い論文PDFは要点を先頭に、詳細をセクション見出しで構造化。
-- **verboseなツール出力のtrim**：大量出力は関連フィールドだけに絞る。
-- **few-shot例**：多様な論文構造の入出力例を2〜4個添える。
-- **claim-sourceマッピング**：仮定台帳の各仮定に出典を紐づけ、要約で失わない。
-
-### フェーズ4（検証：サンドボックス・サニティ階段）
-- **プランモード必須**：大規模・アーキテクチャ判断のため計画を先に出させる。
-- **検証・リトライループ**：失敗内容を次試行に戻す。ただし「情報が元から無い」失敗は無駄と見分ける。
-- **独立レビュー**：生成コードのレビューは別インスタンスで行う。
-
-### フェーズ5（照合・レポート）
-- **provenance保持**：再現値vs論文値をclaim-sourceを保ったまま突き合わせる。
-- **矛盾の注記**：食い違いは片方を選ばず両方を出典つきで示す。
-
-### フェーズ6（公開整備）
-- **共通指示の一元化**：プロジェクト共通の正本を `AGENTS.md` とし、`CLAUDE.md` はClaude Code用入口に限定する。
-- **Claude固有ルールの分割**：必要な場合だけ `.claude/rules/` に分割し、共通ルールを複製しない。
-
----
-
-## Claude Code / Codex の使い方（このプロジェクト共通）
-
-- **プランモード vs 直接実行**：複数ファイル・アーキ判断→計画を出させる。単一ファイルの明確な修正→直接実行。
-- **共通正本**：両ツールが参照するプロジェクト方針は `AGENTS.md` に置く。
-- **Claude固有機能**：繰り返す依頼は `.claude/commands/`、固有ルールは `.claude/rules/` に置く。
-- **引き継ぎ**：会話履歴に依存せず、Git、現行文書、devlogへ判断と次の作業を残す。
-- **CI連携（将来）**：-p（非対話）と --output-format json を使う。
-
----
-
-## トレーサビリティと適用率インジケーター（v1.1）
-
-### 何を可視化するか
-
-1. **トレーサビリティ表**：開発の各工程ステップが、CCAFのどのドメイン・タスクステートメントに結びついているかを一目で見る表。
-2. **適用率インジケーター**：5ドメインの配点比率（D1:27% / D2:18% / D3:20% / D4:20% / D5:15%）で重みづけした総合適用率と、ドメイン別のバーグラフ。
-
-### 算定規則（要約。詳細は references/coverage-rubric.md）
-
-- タスクステートメント1本 = 1単位（全30本）。
-- 状態は3値：**適用済=1.0 / 部分適用=0.5 / 未適用=0**。
-- **ドメイン適用率 = そのドメインの合計 ÷ 本数**
-- **総合適用率 = Σ（ドメイン適用率 × ドメイン配点）**
-
-### 最重要の制約：証拠のないものを「適用済」にしない
-
-- **各「適用済」「部分適用」には、必ず証拠（ファイルパス、コミットID、devlogの日付）を1つ以上添える。**
-- **証拠が出せないものは「未適用」にする。** 意図や計画だけでは適用済にしない
-  （設計文書に「そうする方針」と書いてあるだけ＝未適用。実装・設定が存在して初めて適用済）。
-- 数値は必ず算定規則から**計算して出す**。感覚で「だいたい30%くらい」と書かない。
-- 初期リリーススコープ外として意図的に採用しないものは、「未適用」としたうえで**除外理由を明記**する
-  （例：マルチエージェントは初期リリースには過剰）。
-
-### 出力手順
-
-1. **JSTの日付をシステムから取得する**（`TZ=Asia/Tokyo date +%Y-%m-%d`。推測しない）。
-2. 現在のリポジトリ状態・devlog・会話から、各タスクステートメントの状態と証拠を洗い出す。
-3. 算定規則で計算し、`ccaf-coverage-YYYY-MM-DD.md` を生成する（テンプレートは references/coverage-rubric.md）。
-4. **規約名 zip（`files_reify_YYYYMMDD_hhmm.zip`、JST基準）** にまとめ、`present_files` で提示する。
-5. **配置とコミットを案内する**：
-   ```
-   # docs/arch-guide/ に置いてから
-   git add docs/arch-guide/
-   git commit -m "docs: add CCAF coverage indicator YYYY-MM-DD"
-   git push
-   ```
-
-### 継続運用
-
-- フェーズが1つ進むたび、または節目（機能完成時）に再計測し、**前回との差分（どのタスクが上がったか）を記録する**。
-- 前回のカバレッジファイルが会話にある場合のみ、前回比を書く。**無ければ捏造せず「初回計測」と明記する。**
-
----
-
-## やってはいけないこと
-
-- ❌ CCAFの型を、対応しないフェーズに無理に当てる（例：単一DBの初期リリースにマルチエージェント設計を持ち込む）
-- ❌ このスキルで日次ログを書く（それは paper-repro-devlog の役割）
-- ❌ 「確信度スコアで自動判定」など、CCAFがアンチパターンとするものを採用する
-- ❌ 承認ゲートをプロンプトのお願いだけで済ませる（決定論的な強制が要る場面は状態遷移で守る）
-- ❌ **証拠がないのに「適用済」にして適用率を実際より高く見せる**
-- ❌ **前回計測ファイルが無いのに、前回比の数字をそれらしく捏造する**
-- ❌ **適用率を上げること自体を目的化する**（初期リリースに不要な型を入れるのは本末転倒。除外理由を書くのが正しい）
+検証スクリプトは一時SVGを検査後に削除するため、生成物はリポジトリへ残らない。

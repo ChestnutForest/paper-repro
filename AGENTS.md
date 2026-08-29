@@ -41,7 +41,8 @@ Windows個人領域、Codexプラグインキャッシュ、他リポジトリ�
 3. `docs/requirements.md`、`docs/product-design.md`、`docs/roadmap.md` を読む。
 4. `docs/daily-routine.md` と `docs/devlog/` の最新ファイルで、未解決事項と次の作業を確認する。
 5. `paper-repro-skill-source-policy`で利用元を確認し、依頼に該当する場合だけ
-   `arxiv-paper-repro`、`paper-repro-devlog`、`paper-repro-commit-output`を読む。
+   `paper-repro-arch-guide`、`arxiv-paper-repro`、`paper-repro-devlog`、
+   `paper-repro-commit-output`を読む。
 6. ユーザーの依頼範囲を確認し、その範囲を越える変更は行わない。
 
 ## 3. このプロジェクトは何か
@@ -254,6 +255,9 @@ backend\.venv\Scripts\python.exe -m pytest backend\tests -q
 
 # フロントエンド
 npm --prefix frontend run build
+
+# 追加・変更したMarkdown内のMermaidを実際にSVGへ描画
+npm run validate:mermaid
 
 # リポジトリ差分
 git diff --check

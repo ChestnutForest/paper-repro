@@ -41,7 +41,7 @@ git diff --check
 | 文書のみ | `git diff --name-only`でコード領域を検索 | `backend/`、`frontend/`が出ない |
 | Python | 対象テスト、ruff、black確認 | 全成功 |
 | フロントエンド | `npm --prefix frontend run build`と関連テスト | 全成功 |
-| Mermaid | リポジトリ既定のMermaid検証 | 構文エラーなし |
+| Mermaid | `npm run validate:mermaid` | CLIで全変更図のSVG描画に成功し、ブロック数とSVG数が一致 |
 | 新規文書 | `docs/README.md`と関連索引 | 掲載漏れなし |
 
 `black --check`は修正しない。整形が必要なら、明示的な整形コマンドを先に実行する。

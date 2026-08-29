@@ -7,6 +7,7 @@ $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $expectedSkills = @(
     'paper-repro-skill-source-policy',
+    'paper-repro-arch-guide',
     'arxiv-paper-repro',
     'paper-repro-devlog',
     'paper-repro-commit-output'
@@ -143,13 +144,21 @@ foreach ($skill in $expectedSkills) {
 
 $requiredFiles = @(
     '.agents\skills\paper-repro-skill-source-policy\SKILL.md',
+    '.agents\skills\paper-repro-arch-guide\SKILL.md',
     '.agents\skills\arxiv-paper-repro\assets\assumption-ledger-template.md',
     '.agents\skills\arxiv-paper-repro\references\debug-playbook.md',
     '.agents\skills\arxiv-paper-repro\references\english-cues.md',
     '.agents\skills\arxiv-paper-repro\references\llm-paper-checklist.md',
     '.agents\skills\arxiv-paper-repro\references\sanity-checks.md',
     '.agents\skills\paper-repro-commit-output\references\commit-workflow.md',
-    'docs\skills\paper-repro-commit-steps.md'
+    'docs\arch-guide\README.md',
+    'docs\arch-guide\ccaf-patterns.md',
+    'docs\arch-guide\claude-code-playbook.md',
+    'docs\arch-guide\coverage-rubric.md',
+    'docs\skills\paper-repro-commit-steps.md',
+    'package.json',
+    'package-lock.json',
+    'scripts\validate-mermaid.mjs'
 )
 foreach ($relativePath in $requiredFiles) {
     $path = Join-Path $repoRoot $relativePath

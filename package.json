@@ -1,0 +1,12 @@
+{
+  "name": "paper-repro-tooling",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "validate:mermaid": "node ./scripts/validate-mermaid.mjs",
+    "validate:mermaid:all": "node ./scripts/validate-mermaid.mjs --all"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "11.16.0"
+  }
+}

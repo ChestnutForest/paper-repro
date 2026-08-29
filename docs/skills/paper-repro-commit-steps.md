@@ -1,6 +1,6 @@
 # paper-repro AI Agent Skills運用ガイド
 
-> 版: 2.1.0
+> 版: 2.2.0
 > 更新日: 2026-08-29
 
 Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重複による内容ずれを防ぐための運用ガイドである。
@@ -41,6 +41,8 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 .agents/skills/
 ├── paper-repro-skill-source-policy/
 │   └── SKILL.md
+├── paper-repro-arch-guide/
+│   └── SKILL.md
 ├── arxiv-paper-repro/
 │   ├── SKILL.md
 │   ├── assets/
@@ -53,12 +55,13 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 
 .claude/skills/
 ├── paper-repro-skill-source-policy/SKILL.md
+├── paper-repro-arch-guide/SKILL.md
 ├── arxiv-paper-repro/SKILL.md
 ├── paper-repro-devlog/SKILL.md
 └── paper-repro-commit-output/SKILL.md
 ```
 
-`.agents/skills`の4ファイルが本文の正本である。`.claude/skills`の4ファイルは正本への短い入口だけを持ち、
+`.agents/skills`の5ファイルが本文の正本である。`.claude/skills`の5ファイルは正本への短い入口だけを持ち、
 手順本文を複製しない。WindowsでGitのシンボリックリンクが通常ファイルへ変わる問題を避けるため、
 シンボリックリンクではなく参照入口を採用した。
 
@@ -72,11 +75,12 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 
 各`SKILL.md`のfrontmatterは、移植性を保つため`name`と`description`だけを使う。
 
-## 4スキルの責務
+## 5スキルの責務
 
 | スキル | 責務 | 使わない場面 |
 |---|---|---|
 | `paper-repro-skill-source-policy` | GitHub登録済みのリポジトリスキルだけを許可 | paper-repro以外のプロジェクト |
+| `paper-repro-arch-guide` | 要求からアーキテクチャ設計へ展開し、Mermaid CLIで実描画検証 | 論文そのものの再現実装、日次ログ |
 | `arxiv-paper-repro` | AI/ML論文の再現、部分採用、スコア不一致の切り分け | 単純な要約・英文解釈 |
 | `paper-repro-devlog` | paper-repro開発の日次知識を`docs/devlog/`へ保存 | 他アプリ、論文そのものの実装 |
 | `paper-repro-commit-output` | commit/pushコマンド、実行、SHA照合、GitHub URL、結果検証 | 他リポジトリ |
@@ -117,6 +121,15 @@ git diff --check
 
 検証は、正本とClaude入口の1対1対応、標準frontmatter、参照先、禁止された古い環境依存語、
 BOMなしUTF-8、LF、関連文書の参照を確認する。
+
+設計文書のMermaidを追加・変更した場合は、リポジトリ固定のCLIで実描画も確認する。
+
+```powershell
+npm ci
+npm run validate:mermaid
+```
+
+全Markdownを描画検証するときは`npm run validate:mermaid:all`を使う。
 
 commit後は、Git追跡・`HEAD`登録・未コミット差分なしも確認する。
 

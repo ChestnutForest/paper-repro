@@ -1,8 +1,9 @@
 # 工程成果物の作成順序：6編に共通する原則
 
 - 対象プロダクト: `paper-repro`
-- 版: v1.0
+- 版: v1.1
 - 作成日: 2026年8月28日
+- 更新日: 2026年8月29日
 - 準拠する標準: IPA「機能要件の合意形成ガイド ver.1.0」（[`../references.md`](../references.md) の **REF-16**）
 - 適用範囲: [`arc-screen.md`](arc-screen.md)、[`arc-behavior.md`](arc-behavior.md)、および今後作る4編
 
@@ -135,7 +136,7 @@ ID体系を先に定めているのは、この手戻りを避けるためであ
 | 編 | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- |
 | 画面編 | ✅ [`arc-screen-list.md`](arc-screen-list.md) | ✅ [`arc-screen-rules.md`](arc-screen-rules.md) | ✅ [`arc-screen-flow.md`](arc-screen-flow.md) | ✅ [`screens/`](screens) |
-| システム振舞い編 | ⬜ `arc-behavior-list.md` | ⬜ `arc-behavior-rules.md` | ⬜ `arc-behavior-flow.md` | ⬜ `behaviors/` |
+| システム振舞い編 | ✅ [`arc-behavior-list.md`](arc-behavior-list.md) | ✅ [`arc-behavior-rules.md`](arc-behavior-rules.md) | ✅ [`arc-behavior-flow.md`](arc-behavior-flow.md)＋[`arc-behavior-state.md`](arc-behavior-state.md) | ✅ [`behaviors/`](behaviors/) |
 | データモデル編 | — | — | — | ✅ [`arc-datamodel.md`](arc-datamodel.md)（**REF-16 未準拠**） |
 | 外部インタフェース編 | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ編 | ⬜ | ⬜ | ⬜ | ⬜ |

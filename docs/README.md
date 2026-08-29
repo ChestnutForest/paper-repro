@@ -19,6 +19,7 @@
 | [`../CLAUDE.md`](../CLAUDE.md) | Claude Code用エントリーポイント。共通指示として `AGENTS.md` を読み込ませる |
 | [`skills/paper-repro-commit-steps.md`](skills/paper-repro-commit-steps.md) | AI Agent Skillsの調査結果、正本構成、更新・検証手順 |
 | [`../.agents/skills/paper-repro-skill-source-policy/SKILL.md`](../.agents/skills/paper-repro-skill-source-policy/SKILL.md) | `paper-repro-skill-source-policy`。GitHub登録済みのリポジトリスキルだけを許可 |
+| [`../.agents/skills/paper-repro-arch-guide/SKILL.md`](../.agents/skills/paper-repro-arch-guide/SKILL.md) | `paper-repro-arch-guide`。要求から設計文書へ展開し、Mermaid CLIで実描画検証 |
 | [`../.agents/skills/arxiv-paper-repro/SKILL.md`](../.agents/skills/arxiv-paper-repro/SKILL.md) | `arxiv-paper-repro`。論文の再現実装・部分採用 |
 | [`../.agents/skills/paper-repro-devlog/SKILL.md`](../.agents/skills/paper-repro-devlog/SKILL.md) | `paper-repro-devlog`。開発の日次知識化 |
 | [`../.agents/skills/paper-repro-commit-output/SKILL.md`](../.agents/skills/paper-repro-commit-output/SKILL.md) | `paper-repro-commit-output`。commit/push、SHA照合、結果URL |
@@ -34,9 +35,10 @@
 
 | ファイル | 内容 |
 |---|---|
+| [`arch-guide/README.md`](arch-guide/README.md) | アーキテクチャ、画面、システム振舞い、データモデル、CCAF適用資料の索引 |
 | [`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md) | **アーキテクチャ仕様書**。IPA発注者ビューガイドライン準拠の章立てで、どういう構造で作るかを定める |
 | [`traceability-matrix.md`](traceability-matrix.md) | **トレーサビリティ・マトリクス（XDDP）**。仕様ごとに要求・設計・実装・テスト・画面・リリースの進捗を追う |
-| [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く。`REQ-C01` は24仕様まで展開済み |
+| [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く。`REQ-C01` は28仕様まで展開済み |
 | [`requirements.md`](requirements.md) | **要件定義の正本（v0.2）**。確定要求`REQ-C01`〜`REQ-C11`とサブ要求12件、受入基準、実装単位との対応表 |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
@@ -47,6 +49,11 @@
 | [`arch-guide/screens/`](arch-guide/screens/) | **画面ごとのレイアウト設計書**（7ファイル） |
 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) | **画面アーキテクチャ設計の枠組み（IPA 画面編準拠）**。6つの工程成果物、ID体系、合意成熟度の読み替え、6編の作成順序 |
 | [`arch-guide/arc-behavior.md`](arch-guide/arc-behavior.md) | **システム振舞いアーキテクチャ設計の枠組み（IPA システム振舞い編準拠）**。4つの工程成果物、システム利用作業と機能の区別、成果物間の関連 |
+| [`arch-guide/arc-behavior-list.md`](arch-guide/arc-behavior-list.md) | **システム化業務一覧**。確定要求23件を6グループ47業務へ割り当て、画面・状態・リリースと対応付ける |
+| [`arch-guide/arc-behavior-flow.md`](arch-guide/arc-behavior-flow.md) | **システム化業務フロー**。6業務フロー、3レーン、承認ゲート、コース分岐、共通異常系 |
+| [`arch-guide/behaviors/`](arch-guide/behaviors/) | **システム化業務説明**。47業務の事前・事後条件、入出力、基本・代替・例外シナリオ |
+| [`arch-guide/arc-behavior-rules.md`](arch-guide/arc-behavior-rules.md) | **システム振舞い共通ルール**。ガイド由来8分類とPaper-repro固有4分類 |
+| [`arch-guide/arc-behavior-state.md`](arch-guide/arc-behavior-state.md) | **状態遷移設計**。ガイド外の補助資料として`phase`・`status`・7遷移・実装差分を管理 |
 | [`arch-guide/arc-artifact-order.md`](arch-guide/arc-artifact-order.md) | **工程成果物の作成順序**。6編に共通する「一覧が先」の原則と、逆にした場合に起きること |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（v1.0 確定）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、矛盾9件の解消、決定の記録3件 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |

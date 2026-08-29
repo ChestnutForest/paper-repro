@@ -9,8 +9,8 @@ Claude Code はこのファイルを自動的に読み込む。
 2. `docs/requirements.md`、`docs/product-design.md`、`docs/roadmap.md` のうち作業に関係する文書を読む。
 3. `git status --short --branch` と `docs/devlog/` の最新ファイルを確認する。
 4. `.claude/skills/paper-repro-skill-source-policy/`の入口から利用元を確認する。
-5. 依頼に該当する場合だけ、`arxiv-paper-repro`、`paper-repro-devlog`、
-   `paper-repro-commit-output`の正本を全文読む。
+5. 依頼に該当する場合だけ、`paper-repro-arch-guide`、`arxiv-paper-repro`、
+   `paper-repro-devlog`、`paper-repro-commit-output`の正本を全文読む。
 
 ## 共有ルール
 
