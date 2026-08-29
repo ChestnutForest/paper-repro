@@ -22,7 +22,7 @@
 | [`../.agents/skills/paper-repro-arch-guide/SKILL.md`](../.agents/skills/paper-repro-arch-guide/SKILL.md) | `paper-repro-arch-guide`。要求から設計文書へ展開し、Mermaid CLIで実描画検証 |
 | [`../.agents/skills/arxiv-paper-repro/SKILL.md`](../.agents/skills/arxiv-paper-repro/SKILL.md) | `arxiv-paper-repro`。論文の再現実装・部分採用 |
 | [`../.agents/skills/paper-repro-devlog/SKILL.md`](../.agents/skills/paper-repro-devlog/SKILL.md) | `paper-repro-devlog`。開発の日次知識化 |
-| [`../.agents/skills/paper-repro-commit-output/SKILL.md`](../.agents/skills/paper-repro-commit-output/SKILL.md) | `paper-repro-commit-output`。commit/push、SHA照合、結果URL |
+| [`../.agents/skills/paper-repro-commit-output/SKILL.md`](../.agents/skills/paper-repro-commit-output/SKILL.md) | `paper-repro-commit-output`。commit/push、SHA照合、チャットで個別コピー可能な結果URL |
 
 ## 🚀 環境構築（初回・OS別）
 

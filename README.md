@@ -135,7 +135,7 @@ paper-reproでは、GitHubへ登録されたリポジトリスキルだけを使
 - **[`paper-repro-arch-guide`](.agents/skills/paper-repro-arch-guide/SKILL.md)**: 要求から設計文書へ展開し、Mermaid CLIで図を実描画して検証
 - **[`arxiv-paper-repro`](.agents/skills/arxiv-paper-repro/SKILL.md)**: AI/ML論文の再現実装、部分採用、スコア不一致の切り分け
 - **[`paper-repro-devlog`](.agents/skills/paper-repro-devlog/SKILL.md)**: paper-repro開発の日次知識を`docs/devlog/`へ資産化
-- **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、GitHub URL、実行結果検証
+- **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、チャットで個別コピー可能なGitHub URL、実行結果検証
 
 ## Claude Code、Codex、Antigravity IDEの併用
 

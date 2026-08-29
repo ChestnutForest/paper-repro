@@ -1,6 +1,6 @@
 ---
 name: paper-repro-commit-output
-description: paper-reproでcommit/pushコマンド、実際のcommit/push、push結果URL、またはGit実行結果の検証を求められたときに使う。本文の正本は.agents/skillsにある。
+description: paper-reproでcommit/pushコマンド、実際のcommit/push、push結果URL、またはGit実行結果の検証を求められたときに使う。結果URLをチャットへ1件ずつコピー可能なコードブロックで表示する。本文の正本は.agents/skillsにある。
 ---
 
 # Claude Code entrypoint: paper-repro-commit-output

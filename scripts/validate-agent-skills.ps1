@@ -170,6 +170,19 @@ foreach ($relativePath in $requiredFiles) {
     }
 }
 
+$commitOutputPath = Join-Path $repoRoot '.agents\skills\paper-repro-commit-output\SKILL.md'
+$commitOutputText = Get-Text $commitOutputPath
+$requiredChatOutputRules = @(
+    'CHAT_URL_ONE_PER_TEXT_BLOCK',
+    'CHAT_URL_TERMINAL_IS_NOT_FINAL',
+    'CHAT_URL_INCLUDE_ALL_COMMITTED_FILES'
+)
+foreach ($rule in $requiredChatOutputRules) {
+    if (-not $commitOutputText.Contains($rule)) {
+        Add-Failure "Missing chat URL output rule in paper-repro-commit-output: $rule"
+    }
+}
+
 $docsToCheck = @('AGENTS.md', 'CLAUDE.md', 'README.md', 'docs\README.md', 'docs\skills\paper-repro-commit-steps.md')
 foreach ($relativePath in $docsToCheck) {
     $path = Join-Path $repoRoot $relativePath

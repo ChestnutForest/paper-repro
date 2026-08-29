@@ -1,6 +1,6 @@
 # paper-repro AI Agent Skills運用ガイド
 
-> 版: 2.2.0
+> 版: 2.3.0
 > 更新日: 2026-08-29
 
 Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重複による内容ずれを防ぐための運用ガイドである。
@@ -83,7 +83,7 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 | `paper-repro-arch-guide` | 要求からアーキテクチャ設計へ展開し、Mermaid CLIで実描画検証 | 論文そのものの再現実装、日次ログ |
 | `arxiv-paper-repro` | AI/ML論文の再現、部分採用、スコア不一致の切り分け | 単純な要約・英文解釈 |
 | `paper-repro-devlog` | paper-repro開発の日次知識を`docs/devlog/`へ保存 | 他アプリ、論文そのものの実装 |
-| `paper-repro-commit-output` | commit/pushコマンド、実行、SHA照合、GitHub URL、結果検証 | 他リポジトリ |
+| `paper-repro-commit-output` | commit/pushコマンド、実行、SHA照合、チャットで個別コピー可能なGitHub URL、結果検証 | 他リポジトリ |
 
 用途の異なる機能は別スキルのまま保ち、保存場所、正本、参照方法だけを一本化する。
 
@@ -146,6 +146,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\validate-agent-sk
 
 コマンドだけを求められた場合はcommit/pushを実行しない。実際にpushした後は完全SHAを照合し、
 リポジトリ、コミット、ブランチ、全コミット対象ファイル、履歴のURLを省略せず出す。
+ターミナルへURLを表示しただけでは完了とせず、このチャットで1 URLずつ独立した`text`コードブロックへ入れる。
+各ブロックにはURLだけを置き、チャットUIのコピーアイコンで個別コピーできる形にする。
 
 ## 公式仕様
 
