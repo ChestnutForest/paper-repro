@@ -8,7 +8,7 @@
 - 確定日: 2026年8月25日
 - 文書構成更新日: 2026年8月29日
 - 状態: **確定。フェーズ0（0-1・0-2）の実装は本書を仕様とする。**
-- 外部設計の枠組み: [`arc-datamodel-framework.md`](arc-datamodel-framework.md) v0.1
+- 外部設計の枠組み: [`arc-datamodel-framework.md`](arc-datamodel-framework.md) v0.2
 
 > **v1.0 で確定したこと。** v0.1 が未決としていた3件を、いずれも本書の推奨どおりに決めた。
 > 決定の内容と理由は第5章に残す。あわせて第2章の矛盾9件の解消方針を確定とした。
@@ -106,12 +106,13 @@ ER図、エンティティ一覧、エンティティ定義、CRUD図とレビ�
 
 ### 3.2 `papers`
 
-`projects` と 1 対 1。取り込み結果を保持する。
+`Project` 1件に対して0件または1件。取り込み前は0件、取り込み成功後は1件となる。
+`Paper`は必ず1件の`Project`に属し、取り込み結果を保持する。
 
 | 列 | 型 | NULL | 既定値 | 説明 | 根拠 |
 |---|---|---|---|---|---|
 | `paper_id` | `VARCHAR(36)` | NOT NULL | — | 主キー | — |
-| `project_id` | `VARCHAR(36)` | NOT NULL | — | `projects.project_id` への外部キー。`UNIQUE` | 1対1 |
+| `project_id` | `VARCHAR(36)` | NOT NULL | — | `projects.project_id` への外部キー。`UNIQUE` | Project側0..1、Paper側1 |
 | `source` | `TEXT` | NOT NULL | — | 入手元（`arxiv` / `pdf` / `doi` など） | `REQ-C03-S01` |
 | `identifier` | `TEXT` | NULL | `NULL` | arXiv ID・DOI など | `REQ-C03-S01` |
 | `version` | `TEXT` | NULL | `NULL` | v1 / v2 など | `REQ-C03-S01` |

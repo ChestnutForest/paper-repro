@@ -432,10 +432,14 @@ flowchart LR
 
 ### 6.1 中核：プロジェクトと論文
 
+`Project`は論文を取り込む前に作成されるため、`Project` 1件に対する`Paper`は0件または1件とする。
+`Paper`が存在する場合は必ず1件の`Project`に属する。この多重度はフェーズ0物理仕様の
+`papers.project_id UNIQUE NOT NULL`と一致する。
+
 ```mermaid
 %%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
 erDiagram
-    Project ||--|| Paper : "取り込む"
+    Project ||--o| Paper : "取り込む"
     Project ||--o{ Spec : "版管理する"
     Project ||--o{ Assumption : "仮定台帳を持つ"
     Project ||--o{ Delta : "差分を持つ"
@@ -485,7 +489,7 @@ erDiagram
 ```mermaid
 %%{init: {'er': {'fontSize': 16}, 'themeVariables': {'fontFamily': 'Segoe UI, Helvetica, Arial, sans-serif', 'fontSize': '16px'}}}%%
 erDiagram
-    Project ||--|| Paper : "取り込む"
+    Project ||--o| Paper : "取り込む"
     Project ||--o{ Spec : "版管理する"
     Project ||--o{ Assumption : "仮定台帳を持つ"
     Project ||--o{ Delta : "差分を持つ"

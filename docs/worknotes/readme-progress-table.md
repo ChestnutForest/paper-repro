@@ -2,7 +2,7 @@
 
 - 作成日: 2026年8月28日
 - 対象: リポジトリルートの `README.md`
-- 状態: **READMEへ反映済み。2026年8月29日にデータモデル編まで進捗を再同期**
+- 状態: **READMEへ反映済み。2026年8月29日にデータモデル編の要求23/23逆引きとレビュー成熟度まで再同期**
 
 ---
 
@@ -41,19 +41,19 @@
 
 **現在地: 現行確定要求について、データモデル編の4成果物と共通ルールを作成／ 全6編中 3 編**
 
-詳細は **[`docs/arch-guide/arc-artifact-order.md`](../arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
+詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
 | 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- | --- |
-| 画面 | ✅ [v0.2.2](../arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
-| **システム振舞い** | ✅ [v0.3](../arch-guide/arc-behavior.md) | ✅ [v0.2](../arch-guide/arc-behavior-list.md) | ✅ [v0.1](../arch-guide/arc-behavior-rules.md) | ✅ フロー・状態 v0.1 | ✅ 47業務 v0.1 |
-| **データモデル** | ✅ [v0.1](../arch-guide/arc-datamodel-framework.md) | ✅ [17件](../arch-guide/arc-datamodel-list.md) | ✅ [v0.1](../arch-guide/arc-datamodel-rules.md) | ✅ ER・CRUD v0.1 | ✅ 定義・物理仕様 |
+| 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
+| **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-rules.md) | ✅ フロー・状態 v0.1 | ✅ 47業務 v0.1 |
+| **データモデル** | ✅ [v0.2](docs/arch-guide/arc-datamodel-framework.md) | ✅ [17件・要求23/23](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.2](docs/arch-guide/arc-datamodel-rules.md) | ✅ ER v0.1・CRUD v0.2 | ✅ 定義v0.2・物理仕様v1.0 |
 | 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 
 > **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
-> 根拠は [`docs/arch-guide/arc-artifact-order.md`](../arch-guide/arc-artifact-order.md) を参照。
+> 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
 ```
 
 ## 削除を検討する箇所
@@ -64,7 +64,7 @@
 **次のように置き換えることを提案する。**
 
 ```markdown
-- 要求分析資料（一次資料の小節別分析・19件）: [`docs/requirements-analysis/README.md`](../requirements-analysis/README.md)
+- 要求分析資料（一次資料の小節別分析・19件）: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
 ```
 
 19行が1行になり、**索引の二重管理が解消される。**

@@ -186,7 +186,8 @@ for ($i = 0; $i -lt $names.Count; $i++) {
 USDM仕様が未展開なので完了にはしない。仕様展開後、各業務の入力・例外・事後条件を再検査する。
 
 同じ23件の確定要求は、[`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md)
-以下で17エンティティの論理設計へ対応させ、47業務をCRUD図で検査した。ただし、注釈・メモ群と
+以下で17エンティティの論理設計へ対応させ、[`arch-guide/arc-datamodel-list.md`](arch-guide/arc-datamodel-list.md)
+第3章で23/23を逆引きし、47業務をCRUD図で検査した。ただし、注釈・メモ群と
 演習履歴群は既存17エンティティだけでは保持先を確定できない。新しいエンティティを推測で追加せず、
 USDM展開時に再検討する2件のギャップとして残したため、他要求の設計状態は引き続き🔨とする。
 

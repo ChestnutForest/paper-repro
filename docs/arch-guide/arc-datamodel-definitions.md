@@ -1,8 +1,9 @@
 # エンティティ定義
 
 - 対象プロダクト: `paper-repro`
-- 版: **v0.1**
+- 版: **v0.2**
 - 作成日: 2026年8月29日
+- 更新日: 2026年8月29日
 - 枠組み: [`arc-datamodel-framework.md`](arc-datamodel-framework.md)
 - 一覧: [`arc-datamodel-list.md`](arc-datamodel-list.md)
 
@@ -52,6 +53,8 @@
 | `fetched_at` | 取得日時 | 確定 | `REQ-C03-S01` |
 
 取得できない値は空文字や推測値で埋めず、`DMR-02`に従う。
+`Project`は取り込み前にも存在できるため、`Project`から見た`Paper`の多重度は0..1である。
+`Paper.project_id`は必須かつ一意とし、`Paper`から見た`Project`の多重度は1とする。
 
 ### DM-E03 Spec
 
