@@ -415,6 +415,10 @@ flowchart LR
 主要エンティティは17件ある。**1つのER図に収めると横へ広がって読めなくなる**ため、
 役割ごとに4つへ分けて示す。関係はすべて `Project` を基点とする。
 
+外部設計としての成果物とレビュー基準は
+[`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md)以下を正本とする。
+本章は要求上必要なデータ概念を示し、物理型・NULL・制約を確定しない。
+
 | 図 | 扱うエンティティ |
 |---|---|
 | 6.1 中核 | `Project` `Paper` `Spec` `Assumption` `Delta` |

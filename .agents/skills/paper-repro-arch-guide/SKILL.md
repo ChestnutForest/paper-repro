@@ -3,7 +3,7 @@ name: paper-repro-arch-guide
 description: paper-reproの要件からアーキテクチャ、画面、システム振舞い、データモデルの設計文書を作成・更新し、CCAR-F由来の設計パターン、USDM要求、IPA発注者ビューの観点を適用する。設計文書にMermaidを追加・変更した場合は、リポジトリ固定のMermaid CLIでMarkdownを実際にSVGへ描画し、全ブロックの描画成功まで検証する。設計判断、承認ゲート、構造化出力、トレーサビリティ、CCAF適用率の相談にも使う。
 ---
 
-# paper-repro設計指針 v1.3.0
+# paper-repro設計指針 v1.4.0
 
 ## 目的
 
@@ -39,6 +39,7 @@ paper-reproの要求を、実装前に検査可能なアーキテクチャ設計
 
 | 版 | 日付 | 変更内容 |
 |---|---|---|
+| 1.4.0 | 2026-08-29 | データモデル編の4成果物、論理・物理・実装状態の分離、47業務によるCRUD検査、未確定データのギャップ管理を追加 |
 | 1.3.0 | 2026-08-29 | リポジトリ正本へ移行。システム振舞い設計の作業順、Mermaid CLI 11.16.0による実描画検証、3環境共通の報告規則を追加 |
 | 1.2 | 2026-08-03 | AGENTS.mdを共通正本とし、Claude Code / Codexの併用・引き継ぎ方針を追加 |
 | 1.1 | 2026-08-03 | 工程ステップとCCAFタスクのトレーサビリティ、配点重みづけ適用率を追加 |
@@ -70,7 +71,14 @@ paper-reproの要求を、実装前に検査可能なアーキテクチャ設計
    - `docs/arch-guide/arc-behavior-state.md`
    - `docs/arch-guide/behaviors/README.md`
 5. 画面: `docs/arch-guide/arc-screen.md`と関連する`arc-screen-*`
-6. データモデル: `docs/arch-guide/arc-datamodel.md`
+6. データモデル:
+   - `docs/arch-guide/arc-datamodel-framework.md`
+   - `docs/arch-guide/arc-datamodel-list.md`
+   - `docs/arch-guide/arc-datamodel-er.md`
+   - `docs/arch-guide/arc-datamodel-definitions.md`
+   - `docs/arch-guide/arc-datamodel-crud.md`
+   - `docs/arch-guide/arc-datamodel-rules.md`
+   - `docs/arch-guide/arc-datamodel.md`
 7. CCAFパターン: `docs/arch-guide/ccaf-patterns.md`
 8. AIへの依頼例: `docs/arch-guide/claude-code-playbook.md`
 9. 適用率の算定: `docs/arch-guide/coverage-rubric.md`
@@ -112,7 +120,23 @@ USDM要求から次の順に作る。
 IPAのシステム振舞い編を参考にするときも、資料にないpaper-repro固有要件を
 IPAの要求として扱わない。明記、解釈、設計提案を区別する。
 
-### 4. 文書索引と進捗を同期する
+### 4. データモデルを設計する
+
+USDM要求とシステム振舞いから次の順に作る。
+
+1. 確定要求に現れるデータ概念だけをエンティティ一覧へ登録する。
+2. エンティティ名、定義、分類、管理主体、要求ID、ライフサイクルを一覧で合意する。
+3. エンティティ間の関係と多重度をER図で示し、未確定の関係は確定線で描かない。
+4. 論理属性と要求根拠をエンティティ定義へ記録する。
+5. 全業務IDをCRUD図へ割り当て、作成・参照・更新・削除の欠落と過集中を検査する。
+6. 命名、識別、由来、状態履歴、保持、外部境界、権利、変更規則を共通ルールへ分離する。
+7. 論理設計、物理設計、実装、検証の状態を分け、論理エンティティを実装済みテーブルとみなさない。
+8. 要求が不足する保持対象は新規エンティティで補完せず、ギャップIDを付けてUSDMへ戻す。
+
+IPAのデータモデル編を参考にするときも、4成果物の名称と役割を設計枠組みに使い、
+コツ本文を転記・翻案しない。Paper-reproの規則は要求、振舞い、既存実装から独自に記述する。
+
+### 5. 文書索引と進捗を同期する
 
 - 現行文書を追加・改名したら`docs/README.md`とルート`README.md`を確認する。
 - 設計成果物の完成度が変わった場合だけ設計進捗を更新する。
@@ -215,6 +239,8 @@ CLIが未導入という理由だけで描画検証を省略しない。依存�
 - 未確定要求を確定済みとして扱っていない。
 - 基本、代替、例外、状態、共通ルールが必要な粒度で分離されている。
 - 実装済み状態との一致と未実装部分を区別している。
+- データモデルではエンティティ、関係、属性、CRUD、共通ルールが相互参照できる。
+- 全業務がCRUD図に現れ、保持先を確定できないデータはギャップとしてUSDMへ戻している。
 - ローカルMarkdownリンクと`git diff --check`が成功する。
 - Mermaidを変更した場合はCLI描画検証が成功する。
 - スキル変更時は`scripts/validate-agent-skills.ps1`が成功する。

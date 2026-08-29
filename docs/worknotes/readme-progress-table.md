@@ -2,7 +2,7 @@
 
 - 作成日: 2026年8月28日
 - 対象: リポジトリルートの `README.md`
-- 状態: **READMEへ反映済み。2026年8月29日にシステム振舞い編の進捗を再同期**
+- 状態: **READMEへ反映済み。2026年8月29日にデータモデル編まで進捗を再同期**
 
 ---
 
@@ -39,7 +39,7 @@
 ```markdown
 ### 📐 設計工程の進捗（IPA 6編）
 
-**現在地: 現行確定要求について、システム振舞い編の4成果物と状態遷移補助資料を作成／ 全6編中 2 編**
+**現在地: 現行確定要求について、データモデル編の4成果物と共通ルールを作成／ 全6編中 3 編**
 
 詳細は **[`docs/arch-guide/arc-artifact-order.md`](../arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
@@ -47,7 +47,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 画面 | ✅ [v0.2.2](../arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
 | **システム振舞い** | ✅ [v0.3](../arch-guide/arc-behavior.md) | ✅ [v0.2](../arch-guide/arc-behavior-list.md) | ✅ [v0.1](../arch-guide/arc-behavior-rules.md) | ✅ フロー・状態 v0.1 | ✅ 47業務 v0.1 |
-| データモデル | — | — | — | — | ✅ [v1.0](../arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
+| **データモデル** | ✅ [v0.1](../arch-guide/arc-datamodel-framework.md) | ✅ [17件](../arch-guide/arc-datamodel-list.md) | ✅ [v0.1](../arch-guide/arc-datamodel-rules.md) | ✅ ER・CRUD v0.1 | ✅ 定義・物理仕様 |
 | 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |

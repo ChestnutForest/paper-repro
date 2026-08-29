@@ -244,9 +244,11 @@ Processloop は個人プロジェクトであり、この想定から大きく�
 | 採用したもの | 反映先 |
 |---|---|
 | 画面編の6つの工程成果物の名称と区分 | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) 第3章 |
-| 合意成熟度の3レベル（仕掛・充実・完成） | 同 第5章。TM の工程へ読み替えた |
-| 4つの作業の区分 | 同 第6章 |
-| 6技術領域の区分 | 同 第9章。6編の作成順序 |
+| システム振舞い編の工程成果物の名称と区分 | [`arch-guide/arc-behavior.md`](arch-guide/arc-behavior.md) 第3章 |
+| データモデル編の4つの工程成果物の名称と役割 | [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) 第3章。ER図、エンティティ一覧、エンティティ定義、CRUD図 |
+| 合意成熟度の3レベル（仕掛・充実・完成） | [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) 第5章と`arc-datamodel-framework.md`第5章。TM の工程へ読み替えた |
+| 4つの作業の区分 | `arc-screen.md`第6章 |
+| 6技術領域の区分 | `arc-screen.md`第9章。6編の作成順序 |
 | 章立ての土台（間接） | [`arch-guide/arc-architecture.md`](arch-guide/arc-architecture.md)。Processloop 経由 |
 
 ⚠️ **コツの本文は転記も言い換えもしていない。** 参照しているのは著作物にあたらない
@@ -255,6 +257,23 @@ Processloop は個人プロジェクトであり、この想定から大きく�
 ⚠️ **前提の読み替えが必要だった。** 本ガイドは発注者と開発者の合意形成を目的とするが、
 `paper-repro` は個人開発で両者が同一人物である。読み替えの内容と、それにより
 失われるものは [`arch-guide/arc-screen.md`](arch-guide/arc-screen.md) 第2章に記録した。
+
+### データモデル編の確認記録
+
+2026年8月29日に、次の2資料の本文を確認した。
+
+| 資料 | 採用上の位置づけ | Paper-reproへの反映 |
+|---|---|---|
+| 機能要件の合意形成ガイド ver.1.0 データモデル編（2010） | 後継資料として優先する | 4成果物の役割と、要求・振舞い・データの対応を外部設計で検査する枠組み |
+| 発注者ビューガイドライン データモデル編（2008） | 2010年版の系譜と観点の確認 | 4成果物の構成に継続性があることの確認 |
+
+実際の設計は、[`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md)を
+入口として、エンティティ一覧、ER図、エンティティ定義、CRUD図、Paper-repro独自の
+共通ルールへ分離した。論理設計とフェーズ0の物理仕様も分離し、未確定要求から
+テーブルや属性を先回りして確定しない。
+
+⚠️ **PDFのコツ本文は転記も翻案もしていない。** 成果物の名称と役割を参照し、
+検査規則はPaper-reproの要求、システム振舞い、既存実装から独自に記述した。
 
 ---
 

@@ -55,7 +55,13 @@
 | [`arch-guide/arc-behavior-rules.md`](arch-guide/arc-behavior-rules.md) | **システム振舞い共通ルール**。ガイド由来8分類とPaper-repro固有4分類 |
 | [`arch-guide/arc-behavior-state.md`](arch-guide/arc-behavior-state.md) | **状態遷移設計**。ガイド外の補助資料として`phase`・`status`・7遷移・実装差分を管理 |
 | [`arch-guide/arc-artifact-order.md`](arch-guide/arc-artifact-order.md) | **工程成果物の作成順序**。6編に共通する「一覧が先」の原則と、逆にした場合に起きること |
-| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **データモデル仕様（v1.0 確定）**。フェーズ0の2テーブルのDDL、ENUM、状態遷移表、矛盾9件の解消、決定の記録3件 |
+| [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) | **データモデル・アーキテクチャ設計の枠組み**。REF-15／REF-16データモデル編の4工程成果物、ID、成熟度、完了条件 |
+| [`arch-guide/arc-datamodel-list.md`](arch-guide/arc-datamodel-list.md) | **エンティティ一覧**。確定要求23件から導いた17エンティティの意味、主管、ライフサイクル、成熟度 |
+| [`arch-guide/arc-datamodel-er.md`](arch-guide/arc-datamodel-er.md) | **ER図**。中核、批判的検証、実行・成果物、学習の4領域と未決の関係 |
+| [`arch-guide/arc-datamodel-definitions.md`](arch-guide/arc-datamodel-definitions.md) | **エンティティ定義**。17エンティティの論理属性、要求根拠、物理設計へ渡す未決事項 |
+| [`arch-guide/arc-datamodel-crud.md`](arch-guide/arc-datamodel-crud.md) | **CRUD図**。47システム化業務との対応と、注釈・学習課題の保持先に関する設計ギャップ2件 |
+| [`arch-guide/arc-datamodel-rules.md`](arch-guide/arc-datamodel-rules.md) | **データモデル共通ルール**。不明値、版・由来、履歴、保存・削除、ドメイン、容量、14レビュー項目 |
+| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **フェーズ0物理仕様（v1.0 確定）**。`Project`／`Paper`のDDL、ENUM、状態遷移表、矛盾9件の解消 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |
 | [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
 | [`requirements-analysis/section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md) | 「1.2 論文を読み解く技術」と現行要件の比較。`REQ-C10`・`REQ-C11`とサブ要求候補10件 |

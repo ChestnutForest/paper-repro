@@ -33,7 +33,7 @@
 
 ### 📐 設計工程の進捗（IPA 6編）
 
-**現在地: 現行確定要求について、システム振舞い編の4成果物と状態遷移補助資料を作成／ 全6編中 2 編**
+**現在地: 現行確定要求について、データモデル編の4成果物と共通ルールを作成／ 全6編中 3 編**
 
 詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
@@ -41,7 +41,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
 | **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [47業務 v0.1](docs/arch-guide/behaviors/) |
-| データモデル | — | — | — | — | ✅ [v1.0](docs/arch-guide/arc-datamodel.md)（**REF-16 未準拠**） |
+| **データモデル** | ✅ [v0.1](docs/arch-guide/arc-datamodel-framework.md) | ✅ [17エンティティ v0.1](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.1](docs/arch-guide/arc-datamodel-rules.md) | ✅ [ER図](docs/arch-guide/arc-datamodel-er.md)・[CRUD図](docs/arch-guide/arc-datamodel-crud.md) v0.1 | ✅ [論理定義 v0.1](docs/arch-guide/arc-datamodel-definitions.md)・[物理仕様 v1.0](docs/arch-guide/arc-datamodel.md) |
 | 外部インタフェース | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
@@ -49,8 +49,9 @@
 > **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
 > 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
 
-> システム振舞い編の✅は、**現行の確定要求を要求単位で設計した**ことを示す。
-> `REQ-C02`〜`REQ-C11`はUSDM仕様未展開のため、仕様展開後に再検査する。
+> システム振舞い編とデータモデル編の✅は、**現行の確定要求を要求単位で設計した**ことを示す。
+> データモデルは17エンティティの論理設計であり、物理仕様は`Project`／`Paper`だけが確定している。
+> `REQ-C02`〜`REQ-C11`はUSDM仕様未展開のため、両編とも仕様展開後に再検査する。
 > ソフトウェア実装の現在地は変わらずフェーズ0である。
 
 > **進捗の正本は [`docs/roadmap.md`](docs/roadmap.md) である。**
@@ -90,7 +91,8 @@
 - 画面の共通ルール（配色・エリア構成）: [`docs/arch-guide/arc-screen-rules.md`](docs/arch-guide/arc-screen-rules.md)
 - 画面一覧とレイアウト: [`docs/arch-guide/arc-screen-list.md`](docs/arch-guide/arc-screen-list.md)
 - 画面遷移: [`docs/arch-guide/arc-screen-flow.md`](docs/arch-guide/arc-screen-flow.md)
-- データモデル仕様（**v1.0 確定**）: [`docs/arch-guide/arc-datamodel.md`](docs/arch-guide/arc-datamodel.md)
+- データモデル設計の枠組み（**v0.1**）: [`docs/arch-guide/arc-datamodel-framework.md`](docs/arch-guide/arc-datamodel-framework.md)
+- フェーズ0データモデル物理仕様（**v1.0 確定**）: [`docs/arch-guide/arc-datamodel.md`](docs/arch-guide/arc-datamodel.md)
 - 参考文献: [`docs/references.md`](docs/references.md)
 - USDM・IPAガイドラインの一次情報: [`docs/references-usdm-ipa.md`](docs/references-usdm-ipa.md)
 - 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)

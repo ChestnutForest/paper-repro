@@ -1,11 +1,12 @@
 # 工程成果物の作成順序：6編に共通する原則
 
 - 対象プロダクト: `paper-repro`
-- 版: v1.1
+- 版: v1.2
 - 作成日: 2026年8月28日
 - 更新日: 2026年8月29日
 - 準拠する標準: IPA「機能要件の合意形成ガイド ver.1.0」（[`../references.md`](../references.md) の **REF-16**）
-- 適用範囲: [`arc-screen.md`](arc-screen.md)、[`arc-behavior.md`](arc-behavior.md)、および今後作る4編
+- 適用範囲: [`arc-screen.md`](arc-screen.md)、[`arc-behavior.md`](arc-behavior.md)、
+  [`arc-datamodel-framework.md`](arc-datamodel-framework.md)、および今後作る3編
 
 > **6編それぞれに同じ説明を書かないための共通文書である。**
 > 各編は本書を参照し、その編に固有の事情だけを自分の文書へ書く。
@@ -29,7 +30,8 @@ REF-16 の著作権は IPA が保有し、改変・翻案は禁じられてい�
 | --- | --- | --- |
 | 画面編 | 画面一覧 | 画面の全体、概要を示す |
 | システム振舞い編 | システム化業務一覧 | **目次としての役割を担う** |
-| （今後の4編） | 各編の一覧に相当するもの | 同様 |
+| データモデル編 | エンティティ一覧 | 対象データの目次 |
+| （今後の3編） | 各編の一覧に相当するもの | 同様 |
 
 ### 1.1 「目次」の意味
 
@@ -113,6 +115,7 @@ ID体系を先に定めているのは、この手戻りを避けるためであ
 | --- | --- |
 | 画面編 | 画面遷移・レイアウト共通ルール |
 | システム振舞い編 | システム振舞い共通ルール |
+| データモデル編 | データモデル共通ルール・レビュー基準 |
 
 後回しにすると、**個別の項目ごとに表記や配色を決めてしまい、後から揃え直せなくなる。**
 配色を10画面に散らばせてから統一するのは、最初に決めるより遥かに高くつく。
@@ -137,14 +140,14 @@ ID体系を先に定めているのは、この手戻りを避けるためであ
 | --- | --- | --- | --- | --- |
 | 画面編 | ✅ [`arc-screen-list.md`](arc-screen-list.md) | ✅ [`arc-screen-rules.md`](arc-screen-rules.md) | ✅ [`arc-screen-flow.md`](arc-screen-flow.md) | ✅ [`screens/`](screens) |
 | システム振舞い編 | ✅ [`arc-behavior-list.md`](arc-behavior-list.md) | ✅ [`arc-behavior-rules.md`](arc-behavior-rules.md) | ✅ [`arc-behavior-flow.md`](arc-behavior-flow.md)＋[`arc-behavior-state.md`](arc-behavior-state.md) | ✅ [`behaviors/`](behaviors/) |
-| データモデル編 | — | — | — | ✅ [`arc-datamodel.md`](arc-datamodel.md)（**REF-16 未準拠**） |
+| データモデル編 | ✅ [`arc-datamodel-list.md`](arc-datamodel-list.md) | ✅ [`arc-datamodel-rules.md`](arc-datamodel-rules.md) | ✅ [`arc-datamodel-er.md`](arc-datamodel-er.md)＋[`arc-datamodel-crud.md`](arc-datamodel-crud.md) | ✅ [`arc-datamodel-definitions.md`](arc-datamodel-definitions.md)＋物理仕様[`arc-datamodel.md`](arc-datamodel.md) |
 | 外部インタフェース編 | ⬜ | ⬜ | ⬜ | ⬜ |
 | バッチ編 | ⬜ | ⬜ | ⬜ | ⬜ |
 | 帳票編 | ⬜ | ⬜ | ⬜ | ⬜ |
 
-⚠️ **`arc-datamodel.md` は REF-16 のデータモデル編に準拠していない。**
-DDL と状態遷移表を先に確定させる目的で、独自の構成で書いた。
-6編を揃える段階で、データモデル編の工程成果物と突き合わせる必要がある。
+データモデル編は、既存のDDL中心文書を物理仕様として維持し、REF-15／REF-16が想定する
+4工程成果物を別文書として追加した。論理設計17エンティティのうち、物理仕様が確定しているのは
+`Project`／`Paper`だけであり、残る15件は利用フェーズ直前に確定する。
 
 ---
 

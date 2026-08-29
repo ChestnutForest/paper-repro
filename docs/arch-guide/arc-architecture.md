@@ -161,74 +161,33 @@ docs/         各種ドキュメント
 
 ## 3. データモデル
 
-### 3.1 エンティティ一覧
+### 3.1 論理データモデル
 
-| # | エンティティ | 役割 | 状態 |
-|---|---|---|---|
-| 1 | **Project** | 論文プロジェクトの基本情報と状態管理 | 実装済 |
-| 2 | **Spec** | LLMによって抽出された仕様・草案 | 未着手 (Phase 3) |
-| 3 | **Assumption** | 論文から読み取った仮定台帳 | 未着手 (Phase 3) |
+確定要求23件から導いた17エンティティを、次の4領域へ分ける。
 
-### 3.2 ER図
+| 領域 | エンティティ | 正本 |
+| --- | --- | --- |
+| 中核 | `Project`, `Paper`, `Spec`, `Assumption`, `Delta` | [`arc-datamodel-list.md`](arc-datamodel-list.md) |
+| 批判的検証と由来 | `Claim`, `Evidence`, `ExperimentCond`, `Provenance` | 同上 |
+| 実行・照合・成果物 | `SanityRun`, `ScoreCompare`, `Artifact`, `Approval`, `CostRecord` | 同上 |
+| 学習と質問 | `SelfExplanation`, `DeepDiveQueue`, `Question` | 同上 |
 
-```mermaid
-erDiagram
-    Project ||--o{ Spec : "持つ"
-    Project ||--o{ Assumption : "記録される"
+ER図、定義、CRUD、レビュー基準の構成は
+[`arc-datamodel-framework.md`](arc-datamodel-framework.md)を正本とする。
 
-    Project {
-        string project_id PK
-        string arxiv_url
-        string state
-        string policy
-    }
-    Spec {
-        int id PK
-        string project_id FK
-        string content
-    }
-    Assumption {
-        int id PK
-        string project_id FK
-        string description
-        string source_claim
-    }
-```
+### 3.2 物理データモデル
 
-<details>
-<summary>Mermaid のソースを見る</summary>
-
-````markdown
-```mermaid
-erDiagram
-    Project ||--o{ Spec : "持つ"
-    Project ||--o{ Assumption : "記録される"
-
-    Project {
-        string project_id PK
-        string arxiv_url
-        string state
-        string policy
-    }
-    Spec {
-        int id PK
-        string project_id FK
-        string content
-    }
-    Assumption {
-        int id PK
-        string project_id FK
-        string description
-        string source_claim
-    }
-```
-````
-
-</details>
+フェーズ0で物理仕様が確定しているのは`Project`と`Paper`である。
+型、NULL、ENUM、制約、索引は[`arc-datamodel.md`](arc-datamodel.md) v1.0を正本とする。
+残る15エンティティは、利用する機能の実装直前にUSDM仕様とCRUDを確認して物理設計する。
 
 ### 3.3 データ保存の方針
 
-状態機械の進行（`Project.state`）は厳密に `PostgreSQL` に永続化し、中途半端な状態でのインメモリ消失を防ぐ。
+- 工程`Project.phase`と実行状態`Project.status`をPostgreSQLへ別々に永続化する。
+- 不明値を推測で補完せず、未報告・推定・確認済みと区別する。
+- 承認、実行、由来、コスト、共有は履歴を保持し、現在値だけに上書きしない。
+- 本文、ログ、コード、Notebook、zipの実体配置は利用フェーズの物理設計で決める。
+- 要求が確定していない将来テーブルを先行作成しない。
 
 ---
 
@@ -240,18 +199,16 @@ Paper-Repro は Human-in-the-loop を前提とするため、各フェーズの�
 
 ### 4.2 状態一覧
 
-- `CREATED`: プロジェクト作成直後
-- `INTAKE_REVIEW`: 承認ゲート① (方針の選択)
-- `READING`: Specや仮定台帳の作成フェーズ
-- `IMPLEMENTING`: サニティ階段の実行
-- `SCORING`: 論文値との照合
-- `DONE`: 完了
-- `SKIPPED`: 見送り
-- `FAILED`: エラー状態
+工程を表す`phase`は`created`、`intake_review`、`reading`、`implementing`、
+`scoring`、`done`、`skipped`の7値である。工程内の`status`は`idle`、`running`、
+`waiting_approval`、`failed`の4値である。値と意味は
+[`arc-behavior-state.md`](arc-behavior-state.md)を正本とする。
 
 ### 4.3 状態遷移の強制 (Enforcement)
 
-`can_transition(src, dst)` を通じてのみ状態変更を許可する。APIエンドポイントは必ずこの関数を経由し、不正な遷移（未承認での次フェーズへのジャンプなど）を 400 エラーとしてブロックする。
+`can_transition(src, dst)`は`phase`遷移集合を検査する。ただし承認ゲートの可否は
+遷移集合だけで判断せず、ゲート固有APIが対象工程と承認条件を先に確認する。
+任意の`phase`を指定できる汎用状態遷移APIは設けない。
 
 ---
 

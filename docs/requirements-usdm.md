@@ -31,7 +31,8 @@ USDM は、要求を**振る舞い**として動詞形で書き、その動詞�
 |---|---|
 | [`requirements.md`](requirements.md) | **確定要求の正本（v0.2）。** 本書は同じ要求を USDM 形式へ書き直したもの |
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 要求文と受入基準の出所 |
-| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | 仕様の実装（DDL・状態遷移表） |
+| [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) | 仕様から導く論理データモデル、4工程成果物、レビュー基準 |
+| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | フェーズ0の物理仕様（DDL・状態遷移表） |
 | [`roadmap.md`](roadmap.md) | 仕様を画面で確認する手段 |
 
 > **要求の正本は当面 [`requirements.md`](requirements.md) v0.2 である。**
