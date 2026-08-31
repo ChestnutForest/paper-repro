@@ -1,11 +1,18 @@
 # 外部システム関連図
 
 - 対象プロダクト: `paper-repro`
-- 版: **v0.1**
+- 版: **v0.1.1**
 - 作成日: 2026年8月31日
 - 準拠: REF-16 外部インタフェース編
 - 枠組み: [`arc-interface.md`](arc-interface.md)
 - 一覧: [`arc-interface-list.md`](arc-interface-list.md)
+
+## 更新履歴
+
+| 版 | 日付 | 変更内容 |
+| --- | --- | --- |
+| v0.1.1 | 2026-08-31 | Mermaid のソースをトグルで表示（他文書と記法を統一） |
+| v0.1 | 2026-08-31 | 初版 |
 
 ## 0. 共通情報
 
@@ -42,6 +49,37 @@ graph LR
     APP <-->|"IF-05 文章生成"| EX05
     APP -.->|"IF-06 外部送信<br/>初期リリース対象外"| OUT["送信先（未定）"]
 ```
+<details>
+<summary>Mermaid のソースを見る</summary>
+
+````markdown
+```mermaid
+graph LR
+    subgraph external_in["外部サービス（取得元）"]
+        EX01["EX-01 arXiv<br/>無償・認証不要"]
+        EX02["EX-02 GitHub<br/>無償・要認証"]
+        EX03["EX-03 Papers with Code<br/>サービス終了"]
+        EX04["EX-04 OpenReview<br/>無償・認証任意"]
+    end
+
+    subgraph system["paper-repro"]
+        APP["APIサーバ"]
+    end
+
+    subgraph external_llm["外部サービス（生成）"]
+        EX05["EX-05 LLM プロバイダ<br/>従量課金・要認証"]
+    end
+
+    EX01 -->|"IF-01 論文メタ情報"| APP
+    EX02 -->|"IF-02 公式実装の探索"| APP
+    EX03 -.->|"IF-03 要判断"| APP
+    EX04 -->|"IF-04 査読情報"| APP
+    APP <-->|"IF-05 文章生成"| EX05
+    APP -.->|"IF-06 外部送信<br/>初期リリース対象外"| OUT["送信先（未定）"]
+```
+````
+
+</details>
 
 ### 1.1 線種の約束
 
