@@ -42,7 +42,7 @@
 | 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ | ✅ | ✅ | ✅ 7画面 |
 | **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [47業務 v0.1](docs/arch-guide/behaviors/) |
 | **データモデル** | ✅ [v0.2](docs/arch-guide/arc-datamodel-framework.md) | ✅ [17エンティティ・要求23/23 v0.2](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.2](docs/arch-guide/arc-datamodel-rules.md) | ✅ [ER図 v0.1](docs/arch-guide/arc-datamodel-er.md)・[CRUD図 v0.2](docs/arch-guide/arc-datamodel-crud.md) | ✅ [論理定義 v0.2](docs/arch-guide/arc-datamodel-definitions.md)・[物理仕様 v1.0](docs/arch-guide/arc-datamodel.md) |
-| 外部インタフェース | ✅ [v0.1](docs/arch-guide/arc-interface.md) | ⬜ | — | ⬜ | ⬜ |
+| 外部インタフェース | ✅ [v0.1.2](docs/arch-guide/arc-interface.md) | ✅ [v0.1](docs/arch-guide/arc-interface-list.md) | — | ✅ [関連図 v0.1](docs/arch-guide/arc-interface-map.md) | ⬜ **← 次の一手** |
 | バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 | 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
 
