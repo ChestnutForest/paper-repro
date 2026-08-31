@@ -198,7 +198,7 @@ API・技術スタック・デプロイ構成を扱う。
 
 | メソッド | パス | 役割 | 対応要求 |
 |---|---|---|---|
-| POST | `/projects/{id}/intake` | 第1パス要約 + タイプ判定 + 実装探索（GitHub/PwC/OpenReview）をジョブ実行 | `REQ-C03`、`REQ-C05-S01` |
+| POST | `/projects/{id}/intake` | 第1パス要約 + タイプ判定 + 実装探索（GitHub/Hugging Face/OpenReview）をジョブ実行 | `REQ-C03`、`REQ-C05-S01` |
 | GET | `/projects/{id}/intake` | 結果取得（要約・official_repo_url・type・**入手元・版・カテゴリー・公開状態**・cost見積もり） | `REQ-C03-S01` |
 | POST | `/projects/{id}/policy` | **承認ゲート①**。`{policy: full/reduced/adapt/partial/skip}` を確定 → `reading` へ | `REQ-C06` |
 
