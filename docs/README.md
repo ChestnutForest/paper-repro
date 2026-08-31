@@ -62,6 +62,7 @@
 | [`arch-guide/arc-datamodel-crud.md`](arch-guide/arc-datamodel-crud.md) | **CRUD図 v0.2**。47システム化業務との対応と、要求へ逆引きした設計ギャップ2件 |
 | [`arch-guide/arc-datamodel-rules.md`](arch-guide/arc-datamodel-rules.md) | **データモデル共通ルール v0.2**。容量台帳、14レビュー項目と検査結果（✅2・🔨11・⏳1） |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **フェーズ0物理仕様（v1.0 確定）**。`Project`／`Paper`のDDL、ENUM、状態遷移表、矛盾9件の解消 |
+| [`arch-guide/arc-interface.md`](arch-guide/arc-interface.md) | **外部インタフェース・アーキテクチャ設計の枠組み（IPA 外部インタフェース編準拠）**。4工程成果物、対象領域の読み替え、振舞い編との責務分担 |
 | [`references-usdm-ipa.md`](references-usdm-ipa.md) | **USDM と IPA ガイドラインの一次情報**。7分冊の個別URL、著作権上の使用条件、採用範囲。Processloop から移設 |
 | [`requirements-analysis/README.md`](requirements-analysis/README.md) | 一次資料分析の索引と、確定要件・変更案・決定台帳との役割分担 |
 | [`requirements-analysis/section-1.2-reading-techniques.md`](requirements-analysis/section-1.2-reading-techniques.md) | 「1.2 論文を読み解く技術」と現行要件の比較。`REQ-C10`・`REQ-C11`とサブ要求候補10件 |
