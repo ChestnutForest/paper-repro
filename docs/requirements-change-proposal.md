@@ -1,8 +1,8 @@
 # 要件定義変更案：原論文の読解・学習・再現実装支援
 
 - 対象プロダクト: `paper-repro`
-- 状態: 全11件選択済み・「1.2.1.1」〜「1.2.2.4」の具体化済みサブ要求候補を統合・利用者の承認待ち
-- 版: v0.12（「1.2.2.4」の限定分析と`REQ-C09-S02`の詳細検証を反映）
+- 状態: 全11件選択済み・「1.2.1.1」〜「1.2.2.4」の具体化済みサブ要求候補を統合・承認済み・下流文書へ反映済み
+- 版: v0.13（承認済みへ状態を更新し、下流文書への反映を記録）
 - 作成日: 2026年8月21日
 - 現行要件の正本: [`requirements.md`](requirements.md)
 - 一次資料: 菊田遥平『原論文から解き明かす生成AI』技術評論社, 2025 のPDF版「はじめに」（PDFページ1〜3）と「1.2 論文を読み解く技術」（本文4〜18、脚注19〜21）
@@ -21,9 +21,9 @@
 - 「1.2.2.3」詳細: [`section-1.2.2.3-implementation-reading.md`](requirements-analysis/section-1.2.2.3-implementation-reading.md)
 - 「1.2.2.4」詳細: [`section-1.2.2.4-important-references.md`](requirements-analysis/section-1.2.2.4-important-references.md)
 
-> 本書は変更案であり、まだ確定要件の正本ではない。`REQ-C01`〜`REQ-C11`の選択は完了し、
-> 「1.2.1.1」〜「1.2.2.4」で具体化したサブ要求候補を統合したが、利用者による変更案全体の承認は未完了である。
-> 承認後、別の作業単位で`requirements.md`、`product-design.md`、`roadmap.md`を更新する。
+> 本書は変更案であり、確定要件の正本ではない。正本は[`requirements.md`](requirements.md)である。
+> `REQ-C01`〜`REQ-C11`の選択と、「1.2.1.1」〜「1.2.2.4」で具体化したサブ要求候補の統合は完了し、変更案全体の承認も得た。
+> 反映先は`requirements.md` v0.2、`product-design.md` v0.3、`roadmap.md`であり、いずれも更新済みである。
 
 ---
 
