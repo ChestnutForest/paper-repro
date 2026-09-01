@@ -54,7 +54,7 @@ Windows個人領域、Codexプラグインキャッシュ、他リポジトリ�
 
 ## 4. 技術スタック
 
-- バックエンド: **FastAPI (Python 3.12+)** + Celery + Redis + PostgreSQL
+- バックエンド: **FastAPI (Python)** + Celery + Redis + PostgreSQL
 - フロントエンド: **Next.js (React) + TypeScript**
 - 実行分離: サンドボックス（初期リリースは CPU のみ・ネットワーク遮断）
 

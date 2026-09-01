@@ -85,7 +85,7 @@
     ↓ HTTP /（将来）WebSocket
 [フロントエンド] Next.js + React + TypeScript
     ↓ REST API
-[バックエンド] FastAPI（Python 3.13）  ← localhost:8000
+[バックエンド] FastAPI（Python）  ← localhost:8000
     ↓ SQLAlchemy
 [データ層] PostgreSQL 16 / Redis 7  ← Docker上
 ```

@@ -105,7 +105,7 @@ CodexとAntigravity IDEは`.agents/skills/`を直接利用し、Claude Codeは`.
 | 層 | 技術 | ポート |
 |---|---|---|
 | フロントエンド | **Next.js 14 + React 18 + TypeScript 5** | 3000 |
-| バックエンド | **FastAPI + uvicorn（Python 3.13）** | 8000 |
+| バックエンド | **FastAPI + uvicorn（Python）** | 8000 |
 | データ層 | **PostgreSQL 16 / Redis 7**（Docker上） | 5432 / 6379 |
 
 **重い処理は Python、画面は TypeScript** という分業。
@@ -163,7 +163,7 @@ CodexとAntigravity IDEは`.agents/skills/`を直接利用し、Claude Codeは`.
 ## 必要なもの
 
 - **Node.js 18 以上**（Next.js に必要）
-- **Python 3.12 以上**
+- **Python**（開発環境の版は [`docs/tech-stack.md`](docs/tech-stack.md) を参照）
 - **VS Code 1.98.0 以上**
 - **Docker Desktop**（PostgreSQL / Redis をコンテナで動かす）
 - **Claude Code または Codex**（両方を併用可能）
