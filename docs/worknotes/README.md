@@ -27,7 +27,6 @@
 | [`decision-arxiv-acknowledgement.md`](decision-arxiv-acknowledgement.md) | 設計判断の記録。arXiv 謝辞の文言と表示箇所 | — |
 | [`decision-github-auth.md`](decision-github-auth.md) | 設計判断の記録。GitHub API の認証を必須とする | — |
 | [`decision-pwc-replacement.md`](decision-pwc-replacement.md) | 設計判断の記録。Papers with Code 終了への対応 | — |
-| [`br13-draft.md`](br13-draft.md) | 共通ルールの追記案。`BR-13` 外部API呼び出しの規則 | — |
 | [`pending-br13-external-api.md`](pending-br13-external-api.md) | 未整備事項の記録。外部API呼び出しの共通ルール`BR-13` | — |
 | [`pending-sota-comparison.md`](pending-sota-comparison.md) | 将来の変更要求の候補。第三者の再現結果との比較 | — |
 
