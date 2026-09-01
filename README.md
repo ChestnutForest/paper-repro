@@ -61,53 +61,15 @@
 
 ## ドキュメント
 
-- **ドキュメント索引**: [`docs/README.md`](docs/README.md)
-- **ロードマップ（進捗の正本・確認画面の対応表）**: [`docs/roadmap.md`](docs/roadmap.md)
-- **動作確認用のテスト論文**: [`docs/test-papers.md`](docs/test-papers.md)
-- 要件（**v0.2・確定要求23件を統合済み**）: [`docs/requirements.md`](docs/requirements.md)
-- **USDM 形式の要求仕様書**: [`docs/requirements-usdm.md`](docs/requirements-usdm.md)
-- **トレーサビリティ・マトリクス**: [`docs/traceability-matrix.md`](docs/traceability-matrix.md)
-- 要件定義の更新手順: [`docs/requirements-update-workflow.md`](docs/requirements-update-workflow.md)
-- 要件定義変更案: [`docs/requirements-change-proposal.md`](docs/requirements-change-proposal.md)
-- ID一本化とPhase暫定化の決定記録: [`docs/worknotes/id-unification-and-phase-provisional.md`](docs/worknotes/id-unification-and-phase-provisional.md)
-- 承認前の矛盾スクリーニング: [`docs/worknotes/pre-approval-screening.md`](docs/worknotes/pre-approval-screening.md)
-- 画面アーキテクチャ設計の枠組み: [`docs/arch-guide/arc-screen.md`](docs/arch-guide/arc-screen.md)
-- 画面の共通ルール（配色・エリア構成）: [`docs/arch-guide/arc-screen-rules.md`](docs/arch-guide/arc-screen-rules.md)
-- 画面一覧とレイアウト: [`docs/arch-guide/arc-screen-list.md`](docs/arch-guide/arc-screen-list.md)
-- 画面遷移: [`docs/arch-guide/arc-screen-flow.md`](docs/arch-guide/arc-screen-flow.md)
-- データモデル設計の枠組み（**v0.2**）: [`docs/arch-guide/arc-datamodel-framework.md`](docs/arch-guide/arc-datamodel-framework.md)
-- フェーズ0データモデル物理仕様（**v1.0 確定**）: [`docs/arch-guide/arc-datamodel.md`](docs/arch-guide/arc-datamodel.md)
-- 参考文献: [`docs/references.md`](docs/references.md)
-- USDM・IPAガイドラインの一次情報: [`docs/references-usdm-ipa.md`](docs/references-usdm-ipa.md)
-- 要求分析資料: [`docs/requirements-analysis/README.md`](docs/requirements-analysis/README.md)
-- 「1.2 論文を読み解く技術」の要求分析: [`docs/requirements-analysis/section-1.2-reading-techniques.md`](docs/requirements-analysis/section-1.2-reading-techniques.md)
-- 「1.2.1 論文を読む環境の構築」の詳細分析: [`docs/requirements-analysis/section-1.2.1-reading-environment.md`](docs/requirements-analysis/section-1.2.1-reading-environment.md)
-- 「1.2.1.1 論文を入手する」の詳細分析: [`docs/requirements-analysis/section-1.2.1.1-paper-acquisition.md`](docs/requirements-analysis/section-1.2.1.1-paper-acquisition.md)
-- 「1.2.1.2 論文を電子媒体で読む」の詳細分析: [`docs/requirements-analysis/section-1.2.1.2-electronic-reading.md`](docs/requirements-analysis/section-1.2.1.2-electronic-reading.md)
-- 「1.2.1.3 論文は人間が書いたものであることを認識する」の詳細分析: [`docs/requirements-analysis/section-1.2.1.3-human-authorship.md`](docs/requirements-analysis/section-1.2.1.3-human-authorship.md)
-- 「1.2.2 自分の力で論文を読み解くための技術」の詳細分析: [`docs/requirements-analysis/section-1.2.2-independent-reading-techniques.md`](docs/requirements-analysis/section-1.2.2-independent-reading-techniques.md)
-- 「1.2.2.1 議論が成立する条件を確認する」の詳細分析: [`docs/requirements-analysis/section-1.2.2.1-discussion-conditions.md`](docs/requirements-analysis/section-1.2.2.1-discussion-conditions.md)
-- 「1.2.2.2 具体例を構成する」の詳細分析: [`docs/requirements-analysis/section-1.2.2.2-concrete-examples.md`](docs/requirements-analysis/section-1.2.2.2-concrete-examples.md)
-- 「1.2.2.3 実装を読み解いて理解を深める」の詳細分析: [`docs/requirements-analysis/section-1.2.2.3-implementation-reading.md`](docs/requirements-analysis/section-1.2.2.3-implementation-reading.md)
-- 「1.2.2.4 重要となる参考文献は踏み込んで調べる」の詳細分析: [`docs/requirements-analysis/section-1.2.2.4-important-references.md`](docs/requirements-analysis/section-1.2.2.4-important-references.md)
-- 「1.2.2.5 アウトプットすることで理解を深める」の詳細分析: [`docs/requirements-analysis/section-1.2.2.5-output-for-understanding.md`](docs/requirements-analysis/section-1.2.2.5-output-for-understanding.md)
-- 「1.2.3 自分以外の力も借りて論文を読み解くための技術」の詳細分析: [`docs/requirements-analysis/section-1.2.3-external-help.md`](docs/requirements-analysis/section-1.2.3-external-help.md)
-- 「1.2.3.1 少人数で深く議論する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.1-small-group-discussion.md`](docs/requirements-analysis/section-1.2.3.1-small-group-discussion.md)
-- 「1.2.3.2 論文の著者に直接質問する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.2-contacting-authors.md`](docs/requirements-analysis/section-1.2.3.2-contacting-authors.md)
-- 「1.2.3.3 ウェブ上で議論する」の詳細分析: [`docs/requirements-analysis/section-1.2.3.3-web-discussion.md`](docs/requirements-analysis/section-1.2.3.3-web-discussion.md)
-- 「1.2.3.4 生成AIを使う」の詳細分析: [`docs/requirements-analysis/section-1.2.3.4-using-generative-ai.md`](docs/requirements-analysis/section-1.2.3.4-using-generative-ai.md)
-- 「Academic and Research Skills」の詳細要求分析（8つの確立された枠組み）: [`docs/requirements-analysis/academic-research-skills-frameworks.md`](docs/requirements-analysis/academic-research-skills-frameworks.md)
-- 「Academic and Research Skills」の要求分析: [`docs/requirements-analysis/academic-research-skills.md`](docs/requirements-analysis/academic-research-skills.md)
-- 「論文再現実装ハンズオン #4 対照学習（SimCLR）」の要求分析: [`docs/requirements-analysis/simclr-handson-deck.md`](docs/requirements-analysis/simclr-handson-deck.md)
-- 要件選択・第1バッチ: [`docs/requirements-decisions/batch-01-options.md`](docs/requirements-decisions/batch-01-options.md)
-- 要件選択・第2バッチ: [`docs/requirements-decisions/batch-02-options.md`](docs/requirements-decisions/batch-02-options.md)
-- 追加要件選択・第3バッチ: [`docs/requirements-decisions/batch-03-options.md`](docs/requirements-decisions/batch-03-options.md)
+**[`docs/README.md`](docs/README.md) が索引の正本である。** 目的から文書を探すときはここから入る。
+
+よく使う入口:
+
+- 日々のルーチン: [`docs/daily-routine.md`](docs/daily-routine.md)
+- 進捗: [`docs/roadmap.md`](docs/roadmap.md)
+- 要件: [`docs/requirements.md`](docs/requirements.md)
 - 設計: [`docs/product-design.md`](docs/product-design.md)
-- 技術スタック: [`docs/tech-stack.md`](docs/tech-stack.md)
-- プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
-- Claude Code / Codex / Antigravity IDE 共通指示: [`AGENTS.md`](AGENTS.md)
-- Claude Code 用エントリーポイント: [`CLAUDE.md`](CLAUDE.md)
-- AI Agent Skills運用ガイド: [`docs/skills/agent-skills-operations.md`](docs/skills/agent-skills-operations.md)
+- AI開発指示: [`AGENTS.md`](AGENTS.md)
 
 ## AI Agent 連携と共通スキル
 
@@ -247,135 +209,22 @@ npm install
 
 ## ディレクトリ構成
 
-現在Gitで追跡している主要なファイルとディレクトリを示す。
-仮想環境、依存パッケージ、ビルド生成物、`.env` などのGit管理外ファイルは省略している。
-
 ```text
 paper-repro/
-├── .env.example
-├── .gitignore
-├── .agents/skills/              ← Codex / Antigravity IDE共通スキル本文（正本）
-├── .claude/skills/              ← Claude Code用の正本参照入口
-├── AGENTS.md                    ← 3環境共通のAI開発ルール（正本）
-├── CLAUDE.md                    ← Claude Code から AGENTS.md への入口
-├── LICENSE
-├── package.json                  ← Mermaid CLI検証コマンドと固定依存
-├── package-lock.json             ← Mermaid CLI依存のlockfile
+├── AGENTS.md          ← AI開発指示の正本
+├── CLAUDE.md          ← AGENTS.md への入口
 ├── README.md
-├── docker-compose.yml           ← PostgreSQL + Redis
-├── .vscode/
-│   ├── extensions.json
-│   └── settings.json
-├── scripts/
-│   ├── start-dev.ps1            ← 開発環境の起動（Windows）
-│   ├── start-dev.sh             ← 開発環境の起動（Mac / Linux）
-│   ├── validate-agent-skills.ps1 ← 共通スキル構造の検証
-│   └── validate-mermaid.mjs      ← Markdown内のMermaidをSVG描画して検証
-├── backend/                      ← FastAPIバックエンド
-│   ├── requirements.txt
-│   ├── app/
-│   │   ├── main.py              ← FastAPIエントリーポイント
-│   │   ├── api/
-│   │   │   └── projects.py      ← プロジェクトAPI
-│   │   ├── core/
-│   │   │   ├── config.py        ← アプリケーション設定
-│   │   │   ├── db.py            ← データベース接続
-│   │   │   └── states.py        ← 状態定義
-│   │   ├── models/
-│   │   │   └── project.py       ← プロジェクトモデル
-│   │   ├── services/            ← サービス層
-│   │   └── workers/             ← 非同期ワーカー層
-│   └── tests/
-│       └── test_smoke.py
-├── frontend/                     ← Next.jsフロントエンド
-│   ├── .env.local.example
-│   ├── components.json
-│   ├── next-env.d.ts
-│   ├── next.config.js
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── postcss.config.js
-│   ├── tailwind.config.ts
-│   ├── tsconfig.json
-│   ├── messages/                 ← 多言語メッセージ
-│   │   ├── en.json
-│   │   ├── ja.json
-│   │   └── zh-TW.json
-│   └── src/
-│       ├── components/
-│       │   ├── LocaleSwitcher.tsx
-│       │   ├── PaperInput.tsx
-│       │   └── ui/
-│       ├── lib/
-│       │   ├── api.ts
-│       │   └── utils.ts
-│       ├── pages/
-│       │   ├── _app.tsx
-│       │   └── index.tsx
-│       └── styles/
-│           └── globals.css
-└── docs/
-    ├── README.md                 ← ドキュメント索引
-    ├── daily-routine.md          ← 日々のルーチンワーク
-    ├── dev-startup.md            ← 起動スクリプトの使い方・確認事項
-    ├── getting-started-vscode-windows.md
-    ├── getting-started-vscode.md
-    ├── notebooklm-prompts.md     ← NotebookLM活用プロンプト集
-    ├── product-design.md         ← 製品設計
-    ├── references.md             ← 参考文献（一次資料の書誌と引用方針）
-    ├── references-usdm-ipa.md    ← USDM・IPAガイドラインのURL一覧と使用条件
-    ├── requirements.md           ← 確定済み要件の正本
-    ├── requirements-change-proposal.md
-    ├── requirements-update-workflow.md
-    ├── roadmap.md                ← 開発ロードマップ（進捗の正本）
-    ├── requirements-usdm.md      ← USDM形式の要求仕様書
-    ├── traceability-matrix.md    ← トレーサビリティ・マトリクス
-    ├── test-papers.md            ← 動作確認に使うテスト論文
-    ├── tech-stack.md             ← 技術スタック解説
-    ├── requirements-analysis/
-    │   ├── README.md
-    │   ├── section-1.2-reading-techniques.md
-    │   ├── section-1.2.1-reading-environment.md
-    │   ├── section-1.2.1.1-paper-acquisition.md
-    │   ├── section-1.2.1.2-electronic-reading.md
-    │   ├── section-1.2.1.3-human-authorship.md
-    │   ├── section-1.2.2-independent-reading-techniques.md
-    │   ├── section-1.2.2.1-discussion-conditions.md
-    │   ├── section-1.2.2.2-concrete-examples.md
-    │   ├── section-1.2.2.3-implementation-reading.md
-    │   ├── section-1.2.2.4-important-references.md
-    │   ├── section-1.2.2.5-output-for-understanding.md
-    │   ├── section-1.2.3-external-help.md
-    │   ├── section-1.2.3.1-small-group-discussion.md
-    │   ├── section-1.2.3.2-contacting-authors.md
-    │   ├── section-1.2.3.3-web-discussion.md
-    │   ├── academic-research-skills-frameworks.md
-    │   ├── academic-research-skills.md
-    │   ├── section-1.2.3.4-using-generative-ai.md
-    │   └── simclr-handson-deck.md
-    ├── requirements-decisions/
-    │   ├── batch-01-options.md
-    │   ├── batch-02-options.md
-    │   └── batch-03-options.md
-    ├── arch-guide/               ← CCAF由来の設計指針と適用率レポート
-    │   ├── README.md
-    │   ├── arc-architecture.md
-    │   ├── ccaf-coverage-2026-08-03.md
-    │   ├── ccaf-patterns.md
-    │   ├── claude-code-playbook.md
-    │   ├── coverage-remeasure-howto.md
-    │   └── coverage-rubric.md
-    ├── devlog/                   ← 日次開発ログ
-    │   ├── README.md
-    │   └── devlog-YYYY-MM-DD*.md
-    ├── history/
-    │   └── project-history.md
-    └── worknotes/            ← 反映メモ・保留記録・承認前スクリーニング・骨組み更新決定
-        ├── README.md
-        ├── pre-approval-screening.md
-        ├── id-unification-and-phase-provisional.md
-        └── ほか
+├── docker-compose.yml ← PostgreSQL + Redis
+├── scripts/           ← 起動スクリプト・検証スクリプト
+├── backend/           ← FastAPI（Python）
+├── frontend/          ← Next.js（TypeScript）
+├── .agents/skills/    ← リポジトリスキルの正本
+├── .claude/skills/    ← Claude Code 用の入口
+└── docs/              ← 設計・要件・記録
 ```
+
+`docs/` 配下の構成と各文書の内容は **[`docs/README.md`](docs/README.md)** を参照。
+本書はファイル一覧を複製しない。
 
 ## 開発の進め方
 
