@@ -51,11 +51,11 @@
 
 | ファイル | 内容 |
 |---|---|
-| [`requirements.md`](requirements.md) | **要件定義の正本（v0.2）**。確定要求`REQ-C01`〜`REQ-C11`とサブ要求12件、受入基準、実装単位との対応表 |
-| [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く。`REQ-C01` は28仕様まで展開済み |
+| [`requirements.md`](requirements.md) | **要件定義の正本**。確定要求`REQ-C01`〜`REQ-C11`とサブ要求12件、受入基準、実装単位との対応表 |
+| [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く |
 | [`traceability-matrix.md`](traceability-matrix.md) | **トレーサビリティ・マトリクス（XDDP）**。仕様ごとに要求・設計・実装・テスト・画面・リリースの進捗を追う |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
-| [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案。利用者の承認待ち |
+| [`requirements-change-proposal.md`](requirements-change-proposal.md) | 選択済み11件と小節別サブ要求候補を統合した要件定義変更案 |
 
 ### 一次資料の分析
 
@@ -80,7 +80,7 @@
 | [`requirements-analysis/section-1.2.3.4-using-generative-ai.md`](requirements-analysis/section-1.2.3.4-using-generative-ai.md) | 「1.2.3.4 生成AIを使う」の限定分析。製品の中核機能を直接扱う唯一の小節。`REQ-C04-S03`・`REQ-C10-S05`を提案 |
 | [`requirements-analysis/academic-research-skills-frameworks.md`](requirements-analysis/academic-research-skills-frameworks.md) | 学術スキルの8枠組み（SCONUL・ACRL・Vitae RDF・ACM badging・ML再現性チェックリスト・FAIR・CRediT・ALLEA）からの詳細抽出。メイン要求候補13件 |
 | [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) | 英国・アイルランドの大学科目「Academic and Research Skills」からの要求抽出。引用管理・研究倫理・プロジェクト計画の3件が新規メイン要求候補 |
-| [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) | SimCLR解説資料からの要求抽出。メイン要求候補16件・サブ要求候補44件。5択と現行要件との突合は未実施 |
+| [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) | SimCLR解説資料からの要求抽出。メイン要求候補16件・サブ要求候補44件 |
 
 ### 決定台帳
 
@@ -127,13 +127,13 @@
 
 | ファイル | 内容 |
 |---|---|
-| [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) | **データモデル・アーキテクチャ設計の枠組み v0.2**。4工程成果物、ID、成熟度、完了条件、現時点の仕掛判定 |
-| [`arch-guide/arc-datamodel-list.md`](arch-guide/arc-datamodel-list.md) | **エンティティ一覧 v0.2**。17エンティティの意味、主管、ライフサイクルと確定要求23/23の逆引き |
+| [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) | **データモデル・アーキテクチャ設計の枠組み**。4工程成果物、ID、成熟度、完了条件、現時点の仕掛判定 |
+| [`arch-guide/arc-datamodel-list.md`](arch-guide/arc-datamodel-list.md) | **エンティティ一覧**。17エンティティの意味、主管、ライフサイクルと確定要求23/23の逆引き |
 | [`arch-guide/arc-datamodel-er.md`](arch-guide/arc-datamodel-er.md) | **ER図**。中核、批判的検証、実行・成果物、学習の4領域と未決の関係 |
-| [`arch-guide/arc-datamodel-definitions.md`](arch-guide/arc-datamodel-definitions.md) | **エンティティ定義 v0.2**。17エンティティの論理属性、要求根拠、0..1多重度、物理設計へ渡す未決事項 |
-| [`arch-guide/arc-datamodel-crud.md`](arch-guide/arc-datamodel-crud.md) | **CRUD図 v0.2**。47システム化業務との対応と、要求へ逆引きした設計ギャップ2件 |
-| [`arch-guide/arc-datamodel-rules.md`](arch-guide/arc-datamodel-rules.md) | **データモデル共通ルール v0.2**。容量台帳、14レビュー項目と検査結果（✅2・🔨11・⏳1） |
-| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **フェーズ0物理仕様（v1.0 確定）**。`Project`／`Paper`のDDL、ENUM、状態遷移表、矛盾9件の解消 |
+| [`arch-guide/arc-datamodel-definitions.md`](arch-guide/arc-datamodel-definitions.md) | **エンティティ定義**。17エンティティの論理属性、要求根拠、0..1多重度、物理設計へ渡す未決事項 |
+| [`arch-guide/arc-datamodel-crud.md`](arch-guide/arc-datamodel-crud.md) | **CRUD図**。47システム化業務との対応と、要求へ逆引きした設計ギャップ2件 |
+| [`arch-guide/arc-datamodel-rules.md`](arch-guide/arc-datamodel-rules.md) | **データモデル共通ルール**。容量台帳と14のレビュー項目 |
+| [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **フェーズ0物理仕様**。`Project`／`Paper`のDDL、ENUM、状態遷移表、矛盾9件の解消 |
 
 ### 外部インタフェース
 
@@ -159,7 +159,7 @@ CCAF（CCAR-F試験ガイド）由来の設計指針、AIコーディングエ�
 
 | ファイル | 内容 |
 |---|---|
-| [`product-design.md`](product-design.md) | 初期リリース設計（**v0.2・要件v0.2準拠**）。画面遷移・APIエンドポイント・技術スタック |
+| [`product-design.md`](product-design.md) | 初期リリース設計。画面遷移・APIエンドポイント・技術スタック |
 | [`tech-stack.md`](tech-stack.md) | 技術スタック解説（**道具の一覧の正本**）。各技術の役割と選定理由 |
 | [`test-papers.md`](test-papers.md) | **動作確認に使うテスト論文**。基準論文の書誌・ライセンス・採用理由と、フェーズごとに画面で見えるべきこと |
 | [`roadmap.md`](roadmap.md) | 開発ロードマップ（**進捗の正本**）。フェーズ0〜6と進捗、将来のDB候補 |
