@@ -80,6 +80,7 @@
 | [`requirements-analysis/section-1.2.3.4-using-generative-ai.md`](requirements-analysis/section-1.2.3.4-using-generative-ai.md) | 「1.2.3.4 生成AIを使う」の限定分析。製品の中核機能を直接扱う唯一の小節。`REQ-C04-S03`・`REQ-C10-S05`を提案 |
 | [`requirements-analysis/academic-research-skills-frameworks.md`](requirements-analysis/academic-research-skills-frameworks.md) | 学術スキルの8枠組み（SCONUL・ACRL・Vitae RDF・ACM badging・ML再現性チェックリスト・FAIR・CRediT・ALLEA）からの詳細抽出。メイン要求候補13件 |
 | [`requirements-analysis/academic-research-skills.md`](requirements-analysis/academic-research-skills.md) | 英国・アイルランドの大学科目「Academic and Research Skills」からの要求抽出。引用管理・研究倫理・プロジェクト計画の3件が新規メイン要求候補 |
+| [`requirements-analysis/ml-research-practice-advice.md`](requirements-analysis/ml-research-practice-advice.md) | ML/NLP 研究実践の公開助言4件からの要求抽出。メイン要求候補3件。研究生活の管理と書誌計量は対象外と判断 |
 | [`requirements-analysis/simclr-handson-deck.md`](requirements-analysis/simclr-handson-deck.md) | SimCLR解説資料からの要求抽出。メイン要求候補16件・サブ要求候補44件 |
 
 ### 決定台帳
