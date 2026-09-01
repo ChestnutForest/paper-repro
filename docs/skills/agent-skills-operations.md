@@ -1,6 +1,6 @@
 # paper-repro AI Agent Skills運用ガイド
 
-> 版: 2.4.0
+> 版: 2.5.0
 > 更新日: 2026-09-01
 
 Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重複による内容ずれを防ぐための運用ガイドである。
@@ -136,6 +136,13 @@ commit後は、Git追跡・`HEAD`登録・未コミット差分なしも確認�
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\validate-agent-skills.ps1' -RequireGitTracked
+```
+
+push後は`-RequireRemoteSync`を使う。規則8が求めるリモートSHA照合まで行い、
+現在のブランチの`HEAD`とoriginが一致しない場合は失敗する。`-RequireGitTracked`は自動で有効になる。
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\validate-agent-skills.ps1' -RequireRemoteSync
 ```
 
 ## commit/pushと確認URL
