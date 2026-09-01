@@ -155,7 +155,7 @@ $requiredFiles = @(
     'docs\arch-guide\ccaf-patterns.md',
     'docs\arch-guide\claude-code-playbook.md',
     'docs\arch-guide\coverage-rubric.md',
-    'docs\skills\paper-repro-commit-steps.md',
+    'docs\skills\agent-skills-operations.md',
     'package.json',
     'package-lock.json',
     'scripts\validate-mermaid.mjs'
@@ -183,7 +183,7 @@ foreach ($rule in $requiredChatOutputRules) {
     }
 }
 
-$docsToCheck = @('AGENTS.md', 'CLAUDE.md', 'README.md', 'docs\README.md', 'docs\skills\paper-repro-commit-steps.md')
+$docsToCheck = @('AGENTS.md', 'CLAUDE.md', 'README.md', 'docs\README.md', 'docs\skills\agent-skills-operations.md')
 foreach ($relativePath in $docsToCheck) {
     $path = Join-Path $repoRoot $relativePath
     if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {

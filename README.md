@@ -125,7 +125,7 @@
 - プロジェクト経緯: [`docs/history/project-history.md`](docs/history/project-history.md)
 - Claude Code / Codex / Antigravity IDE 共通指示: [`AGENTS.md`](AGENTS.md)
 - Claude Code 用エントリーポイント: [`CLAUDE.md`](CLAUDE.md)
-- AI Agent Skills運用ガイド: [`docs/skills/paper-repro-commit-steps.md`](docs/skills/paper-repro-commit-steps.md)
+- AI Agent Skills運用ガイド: [`docs/skills/agent-skills-operations.md`](docs/skills/agent-skills-operations.md)
 
 ## AI Agent 連携と共通スキル
 
