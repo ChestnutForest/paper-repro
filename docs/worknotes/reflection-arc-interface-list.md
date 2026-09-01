@@ -3,7 +3,7 @@
 - 作成日: 2026年8月31日
 - 対応する設計: [`../arch-guide/arc-interface-list.md`](../arch-guide/arc-interface-list.md)、
   [`../arch-guide/arc-interface-map.md`](../arch-guide/arc-interface-map.md)
-- 状態: 反映待ち
+- 状態: **記録・凍結**（2026年9月1日）。本書は外部IF一覧・関連図の作成時点の検証・判断の記録であり、設計へ反映すべき差分は持たない。以後更新しない。
 
 ---
 
