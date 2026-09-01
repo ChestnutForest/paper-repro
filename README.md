@@ -13,9 +13,9 @@
 フェーズの状態と各フェーズの内訳は **[`docs/roadmap.md`](docs/roadmap.md)** が正本である。
 本書は表を複製しない。
 
-### 📐 設計工程の進捗（IPA 6編）
+### 📐 設計工程の進捗（IPA 6編中、対象4編）
 
-**現在地: 現行確定要求について、データモデル編の4成果物と共通ルールを作成／ 全6編中 3 編**
+**現在地: 対象4編すべて作成済み。バッチ編・帳票編は非該当。**
 
 詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
@@ -25,8 +25,8 @@
 | **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.1](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [47業務 v0.1](docs/arch-guide/behaviors/) |
 | **データモデル** | ✅ [v0.2](docs/arch-guide/arc-datamodel-framework.md) | ✅ [17エンティティ・要求23/23 v0.2](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.2](docs/arch-guide/arc-datamodel-rules.md) | ✅ [ER図 v0.1](docs/arch-guide/arc-datamodel-er.md)・[CRUD図 v0.2](docs/arch-guide/arc-datamodel-crud.md) | ✅ [論理定義 v0.2](docs/arch-guide/arc-datamodel-definitions.md)・[物理仕様 v1.0](docs/arch-guide/arc-datamodel.md) |
 | 外部インタフェース | ✅ [v0.1.2](docs/arch-guide/arc-interface.md) | ✅ [v0.5](docs/arch-guide/arc-interface-list.md) | — | ✅ [関連図 v0.1.2](docs/arch-guide/arc-interface-map.md) | ✅ [IF-01〜IF-05 v0.1](docs/arch-guide/interfaces/) |
-| バッチ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
-| 帳票 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| バッチ | — | — | — | — | — |
+| 帳票 | — | — | — | — | — |
 
 > **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
 > 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
@@ -36,6 +36,8 @@
 > 4工程成果物は作成済みだが、レビュー結果は✅2・🔨11・⏳1で、全体成熟度は**仕掛**である。
 > 注釈群と演習履歴群は、保持先未確定の2ギャップとしてUSDMへ戻している。
 > `REQ-C02`〜`REQ-C11`はUSDM仕様未展開のため、両編とも仕様展開後に再検査する。
+> バッチ編・帳票編の `—` は未着手ではなく**非該当**である。定期実行される処理と印刷帳票が存在しない。
+> 根拠は [`docs/worknotes/decision-batch-report-not-applicable.md`](docs/worknotes/decision-batch-report-not-applicable.md) を参照。
 > ソフトウェア実装の現在地は変わらずフェーズ0である。
 
 > **IPA 6編の設計工程の進捗は、本表が正本である。** 版数と✅は本表だけが持つ。

@@ -141,9 +141,16 @@ ID体系を先に定めているのは、この手戻りを避けるためであ
 | 画面編 | ✅ [`arc-screen-list.md`](arc-screen-list.md) | ✅ [`arc-screen-rules.md`](arc-screen-rules.md) | ✅ [`arc-screen-flow.md`](arc-screen-flow.md) | ✅ [`screens/`](screens) |
 | システム振舞い編 | ✅ [`arc-behavior-list.md`](arc-behavior-list.md) | ✅ [`arc-behavior-rules.md`](arc-behavior-rules.md) | ✅ [`arc-behavior-flow.md`](arc-behavior-flow.md)＋[`arc-behavior-state.md`](arc-behavior-state.md) | ✅ [`behaviors/`](behaviors/) |
 | データモデル編 | ✅ [`arc-datamodel-list.md`](arc-datamodel-list.md) | ✅ [`arc-datamodel-rules.md`](arc-datamodel-rules.md) | ✅ [`arc-datamodel-er.md`](arc-datamodel-er.md)＋[`arc-datamodel-crud.md`](arc-datamodel-crud.md) | ✅ [`arc-datamodel-definitions.md`](arc-datamodel-definitions.md)＋物理仕様[`arc-datamodel.md`](arc-datamodel.md) |
-| 外部インタフェース編 | ⬜ | ⬜ | ⬜ | ⬜ |
-| バッチ編 | ⬜ | ⬜ | ⬜ | ⬜ |
-| 帳票編 | ⬜ | ⬜ | ⬜ | ⬜ |
+| 外部インタフェース編 | ✅ [`arc-interface-list.md`](arc-interface-list.md) | — | ✅ [`arc-interface-map.md`](arc-interface-map.md) | ✅ [`interfaces/`](interfaces/) |
+| バッチ編 | — | — | — | — |
+| 帳票編 | — | — | — | — |
+
+**バッチ編と帳票編は本プロダクトの対象外である。** 定期実行される処理と印刷帳票のいずれも存在しない。
+根拠は [`../worknotes/decision-batch-report-not-applicable.md`](../worknotes/decision-batch-report-not-applicable.md) を参照。
+表の `—` は未着手ではなく非該当を表す。
+
+外部インタフェース編に共通ルールが無いのは、REF-16 が本編に該当する成果物を定めていないためである
+（[`arc-interface.md`](arc-interface.md) 3.1節）。外部API呼び出しの共通規則は `BR-13` が扱う。
 
 データモデル編は、既存のDDL中心文書を物理仕様として維持し、REF-15／REF-16が想定する
 4工程成果物を別文書として追加した。論理設計17エンティティのうち、物理仕様が確定しているのは
