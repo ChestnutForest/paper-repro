@@ -1,6 +1,9 @@
 param(
-    [switch]$RequireGitTracked
+    [switch]$RequireGitTracked,
+    [switch]$RequireRemoteSync
 )
+
+if ($RequireRemoteSync) { $RequireGitTracked = $true }
 
 $ErrorActionPreference = 'Stop'
 
@@ -198,6 +201,26 @@ foreach ($relativePath in $docsToCheck) {
     }
 }
 
+if ($RequireRemoteSync) {
+    $branch = & git -C $repoRoot rev-parse --abbrev-ref HEAD
+    if ($LASTEXITCODE -ne 0 -or -not $branch -or $branch -eq 'HEAD') {
+        Add-Failure "Cannot determine the current branch for remote sync."
+    }
+    else {
+        $localSha = & git -C $repoRoot rev-parse HEAD
+        $remoteLine = & git -C $repoRoot ls-remote origin $branch
+        if ($LASTEXITCODE -ne 0 -or -not $remoteLine) {
+            Add-Failure "Cannot read origin/${branch}; remote sync unverified."
+        }
+        else {
+            $remoteSha = ($remoteLine -split "\s+")[0]
+            if ($localSha -ne $remoteSha) {
+                Add-Failure "HEAD does not match origin/${branch}: local $localSha, remote $remoteSha"
+            }
+        }
+    }
+}
+
 if ($failures.Count -gt 0) {
     Write-Output 'Agent skill validation failed:'
     foreach ($failure in $failures) {
@@ -207,4 +230,5 @@ if ($failures.Count -gt 0) {
 }
 
 $mode = if ($RequireGitTracked) { ' Git-tracked mode passed.' } else { '' }
+$mode += if ($RequireRemoteSync) { ' Remote sync passed.' } else { '' }
 Write-Output "Agent skill validation passed: $($expectedSkills.Count) canonical skills and $($expectedSkills.Count) Claude entrypoints.$mode"
