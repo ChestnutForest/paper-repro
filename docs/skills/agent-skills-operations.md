@@ -29,7 +29,7 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 - `CLAUDE.md`
 - `.agents/skills/paper-repro-commit-output/SKILL.md`
 - `.claude/skills/paper-repro-commit-output/SKILL.md`
-- `docs/skills/paper-repro-commit-steps.md`
+- `docs/skills/agent-skills-operations.md`
 
 `docs/requirements-analysis/academic-research-skills.md`と
 `docs/requirements-analysis/academic-research-skills-frameworks.md`にも「skills」が含まれるが、
