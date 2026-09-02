@@ -94,6 +94,7 @@
 | [`requirements-decisions/batch-01-options.md`](requirements-decisions/batch-01-options.md) | 要件選択の第1バッチ。`REQ-C01`〜`REQ-C05`の5択、選択結果、理由、影響範囲、受入基準 |
 | [`requirements-decisions/batch-02-options.md`](requirements-decisions/batch-02-options.md) | 要件選択の第2バッチ。`REQ-C06`〜`REQ-C09`の5択、選択結果、段階開発条件、受入基準 |
 | [`requirements-decisions/batch-03-options.md`](requirements-decisions/batch-03-options.md) | 追加要件選択の第3バッチ。`REQ-C10`・`REQ-C11`の選択結果、理由、受入基準、段階開発条件 |
+| [`requirements-decisions/batch-04-options.md`](requirements-decisions/batch-04-options.md) | **工程モデルの第4バッチ**。Phase 0〜6 を確定要件とするか、読解順序と Seven Pillars から何を取り込むかの5択。**選択待ち** |
 
 ## 🏛 アーキテクチャ設計（どういう構造で作るか）
 
