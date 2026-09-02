@@ -6,7 +6,7 @@
 - 製品方針: paper-repro を正式版プロダクトとして継続開発する
 - 初期リリース範囲: タイプB・公式実装ありの論文を縦切りで完成させる
 - 後続リリース: タイプA、GPU実行、レンダリング、LLM-as-a-Judgeへ段階的に拡張する
-- 関連文書: `docs/requirements.md`（要件 v0.3）, `docs/product-design.md`（設計 v0.3）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
+- 関連文書: `docs/requirements.md`（要件 v0.3.1）, `docs/product-design.md`（設計 v0.3）, `AGENTS.md`（Claude Code / Codex 共通開発指針）
 - フェーズ0の仕様: [`docs/arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) v1.0（確定）。DDL・ENUM・状態遷移表・決定の記録
 - 動作確認に投入する論文: [`test-papers.md`](test-papers.md)
 - 仕様ごとの工程の進捗: [`traceability-matrix.md`](traceability-matrix.md)
