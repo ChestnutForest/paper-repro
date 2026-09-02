@@ -171,8 +171,8 @@
 
 ## 6. 次に行うこと
 
-1. **工程モデルを確定させるかを決める。** Y-01・`AR-M-03` の前提であり、
-   `REQ-C01` の実装単位が `F-02`（暫定）のままである問題でもある。
+1. **Y-01（`ARF-M-01`＋`PR-M-02`）を5択にかける。** ⚠️ 本書は当初「工程モデルを確定させる」を5択の前に置いたが、これは誤りである。
+   [`../worknotes/id-unification-and-phase-provisional.md`](../worknotes/id-unification-and-phase-provisional.md) 4.3節は `ARF-M-01` を5択にかけることを確定の手段と定めている。3案の階層の違いは [`../worknotes/workflow-model-three-candidates.md`](../worknotes/workflow-model-three-candidates.md) を参照。
 2. 🆕 6件について、各分析文書の全文（根拠・受入基準・サブ要求候補）を確認する。
    **本突合はすべて要求文1行にもとづく判定である。**
 3. `AS-M-02` を既存のサニティ階段と突き合わせる。

@@ -30,6 +30,7 @@
 | [`decision-batch-report-not-applicable.md`](decision-batch-report-not-applicable.md) | 設計判断の記録。バッチ編・帳票編を対象外とする | — |
 | [`pending-br13-external-api.md`](pending-br13-external-api.md) | 未整備事項の記録。外部API呼び出しの共通ルール`BR-13` | — |
 | [`pending-sota-comparison.md`](pending-sota-comparison.md) | 将来の変更要求の候補。第三者の再現結果との比較 | — |
+| [`workflow-model-three-candidates.md`](workflow-model-three-candidates.md) | 工程モデル3案（Phase 0〜6／読解順序／Seven Pillars）の階層の違いを整理した5択の前提。**採否は決めていない** | `ARF-M-01`、`PR-M-02` |
 
 ## 保存する理由
 
