@@ -97,6 +97,7 @@
 | [`requirements-decisions/batch-04-options.md`](requirements-decisions/batch-04-options.md) | **工程モデルの第4バッチ**。Phase 0〜6 を確定要件とするか、読解順序と Seven Pillars から何を取り込むかの5択。**選択肢4で確定**（2026-09-02） |
 | [`requirements-decisions/batch-05-options.md`](requirements-decisions/batch-05-options.md) | **再現の妥当性の第5バッチ**。試行回数とばらつき、差分Δ、再現スコープをどこまで求めるかの5択。**選択肢3で確定**（2026-09-02） |
 | [`requirements-decisions/batch-06-options.md`](requirements-decisions/batch-06-options.md) | **利用者の状態の第6バッチ**。専門分野・既読資料・熟達段階をどこまで横断保持するかの5択。**17エンティティに利用者を表すものが無い点と、熟達段階の推定が既存方針と衝突しうる点を明記**。**選択肢3で確定**（2026-09-02） |
+| [`requirements-decisions/batch-07-options.md`](requirements-decisions/batch-07-options.md) | **文書構造の第7バッチ**。既存サブ要求（`Sxx`）と USDM 下位要求（`Rn`）の関係を決める5択。**USDM 全要求展開の前提**。選択待ち |
 
 ## 🏛 アーキテクチャ設計（どういう構造で作るか）
 
