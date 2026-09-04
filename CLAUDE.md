@@ -10,7 +10,7 @@ Claude Code はこのファイルを自動的に読み込む。
 3. `git status --short --branch` と `docs/devlog/` の最新ファイルを確認する。
 4. `.claude/skills/paper-repro-skill-source-policy/`の入口から利用元を確認する。
 5. 依頼に該当する場合だけ、`paper-repro-arch-guide`、`arxiv-paper-repro`、
-   `paper-repro-devlog`、`paper-repro-commit-output`の正本を全文読む。
+   `paper-repro-devlog`、`paper-repro-commit-output`、`paper-repro-delegate-integration`の正本を全文読む。
 
 ## 共有ルール
 

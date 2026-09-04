@@ -42,7 +42,7 @@ Windows個人領域、Codexプラグインキャッシュ、他リポジトリ�
 4. `docs/daily-routine.md` と `docs/devlog/` の最新ファイルで、未解決事項と次の作業を確認する。
 5. `paper-repro-skill-source-policy`で利用元を確認し、依頼に該当する場合だけ
    `paper-repro-arch-guide`、`arxiv-paper-repro`、`paper-repro-devlog`、
-   `paper-repro-commit-output`を読む。
+   `paper-repro-commit-output`、`paper-repro-delegate-integration`を読む。
 6. ユーザーの依頼範囲を確認し、その範囲を越える変更は行わない。
 
 ## 3. このプロジェクトは何か

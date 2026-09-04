@@ -86,6 +86,7 @@ paper-reproでは、GitHubへ登録されたリポジトリスキルだけを使
 - **[`arxiv-paper-repro`](.agents/skills/arxiv-paper-repro/SKILL.md)**: AI/ML論文の再現実装、部分採用、スコア不一致の切り分け
 - **[`paper-repro-devlog`](.agents/skills/paper-repro-devlog/SKILL.md)**: paper-repro開発の日次知識を`docs/devlog/`へ資産化
 - **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、チャットで個別コピー可能なGitHub URL、実行結果検証
+- **[`paper-repro-delegate-integration`](.agents/skills/paper-repro-delegate-integration/SKILL.md)**: 素材ファイルを既存文書へ統合する依頼文の型。章の挿入・番号の繰り下げ・参照の修正
 
 ## Claude Code、Codex、Antigravity IDEの併用
 

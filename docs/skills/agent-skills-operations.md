@@ -1,7 +1,7 @@
 # paper-repro AI Agent Skills運用ガイド
 
-> 版: 2.5.0
-> 更新日: 2026-09-01
+> 版: 2.6.0
+> 更新日: 2026-09-04（`paper-repro-delegate-integration` を追加）
 
 Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重複による内容ずれを防ぐための運用ガイドである。
 この文書は人間向けの案内であり、スキル本文ではない。
@@ -29,6 +29,8 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 - `CLAUDE.md`
 - `.agents/skills/paper-repro-commit-output/SKILL.md`
 - `.claude/skills/paper-repro-commit-output/SKILL.md`
+- `.agents/skills/paper-repro-delegate-integration/SKILL.md`
+- `.claude/skills/paper-repro-delegate-integration/SKILL.md`
 - `docs/skills/agent-skills-operations.md`
 
 `docs/requirements-analysis/academic-research-skills.md`と
@@ -49,19 +51,22 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 │   └── references/
 ├── paper-repro-devlog/
 │   └── SKILL.md
-└── paper-repro-commit-output/
-    ├── SKILL.md
-    └── references/
+├── paper-repro-commit-output/
+│   ├── SKILL.md
+│   └── references/
+└── paper-repro-delegate-integration/
+    └── SKILL.md
 
 .claude/skills/
 ├── paper-repro-skill-source-policy/SKILL.md
 ├── paper-repro-arch-guide/SKILL.md
 ├── arxiv-paper-repro/SKILL.md
 ├── paper-repro-devlog/SKILL.md
-└── paper-repro-commit-output/SKILL.md
+├── paper-repro-commit-output/SKILL.md
+└── paper-repro-delegate-integration/SKILL.md
 ```
 
-`.agents/skills`の5ファイルが本文の正本である。`.claude/skills`の5ファイルは正本への短い入口だけを持ち、
+`.agents/skills`の6ファイルが本文の正本である。`.claude/skills`の6ファイルは正本への短い入口だけを持ち、
 手順本文を複製しない。WindowsでGitのシンボリックリンクが通常ファイルへ変わる問題を避けるため、
 シンボリックリンクではなく参照入口を採用した。
 
@@ -75,7 +80,7 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 
 各`SKILL.md`のfrontmatterは、移植性を保つため`name`と`description`だけを使う。
 
-## 5スキルの責務
+## 6スキルの責務
 
 | スキル | 責務 | 使わない場面 |
 |---|---|---|
@@ -84,6 +89,7 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 | `arxiv-paper-repro` | AI/ML論文の再現、部分採用、スコア不一致の切り分け | 単純な要約・英文解釈 |
 | `paper-repro-devlog` | paper-repro開発の日次知識を`docs/devlog/`へ保存 | 他アプリ、論文そのものの実装 |
 | `paper-repro-commit-output` | commit/pushコマンド、実行、SHA照合、チャットで個別コピー可能なGitHub URL、結果検証 | 他リポジトリ |
+| `paper-repro-delegate-integration` | 素材ファイルを既存文書へ統合する依頼文の型、統合後の検証、異常時の差し戻し | 1箇所の置換で済む編集 |
 
 用途の異なる機能は別スキルのまま保ち、保存場所、正本、参照方法だけを一本化する。
 

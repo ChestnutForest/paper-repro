@@ -13,7 +13,8 @@ $expectedSkills = @(
     'paper-repro-arch-guide',
     'arxiv-paper-repro',
     'paper-repro-devlog',
-    'paper-repro-commit-output'
+    'paper-repro-commit-output',
+    'paper-repro-delegate-integration'
 )
 $failures = New-Object System.Collections.Generic.List[string]
 $utf8Strict = New-Object System.Text.UTF8Encoding($false, $true)
