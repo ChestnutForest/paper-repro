@@ -335,8 +335,10 @@ flowchart LR
 |---|---|
 | `REQ-C08-S01` | 後続小節の詳細分析で具体化する |
 
-また `REQ-C09-S04` は判断を保留している
-（[`worknotes/pending-req-c09-s04.md`](worknotes/pending-req-c09-s04.md)）。
+⚠️ `REQ-C09-S04` は**候補から取り下げた**（2026年9月7日、
+[`worknotes/pending-req-c09-s04.md`](worknotes/pending-req-c09-s04.md) 第9章）。
+`1.2.3` 配下の4小節をすべて分析しても根拠が得られなかったためである。
+**IDは欠番とし、再利用しない。** 導入部が述べた前提知識のギャップは `REQ-C02` 系が扱う。
 
 ---
 
@@ -900,5 +902,5 @@ paper-repro は正式版として継続開発する。この節は製品全体�
 - **新しい一次資料3件の要求候補32件**の扱い。
   [`worknotes/pre-approval-screening.md`](worknotes/pre-approval-screening.md) の判定では、
   26件が既存要求の具体化にとどまり、5択へ進めるべきは5〜7件程度と見込まれる。
-- ~~`REQ-C02-S01` の具体化~~ → **解決済み**（2026年9月2日、第6バッチ選択肢3）。`REQ-C08-S01` の具体化、`REQ-C09-S04` の保留解除は未着手。
+- ~~`REQ-C02-S01` の具体化~~ → **解決済み**（2026年9月2日、第6バッチ選択肢3）。`REQ-C09-S04` は取り下げ済み（2026年9月7日）。`REQ-C08-S01` の具体化は未着手。
 - 第9章の対応表と `product-design.md`・`roadmap.md` の突き合わせ。
