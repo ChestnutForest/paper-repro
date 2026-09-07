@@ -1,7 +1,7 @@
 # 要求仕様書（USDM 形式）
 
 - 対象プロダクト: `paper-repro`
-- 版: v0.1（`REQ-C01` のみ完全展開。他は要求と理由まで）
+- 版: v0.2（`REQ-C01`〜`REQ-C11` の11件を仕様まで展開済み）
 - 作成日: 2026年8月26日
 - 記法: USDM（Universal Specification Describing Manner）
 - 記法の出典: [`references.md`](references.md) の **REF-17**（AFFORDD T2研究会「USDM 小冊子 基礎編」ver 1.3, 2016）
@@ -29,15 +29,25 @@ USDM は、要求を**振る舞い**として動詞形で書き、その動詞�
 
 | 文書 | 関係 |
 |---|---|
-| [`requirements.md`](requirements.md) | **確定要求の正本（v0.2）。** 本書は同じ要求を USDM 形式へ書き直したもの |
+| [`requirements.md`](requirements.md) | **要求文・受入基準・実装単位との対応の正本（v0.3.1）。** 本書とは要求文のみ重複する |
 | [`requirements-change-proposal.md`](requirements-change-proposal.md) | 要求文と受入基準の出所 |
 | [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) | 仕様から導く論理データモデル、4工程成果物、レビュー基準 |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | フェーズ0の物理仕様（DDL・状態遷移表） |
 | [`roadmap.md`](roadmap.md) | 仕様を画面で確認する手段 |
 
-> **要求の正本は当面 [`requirements.md`](requirements.md) v0.2 である。**
-> 本書が全要求を展開し終えるまで、両方を維持する。展開が済んだ時点で、
-> どちらを正本とするかを判断する（第13章）。
+> **両文書は役割を分け、どちらも維持する**
+> （[`worknotes/decision-material-requirements-source.md`](worknotes/decision-material-requirements-source.md) 1.7節、選択肢5）。
+>
+> | 文書 | 持つもの |
+> |---|---|
+> | [`requirements.md`](requirements.md) | 要求文・受入基準・実装単位（`F-xx`・`B-xx`）との対応 |
+> | 本書 | 要求文・下位要求・仕様 |
+>
+> **重複するのは要求文だけであり、これは意図的な冗長である。**
+> 統合も縮小も行わない。要求文が食い違った場合は
+> [`requirements.md`](requirements.md) 側へ揃える。
+> USDM は要求文を振る舞いへ絞るが、
+> **範囲・方針・限定を示す語は要求文に残すべき情報だからである**（同 1.5.1節）。
 
 ### 1.3 記法の約束
 
@@ -2441,9 +2451,12 @@ IDを保ったまま同じ階層へ置く。
 
 ## 13. 未解決の確認事項
 
-- **正本をどちらにするか。** 本書が全要求を展開し終えた時点で、
-  [`requirements.md`](requirements.md) v0.2 の第3章を本書への参照に置き換えるか、
-  両方を維持するかを決める。両方を維持する場合、同期の規約が要る。
+- ~~**正本をどちらにするか。**~~ → **解決済み**（[`worknotes/decision-material-requirements-source.md`](worknotes/decision-material-requirements-source.md) 1.7節、選択肢5）。
+  文書の統合も縮小も行わない。役割分担は第1.2節へ明記した。
+  要求文の食い違いは `requirements.md` 側へ揃える。
+  `REQ-C01` は解消済み。残る5件（`REQ-C02`・`REQ-C03`・`REQ-C05`・`REQ-C06`・`REQ-C10`）は未着手。
+- **サブ要求15件の要求文の差。** メイン要求11件のうち10件が不一致だった（同 1.5節）。
+  **サブ要求は未検査である**（同 1.5.3節）。メイン要求の書き戻し方が決まってから洗い出す。
 - ~~**展開の順序。**~~ → **決定**（2026年9月3日）。次の順で展開する。
 
   1. `REQ-C03` 論文の取り込み — **論文が入らなければ他の工程が始まらない**
