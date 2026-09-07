@@ -88,6 +88,7 @@ paper-reproでは、GitHubへ登録されたリポジトリスキルだけを使
 - **[`paper-repro-commit-output`](.agents/skills/paper-repro-commit-output/SKILL.md)**: commit/push、SHA照合、チャットで個別コピー可能なGitHub URL、実行結果検証
 - **[`paper-repro-delegate-integration`](.agents/skills/paper-repro-delegate-integration/SKILL.md)**: 素材ファイルを既存文書へ統合する依頼文の型。章の挿入・番号の繰り下げ・参照の修正
 - **[`paper-repro-requirement-deferral`](.agents/skills/paper-repro-requirement-deferral/SKILL.md)**: 要求項目を今の要件定義で決めるか後工程へ送るかの判定。保留に担当工程・解除条件・再判断の期限を必須化
+- **[`paper-repro-upstream-isolation`](.agents/skills/paper-repro-upstream-isolation/SKILL.md)**: 要件定義と4編の設計の途中で、既存の実装やテストの状態を判断材料にしない
 
 ## Claude Code、Codex、Antigravity IDEの併用
 

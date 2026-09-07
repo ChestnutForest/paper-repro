@@ -1,7 +1,7 @@
 # paper-repro AI Agent Skills運用ガイド
 
-> 版: 2.7.0
-> 更新日: 2026-09-07（`paper-repro-requirement-deferral` を追加）
+> 版: 2.8.0
+> 更新日: 2026-09-07（`paper-repro-upstream-isolation` を追加）
 
 Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重複による内容ずれを防ぐための運用ガイドである。
 この文書は人間向けの案内であり、スキル本文ではない。
@@ -33,6 +33,8 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 - `.claude/skills/paper-repro-delegate-integration/SKILL.md`
 - `.agents/skills/paper-repro-requirement-deferral/SKILL.md`
 - `.claude/skills/paper-repro-requirement-deferral/SKILL.md`
+- `.agents/skills/paper-repro-upstream-isolation/SKILL.md`
+- `.claude/skills/paper-repro-upstream-isolation/SKILL.md`
 - `docs/skills/agent-skills-operations.md`
 
 `docs/requirements-analysis/academic-research-skills.md`と
@@ -58,7 +60,9 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 │   └── references/
 ├── paper-repro-delegate-integration/
 │   └── SKILL.md
-└── paper-repro-requirement-deferral/
+├── paper-repro-requirement-deferral/
+│   └── SKILL.md
+└── paper-repro-upstream-isolation/
     └── SKILL.md
 
 .claude/skills/
@@ -68,10 +72,11 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 ├── paper-repro-devlog/SKILL.md
 ├── paper-repro-commit-output/SKILL.md
 ├── paper-repro-delegate-integration/SKILL.md
-└── paper-repro-requirement-deferral/SKILL.md
+├── paper-repro-requirement-deferral/SKILL.md
+└── paper-repro-upstream-isolation/SKILL.md
 ```
 
-`.agents/skills`の7ファイルが本文の正本である。`.claude/skills`の7ファイルは正本への短い入口だけを持ち、
+`.agents/skills`の8ファイルが本文の正本である。`.claude/skills`の8ファイルは正本への短い入口だけを持ち、
 手順本文を複製しない。WindowsでGitのシンボリックリンクが通常ファイルへ変わる問題を避けるため、
 シンボリックリンクではなく参照入口を採用した。
 
@@ -96,6 +101,7 @@ Claude Code、Codex、Antigravity IDEで同じスキルを使い、本文の重�
 | `paper-repro-commit-output` | commit/pushコマンド、実行、SHA照合、チャットで個別コピー可能なGitHub URL、結果検証 | 他リポジトリ |
 | `paper-repro-delegate-integration` | 素材ファイルを既存文書へ統合する依頼文の型、統合後の検証、異常時の差し戻し | 1箇所の置換で済む編集 |
 | `paper-repro-requirement-deferral` | 要求項目を今の要件定義で決めるか後工程へ送るかの判定、保留の記録形式 | 根拠のない候補の温存 |
+| `paper-repro-upstream-isolation` | 上流工程の途中で実装の状態を判断材料にしない規律、ずれに気づいたときの記録 | 実装工程・テスト工程の動作確認 |
 
 用途の異なる機能は別スキルのまま保ち、保存場所、正本、参照方法だけを一本化する。
 
