@@ -24,6 +24,7 @@
 |---|---|
 | [`daily-routine.md`](daily-routine.md) | **日々のルーチンワーク**。開発の開始〜終了までの手順 |
 | [`dev-startup.md`](dev-startup.md) | 起動スクリプトの使い方・実行後の確認事項チェックリスト |
+| [`github-pr-operations.md`](github-pr-operations.md) | **Pull Request の画面操作**。閉じる・ブランチを消す手順と、押さなかったボタンの理由 |
 
 ## 🤖 AI開発指示・スキル（Claude Code / Codex / Antigravity IDE 共通）
 
