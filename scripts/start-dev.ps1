@@ -1,4 +1,4 @@
-# =============================================================================
+﻿# =============================================================================
 # start-dev.ps1 — 開発環境の起動（Windows / PowerShell 用）
 #
 # やること:
@@ -48,9 +48,8 @@ Write-Host "[OK] backend\.venv を確認" -ForegroundColor Green
 Write-Host "`n=== ステップ1: Docker (PostgreSQL / Redis) を起動 ===" -ForegroundColor Cyan
 
 # Docker Desktop 本体が動いているか確認（動いていないと以降が全部失敗する）
-try {
-    docker info *> $null
-} catch {
+cmd /c "docker info > nul 2>&1"
+if ($LASTEXITCODE -ne 0) {
     Write-Host "[NG] Docker に接続できません。Docker Desktop を起動し、" -ForegroundColor Red
     Write-Host "     クジラアイコンが緑 (Engine running) になってから再実行してください。" -ForegroundColor Yellow
     exit 1
