@@ -1,4 +1,4 @@
-param(
+﻿param(
     [switch]$RequireGitTracked,
     [switch]$RequireRemoteSync
 )
@@ -14,7 +14,8 @@ $expectedSkills = @(
     'arxiv-paper-repro',
     'paper-repro-devlog',
     'paper-repro-commit-output',
-    'paper-repro-delegate-integration'
+    'paper-repro-delegate-integration',
+    'paper-repro-requirement-deferral'
 )
 $failures = New-Object System.Collections.Generic.List[string]
 $utf8Strict = New-Object System.Text.UTF8Encoding($false, $true)

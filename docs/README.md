@@ -39,6 +39,7 @@
 | [`../.agents/skills/paper-repro-devlog/SKILL.md`](../.agents/skills/paper-repro-devlog/SKILL.md) | `paper-repro-devlog`。開発の日次知識化 |
 | [`../.agents/skills/paper-repro-commit-output/SKILL.md`](../.agents/skills/paper-repro-commit-output/SKILL.md) | `paper-repro-commit-output`。commit/push、SHA照合、チャットで個別コピー可能な結果URL |
 | [`../.agents/skills/paper-repro-delegate-integration/SKILL.md`](../.agents/skills/paper-repro-delegate-integration/SKILL.md) | `paper-repro-delegate-integration`。素材ファイルの統合依頼の型と、統合後の検証 |
+| [`../.agents/skills/paper-repro-requirement-deferral/SKILL.md`](../.agents/skills/paper-repro-requirement-deferral/SKILL.md) | `paper-repro-requirement-deferral`。要求項目を今決めるか後工程へ送るかの判定と、保留の記録形式 |
 
 ## 🚀 環境構築（初回・OS別）
 
