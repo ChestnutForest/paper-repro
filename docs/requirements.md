@@ -7,7 +7,7 @@
 - 骨組み更新の決定記録: [`worknotes/id-unification-and-phase-provisional.md`](worknotes/id-unification-and-phase-provisional.md)
 - 承認前の矛盾スクリーニング: [`worknotes/pre-approval-screening.md`](worknotes/pre-approval-screening.md)
 - 用いた一次資料の書誌: [`references.md`](references.md)
-- USDM 形式の要求仕様書: [`requirements-usdm.md`](requirements-usdm.md)（`REQ-C01` を仕様まで展開済み）
+- USDM 形式の要求仕様書: [`requirements-usdm.md`](requirements-usdm.md)（`REQ-C01`〜`REQ-C11` の11件を仕様まで展開済み。本書は要求文・受入基準・実装単位との対応を持つ）
 
 > **本版で確定したもの。** 選択済みの `REQ-C01`〜`REQ-C11` と、具体化済みサブ要求14件を、
 > 要求文・受入基準つきで第3章へ統合した。第4〜5章の実装単位は、この要求へ対応づけて更新した。
