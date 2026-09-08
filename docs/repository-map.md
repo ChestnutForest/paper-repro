@@ -209,8 +209,14 @@ flowchart TB
 カテゴリ単位では見えないファイル同士の関係を、**中核18ファイルに限って**示す。
 全172の Markdown を描くと読めなくなるためである。
 
+⚠️ **本図だけ左から右への流れ（`LR`）にしている。**
+第2章と向きが違うのは、縦長に収めるためである。
+`README.md` が9本の辺を出すため、上から下（`TB`）にすると子が横に9個並んで横長になる。
+`LR` では4つのサブグラフが列として並び、各列の中でノードが縦に積まれる。
+**ノードと辺の対応は変えていない。**
+
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph L1["ルート"]
         RM["README.md"]
         AG["AGENTS.md"]
@@ -301,7 +307,7 @@ flowchart TB
 <summary>Mermaid のソースを見る</summary>
 
 ```text
-flowchart TB
+flowchart LR
     subgraph L1["ルート"]
         RM["README.md"]
         AG["AGENTS.md"]
