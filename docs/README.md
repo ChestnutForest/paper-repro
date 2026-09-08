@@ -30,6 +30,7 @@
 
 | ファイル | 内容 |
 |---|---|
+| [`repository-map.md`](repository-map.md) | **リポジトリの鳥観図。** 223ファイルの分類と、相対リンクから抽出した依存関係 |
 | [`../AGENTS.md`](../AGENTS.md) | **共通ルール正本**。設計原則、規約、検証、3環境の引き継ぎ手順 |
 | [`../CLAUDE.md`](../CLAUDE.md) | Claude Code用エントリーポイント。共通指示として `AGENTS.md` を読み込ませる |
 | [`skills/agent-skills-operations.md`](skills/agent-skills-operations.md) | **AI Agent Skills 運用ガイド**（人間向け）。3環境で同じスキルを使い本文の重複を防ぐ方針、環境調査の結果、正本構成、更新・検証手順 |
