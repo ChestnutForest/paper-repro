@@ -56,10 +56,10 @@
 | [`section-1.2.3.2-contacting-authors.md`](section-1.2.3.2-contacting-authors.md) | 同書「1.2.3.2 論文の著者に直接質問する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C09-S05`を提案し、保留中の`REQ-C07-S02`の確定案を提示 |
 | [`section-1.2.3.3-web-discussion.md`](section-1.2.3.3-web-discussion.md) | 同書「1.2.3.3 ウェブ上で議論する」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C07-S03`を提案し、`REQ-C07-S02`・`REQ-C09-S03`の根拠を補強 |
 | [`section-1.2.3.4-using-generative-ai.md`](section-1.2.3.4-using-generative-ai.md) | 同書「1.2.3.4 生成AIを使う」 | 詳細検証完了 | 新規メイン要求なし、`REQ-C04-S03`・`REQ-C10-S05`を提案し、`REQ-C07:4`・`REQ-C10:4`・`REQ-C04-S02`・`REQ-C08:4`の根拠を補強 |
-| [`academic-research-skills-frameworks.md`](academic-research-skills-frameworks.md) | SCONUL Seven Pillars・ACRL Framework・Vitae RDF・ACM Artifact Badging v1.1・ML再現性チェックリスト・FAIR原則・CRediT・ALLEA行動規範（REF-07〜REF-14） | 分析完了・5択未実施・現行要件との突合未実施 | メイン要求候補13件、サブ要求候補52件、非機能要求7件。再現の3水準の明示、成果物の4基準点検、実行回数と分散の記録が新規 |
-| [`academic-research-skills.md`](academic-research-skills.md) | University of Sussex・University of Kent・University of Galway の「Academic and Research Skills」科目ページ（REF-04〜REF-06） | 分析完了・5択未実施・現行要件との突合未実施 | メイン要求候補3件（引用管理、研究倫理、プロジェクト計画）、サブ要求候補17件。7領域のうち4領域は既存要求の補強にとどまる |
-| [`ml-research-practice-advice.md`](ml-research-practice-advice.md) | Karpathy「A Survival Guide to a PhD」・Marek Rei「Advice for students doing research projects in ML/NLP」・LiveResearchBench（arXiv:2510.14240）・Hadad ほか（J. Informetrics 20(3), 101816） | 分析完了・5択未実施・現行要件との突合未実施 | メイン要求候補3件（うち新規見込みは分割の由来の記録1件のみ）。実行回数と分散は`academic-research-skills-frameworks.md`の既出候補を第2の出典で補強。研究生活の管理と書誌計量は対象外と判断 |
-| [`simclr-handson-deck.md`](simclr-handson-deck.md) | 角居雄太「論文再現実装ハンズオン #4 対照学習」DL COMMUNITY, 松尾・岩澤研究室, 東京大学, 2026（解説する原典: Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. *Proc. 37th ICML*, 2020, 1597–1607. [arXiv:2002.05709](https://doi.org/10.48550/arxiv.2002.05709)） | 分析完了・5択未実施・現行要件との突合未実施 | メイン要求候補16件、サブ要求候補44件、非機能要求8件。暫定IDは`PR-M-xx`/`PR-S-xx-y`で、`REQ-Cxx`体系への合流は5択時に行う |
+| [`academic-research-skills-frameworks.md`](academic-research-skills-frameworks.md) | SCONUL Seven Pillars・ACRL Framework・Vitae RDF・ACM Artifact Badging v1.1・ML再現性チェックリスト・FAIR原則・CRediT・ALLEA行動規範（REF-07〜REF-14） | 分析完了・突合完了（2026-09-07）・5択未実施 | メイン要求候補13件、サブ要求候補52件、非機能要求7件。再現の3水準の明示、成果物の4基準点検、実行回数と分散の記録が新規 |
+| [`academic-research-skills.md`](academic-research-skills.md) | University of Sussex・University of Kent・University of Galway の「Academic and Research Skills」科目ページ（REF-04〜REF-06） | 分析完了・突合完了（2026-09-07）・5択未実施 | メイン要求候補3件（引用管理、研究倫理、プロジェクト計画）、サブ要求候補17件。7領域のうち4領域は既存要求の補強にとどまる |
+| [`ml-research-practice-advice.md`](ml-research-practice-advice.md) | Karpathy「A Survival Guide to a PhD」・Marek Rei「Advice for students doing research projects in ML/NLP」・LiveResearchBench（arXiv:2510.14240）・Hadad ほか（J. Informetrics 20(3), 101816） | 分析完了・突合完了（2026-09-07）・5択未実施 | メイン要求候補3件（うち新規見込みは分割の由来の記録1件のみ）。実行回数と分散は`academic-research-skills-frameworks.md`の既出候補を第2の出典で補強。研究生活の管理と書誌計量は対象外と判断 |
+| [`simclr-handson-deck.md`](simclr-handson-deck.md) | 角居雄太「論文再現実装ハンズオン #4 対照学習」DL COMMUNITY, 松尾・岩澤研究室, 東京大学, 2026（解説する原典: Chen, T.; Kornblith, S.; Norouzi, M.; Hinton, G. *Proc. 37th ICML*, 2020, 1597–1607. [arXiv:2002.05709](https://doi.org/10.48550/arxiv.2002.05709)） | 分析完了・突合完了（2026-09-07）・5択未実施 | メイン要求候補16件、サブ要求候補44件、非機能要求8件。暫定IDは`PR-M-xx`/`PR-S-xx-y`で、`REQ-Cxx`体系への合流は5択時に行う |
 
 ## 追加分析の共通手順
 
@@ -69,3 +69,57 @@
 4. メイン要求、サブ要求、要求にしない記述へ分類する。
 5. 新しいメイン要求候補は5択へ進める。
 6. 選択後に変更案を更新し、利用者の承認後に確定要件へ反映する。
+
+---
+
+## 未突合だった候補2件の突合結果（2026年9月7日）
+
+一次資料4本の候補32件のうち、**30件はクロスウォーク4本で現行要件と突き合わせ済みだった。**
+状態列が「突合未実施」のまま更新されていなかったため、本節で残る2件を突き合わせ、状態列を訂正した。
+
+⚠️ **索引の記載が古かったことで、要件定義の残作業を過大に見積もっていた。**
+未知の候補が32件あると読める状態だったが、決着していなかったのは2件である。
+
+| 候補 | 判定 | 対応する既存要求 |
+|---|---|---|
+| `ARF-M-13` 研究公正の行動規範への適合点検 | **既存要求の具体化。** 新規メイン要求としない | `REQ-C09-S03`、`REQ-C11` |
+| `PR-M-15` 読解成果の外部ナレッジベース連携エクスポート | **既存要求の具体化。** 新規メイン要求としない | `REQ-C09-S01.90`・`.100` |
+
+### `ARF-M-13`
+
+要求は「成果物を公開・共有する前に、行動規範の観点（出典の明示、データの扱い、個人情報、権利）
+から点検する」である。`REQ-C09-S03` の要求文が
+「外部送信または公開前に機密情報、個人情報、シークレット、著作権、引用元、ライセンス
+および対象範囲を確認する」と定めており、4観点すべてに対応する。
+
+サブ項目 `ARF-S-13-1`（個人情報の警告）と `ARF-S-13-3`（点検を通過していない成果物を
+公開手順へ進ませない）も、`REQ-C09-S03` と `REQ-C11`（外部送信・公開を人間の最終操作に限定）
+の範囲に収まる。
+
+⚠️ **`ARF-S-13-2` だけが既存にない。** 準拠する規範とその版（CRediT、ALLEA など）を
+利用者が選べるようにする案である。**仕様の粒度であり、要求として立てない。**
+分野・地域で規範が異なるという指摘は、初期リリースの対象（生成AIのarXiv原論文）では顕在化しない。
+
+### `PR-M-15`
+
+要求は「論文本文・SI・生成した仕様書・実装スクリプトを1つのパッケージとしてエクスポートし、
+外部のナレッジツールへ投入できるようにする」である。
+`REQ-C09-S01.90`（他の環境へ移行できる形式でエクスポートできる）と
+`.100`（エクスポートに対象版と取得日時を含める）が対応する。
+
+`PR-S-15-3`（音声解説・レポート生成は外部ツールに委ね、本ツールはソース束の作成に限定する）は
+**やらないことの宣言**であり、要求ではない。
+
+⚠️ **`PR-S-15-2`（研究テーマ別のタグ分類）は `REQ-C09-S02` との境界確認が要る。**
+深掘りキューが持つ状態区分（候補、優先、深掘り中、詳細読解済み、要約・索引済み、
+再確認予定、保留）と、テーマ別のタグは別の軸である。
+分析文書自身が「書籍由来の『文献の整理』に関する要求と重複する可能性がある」と注記している。
+**本件は5択へ送らず、`REQ-C09-S02` の仕様を展開するとき（第2フェーズ）に判断する。**
+
+### この突合が示すこと
+
+⚠️ **新規メイン要求として5択へ送る候補は、これで打ち止めである。**
+`pre-approval-screening.md` は32件のうち5〜7件が5択へ進むと見込んでいたが、
+クロスウォーク4本と本節の突合を経て、実際に残ったのは
+`PR-M-09`（再現スコープ定義書）、`PR-M-13`（設計原理の転用）、`ARF-M-08`（貢献の切り分け）の
+**3件前後**である。
