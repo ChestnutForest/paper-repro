@@ -15,32 +15,37 @@
 
 ### 📐 設計工程の進捗（IPA 6編中、対象4編）
 
-**現在地: 対象4編すべて作成済み。要求33件に対する再検査を2026年9月8日に実施。バッチ編・帳票編は非該当。**
+**現在地: 対象4編すべて作成済み。要求33件に対する再検査を2026年9月8〜9日に実施。バッチ編・帳票編は非該当。**
 
 詳細は **[`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md)**（作成順序の原則）を参照。
 
 | 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- | --- |
 | 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ [v0.2](docs/arch-guide/arc-screen-list.md) | ✅ [v0.2](docs/arch-guide/arc-screen-rules.md) | ✅ [v0.1](docs/arch-guide/arc-screen-flow.md) | ✅ [7画面](docs/arch-guide/screens/) |
-| **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [56業務 v0.3](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [6グループ](docs/arch-guide/behaviors/) |
-| **データモデル** | ✅ [v0.2](docs/arch-guide/arc-datamodel-framework.md) | ✅ [18エンティティ v0.4](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.2](docs/arch-guide/arc-datamodel-rules.md) | ✅ [ER図 v0.1](docs/arch-guide/arc-datamodel-er.md)・[CRUD図 v0.2](docs/arch-guide/arc-datamodel-crud.md) | ✅ [論理定義 v0.3](docs/arch-guide/arc-datamodel-definitions.md)・[物理仕様 v1.0](docs/arch-guide/arc-datamodel.md) |
+| **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [62業務 v0.4](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [6グループ](docs/arch-guide/behaviors/) |
+| **データモデル** | ✅ [v0.2](docs/arch-guide/arc-datamodel-framework.md) | ✅ [18エンティティ v0.5](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.2](docs/arch-guide/arc-datamodel-rules.md) | ✅ [ER図 v0.1](docs/arch-guide/arc-datamodel-er.md)・[CRUD図 v0.2](docs/arch-guide/arc-datamodel-crud.md) | ✅ [論理定義 v0.3](docs/arch-guide/arc-datamodel-definitions.md)・[物理仕様 v1.0](docs/arch-guide/arc-datamodel.md) |
 | 外部インタフェース | ✅ [v0.1.2](docs/arch-guide/arc-interface.md) | ✅ [v0.5.1](docs/arch-guide/arc-interface-list.md) | — | ✅ [関連図 v0.1.2](docs/arch-guide/arc-interface-map.md) | ✅ [IF-01〜IF-05](docs/arch-guide/interfaces/) |
 | バッチ | — | — | — | — | — |
 | 帳票 | — | — | — | — | — |
 
-### 要求カバレッジ（2026年9月8日の実測）
+### 要求カバレッジ（2026年9月9日の実測）
 
 **要求33件**（メイン12・サブ21）に対する各編の対応である。
 
 | 編 | 対応済み | 未対応 | 未対応の理由 |
 | --- | ---: | ---: | --- |
 | 画面 | 実装単位 `F-01`〜`F-21` のうち16 | **5** | 画面の形が決まらないと判断できない（[一覧 5節](docs/arch-guide/arc-screen-list.md)） |
-| システム振舞い | 27 / 33 | **6** | 4件は画面編待ち、2件は割り当てが未着手（[一覧 4節](docs/arch-guide/arc-behavior-list.md)） |
-| データモデル | 28 / 33 | **5** | 4件は画面編待ち、1件は表への追記が未着手（[一覧 3節](docs/arch-guide/arc-datamodel-list.md)） |
+| システム振舞い | 29 / 33 | **4** | すべて画面編の判断待ち（[一覧 4節](docs/arch-guide/arc-behavior-list.md)） |
+| データモデル | 29 / 33 | **4** | すべて画面編の判断待ち（[一覧 3節](docs/arch-guide/arc-datamodel-list.md)） |
 | 外部インタフェース | 網羅を宣言しない | **2** | `IF-06` の接続先と収集手段の判断待ち（[一覧 4.5節](docs/arch-guide/arc-interface-list.md)） |
 
 ⚠️ **未対応はすべて担当工程・解除条件・再判断の期限を持つ。**
 根拠は [`.agents/skills/paper-repro-requirement-deferral/SKILL.md`](.agents/skills/paper-repro-requirement-deferral/SKILL.md)。
+
+⚠️ **未対応はすべて「後工程待ち」である。** いま着手できるものは残っていない。
+システム振舞い編とデータモデル編の4件は同一（`REQ-C12`・`REQ-C04-S03`・`REQ-C09-S05`・`REQ-C10-S05`）で、
+いずれも [`arc-screen-list.md`](docs/arch-guide/arc-screen-list.md) 5.3〜5.5節の解除が起点になる。
+**画面編が動けば3編が同時に動く。**
 
 > **一覧が先である。** 詳細から書き始めると、完了を判定できず、粒度も揃わない。
 > 根拠は [`docs/arch-guide/arc-artifact-order.md`](docs/arch-guide/arc-artifact-order.md) を参照。
