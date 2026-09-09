@@ -21,7 +21,7 @@
 
 | 編 | 枠組み | 一覧 | 共通ルール | フロー・遷移 | 説明・レイアウト |
 | --- | --- | --- | --- | --- | --- |
-| 画面 | ✅ [v0.2.2](docs/arch-guide/arc-screen.md) | ✅ [v0.2](docs/arch-guide/arc-screen-list.md) | ✅ [v0.2](docs/arch-guide/arc-screen-rules.md) | ✅ [v0.1](docs/arch-guide/arc-screen-flow.md) | ✅ [7画面](docs/arch-guide/screens/) |
+| 画面 | ✅ [v0.2.3](docs/arch-guide/arc-screen.md) | ✅ [v0.2](docs/arch-guide/arc-screen-list.md) | ✅ [v0.2](docs/arch-guide/arc-screen-rules.md) | ✅ [v0.1](docs/arch-guide/arc-screen-flow.md) | ✅ [7画面](docs/arch-guide/screens/) |
 | **システム振舞い** | ✅ [v0.3](docs/arch-guide/arc-behavior.md) | ✅ [62業務 v0.4](docs/arch-guide/arc-behavior-list.md) | ✅ [v0.2](docs/arch-guide/arc-behavior-rules.md) | ✅ [フロー v0.1](docs/arch-guide/arc-behavior-flow.md)・[状態 v0.1](docs/arch-guide/arc-behavior-state.md) | ✅ [6グループ](docs/arch-guide/behaviors/) |
 | **データモデル** | ✅ [v0.2](docs/arch-guide/arc-datamodel-framework.md) | ✅ [18エンティティ v0.5](docs/arch-guide/arc-datamodel-list.md) | ✅ [v0.2](docs/arch-guide/arc-datamodel-rules.md) | ✅ [ER図 v0.1](docs/arch-guide/arc-datamodel-er.md)・[CRUD図 v0.2](docs/arch-guide/arc-datamodel-crud.md) | ✅ [論理定義 v0.3](docs/arch-guide/arc-datamodel-definitions.md)・[物理仕様 v1.0](docs/arch-guide/arc-datamodel.md) |
 | 外部インタフェース | ✅ [v0.1.2](docs/arch-guide/arc-interface.md) | ✅ [v0.5.1](docs/arch-guide/arc-interface-list.md) | — | ✅ [関連図 v0.1.2](docs/arch-guide/arc-interface-map.md) | ✅ [IF-01〜IF-05](docs/arch-guide/interfaces/) |
@@ -60,6 +60,7 @@
 > ⚠️ **画面編の入出力項目一覧とアクション明細は、実装フェーズで書く**
 > （[`arc-screen.md`](docs/arch-guide/arc-screen.md) 3節）。
 > 桁数・省略規則・初期表示は実装しないと決まらないためであり、未着手ではなく**意図的な先送り**である。
+> **画面編の工程成果物は6件中4件が完成**（7画面とも2節・3節が枠のみ）。
 > バッチ編・帳票編の `—` は未着手ではなく**非該当**である。定期実行される処理と印刷帳票が存在しない。
 > 根拠は [`docs/worknotes/decision-batch-report-not-applicable.md`](docs/worknotes/decision-batch-report-not-applicable.md) を参照。
 > ソフトウェア実装の現在地は変わらずフェーズ0である。
