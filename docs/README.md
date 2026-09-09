@@ -56,7 +56,7 @@
 
 | ファイル | 内容 |
 |---|---|
-| [`requirements.md`](requirements.md) | **要件定義の正本**。確定要求`REQ-C01`〜`REQ-C11`とサブ要求12件、受入基準、実装単位との対応表 |
+| [`requirements.md`](requirements.md) | **要件定義の正本**。確定要求`REQ-C01`〜`REQ-C12`とサブ要求21件、受入基準、実装単位との対応表 |
 | [`requirements-usdm.md`](requirements-usdm.md) | **USDM 形式の要求仕様書**。要求を振る舞いとして書き、動詞ごとに仕様を導く |
 | [`traceability-matrix.md`](traceability-matrix.md) | **トレーサビリティ・マトリクス（XDDP）**。仕様ごとに要求・設計・実装・テスト・画面・リリースの進捗を追う |
 | [`requirements-update-workflow.md`](requirements-update-workflow.md) | 一次資料の限定抽出、現行要件との比較、5択、変更案作成までの検討手順 |
@@ -131,9 +131,9 @@
 | ファイル | 内容 |
 |---|---|
 | [`arch-guide/arc-behavior.md`](arch-guide/arc-behavior.md) | **システム振舞いアーキテクチャ設計の枠組み（IPA システム振舞い編準拠）**。4つの工程成果物、システム利用作業と機能の区別、成果物間の関連 |
-| [`arch-guide/arc-behavior-list.md`](arch-guide/arc-behavior-list.md) | **システム化業務一覧**。確定要求23件を6グループ47業務へ割り当て、画面・状態・リリースと対応付ける |
+| [`arch-guide/arc-behavior-list.md`](arch-guide/arc-behavior-list.md) | **システム化業務一覧**。確定要求33件のうち29件を6グループ62業務へ割り当て、画面・状態・リリースと対応付ける |
 | [`arch-guide/arc-behavior-flow.md`](arch-guide/arc-behavior-flow.md) | **システム化業務フロー**。6業務フロー、3レーン、承認ゲート、コース分岐、共通異常系 |
-| [`arch-guide/behaviors/`](arch-guide/behaviors/) | **システム化業務説明**。47業務の事前・事後条件、入出力、基本・代替・例外シナリオ |
+| [`arch-guide/behaviors/`](arch-guide/behaviors/) | **システム化業務説明**。47業務の事前・事後条件、入出力、基本・代替・例外シナリオ（追加15業務は未記述） |
 | [`arch-guide/arc-behavior-rules.md`](arch-guide/arc-behavior-rules.md) | **システム振舞い共通ルール**。ガイド由来8分類とPaper-repro固有4分類 |
 | [`arch-guide/arc-behavior-state.md`](arch-guide/arc-behavior-state.md) | **状態遷移設計**。ガイド外の補助資料として`phase`・`status`・7遷移・実装差分を管理 |
 
@@ -142,10 +142,10 @@
 | ファイル | 内容 |
 |---|---|
 | [`arch-guide/arc-datamodel-framework.md`](arch-guide/arc-datamodel-framework.md) | **データモデル・アーキテクチャ設計の枠組み**。4工程成果物、ID、成熟度、完了条件、現時点の仕掛判定 |
-| [`arch-guide/arc-datamodel-list.md`](arch-guide/arc-datamodel-list.md) | **エンティティ一覧**。17エンティティの意味、主管、ライフサイクルと確定要求23/23の逆引き |
+| [`arch-guide/arc-datamodel-list.md`](arch-guide/arc-datamodel-list.md) | **エンティティ一覧**。18エンティティの意味、主管、ライフサイクルと確定要求29/33の逆引き |
 | [`arch-guide/arc-datamodel-er.md`](arch-guide/arc-datamodel-er.md) | **ER図**。中核、批判的検証、実行・成果物、学習の4領域と未決の関係 |
-| [`arch-guide/arc-datamodel-definitions.md`](arch-guide/arc-datamodel-definitions.md) | **エンティティ定義**。17エンティティの論理属性、要求根拠、0..1多重度、物理設計へ渡す未決事項 |
-| [`arch-guide/arc-datamodel-crud.md`](arch-guide/arc-datamodel-crud.md) | **CRUD図**。47システム化業務との対応と、要求へ逆引きした設計ギャップ2件 |
+| [`arch-guide/arc-datamodel-definitions.md`](arch-guide/arc-datamodel-definitions.md) | **エンティティ定義**。17エンティティの論理属性、要求根拠、0..1多重度、物理設計へ渡す未決事項（`DM-E18` は未追随） |
+| [`arch-guide/arc-datamodel-crud.md`](arch-guide/arc-datamodel-crud.md) | **CRUD図**。62システム化業務との対応と、要求へ逆引きした設計ギャップ2件 |
 | [`arch-guide/arc-datamodel-rules.md`](arch-guide/arc-datamodel-rules.md) | **データモデル共通ルール**。容量台帳と14のレビュー項目 |
 | [`arch-guide/arc-datamodel.md`](arch-guide/arc-datamodel.md) | **フェーズ0物理仕様**。`Project`／`Paper`のDDL、ENUM、状態遷移表、矛盾9件の解消 |
 

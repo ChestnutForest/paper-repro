@@ -22,10 +22,10 @@ paper-reproの要求を、アーキテクチャ、画面、システム振舞い
 | [`arc-behavior-state.md`](arc-behavior-state.md) | 実装と照合した状態遷移 |
 | [`behaviors/README.md`](behaviors/README.md) | グループ別システム振舞い説明の索引 |
 | [`arc-datamodel-framework.md`](arc-datamodel-framework.md) | データモデル設計v0.2の枠組み、ID、成熟度、成果物間の関係 |
-| [`arc-datamodel-list.md`](arc-datamodel-list.md) | 17エンティティの一覧と確定要求23/23の逆引き |
+| [`arc-datamodel-list.md`](arc-datamodel-list.md) | 18エンティティの一覧と確定要求29/33の逆引き |
 | [`arc-datamodel-er.md`](arc-datamodel-er.md) | 4領域に分割したER図 |
-| [`arc-datamodel-definitions.md`](arc-datamodel-definitions.md) | 17エンティティの論理属性・根拠・多重度・未決事項 |
-| [`arc-datamodel-crud.md`](arc-datamodel-crud.md) | 47システム化業務と17エンティティのCRUD対応、ギャップ2件 |
+| [`arc-datamodel-definitions.md`](arc-datamodel-definitions.md) | 17エンティティの論理属性・根拠・多重度・未決事項（`DM-E18` は未追随） |
+| [`arc-datamodel-crud.md`](arc-datamodel-crud.md) | 62システム化業務と18エンティティのCRUD対応、ギャップ2件 |
 | [`arc-datamodel-rules.md`](arc-datamodel-rules.md) | データ共通ルール、容量確認台帳、14項目のレビュー結果 |
 | [`arc-datamodel.md`](arc-datamodel.md) | フェーズ0の物理仕様（`Project`／`Paper`） |
 
