@@ -5,7 +5,7 @@
 - 版: **v0.3**（画面設計を `arch-guide/` へ移管）
 - 前版: v0.2（要件定義 v0.2 準拠）
 - 前版: v0.1（要件定義 v0.1 に基づく初版）
-- 準拠する要件: [`requirements.md`](requirements.md) v0.2
+- 準拠する要件: [`requirements.md`](requirements.md) v0.3.1
 
 前提（要件定義書より）: **human-in-the-loop の伴走型パイプライン。**
 GPU 不要・レンダリング不要・LLM-as-a-Judge 不要に絞った範囲。
